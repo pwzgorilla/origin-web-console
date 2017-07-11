@@ -3023,7 +3023,7 @@ kind: t,
 group: p.group
 });
 }
-return c.toString();
+return _.get(r, "tab") && c.setSearch("tab", r.tab), c.toString();
 },
 toResourceURL: function(t) {
 e.url(this.resourceURL(t));
@@ -19221,8 +19221,32 @@ e.model.editing = !1;
 };
 }
 };
+<<<<<<< d9c1ba9365376e5c306f93631894ae94f151efb3
 }), angular.module("openshiftConsole").directive("containerStatuses", [ "$filter", function(e) {
 >>>>>>> Bump grunt-contrib-uglify to 3.0.1
+=======
+}), angular.module("openshiftConsole").component("initContainersSummary", {
+bindings: {
+apiObject: "<"
+},
+templateUrl: "views/_init-containers-summary.html",
+controller: function(e) {
+var t = this;
+t.$onChanges = function(n) {
+var a = _.get(n.apiObject, "currentValue");
+if (a) switch (t.podTemplate = e("podTemplate")(a), a.kind) {
+case "DeploymentConfig":
+case "Deployment":
+t.tab = "configuration";
+break;
+
+default:
+t.tab = "details";
+}
+};
+}
+}).directive("containerStatuses", function(e) {
+>>>>>>> Init Container Display & Link
 return {
 restrict: "E",
 scope: {
@@ -19271,7 +19295,7 @@ if (t.hasDebugTerminal) return t.onDebugTerminal.call(this, e);
 };
 }
 };
-} ]).directive("podTemplate", function() {
+}).directive("podTemplate", function() {
 return {
 restrict: "E",
 scope: {
@@ -19373,7 +19397,7 @@ probe: "="
 },
 templateUrl: "views/directives/_probe.html"
 };
-}).directive("podsTable", [ "$filter", function(e) {
+}).directive("podsTable", function(e) {
 return {
 restrict: "E",
 scope: {
@@ -19402,7 +19426,7 @@ maxWait: 500
 t.$watch("pods", a);
 }
 };
-} ]).directive("trafficTable", function() {
+}).directive("trafficTable", function() {
 return {
 restrict: "E",
 scope: {
@@ -28391,6 +28415,12 @@ return function(t, n, a, r) {
 return e.resourceURL(t, n, a, null, {
 apiVersion: r
 >>>>>>> Bump grunt-contrib-uglify to 3.0.1
+});
+};
+} ]).filter("navigateToTabURL", [ "Navigate", function(e) {
+return function(t, n) {
+return e.resourceURL(t, null, null, null, {
+tab: n
 });
 };
 } ]).filter("configURLForResource", [ "Navigate", function(e) {
