@@ -25654,7 +25654,7 @@ labels: e,
 pullSecrets: n.pullSecrets
 });
 }
-n.mode = "istag", n.istag = {}, n.app = {}, n.env = [], n.labels = [ {
+n.forms = {}, n.mode = "istag", n.istag = {}, n.app = {}, n.env = [], n.labels = [ {
 name: "app",
 value: ""
 } ], n.pullSecrets = [ {
