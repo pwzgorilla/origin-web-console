@@ -13166,6 +13166,18 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"projects-bar\">\n" +
     "<h1 translate>My Projects</h1>\n" +
     "<div class=\"projects-options\">\n" +
+<<<<<<< 749dde880a390d6fa7372b37d6b0c9dad0515321
+=======
+    "<div class=\"projects-add\" ng-if=\"canCreate\">\n" +
+    "<button ng-click=\"createProject()\" class=\"btn btn-md btn-primary\">\n" +
+    "<span class=\"fa fa-plus\" aria-hidden=\"true\"></span>\n" +
+    "<span class=\"icon-button-text\">Create Project</span>\n" +
+    "</button>\n" +
+    "<origin-modal-popup shown=\"newProjectPanelShown\" modal-title=\"Create Project\" on-close=\"closeNewProjectPanel\">\n" +
+    "<create-project is-dialog=\"true\" redirect-action=\"onNewProject\" on-cancel=\"closeNewProjectPanel\"></create-project>\n" +
+    "</origin-modal-popup>\n" +
+    "</div>\n" +
+>>>>>>> Edit/Create Projects on page in a popup
     "<div class=\"projects-search\">\n" +
     "<form role=\"form\" class=\"search-pf has-button\">\n" +
     "<div class=\"form-group has-clear\">\n" +
@@ -13225,7 +13237,11 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</a>\n" +
     "</li>\n" +
     "<li role=\"menuitem\">\n" +
+<<<<<<< 749dde880a390d6fa7372b37d6b0c9dad0515321
     "<a ng-href=\"project/{{project.metadata.name}}/edit?then=./\" translate>\n" +
+=======
+    "<a href=\"\" ng-click=\"editProject(project)\">\n" +
+>>>>>>> Edit/Create Projects on page in a popup
     "Edit Project\n" +
     "</a>\n" +
     "</li>\n" +
@@ -13236,6 +13252,9 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</ul>\n" +
     "</div>\n" +
     "</div>\n" +
+    "<origin-modal-popup shown=\"editProjectPanelShown && editingProject === project\" ng-class=\"{'with-description': (project | description | size)}\" modal-title=\"Edit Project\" on-close=\"closeEditProjectPanel\">\n" +
+    "<edit-project project=\"project\" is-dialog=\"true\" redirect-action=\"onEditProject\" on-cancel=\"closeEditProjectPanel\"></edit-project>\n" +
+    "</origin-modal-popup>\n" +
     "</div>\n" +
     "</div>\n" +
     "<p class=\"projects-instructions\" ng-if=\"canCreate === false\" ng-include=\"'views/_cannot-create-project.html'\"></p>\n" +
