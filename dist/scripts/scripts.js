@@ -5777,7 +5777,7 @@ links: [ {
 href: "",
 label: "Resume Rollouts",
 onClick: function() {
-n.setPaused(t, !1, {
+return n.setPaused(t, !1, {
 namespace: t.metadata.namespace
 }).then(_.noop, function(n) {
 a[t.metadata.uid + "-pause-error"] = {
@@ -5785,7 +5785,7 @@ type: "error",
 message: "An error occurred resuming the " + s(t.kind) + ".",
 details: e("getErrorDetails")(n)
 };
-});
+}), !0;
 }
 } ]
 }), a;
