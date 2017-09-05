@@ -1851,7 +1851,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "</div>\n" +
     "</div>\n" +
-    "<table ng-if=\"!(buildConfig | isJenkinsPipelineStrategy)\" class=\"table table-bordered table-hover table-mobile\">\n" +
+    "<table ng-if=\"!(buildConfig | isJenkinsPipelineStrategy)\" class=\"table table-bordered table-mobile\">\n" +
     "<thead>\n" +
     "<tr>\n" +
     "<th translate>Build</th>\n" +
@@ -1893,8 +1893,13 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</table>\n" +
     "<div ng-if=\"buildConfig | isJenkinsPipelineStrategy\">\n" +
     "<build-pipeline build=\"build\" ng-repeat=\"build in orderedBuilds track by (build | uid)\"></build-pipeline>\n" +
+<<<<<<< 96de671426db59fb68bd3b8af93d73f5d6503d3e
     "<table ng-if=\"(builds | hashSize) === 0\" class=\"table table-bordered table-hover table-mobile\">\n" +
     "<tbody><tr><td><em>{{emptyMessage|translate}}</em></td></tr></tbody>\n" +
+=======
+    "<table ng-if=\"(builds | hashSize) === 0\" class=\"table table-bordered table-mobile\">\n" +
+    "<tbody><tr><td><em>{{emptyMessage}}</em></td></tr></tbody>\n" +
+>>>>>>> Removing table-hover from tables to address inconsistency in hover color
     "</table>\n" +
     "</div>\n" +
     "</div>\n" +
@@ -2339,7 +2344,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"col-md-12\">\n" +
     "<div ng-if=\"!loaded\" translate>Loading...</div>\n" +
     "<div ng-if=\"loaded\">\n" +
-    "<table class=\"table table-bordered table-hover table-mobile table-layout-fixed\">\n" +
+    "<table class=\"table table-bordered table-mobile table-layout-fixed\">\n" +
     "<colgroup>\n" +
     "<col class=\"col-sm-5\">\n" +
     "</colgroup>\n" +
@@ -2486,7 +2491,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "</div>\n" +
     "</div>\n" +
-    "<table class=\"table table-bordered table-hover table-mobile\">\n" +
+    "<table class=\"table table-bordered table-mobile\">\n" +
     "<thead>\n" +
     "<tr>\n" +
     "<th translate>Deployment</th>\n" +
@@ -2815,8 +2820,12 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "</div>\n" +
     "</div>\n" +
+<<<<<<< 96de671426db59fb68bd3b8af93d73f5d6503d3e
 >>>>>>> Label Filter for Kubernetes Deployment History Tab
     "<table class=\"table table-bordered table-hover table-mobile table-layout-fixed\">\n" +
+=======
+    "<table class=\"table table-bordered table-mobile table-layout-fixed\">\n" +
+>>>>>>> Removing table-hover from tables to address inconsistency in hover color
     "<colgroup>\n" +
     "<col class=\"col-sm-2\">\n" +
     "<col class=\"col-sm-4\">\n" +
@@ -3731,7 +3740,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<alerts alerts=\"alerts\"></alerts>\n" +
     "<div class=\"row\">\n" +
     "<div class=\"col-md-12\">\n" +
-    "<table class=\"table table-bordered table-hover table-mobile table-layout-fixed\">\n" +
+    "<table class=\"table table-bordered table-mobile table-layout-fixed\">\n" +
     "<colgroup>\n" +
     "<col class=\"col-sm-3\">\n" +
     "<col class=\"col-sm-3\">\n" +
@@ -4151,7 +4160,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div ng-if=\"!loaded\" translate>Loading...</div>\n" +
     "<div class=\"row\" ng-if=\"loaded\">\n" +
     "<div class=\"col-md-12\">\n" +
-    "<table class=\"table table-bordered table-hover table-mobile table-layout-fixed\">\n" +
+    "<table class=\"table table-bordered table-mobile table-layout-fixed\">\n" +
     "<colgroup>\n" +
     "<col class=\"col-sm-5\">\n" +
     "</colgroup>\n" +
@@ -4216,7 +4225,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<alerts alerts=\"alerts\"></alerts>\n" +
     "<div class=\"row\">\n" +
     "<div class=\"col-md-12\">\n" +
-    "<table class=\"table table-bordered table-hover table-mobile table-layout-fixed\">\n" +
+    "<table class=\"table table-bordered table-mobile table-layout-fixed\">\n" +
     "<colgroup>\n" +
     "<col class=\"col-sm-2\">\n" +
     "<col class=\"col-sm-1\">\n" +
@@ -5292,8 +5301,13 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<alerts alerts=\"alerts\"></alerts>\n" +
     "<div class=\"row\">\n" +
     "<div class=\"col-md-12\">\n" +
+<<<<<<< 96de671426db59fb68bd3b8af93d73f5d6503d3e
     "<h3 ng-if=\"(deployments | size) || (replicaSets | size)\" translate>Deployment Configurations</h3>\n" +
     "<table class=\"table table-bordered table-hover table-mobile table-layout-fixed\">\n" +
+=======
+    "<h3 ng-if=\"(deployments | size) || (replicaSets | size)\">Deployment Configurations</h3>\n" +
+    "<table class=\"table table-bordered table-mobile table-layout-fixed\">\n" +
+>>>>>>> Removing table-hover from tables to address inconsistency in hover color
     "<colgroup>\n" +
     "<col class=\"col-sm-3\">\n" +
     "<col class=\"col-sm-2\">\n" +
@@ -5378,8 +5392,13 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</tbody>\n" +
     "</table>\n" +
     "<div ng-if=\"deployments | size\">\n" +
+<<<<<<< 96de671426db59fb68bd3b8af93d73f5d6503d3e
     "<h3 translate>Deployments</h3>\n" +
     "<table class=\"table table-bordered table-hover table-mobile table-layout-fixed\">\n" +
+=======
+    "<h3>Deployments</h3>\n" +
+    "<table class=\"table table-bordered table-mobile table-layout-fixed\">\n" +
+>>>>>>> Removing table-hover from tables to address inconsistency in hover color
     "<colgroup>\n" +
     "<col class=\"col-sm-4\">\n" +
     "<col class=\"col-sm-2\">\n" +
@@ -5424,7 +5443,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "<div ng-if=\"replicaSets | hashSize\" id=\"replica-sets\">\n" +
     "<h3>Replica Sets</h3>\n" +
-    "<table class=\"table table-bordered table-hover table-mobile table-layout-fixed\">\n" +
+    "<table class=\"table table-bordered table-mobile table-layout-fixed\">\n" +
     "<colgroup>\n" +
     "<col class=\"col-sm-4\">\n" +
     "</colgroup>\n" +
@@ -5451,8 +5470,13 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</table>\n" +
     "</div>\n" +
     "<div ng-if=\"(unfilteredReplicationControllers | hashSize) > 0\" id=\"replica-controllers\">\n" +
+<<<<<<< 96de671426db59fb68bd3b8af93d73f5d6503d3e
     "<h3 translate>Other Replication Controllers</h3>\n" +
     "<table class=\"table table-bordered table-hover table-mobile table-layout-fixed\">\n" +
+=======
+    "<h3>Other Replication Controllers</h3>\n" +
+    "<table class=\"table table-bordered table-mobile table-layout-fixed\">\n" +
+>>>>>>> Removing table-hover from tables to address inconsistency in hover color
     "<colgroup>\n" +
     "<col class=\"col-sm-5\">\n" +
     "</colgroup>\n" +
@@ -7052,7 +7076,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "</div>\n" +
     "</div>\n" +
-    "<table class=\"table table-bordered table-condensed table-mobile table-hover table-layout-fixed events-table\">\n" +
+    "<table class=\"table table-bordered table-condensed table-layout-fixed events-table\">\n" +
     "<thead>\n" +
     "<tr>\n" +
     "<th id=\"time\" translate>Time</th>\n" +
@@ -9039,7 +9063,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
 
 
   $templateCache.put('views/directives/pods-table.html',
-    "<table class=\"table table-bordered table-hover table-mobile table-layout-fixed\">\n" +
+    "<table class=\"table table-bordered table-mobile table-layout-fixed\">\n" +
     "<colgroup>\n" +
     "<col class=\"col-sm-4\">\n" +
     "<col class=\"col-sm-3\">\n" +
@@ -9295,7 +9319,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
 
 
   $templateCache.put('views/directives/traffic-table.html',
-    " <table class=\"table table-bordered table-hover table-mobile\">\n" +
+    " <table class=\"table table-bordered table-mobile\">\n" +
     "<thead>\n" +
     "<tr>\n" +
     "<th>{{(customNameHeader || 'Route') | translate}}<span ng-if=\"showNodePorts\" translate> / Node Port</span></th>\n" +
@@ -10581,7 +10605,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<alerts alerts=\"alerts\"></alerts>\n" +
     "<div class=\"row\">\n" +
     "<div class=\"col-md-12\">\n" +
-    "<table class=\"table table-bordered table-hover table-mobile table-layout-fixed\">\n" +
+    "<table class=\"table table-bordered table-mobile table-layout-fixed\">\n" +
     "<colgroup>\n" +
     "<col class=\"col-sm-3\">\n" +
     "<col class=\"col-sm-5\">\n" +
@@ -13536,7 +13560,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div ng-if=\"!loaded\" class=\"mar-top-xl\" translate>Loading...</div>\n" +
     "<div ng-if=\"loaded\" class=\"row\">\n" +
     "<div class=\"col-md-12\">\n" +
-    "<table class=\"table table-bordered table-hover table-mobile secrets-table table-layout-fixed\">\n" +
+    "<table class=\"table table-bordered table-mobile secrets-table table-layout-fixed\">\n" +
     "<colgroup>\n" +
     "<col class=\"col-sm-5\">\n" +
     "<col class=\"col-sm-5\">\n" +
@@ -13601,7 +13625,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<alerts alerts=\"alerts\"></alerts>\n" +
     "<div class=\"row\">\n" +
     "<div class=\"col-md-12\">\n" +
-    "<table class=\"table table-bordered table-hover table-mobile table-layout-fixed\">\n" +
+    "<table class=\"table table-bordered table-mobile table-layout-fixed\">\n" +
     "<colgroup>\n" +
     "<col class=\"col-sm-3\">\n" +
     "</colgroup>\n" +
@@ -13744,7 +13768,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<a ng-if=\"outOfClaims\" href=\"\" class=\"btn btn-default disabled\" aria-disabled=\"true\" translate>Create Storage</a>\n" +
     "</div>\n" +
     "</div>\n" +
-    "<table class=\"table table-bordered table-hover table-mobile table-layout-fixed\" ng-class=\"{ 'table-empty': (pvcs | hashSize) === 0 }\">\n" +
+    "<table class=\"table table-bordered table-mobile table-layout-fixed\" ng-class=\"{ 'table-empty': (pvcs | hashSize) === 0 }\">\n" +
     "<colgroup>\n" +
     "<col class=\"col-sm-5\">\n" +
     "</colgroup>\n" +
