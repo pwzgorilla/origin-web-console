@@ -1874,11 +1874,15 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "</div>\n" +
     "</div>\n" +
+<<<<<<< 6386a2f204182c4d7534a943f6487a5d039cc2e2
 <<<<<<< db7101402b68a3d5a346780fc9c59e440358d1fa
     "<table ng-if=\"!(buildConfig | isJenkinsPipelineStrategy)\" class=\"table table-bordered table-mobile\">\n" +
 =======
     "<table ng-if=\"!(buildConfig | isJenkinsPipelineStrategy)\" class=\"table table-bordered table-hover table-mobile\">\n" +
 >>>>>>> Update table label filter to reuse data-toolbar data-toolbar-filter and extend on top of table
+=======
+    "<table ng-if=\"!(buildConfig | isJenkinsPipelineStrategy)\" class=\"table table-bordered table-mobile\">\n" +
+>>>>>>> Removing table-hover from tables to address inconsistency in hover color
     "<thead>\n" +
     "<tr>\n" +
     "<th translate>Build</th>\n" +
@@ -2378,6 +2382,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"container-fluid\">\n" +
     "<div class=\"row\">\n" +
     "<div class=\"col-md-12\">\n" +
+<<<<<<< 6386a2f204182c4d7534a943f6487a5d039cc2e2
     "<div ng-if=\"(configMaps | hashSize) == 0\">\n" +
     "<p ng-if=\"!loaded\">\n" +
     "<translate>Loading...</translate>\n" +
@@ -2396,6 +2401,11 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "</div>\n" +
     "<table ng-if=\"(configMaps | hashSize) > 0\" class=\"table table-bordered table-mobile table-layout-fixed\">\n" +
+=======
+    "<div ng-if=\"!loaded\">Loading...</div>\n" +
+    "<div ng-if=\"loaded\">\n" +
+    "<table class=\"table table-bordered table-mobile table-layout-fixed\">\n" +
+>>>>>>> Removing table-hover from tables to address inconsistency in hover color
     "<colgroup>\n" +
     "<col class=\"col-sm-5\">\n" +
     "</colgroup>\n" +
@@ -2542,11 +2552,15 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "</div>\n" +
     "</div>\n" +
+<<<<<<< 6386a2f204182c4d7534a943f6487a5d039cc2e2
 <<<<<<< db7101402b68a3d5a346780fc9c59e440358d1fa
     "<table class=\"table table-bordered table-mobile\">\n" +
 =======
     "<table class=\"table table-bordered table-hover table-mobile\">\n" +
 >>>>>>> Update table label filter to reuse data-toolbar data-toolbar-filter and extend on top of table
+=======
+    "<table class=\"table table-bordered table-mobile\">\n" +
+>>>>>>> Removing table-hover from tables to address inconsistency in hover color
     "<thead>\n" +
     "<tr>\n" +
     "<th translate>Deployment</th>\n" +
@@ -2902,11 +2916,15 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "</div>\n" +
     "</div>\n" +
+<<<<<<< 6386a2f204182c4d7534a943f6487a5d039cc2e2
 <<<<<<< 711ef95cfa1533e04a97dcbc40eee8ab13234241
     "<table class=\"table table-bordered table-mobile table-layout-fixed\">\n" +
 =======
     "<table class=\"table table-bordered table-hover table-mobile table-layout-fixed\">\n" +
 >>>>>>> Label Filter for Kubernetes Deployment History Tab
+=======
+    "<table class=\"table table-bordered table-mobile table-layout-fixed\">\n" +
+>>>>>>> Removing table-hover from tables to address inconsistency in hover color
     "<colgroup>\n" +
     "<col class=\"col-sm-2\">\n" +
     "<col class=\"col-sm-4\">\n" +
@@ -3812,6 +3830,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"container-fluid\">\n" +
     "<div class=\"row\">\n" +
     "<div class=\"col-md-12\">\n" +
+<<<<<<< 6386a2f204182c4d7534a943f6487a5d039cc2e2
     "<div ng-if=\"(routes | hashSize) == 0\">\n" +
     "<p ng-if=\"!routesLoaded\" translate>\n" +
     "Loading...\n" +
@@ -3830,6 +3849,9 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "</div>\n" +
     "<table ng-if=\"(routes | hashSize) > 0\" class=\"table table-bordered table-mobile table-layout-fixed\">\n" +
+=======
+    "<table class=\"table table-bordered table-mobile table-layout-fixed\">\n" +
+>>>>>>> Removing table-hover from tables to address inconsistency in hover color
     "<colgroup>\n" +
     "<col class=\"col-sm-3\">\n" +
     "<col class=\"col-sm-3\">\n" +
@@ -4389,6 +4411,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"container-fluid\">\n" +
     "<div class=\"row\" ng-if=\"loaded\">\n" +
     "<div class=\"col-md-12\">\n" +
+<<<<<<< 6386a2f204182c4d7534a943f6487a5d039cc2e2
     "<div ng-if=\"(statefulSets | hashSize) == 0\">\n" +
     "<p ng-if=\"!loaded\" translate>\n" +
     "Loading...\n" +
@@ -4404,6 +4427,9 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "</div>\n" +
     "<table ng-if=\"(statefulSets | hashSize) > 0\" class=\"table table-bordered table-mobile table-layout-fixed\">\n" +
+=======
+    "<table class=\"table table-bordered table-mobile table-layout-fixed\">\n" +
+>>>>>>> Removing table-hover from tables to address inconsistency in hover color
     "<colgroup>\n" +
     "<col class=\"col-sm-5\">\n" +
     "</colgroup>\n" +
@@ -4462,6 +4488,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"container-fluid\">\n" +
     "<div class=\"row\">\n" +
     "<div class=\"col-md-12\">\n" +
+<<<<<<< 6386a2f204182c4d7534a943f6487a5d039cc2e2
     "<div ng-if=\"!(latestByConfig | hashSize) && !(buildsNoConfig | hashSize)\">\n" +
     "<p ng-if=\"!buildsLoaded\" translate>\n" +
     "Loading...\n" +
@@ -4477,6 +4504,9 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "</div>\n" +
     "<table class=\"table table-bordered table-mobile table-layout-fixed\" ng-if=\"(latestByConfig | hashSize) || (buildsNoConfig | hashSize)\">\n" +
+=======
+    "<table class=\"table table-bordered table-mobile table-layout-fixed\">\n" +
+>>>>>>> Removing table-hover from tables to address inconsistency in hover color
     "<colgroup>\n" +
     "<col class=\"col-sm-2\">\n" +
     "<col class=\"col-sm-1\">\n" +
@@ -5592,6 +5622,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"container-fluid\">\n" +
     "<div class=\"row\">\n" +
     "<div class=\"col-md-12\">\n" +
+<<<<<<< 6386a2f204182c4d7534a943f6487a5d039cc2e2
     "<p ng-if=\"!deploymentConfigsLoaded\" translate>\n" +
     "Loading...\n" +
     "</p>\n" +
@@ -5609,6 +5640,10 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div ng-if=\"!filterWithZeroResults\">\n" +
     "<h3 ng-if=\"showDeploymentConfigTable() && ((deployments | size) || (replicaSets | size) || (replicationControllersByDC[''] | size))\" translate>Deployment Configurations</h3>\n" +
     "<table ng-if=\"showDeploymentConfigTable() && !showEmptyState\" class=\"table table-bordered table-mobile table-layout-fixed\">\n" +
+=======
+    "<h3 ng-if=\"(deployments | size) || (replicaSets | size)\">Deployment Configurations</h3>\n" +
+    "<table class=\"table table-bordered table-mobile table-layout-fixed\">\n" +
+>>>>>>> Removing table-hover from tables to address inconsistency in hover color
     "<colgroup>\n" +
     "<col class=\"col-sm-3\">\n" +
     "<col class=\"col-sm-2\">\n" +
@@ -5687,8 +5722,13 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<tr ng-repeat-end style=\"display: none\"></tr>\n" +
     "</tbody>\n" +
     "</table>\n" +
+<<<<<<< 6386a2f204182c4d7534a943f6487a5d039cc2e2
     "<div ng-if=\"(deployments | size)\">\n" +
     "<h3 translate>Deployments</h3>\n" +
+=======
+    "<div ng-if=\"deployments | size\">\n" +
+    "<h3>Deployments</h3>\n" +
+>>>>>>> Removing table-hover from tables to address inconsistency in hover color
     "<table class=\"table table-bordered table-mobile table-layout-fixed\">\n" +
     "<colgroup>\n" +
     "<col class=\"col-sm-4\">\n" +
@@ -5732,8 +5772,13 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</tbody>\n" +
     "</table>\n" +
     "</div>\n" +
+<<<<<<< 6386a2f204182c4d7534a943f6487a5d039cc2e2
     "<div ng-if=\"(replicaSets | size)\" id=\"replica-sets\">\n" +
     "<h3 translate>Replica Sets</h3>\n" +
+=======
+    "<div ng-if=\"replicaSets | hashSize\" id=\"replica-sets\">\n" +
+    "<h3>Replica Sets</h3>\n" +
+>>>>>>> Removing table-hover from tables to address inconsistency in hover color
     "<table class=\"table table-bordered table-mobile table-layout-fixed\">\n" +
     "<colgroup>\n" +
     "<col class=\"col-sm-4\">\n" +
@@ -5760,8 +5805,13 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</tbody>\n" +
     "</table>\n" +
     "</div>\n" +
+<<<<<<< 6386a2f204182c4d7534a943f6487a5d039cc2e2
     "<div ng-if=\"(replicationControllersByDC[''] | size)\" id=\"replica-controllers\">\n" +
     "<h3 translate>Other Replication Controllers</h3>\n" +
+=======
+    "<div ng-if=\"(unfilteredReplicationControllers | hashSize) > 0\" id=\"replica-controllers\">\n" +
+    "<h3>Other Replication Controllers</h3>\n" +
+>>>>>>> Removing table-hover from tables to address inconsistency in hover color
     "<table class=\"table table-bordered table-mobile table-layout-fixed\">\n" +
     "<colgroup>\n" +
     "<col class=\"col-sm-5\">\n" +
@@ -7740,11 +7790,15 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "</div>\n" +
     "</div>\n" +
+<<<<<<< 6386a2f204182c4d7534a943f6487a5d039cc2e2
 <<<<<<< 09aec676d45ef13c0609d6ece87170b1c79c051a
     "<table class=\"table table-bordered table-condensed table-mobile table-layout-fixed events-table\">\n" +
 =======
     "<table class=\"table table-bordered table-condensed table-mobile table-hover table-layout-fixed events-table\">\n" +
 >>>>>>> Use table toolbar styles for events filter
+=======
+    "<table class=\"table table-bordered table-condensed table-layout-fixed events-table\">\n" +
+>>>>>>> Removing table-hover from tables to address inconsistency in hover color
     "<thead>\n" +
     "<tr>\n" +
     "<th id=\"time\" translate>Time</th>\n" +
@@ -11699,6 +11753,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"container-fluid\">\n" +
     "<div class=\"row\">\n" +
     "<div class=\"col-md-12\">\n" +
+<<<<<<< 6386a2f204182c4d7534a943f6487a5d039cc2e2
     "<div ng-if=\"(imageStreams | hashSize) == 0\">\n" +
     "<p ng-if=\"!imageStreamsLoaded\" translate>\n" +
     "Loading...\n" +
@@ -11714,6 +11769,9 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "</div>\n" +
     "<table ng-if=\"(imageStreams | hashSize) > 0\" class=\"table table-bordered table-mobile table-layout-fixed\">\n" +
+=======
+    "<table class=\"table table-bordered table-mobile table-layout-fixed\">\n" +
+>>>>>>> Removing table-hover from tables to address inconsistency in hover color
     "<colgroup>\n" +
     "<col class=\"col-sm-3\">\n" +
     "<col class=\"col-sm-5\">\n" +
@@ -14796,6 +14854,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div ng-if=\"!secretsLoaded\" class=\"mar-top-xl\" translate>Loading...</div>\n" +
     "<div ng-if=\"secretsLoaded\" class=\"row\">\n" +
     "<div class=\"col-md-12\">\n" +
+<<<<<<< 6386a2f204182c4d7534a943f6487a5d039cc2e2
     "<div ng-if=\"!secrets.length\">\n" +
     "<div class=\"empty-state-message text-center\">\n" +
     "<h2 translate>No secrets.</h2>\n" +
@@ -14808,6 +14867,9 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "</div>\n" +
     "<table ng-if=\"secrets.length\" class=\"table table-bordered table-mobile secrets-table table-layout-fixed\">\n" +
+=======
+    "<table class=\"table table-bordered table-mobile secrets-table table-layout-fixed\">\n" +
+>>>>>>> Removing table-hover from tables to address inconsistency in hover color
     "<colgroup>\n" +
     "<col class=\"col-sm-5\">\n" +
     "<col class=\"col-sm-5\">\n" +
@@ -14967,6 +15029,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"container-fluid\">\n" +
     "<div class=\"row\">\n" +
     "<div class=\"col-md-12\">\n" +
+<<<<<<< 6386a2f204182c4d7534a943f6487a5d039cc2e2
     "<div ng-if=\"(services | hashSize) == 0\">\n" +
     "<p ng-if=\"!servicesLoaded\" translate>\n" +
     "Loading...\n" +
@@ -14982,6 +15045,9 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "</div>\n" +
     "<table ng-if=\"(services | hashSize) > 0\" class=\"table table-bordered table-mobile table-layout-fixed\">\n" +
+=======
+    "<table class=\"table table-bordered table-mobile table-layout-fixed\">\n" +
+>>>>>>> Removing table-hover from tables to address inconsistency in hover color
     "<colgroup>\n" +
     "<col class=\"col-sm-3\">\n" +
     "</colgroup>\n" +
@@ -15139,7 +15205,11 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "</div>\n" +
     "</div>\n" +
+<<<<<<< 6386a2f204182c4d7534a943f6487a5d039cc2e2
     "<table ng-if=\"(pvcs | hashSize) > 0\" class=\"table table-bordered table-mobile table-layout-fixed\">\n" +
+=======
+    "<table class=\"table table-bordered table-mobile table-layout-fixed\" ng-class=\"{ 'table-empty': (pvcs | hashSize) === 0 }\">\n" +
+>>>>>>> Removing table-hover from tables to address inconsistency in hover color
     "<colgroup>\n" +
     "<col class=\"col-sm-5\">\n" +
     "</colgroup>\n" +
