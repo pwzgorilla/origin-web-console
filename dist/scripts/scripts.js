@@ -14710,8 +14710,7 @@ return n(e, !1);
 return s.list().then(function(e) {
 l = e.by("metadata.name");
 });
-};
-r.$on("$routeChangeSuccess", function() {
+}, S = function() {
 var e = a.project;
 r.currentProjectName !== e && (r.currentProjectName = e, r.chromeless = "chromeless" === a.view, e && !r.chromeless ? (_.set(n, "view.hasProject", !0), r.canIAddToProject = !1, o.getProjectRules(e).then(function() {
 r.currentProjectName === e && (r.canIAddToProject = o.canIAddToProject(e));
@@ -14722,7 +14721,8 @@ name: r.currentProjectName
 }
 }), r.currentProject = l[r.currentProjectName], b());
 })) : _.set(n, "view.hasProject", !1));
-}), v.selectpicker({
+};
+S(), r.$on("$routeChangeSuccess", S), v.selectpicker({
 iconBase: "fa",
 tickIcon: "fa-check"
 >>>>>>> Bump grunt-contrib-uglify to 3.0.1
