@@ -7873,7 +7873,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "</div>\n" +
     "<div class=\"order-service-description-block\">\n" +
-    "<p ng-bind-html=\"$ctrl.template | description | linky : '_blank'\" class=\"description\"></p>\n" +
+    "<p ng-bind-html=\"($ctrl.template | description | linky : '_blank') || 'No description provided.'\" class=\"description\"></p>\n" +
     "</div>\n" +
     "</div>\n" +
     "<div class=\"order-service-config\">\n" +
@@ -9952,7 +9952,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "</div>\n" +
     "<div class=\"order-service-description-block\">\n" +
-    "<p ng-bind-html=\"$ctrl.template | description | linky : '_blank'\" class=\"description\"></p>\n" +
+    "<p ng-bind-html=\"($ctrl.template | description | linky : '_blank') || 'No description provided.'\" class=\"description\"></p>\n" +
     "</div>\n" +
     "</div>"
   );
