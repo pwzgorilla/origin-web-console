@@ -429,6 +429,10 @@ angular
       .when('/project/:project/browse/deployments-replicationcontrollers/:rc', {
         redirectTo: '/project/:project/browse/rc/:rc'
       })
+      .when('/project/:project/oct-list', {
+        templateUrl: 'views/oct-list.html',
+        controller: 'OctListController'
+      })
       .otherwise({
         redirectTo: '/'
       });

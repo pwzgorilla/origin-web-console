@@ -306,6 +306,26 @@ angular.extend(window.OPENSHIFT_CONSTANTS, {
       //     ]
       //   }
       // ]
+    },
+    {
+      label: "EAMS",
+      secondaryNavSections: [
+        {
+          items: [
+            {
+              label: "octopus",
+              href: "/oct-list"
+            },
+            {
+              label: "squid",
+              href: "/quota"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      label: "minihost"
     }
   ],
   CATALOG_CATEGORIES: [
