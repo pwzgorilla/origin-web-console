@@ -1,0 +1,117 @@
+@import "./reset.css";
+/*状态条*/
+.progress {
+  width: 60%;
+  height: 10px;
+  background-color: #e8e8e8;
+}
+
+.state span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.state .healthy {
+  background-color: #28f7a1;
+}
+
+.state .unhealthy {
+  background-color: #ff7c64;
+}
+
+.state .unknown {
+  background-color: #929599;
+}
+
+.progress, .progress li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.progress li {
+  float: left;
+  -webkit-transition: width .6s ease;
+  transition: width .6s ease;
+}
+
+.progress .healthy {
+  height: 100%;
+  background-color: #28f7a1;
+}
+
+.progress .unhealthy {
+  height: 100%;
+  background-color: #ff7c64;
+}
+
+.progress .unknown {
+  height: 100%;
+  background-color: #929599;
+}
+.icon{
+  display: inline-block;
+  height: 50%;
+  width: auto;
+}
+.icon img{
+  width: 10px;
+  height: auto;
+}
+.pagination-container{
+  margin-top: 30px;
+  margin-right: 0;
+}
+
+.CodeMirror-sizer{
+  min-height: 400px;
+}
+.CodeMirror-code{
+  line-height: 24px;
+}
+.el-loading-mask{
+  z-index: 888;
+}
+.el-menu--collapse .el-submenu .el-menu{
+  z-index: 999;
+}
+.userGroup{
+  position: absolute;
+  right: 148px;
+}
+.userGroup .el-input__inner{
+  border: none;
+}
+.navbar .avatar-container .avatar-wrapper .el-icon-caret-center{
+  top:15px!important;
+}
+.el-select{
+  width: 100%;
+}
+.CodeMirror-lint-tooltip{
+  z-index: 10001!important;
+}
+
+.el-dropdown-link {
+  cursor: pointer;
+  color: #20a0ff;
+}
+.btn-group {
+  justify-content: space-between;
+}
+.el-badge{
+  font-size: 18px;
+  margin: 10px 0;
+}
+.el-transfer{
+  justify-content:space-between;
+}
+.el-transfer-panel{
+  width: 45%;
+}
+.el-transfer__buttons{
+  width: 10%;
+  padding: 0;
+}

@@ -1,0 +1,5 @@
+/*覆盖 Element-UI 的样式*/
+.el-button--text{
+  width: 100%;
+  text-align: left;
+}

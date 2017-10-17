@@ -1,0 +1,2 @@
+export const FETCH_MINIHOST = 'FETCH_MINIHOST'
+export const RESET_MINIHOST = 'RESET_MINIHOST'
