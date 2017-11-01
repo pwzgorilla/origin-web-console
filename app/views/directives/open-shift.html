@@ -28,6 +28,13 @@
       </div>
     </div>
     <div class="form-group">
+      <label for="OCTOPUS_CONSOLE_NAME" class="required">Octopus_console_name</label>
+      <div ng-class="{'has-error': form.OCTOPUS_CONSOLE_NAME.$invalid}">
+        <input type="text" required select-on-focus placeholder="octopus_console" ng-model="app.OCTOPUS_CONSOLE_NAME"
+               id="OCTOPUS_CONSOLE_NAME" name="OCTOPUS_CONSOLE_NAME" class="form-control" autocorrect="off" autocapitalize="off" spellcheck="false">
+      </div>
+    </div>
+    <div class="form-group">
       <label for="K8s_uri" class="required">K8s_uri</label>
       <div ng-class="{'has-error': form.K8S_URI.$invalid}">
         <input type="text" required select-on-focus placeholder="http://k8s.uri" ng-model="app.K8S_URI"
@@ -60,13 +67,6 @@
       <div ng-class="{'has-error': form.SPRING_DATASOURCE_JDBC.$invalid}">
         <input type="text" required select-on-focus placeholder="jdbc:mysql://${OCTOPUS_DB_SERVICE_NAME}:3306/saturn_console?useUnicode=true\u0026characterEncoding=utf-8\u0026allowMultiQueries=true" ng-model="app.SPRING_DATASOURCE_JDBC"
           id="SPRING_DATASOURCE_JDBC" name="SPRING_DATASOURCE_JDBC" class="form-control" autocorrect="off" autocapitalize="off" spellcheck="false">
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="OCTOPUS_CONSOLE_NAME" class="required">Octopus_console_name</label>
-      <div ng-class="{'has-error': form.OCTOPUS_CONSOLE_NAME.$invalid}">
-        <input type="text" required select-on-focus placeholder="octopus_console" ng-model="app.OCTOPUS_CONSOLE_NAME"
-          id="OCTOPUS_CONSOLE_NAME" name="OCTOPUS_CONSOLE_NAME" class="form-control" autocorrect="off" autocapitalize="off" spellcheck="false">
       </div>
     </div>
     <div ng-if="!isDialog" class="button-group gutter-bottom" ng-class="{'gutter-top': !alerts.length}">
