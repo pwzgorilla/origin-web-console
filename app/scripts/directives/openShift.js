@@ -12,8 +12,19 @@ angular.module("openshiftConsole")
       templateUrl: 'views/directives/open-shift.html',
       link: function ($scope) {
         $scope.octopuses = [];
-        $scope.app = {};
-        var form = {}
+        $scope.app = {
+          APP_NAME: '应用组名称',
+          OCTOPUS_API_NAME: 'oc2-api',
+          NAMESPACE: namespace,
+          K8S_URI: 'http://192.168.1.140:8011',
+          REGISTRY_URI: 'http://192.168.1.140:5000',
+          SECRET_NAME: 'octopus',
+          SECRET_KEY: 'database-root-password',
+          SPRING_DATASOURCE_JDBC: 'jdbc:mysql://octopus-db:3306/saturn_console?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true',
+          OCTOPUS_CONSOLE_NAME: 'oc2-console'
+        };
+        var form = {};
+
         var ctrl = this;
         var protocol = $window.location.protocol === "http:" ? "http" : "https";
         var hostPortApi = $window.OPENSHIFT_CONFIG.api.k8s.hostPort + $window.OPENSHIFT_CONFIG.api.k8s.prefix;
@@ -23,7 +34,6 @@ angular.module("openshiftConsole")
         var storage = bearer + ' ' + localStorage.getItem('LocalStorageUserStore.token')
         var humanize = $filter('humanize');
         var generatedResources = [];
-
 
         function backend($resource) {
           return {getOpenShift: getOpenShift}
