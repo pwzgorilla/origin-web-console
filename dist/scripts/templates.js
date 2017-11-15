@@ -3856,6 +3856,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
 =======
     "<uib-tab heading=\"Environment\" active=\"selectedTab.environment\">\n" +
     "<uib-tab-heading>Environment</uib-tab-heading>\n" +
+<<<<<<< 44f396286c95279739890891eea2b89e4abdde15
 <<<<<<< f56378c1e748449074be8738ae159f02ed953303
     "\n" +
     "<div ng-if=\"(replicaSet | hasDeployment) || (replicaSet | hasDeploymentConfig)\">\n" +
@@ -3865,12 +3866,15 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<translate>Environment variables can be edited on the deployment</translate>\n" +
 =======
     "<p ng-if=\"deployment && ({ group: 'extensions', resource: 'deployments' } | canI : 'update')\">\n" +
+=======
+    "<p ng-if=\"deployment && (deploymentsVersion | canI : 'update')\">\n" +
+>>>>>>> Update replicaSets controller to use getPreferredVersion
     "<span class=\"pficon pficon-info\" aria-hidden=\"true\"></span>\n" +
     "Environment variables can be edited on the deployment\n" +
 >>>>>>> Create reusable edit-environment-variables component
     "<a ng-href=\"{{deployment | navigateResourceURL}}?tab=environment\">{{deployment.metadata.name}}</a>.\n" +
     "</p>\n" +
-    "<p ng-if=\"deploymentConfigName && ('deploymentconfigs' | canI : 'update')\">\n" +
+    "<p ng-if=\"deploymentConfigName && (deploymentConfigsVersion | canI : 'update')\">\n" +
     "<span class=\"pficon pficon-info\" aria-hidden=\"true\"></span>\n" +
 <<<<<<< f56378c1e748449074be8738ae159f02ed953303
     "<translate>Environment variables can be edited on deployment config</translate>\n" +
@@ -3888,7 +3892,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<deployment-metrics ng-if=\"selectedTab.metrics && podsForDeployment\" pods=\"podsForDeployment\" containers=\"replicaSet.spec.template.spec.containers\" alerts=\"alerts\">\n" +
     "</deployment-metrics>\n" +
     "</uib-tab>\n" +
-    "<uib-tab ng-if=\"deploymentConfigName && logOptions.version && ('deploymentconfigs/log' | canI : 'get')\" active=\"selectedTab.logs\">\n" +
+    "<uib-tab ng-if=\"deploymentConfigName && logOptions.version && (deploymentConfigsLogVersion | canI : 'get')\" active=\"selectedTab.logs\">\n" +
     "<uib-tab-heading>Logs</uib-tab-heading>\n" +
     "<log-viewer ng-if=\"selectedTab.logs\" follow-affix-top=\"390\" object=\"replicaSet\" context=\"projectContext\" options=\"logOptions\" empty=\"logEmpty\" run=\"logCanRun\">\n" +
     "<span ng-if=\"replicaSet | deploymentStatus\">\n" +
@@ -3898,8 +3902,13 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</span>\n" +
     "</log-viewer>\n" +
     "</uib-tab>\n" +
+<<<<<<< 44f396286c95279739890891eea2b89e4abdde15
     "<uib-tab active=\"selectedTab.events\" ng-if=\"'events' | canI : 'watch'\">\n" +
     "<uib-tab-heading translate>Events</uib-tab-heading>\n" +
+=======
+    "<uib-tab active=\"selectedTab.events\" ng-if=\"eventsVersion | canI : 'watch'\">\n" +
+    "<uib-tab-heading>Events</uib-tab-heading>\n" +
+>>>>>>> Update replicaSets controller to use getPreferredVersion
     "<events api-objects=\"[ replicaSet ]\" project-context=\"projectContext\" ng-if=\"selectedTab.events\"></events>\n" +
     "</uib-tab>\n" +
     "</uib-tabset>\n" +
