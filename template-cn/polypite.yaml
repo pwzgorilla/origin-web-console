@@ -65,7 +65,7 @@ objects:
             - polypite-console
           from:
             kind: ImageStreamTag
-            name: 'origin-dm-web:${ORIGIN_DM_WEB_TAG}'
+            name: 'origin-dm-web:deploy'
             namespace: openshift
         type: ImageChange
 - apiVersion: v1
@@ -126,10 +126,3 @@ parameters:
   displayName: Metrics Url
   name: METRICS_URL
   value: ''
-- displayName: DMOS Address
-  name: DMOS_ADDRESS
-  value: ''
-- displayName: dmos oc ui image tag
-  name: ORIGIN_DM_WEB_TAG
-  required: true
-  value: "deploy"

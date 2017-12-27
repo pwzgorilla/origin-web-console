@@ -10,62 +10,6 @@ var gettext = function (s) {
   return s;
 };
 
-// for translate
-function Noop() {
-  gettext('Manual');
-  gettext('Rolling');
-  gettext('Recreate');
-  gettext('deployment config');
-  gettext('Deployment Config');
-  gettext('horizontal pod autoscaler');
-  gettext('Config Map');
-  gettext('pull');
-  gettext('push');
-  gettext('Route');
-  gettext('openshift.io/imagestreams');
-  gettext('CPU (Request)');
-  gettext('Memory (Request)');
-  gettext('CPU (Limit)');
-  gettext('Memory (Limit)');
-  gettext('Storage (Request)');
-  gettext('user');
-  gettext('manual change');
-  gettext('complete');
-  gettext('running');
-  gettext('The minimum amount of');
-  gettext('the container is guaranteed.');
-  gettext('The maximum amount of');
-  gettext('the container is allowed to use when running.');
-  gettext('User');
-  gettext('user');
-  gettext('Group');
-  gettext('group');
-  gettext('Service Account');
-  gettext('service account');
-  gettext('System User');
-  gettext('system user');
-  gettext('System Group');
-  gettext('system group');
-  gettext('Read-Write-Once');
-  gettext('Read-Write-Many');
-  gettext('Read-Only-Many');
-  gettext('Bound');
-  gettext('Cancelled');
-  gettext('Active');
-  gettext('Complete');
-  gettext('Running');
-  gettext('Failed');
-  gettext('Terminating');
-  gettext('Completed');
-  gettext('Cores');
-  gettext('Custom');
-  gettext('Abort');
-  gettext('Retry');
-  gettext('Ignore');
-  gettext('Pre');
-}
-Noop();
-
 if (angular.isUndefined(window.OPENSHIFT_CONSTANTS)) {
   window.OPENSHIFT_CONSTANTS = {};
 }
@@ -483,21 +427,21 @@ angular.extend(window.OPENSHIFT_CONSTANTS, {
           categoryAliases: ["octopus"],
           label: "Octopus",
           iconClass: "font-icon icon-octopus-m",
-          description: gettext("")
+          description: ""
         },
         {
           id: "squid",
           categoryAliases: ["squid"],
           label: "Squid",
           iconClass: "font-icon icon-squid-m",
-          description: gettext("")
+          description: ""
         },
         {
           id: "hawk",
           categoryAliases: ["hawk"],
           label: "Hawk",
           iconClass: "font-icon icon-hawk-m",
-          description: gettext("")
+          description: ""
         }
       ]
     },
@@ -510,7 +454,7 @@ angular.extend(window.OPENSHIFT_CONSTANTS, {
           categoryAliases: ["monitor"],
           label: "Monitor",
           iconClass: "font-icon icon-monitor-m",
-          description: gettext("")
+          description: ""
         }
       ]
     },

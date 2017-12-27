@@ -25,15 +25,15 @@ objects:
     output:
       to:
         kind: ImageStreamTag
-        name: ${APP_NAME}:deploy
+        name: ${APP_NAME}:${VERSION}
     postCommit: {}
     resources: {}
     runPolicy: SerialLatestOnly
     source:
       dockerfile: |-
-        FROM demoregistry.dataman-inc.com/library/nginx:1.13.6-alpine
+        FROM nginx:1.13.6-alpine
 
-        # ENV VERSION ${VERSION}
+        ENV VERSION ${VERSION}
 
         RUN apk add --update bash \
           && touch /root/.bashrc
@@ -57,8 +57,9 @@ objects:
     strategy:
       dockerStrategy:
         from:
-          kind: DockerImage
-          name: 'demoregistry.dataman-inc.com/library/nginx:1.13.6-alpine'
+          kind: ImageStreamTag
+          name: 'nginx:1.13.6-alpine'
+          namespace: openshift
       type: Docker
     # 保留失败build的数量
     failedBuildsHistoryLimit: 2
@@ -78,7 +79,7 @@ objects:
   spec:
     dockerImageRepository: ''
     tags:
-    - name: deploy
+    - name: ${VERSION}
 
 parameters:
 - description: Application Name.
@@ -86,4 +87,8 @@ parameters:
   name: APP_NAME
   required: true
   value: 'polypite'
-
+- description: VERSION.
+  displayName: VERSION
+  name: VERSION
+  required: true
+  value: 'latest'
