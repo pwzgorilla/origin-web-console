@@ -49,6 +49,8 @@ objects:
                 value: '${LOGGING_URL}'
               - name: METRICS_URL
                 value: '${METRICS_URL}'
+              - name: DMOS_ADDRESS
+                value: '${DMOS_ADDRESS}'
             image: ' '
             imagePullPolicy: Always
             name: polypite-console
@@ -124,3 +126,7 @@ parameters:
   displayName: Metrics Url
   name: METRICS_URL
   value: ''
+- displayName: DMOS Address
+  name: DMOS_ADDRESS
+  value: ''
+

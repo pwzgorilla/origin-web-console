@@ -25,7 +25,7 @@ objects:
     output:
       to:
         kind: ImageStreamTag
-        name: ${APP_NAME}:${VERSION}
+        name: ${APP_NAME}:deploy
     postCommit: {}
     resources: {}
     runPolicy: SerialLatestOnly
