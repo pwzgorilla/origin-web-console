@@ -1,5 +1,5 @@
 <ng-form name="form">
-  <p ng-hide="input.args.length"><em>No {{type || 'command'}} set.</em></p>
+  <p ng-hide="input.args.length"><em translate>No {{type || 'command'}} set.</em></p>
   <p ng-show="input.args.length" as-sortable ng-model="input.args" class="command-args">
     <span ng-repeat="arg in input.args" as-sortable-item class="form-group">
       <span class="input-group">

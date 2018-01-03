@@ -1,6 +1,6 @@
 <ng-form name="form">
   <div class="form-group">
-    <label class="required">Type</label>
+    <label class="required" translate>Type</label>
     <ui-select ng-model="selected.type" required search-enabled="false">
       <ui-select-match>{{$select.selected.label}}</ui-select-match>
       <ui-select-choices repeat="item.id as item in types">{{item.label}}</ui-select-choices>
@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class="form-group">
-      <label ng-attr-for="{{id}}-path">Path</label>
+      <label ng-attr-for="{{id}}-path" translate>Path</label>
       <div>
         <input
             ng-attr-id="{{id}}-path"
@@ -34,7 +34,7 @@
       </div>
     </div>
     <div class="form-group">
-      <label class="required">Port</label>
+      <label class="required" translate>Port</label>
       <ui-select ng-model="probe.httpGet.port" required>
         <ui-select-match>{{$select.selected.containerPort}}</ui-select-match>
         <ui-select-choices
@@ -50,7 +50,7 @@
   </fieldset>
   <fieldset ng-if="selected.type === 'tcpSocket'">
     <div class="form-group">
-      <label class="required">Port</label>
+      <label class="required" translate>Port</label>
       <ui-select ng-model="probe.tcpSocket.port" required>
         <ui-select-match>{{$select.selected.containerPort}}</ui-select-match>
         <ui-select-choices
@@ -92,7 +92,7 @@
     </div>
   </div>
   <div class="form-group">
-    <label ng-attr-for="{{id}}-timeout">Timeout</label>
+    <label ng-attr-for="{{id}}-timeout" translate>Timeout</label>
     <span class="input-group"
        ng-class="{ 'has-error': form.timeoutSeconds.$invalid && form.timeoutSeconds.$touched }">
       <input

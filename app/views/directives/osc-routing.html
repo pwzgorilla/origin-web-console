@@ -26,7 +26,7 @@
       </div>
       <div class="has-error" ng-show="routeForm.name.$error.pattern && routeForm.name.$touched && !routingDisabled">
         <span class="help-block">
-          {{nameValidation.description}}
+          {{nameValidation.description|translate}}
         </span>
       </div>
       <div class="has-error" ng-show="routeForm.name.$error.maxlength && routeForm.name.$touched && !routingDisabled">
@@ -239,9 +239,6 @@
             {{option | humanizeTLSTermination}}
           </ui-select-choices>
         </ui-select>
-        <div class="learn-more-block help-block">
-          <a href="{{'route-types' | helpLink}}" target="_blank"><translate>Learn More</translate>&nbsp;<i class="fa fa-external-link" aria-hidden="true"></i></a>
-        </div>
       </div>
 
       <!-- Insecure Edge Termination Policy -->

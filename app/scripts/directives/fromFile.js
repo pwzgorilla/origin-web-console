@@ -12,7 +12,9 @@ angular.module("openshiftConsole")
                                   NotificationsService,
                                   QuotaService,
                                   SecurityCheckService,
-                                  TaskList) {
+                                  TaskList,
+                                  gettext,
+                                  gettextCatalog) {
     return {
       restrict: "E",
       scope: {
@@ -66,10 +68,10 @@ angular.module("openshiftConsole")
               modalConfig: function() {
                 return {
                   alerts: alerts,
-                  message: "We checked your application for potential problems. Please confirm you still want to create this application.",
-                  okButtonText: "Create Anyway",
+                  message: gettextCatalog.getString(gettext("We checked your application for potential problems. Please confirm you still want to create this application.")),
+                  okButtonText: gettextCatalog.getString(gettext("Create Anyway")),
                   okButtonClass: "btn-danger",
-                  cancelButtonText: "Cancel"
+                  cancelButtonText: gettextCatalog.getString(gettext("Cancel"))
                 };
               }
             }
@@ -401,9 +403,9 @@ angular.module("openshiftConsole")
         var displayName = $filter('displayName');
         function createResourceList(){
           var titles = {
-            started: "Creating resources in project " + displayName($scope.project),
-            success: "Creating resources in project " + displayName($scope.project),
-            failure: "Failed to create some resources in project " + displayName($scope.project)
+            started: gettextCatalog.getString(gettext("Creating resources in project ")) + displayName($scope.project),
+            success: gettextCatalog.getString(gettext("Creating resources in project ")) + displayName($scope.project),
+            failure: gettextCatalog.getString(gettext("Failed to create some resources in project ")) + displayName($scope.project)
           };
           var helpLinks = {};
           TaskList.add(titles, helpLinks, $scope.project.metadata.name, function() {
@@ -452,9 +454,9 @@ angular.module("openshiftConsole")
 
         function updateResourceList(){
           var titles = {
-            started: "Updating resources in project " + displayName($scope.project),
-            success: "Updated resources in project " + displayName($scope.project),
-            failure: "Failed to update some resources in project " + displayName($scope.project)
+            started: gettextCatalog.getString(gettext("Updating resources in project ")) + displayName($scope.project),
+            success: gettextCatalog.getString(gettext("Updated resources in project ")) + displayName($scope.project),
+            failure: gettextCatalog.getString(gettext("Failed to update some resources in project ")) + displayName($scope.project)
           };
           var helpLinks = {};
           TaskList.add(titles, helpLinks, $scope.project.metadata.name, function() {

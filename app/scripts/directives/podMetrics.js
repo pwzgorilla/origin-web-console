@@ -12,7 +12,8 @@ angular.module('openshiftConsole')
                                     MetricsCharts,
                                     MetricsService,
                                     ModalsService,
-                                    usageValueFilter) {
+                                    usageValueFilter,
+                                    gettext) {
     return {
       restrict: 'E',
       scope: {
@@ -49,7 +50,7 @@ angular.module('openshiftConsole')
             datasets: [
               {
                 id: "memory/usage",
-                label: "Memory",
+                label: gettext("Memory"),
                 data: []
               }
             ]
@@ -67,7 +68,7 @@ angular.module('openshiftConsole')
             datasets: [
               {
                 id: "cpu/usage_rate",
-                label: "CPU",
+                label: gettext("CPU"),
                 data: []
               }
             ]
@@ -75,7 +76,7 @@ angular.module('openshiftConsole')
         }
         if (_.includes(scope.includedMetrics, "network")) {
           scope.metrics.push({
-            label: "Network",
+            label: gettext("Network"),
             units: "KiB/s",
             chartPrefix: "network-",
             chartType: "spline",
@@ -83,12 +84,12 @@ angular.module('openshiftConsole')
             datasets: [
               {
                 id: "network/tx_rate",
-                label: "Sent",
+                label: gettext("Sent"),
                 data: []
               },
               {
                 id: "network/rx_rate",
-                label: "Received",
+                label: gettext("Received"),
                 data: []
               }
             ]

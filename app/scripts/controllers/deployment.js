@@ -22,7 +22,8 @@ angular.module('openshiftConsole')
                         Logger,
                         ProjectsService,
                         StorageService,
-                        gettext) {
+                        gettext,
+                        gettextCatalog) {
     var imageStreamImageRefByDockerReference = {}; // lets us determine if a particular container's docker image reference belongs to an imageStream
 
     $scope.projectName = $routeParams.project;
@@ -294,25 +295,25 @@ angular.module('openshiftConsole')
         $scope.removeVolume = function(volume) {
           var details;
           if (_.get($scope, 'deployment.spec.paused')) {
-            details = "This will remove the volume from the deployment.";
+            details = gettextCatalog.getString(gettext("This will remove the volume from the deployment."));
           } else {
-            details = "This will remove the volume from the deployment and start a new rollout.";
+            details = gettextCatalog.getString(gettext("This will remove the volume from the deployment and start a new rollout."));
           }
 
           if (volume.persistentVolumeClaim) {
-            details += " It will not delete the persistent volume claim.";
+            details += gettextCatalog.getString(gettext(" It will not delete the persistent volume claim."));
           } else if (volume.secret) {
-            details += " It will not delete the secret.";
+            details += gettextCatalog.getString(gettext(" It will not delete the secret."));
           } else if (volume.configMap) {
-            details += " It will not delete the config map.";
+            details += gettextCatalog.getString(gettext(" It will not delete the config map."));
           }
 
           var confirm = ModalsService.confirm({
-            message: "Remove volume " + volume.name + "?",
+            message: gettextCatalog.getString(gettext("Remove volume ")) + volume.name + "?",
             details: details,
-            okButtonText: "Remove",
+            okButtonText: gettextCatalog.getString(gettext("Remove")),
             okButtonClass: "btn-danger",
-            cancelButtonText: "Cancel"
+            cancelButtonText: gettextCatalog.getString(gettext("Cancel"))
           });
 
           var removeVolume = function() {

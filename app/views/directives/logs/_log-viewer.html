@@ -41,8 +41,8 @@
 
 <!-- show this message until the log viewer starts. important for pending state, etc -->
 <div ng-if="(!state)">
-  <ellipsis-pulser ng-if="!chromeless" color="dark" size="sm" display="inline" msg="Loading log" class="log-pending-ellipsis"></ellipsis-pulser>
-  <ellipsis-pulser ng-if="chromeless" color="light" size="sm" display="inline" msg="Loading log" class="log-pending-ellipsis"></ellipsis-pulser>
+  <ellipsis-pulser ng-if="!chromeless" color="dark" size="sm" display="inline" msg="{{'Loading log'|translate}}" class="log-pending-ellipsis"></ellipsis-pulser>
+  <ellipsis-pulser ng-if="chromeless" color="light" size="sm" display="inline" msg="{{'Loading log'|translate}}" class="log-pending-ellipsis"></ellipsis-pulser>
 </div>
 
 <div class="empty-state-message text-center" ng-if="state=='empty'" ng-class="{'log-fixed-height': fixedHeight}">
@@ -94,7 +94,7 @@
     <div
       ng-show="showScrollLinks"
       class="log-scroll log-scroll-bottom">
-      <a href="" ng-click="onScrollTop()">Go to Top</a>
+      <a href="" ng-click="onScrollTop()" translate>Go to Top</a>
     </div>
   </div>
 </div>

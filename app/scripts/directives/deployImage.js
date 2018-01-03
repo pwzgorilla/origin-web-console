@@ -14,7 +14,9 @@ angular.module("openshiftConsole")
                                      QuotaService,
                                      TaskList,
                                      SecretsService,
-                                     keyValueEditorUtils) {
+                                     keyValueEditorUtils,
+                                     gettext,
+                                     gettextCatalog) {
     return {
       restrict: 'E',
       scope: {
@@ -237,9 +239,18 @@ angular.module("openshiftConsole")
           var generatedResources;
           var createResources = function() {
             var titles = {
-              started: "Deploying image " + $scope.app.name + " to project " + displayName($scope.project),
-              success: "Deployed image " + $scope.app.name + " to project " + displayName($scope.project),
-              failure: "Failed to deploy image " + $scope.app.name + " to project " + displayName($scope.project)
+              started: gettextCatalog.getString(gettext("Deploying image ")) +
+                $scope.app.name +
+                gettextCatalog.getString(gettext(" to project ")) +
+                displayName($scope.project),
+              success: gettextCatalog.getString(gettext("Deployed image ")) +
+                $scope.app.name +
+                gettextCatalog.getString(gettext(" to project ")) +
+                displayName($scope.project),
+              failure: gettextCatalog.getString(gettext("Failed to deploy image ")) +
+                $scope.app.name +
+                gettextCatalog.getString(gettext(" to project ")) +
+                displayName($scope.project)
             };
             TaskList.clear();
             TaskList.add(titles, {}, $scope.project.metadata.name, function() {

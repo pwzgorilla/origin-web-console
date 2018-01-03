@@ -41,7 +41,7 @@
                   </span>
                   <span ng-if="!pvc.spec.resources.requests['storage']" translate>waiting for allocation,</span>
               </small>
-              <small class="meta">created <span am-time-ago="pvc.metadata.creationTimestamp"></span></small>
+              <small class="meta"><translate>created</translate> <span am-time-ago="pvc.metadata.creationTimestamp"></span></small>
             </h1>
             <labels labels="pvc.metadata.labels" clickable="true" kind="storage" project-name="{{pvc.metadata.namespace}}" limit="3"></labels>
           </div><!-- /deployment -->

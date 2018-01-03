@@ -55,7 +55,8 @@ function OverviewController($scope,
                             BindingService,
                             ResourceAlertsService,
                             RoutesService,
-                            gettext) {
+                            gettext,
+                            gettextCatalog) {
   var overview = this;
   var limitWatches = $filter('isIE')() || $filter('isEdge')();
   var DEFAULT_POLL_INTERVAL = 60 * 1000; // milliseconds
@@ -394,14 +395,14 @@ function OverviewController($scope,
 
       state.alerts['metrics-connection-failed'] = {
         type: 'warning',
-        message: 'An error occurred getting metrics.',
+        message: gettextCatalog.getString(gettext('An error occurred getting metrics.')),
         links: [{
           href: data.url,
-          label: 'Open Metrics URL',
+          label: gettextCatalog.getString(gettext('Open Metrics URL')),
           target: '_blank'
         }, {
           href: '',
-          label: "Don't Show Me Again",
+          label: gettextCatalog.getString(gettext("Don't Show Me Again")),
           onClick: function() {
             // Hide the alert on future page loads.
             AlertMessageService.permanentlyHideAlert('metrics-connection-failed');

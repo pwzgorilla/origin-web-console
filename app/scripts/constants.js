@@ -10,6 +10,17 @@ var gettext = function (s) {
   return s;
 };
 
+// for translate
+gettext('Manual');
+gettext('Rolling');
+gettext('Recreate');
+gettext('deployment config');
+gettext('Deployment Config');
+gettext('horizontal pod autoscaler');
+gettext('Config Map');
+gettext('pull');
+gettext('push');
+
 if (angular.isUndefined(window.OPENSHIFT_CONSTANTS)) {
   window.OPENSHIFT_CONSTANTS = {};
 }

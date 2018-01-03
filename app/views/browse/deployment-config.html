@@ -175,7 +175,7 @@
                                     </span>
                                   </span>
                                   <span ng-switch-when="ConfigChange" translate>Config change</span>
-                                  <span ng-switch-default>{{cause.type}}</span>
+                                  <span ng-switch-default>{{cause.type|translate}}</span>
                                 </span>
                               </span>
                             </span>
@@ -209,7 +209,7 @@
                             </dd>
 
                             <dt ng-if-start="deploymentConfig.spec.strategy.type" translate>Strategy:</dt>
-                            <dd ng-if-end>{{deploymentConfig.spec.strategy.type}}</dd>
+                            <dd ng-if-end>{{deploymentConfig.spec.strategy.type|translate}}</dd>
 
                             <div ng-if="deploymentConfig.spec.strategy.rollingParams || deploymentConfig.spec.strategy.recreateParams">
                               <dt translate>Timeout:</dt>
@@ -282,9 +282,6 @@
                         <div class="col-lg-6" ng-if="deploymentConfig.spec.strategy.type !== 'Custom'">
                           <h3>
                             <translate>Hooks</translate>
-                            <span class="learn-more-inline">
-                              <a ng-href="{{'lifecycle_hooks' | helpLink}}" target="_blank">Learn More&nbsp;<i class="fa fa-external-link" aria-hidden="true"></i></a>
-                            </span>
                           </h3>
                           <div ng-if="strategyParams.pre">
                             <lifecycle-hook deployment-config="deploymentConfig" type="pre"></lifecycle-hook>
@@ -304,9 +301,6 @@
                           <h3 translate>Triggers</h3>
                           <dl class="dl-horizontal left">
                             <dt><translate>Manual (CLI):</translate>
-                              <a href="{{'deployment-operations' | helpLink}}" target="_blank">
-                                <span class="learn-more-block"><translate>Learn More</translate>&nbsp;<i class="fa fa-external-link" aria-hidden="true"></i></span>
-                              </a>
                             </dt>
                             <dd>
                               <copy-to-clipboard clipboard-text="'oc rollout latest dc/' + deploymentConfig.metadata.name + ' -n ' + project.metadata.name"></copy-to-clipboard>

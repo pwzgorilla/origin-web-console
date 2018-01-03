@@ -25,7 +25,8 @@ angular.module("openshiftConsole")
                        TaskList,
                        failureObjectNameFilter,
                        keyValueEditorUtils,
-                       gettext) {
+                       gettext,
+                       gettextCatalog) {
     var displayNameFilter = $filter('displayName');
     var humanize = $filter('humanize');
 
@@ -286,9 +287,18 @@ angular.module("openshiftConsole")
         var generatedResources;
         var createResources = function(){
           var titles = {
-            started: "Creating application " + $scope.name + " in project " + $scope.projectDisplayName(),
-            success: "Created application " + $scope.name + " in project " + $scope.projectDisplayName(),
-            failure: "Failed to create " + $scope.name + " in project " + $scope.projectDisplayName()
+            started: gettextCatalog.getString(gettext("Creating application ")) +
+              $scope.name +
+              gettextCatalog.getString(gettext(" in project ")) +
+              $scope.projectDisplayName(),
+            success: gettextCatalog.getString(gettext("Created application ")) +
+              $scope.name +
+              gettextCatalog.getString(gettext(" in project ")) +
+              $scope.projectDisplayName(),
+            failure: gettextCatalog.getString(gettext("Failed to create ")) +
+              $scope.name +
+              gettextCatalog.getString(gettext(" in project ")) +
+              $scope.projectDisplayName()
           };
           var helpLinks = {};
 

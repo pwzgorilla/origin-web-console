@@ -17,7 +17,9 @@ angular.module('openshiftConsole')
                         BreadcrumbsService,
                         Navigate,
                         NotificationsService,
-                        ProjectsService) {
+                        ProjectsService,
+                        gettext,
+                        gettextCatalog) {
     var watches = [];
     $scope.forms = {};
     $scope.projectName = $routeParams.project;
@@ -27,7 +29,7 @@ angular.module('openshiftConsole')
       kind: 'ConfigMap',
       namespace: $routeParams.project,
       includeProject: true,
-      subpage: 'Edit Config Map'
+      subpage: gettextCatalog.getString(gettext('Edit Config Map'))
     });
 
     var getVersion = function(resource) {
@@ -55,7 +57,7 @@ angular.module('openshiftConsole')
               object: configMap,
               includeProject: true,
               project: project,
-              subpage: 'Edit Config Map'
+              subpage: gettextCatalog.getString(gettext('Edit Config Map'))
             });
             $scope.configMap = configMap;
             watches.push(DataService.watchObject("configmaps", $routeParams.configMap, context, function(newValue, action) {

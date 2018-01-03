@@ -44,7 +44,7 @@
                             <ui-select-match placeholder="{{'Select config map or secret'|translate}}">
                               <span>
                                 {{$select.selected.metadata.name}}
-                                <small class="text-muted">&ndash; {{$select.selected.kind | humanizeKind : true}}</small>
+                                <small class="text-muted">&ndash; {{$select.selected.kind | humanizeKind : true | translate}}</small>
                               </span>
                             </ui-select-match>
                             <ui-select-choices
@@ -78,17 +78,16 @@
                               required
                               ng-pattern="/^\/.*$/"
                               osc-unique="existingMountPaths"
-                              placeholder="example: /data"
+                              placeholder="{{'example: /data'|translate}}"
                               autocorrect="off"
                               autocapitalize="off"
                               spellcheck="false"
                               aria-describedby="mount-path-help">
                           <div>
-                            <span id="mount-path-help" class="help-block" translate>
-                              Mount path for the volume.
-                              <span ng-if="!attach.pickKeys">
-                                A file will be created in this directory for each key from the config
-                                map or secret. The file contents will be the value of the key.
+                            <span id="mount-path-help" class="help-block">
+                              <translate>Mount path for the volume.</translate>
+                              <span ng-if="!attach.pickKeys" translate>
+                                A file will be created in this directory for each key from the config map or secret. The file contents will be the value of the key.
                               </span>
                             </span>
                           </div>
@@ -112,8 +111,8 @@
                                   type="checkbox"
                                   ng-model="attach.pickKeys"
                                   ng-disabled="!attach.source"
-                                  aria-describedby="select-keys-help" translate>
-                              Select specific keys and paths
+                                  aria-describedby="select-keys-help">
+                              <translate>Select specific keys and paths</translate>
                             </label>
                             <div id="select-keys-help" class="help-block" translate>
                               Add only certain keys or use paths that are different than the key names.
@@ -153,7 +152,7 @@
                                     ng-pattern="RELATIVE_PATH_PATTERN"
                                     required
                                     osc-unique="itemPaths"
-                                    placeholder="example: config/app.properties"
+                                    placeholder="{{'example: config/app.properties'|translate}}"
                                     autocorrect="off"
                                     autocapitalize="off"
                                     spellcheck="false">

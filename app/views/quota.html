@@ -88,7 +88,7 @@
                               disabled: (quota.status.total.hard[resourceType] || quota.spec.quota.hard[resourceType]) === '0'
                             }">
                           <td>
-                            {{resourceType | humanizeQuotaResource : true}}
+                            {{resourceType | humanizeQuotaResource : true | translate}}
                             <span ng-if="isAtLimit(quota, resourceType)" data-toggle="tooltip" title="Quota limit reached." class="pficon pficon-warning-triangle-o warnings-popover"></span>
                             <span ng-if="(quota.status.total.hard[resourceType] || quota.spec.quota.hard[resourceType]) === '0'"
                                   data-toggle="tooltip"
@@ -179,7 +179,7 @@
                               disabled: (quota.status.hard[resourceType] || quota.spec.hard[resourceType]) === '0'
                             }">
                           <td>
-                            {{resourceType | humanizeQuotaResource : true}}
+                            {{resourceType | humanizeQuotaResource : true | translate}}
                             <span ng-if="isAtLimit(quota, resourceType)" data-toggle="tooltip" title="Quota limit reached." class="pficon pficon-warning-triangle-o warnings-popover"></span>
                             <span ng-if="(quota.status.hard[resourceType] || quota.spec.hard[resourceType]) === '0'"
                                   data-toggle="tooltip"
@@ -251,7 +251,7 @@
                         <tbody>
                           <tr ng-repeat-start="limit in limitRange.spec.limits"></tr>
                           <tr ng-repeat="(type, typeLimits) in limitsByType[limitRange.metadata.name][limit.type]">
-                            <td>{{limit.type}} {{type | computeResourceLabel : true}}</td>
+                            <td>{{limit.type|translate}} {{type | computeResourceLabel : true | translate}}</td>
                             <td>{{(typeLimits.min | usageWithUnits : type) || "&mdash;"}}</td>
                             <td>{{(typeLimits.max | usageWithUnits : type) || "&mdash;"}}</td>
                             <td>{{(typeLimits.defaultRequest | usageWithUnits : type) || "&mdash;"}}</td>

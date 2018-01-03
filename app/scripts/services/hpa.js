@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module("openshiftConsole")
-  .factory("HPAService", function($filter, $q, LimitRangesService, MetricsService, Logger) {
+  .factory("HPAService", function($filter, $q, LimitRangesService, MetricsService, Logger, gettext, gettextCatalog) {
     var getCPURequestToLimitPercent = function(project) {
       return LimitRangesService.getRequestToLimitPercent('cpu', project);
     };
@@ -145,14 +145,18 @@ angular.module("openshiftConsole")
         if (!hasCPURequest(containers, limitRanges, project)) {
           kind = humanizeKind(scaleTarget.kind);
           if (LimitRangesService.isRequestCalculated('cpu', project)) {
-            cpuRequestMessage = 'This ' + kind + ' does not have any containers with a CPU limit set. ' +
-                      'Autoscaling will not work without a CPU limit.';
+            cpuRequestMessage = gettextCatalog.getString(gettext('This ')) +
+              gettextCatalog.getString(kind) +
+              gettextCatalog.getString(gettext(' does not have any containers with a CPU limit set. ')) +
+              gettextCatalog.getString(gettext('Autoscaling will not work without a CPU limit.'));
             if (LimitRangesService.isLimitCalculated('cpu', project)) {
-              cpuRequestMessage += ' The CPU limit will be automatically calculated from the container memory limit.';
+              cpuRequestMessage += gettextCatalog.getString(gettext(' The CPU limit will be automatically calculated from the container memory limit.'));
             }
           } else {
-            cpuRequestMessage = 'This ' + kind + ' does not have any containers with a CPU request set. ' +
-                      'Autoscaling will not work without a CPU request.';
+            cpuRequestMessage = gettextCatalog.getString(gettext('This ')) +
+              gettextCatalog.getString(kind) +
+              gettextCatalog.getString(gettext(' does not have any containers with a CPU request set. ')) +
+              gettextCatalog.getString(gettext('Autoscaling will not work without a CPU request.'));
           }
 
           warnings.push({
@@ -163,9 +167,9 @@ angular.module("openshiftConsole")
 
         if (_.size(hpaResources) > 1) {
           warnings.push({
-            message: 'More than one autoscaler is scaling this resource. ' +
-                     'This is not recommended because they might compete with each other. ' +
-                     'Consider removing all but one autoscaler.',
+            message: gettextCatalog.getString(gettext('More than one autoscaler is scaling this resource. ')) +
+            gettextCatalog.getString(gettext('This is not recommended because they might compete with each other. ')) +
+            gettextCatalog.getString(gettext('Consider removing all but one autoscaler.')),
             reason: 'MultipleHPA'
           });
         }
@@ -183,8 +187,8 @@ angular.module("openshiftConsole")
             hasDeploymentConfig(scaleTarget) &&
             _.some(hpaResources, targetsRC)) {
           warnings.push({
-            message: 'This deployment is scaled by both a deployment configuration and an autoscaler. ' +
-                     'This is not recommended because they might compete with each other.',
+            message: gettextCatalog.getString(gettext('This deployment is scaled by both a deployment configuration and an autoscaler. ')) +
+            gettextCatalog.getString(gettext('This is not recommended because they might compete with each other.')),
             reason: 'DeploymentHasHPA'
           });
         }

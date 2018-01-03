@@ -3,13 +3,13 @@
   <!-- HPA actions -->
   <span ng-if="'horizontalPodAutoscalers' | canIDoAny" class="header-actions">
     <a ng-if="{resource: 'horizontalpodautoscalers', group: 'autoscaling'} | canI : 'update'" ng-href="project/{{hpa.metadata.namespace}}/edit/autoscaler?kind=HorizontalPodAutoscaler&group=autoscaling&name={{hpa.metadata.name}}"
-       role="button">Edit</a>
+       role="button" translate>Edit</a>
     <span class="action-divider">|</span>
     <delete-link
         ng-if="{resource: 'horizontalpodautoscalers', group: 'autoscaling'} | canI : 'delete'"
         kind="HorizontalPodAutoscaler"
         group="autoscaling"
-        resource-name="{{hpa.metadata.name}}"
+        resource-name="{{hpa.metadata.name|translate}}"
         project-name="{{hpa.metadata.namespace}}"
         label="Remove"
         alerts="alerts"

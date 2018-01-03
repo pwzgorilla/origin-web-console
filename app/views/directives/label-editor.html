@@ -1,12 +1,12 @@
 <osc-form-section
-  header="Labels"
-  about-title="Labels"
+  header="{{'Labels'|translate}}"
+  about-title="{{'Labels'|translate}}"
   about="{{'Labels are used to organize, group, or select objects and resources, such as pods.'|translate}}"
   expand="expand"
   can-toggle="canToggle">
 
   <div ng-if="systemLabels.length">
-    <div class="help-block">
+    <div class="help-block" translate>
       The following labels are being added automatically. If you want to override them, you can do so below.
     </div>
     <key-value-editor

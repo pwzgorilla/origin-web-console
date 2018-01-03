@@ -26,7 +26,7 @@
       </div>
       <div class="has-error" ng-show="configMapForm.name.$error.pattern && configMapForm.name.$touched">
         <span class="help-block">
-          {{nameValidation.description}}
+          {{nameValidation.description|translate}}
         </span>
       </div>
       <div class="has-error" ng-show="configMapForm.name.$error.required && configMapForm.name.$touched">

@@ -8,7 +8,7 @@ angular.module("openshiftConsole")
         dirty: '=',
         message: '='
       },
-      link: function($scope) {
+      link: function($scope, gettext, gettextCatalog) {
         // If the feature is disabled or the user has asked the browser to
         // block dialogs, don't try to prompt.
         if (_.get(window, 'OPENSHIFT_CONSTANTS.DISABLE_CONFIRM_ON_EXIT') ||
@@ -17,7 +17,7 @@ angular.module("openshiftConsole")
         }
 
         var getMessage = function() {
-          return $scope.message || "You have unsaved changes. Leave this page anyway?";
+          return $scope.message || gettextCatalog.getString(gettext("You have unsaved changes. Leave this page anyway?"));
         };
 
         var confirmBeforeUnload = function() {
