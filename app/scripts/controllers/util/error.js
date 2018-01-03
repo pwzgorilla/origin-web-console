@@ -8,7 +8,7 @@
  * Controller of the openshiftConsole
  */
 angular.module('openshiftConsole')
-  .controller('ErrorController', function ($scope, $window) {
+  .controller('ErrorController', function ($scope, $window, gettext, gettextCatalog) {
     var params = URI(window.location.href).query(true);
     var error = params.error;
 
@@ -25,12 +25,12 @@ angular.module('openshiftConsole')
       case 'API_DISCOVERY':
         $scope.errorLinks = [{
           href: window.location.protocol + "//" + window.OPENSHIFT_CONFIG.api.openshift.hostPort + window.OPENSHIFT_CONFIG.api.openshift.prefix,
-          label: "Check Server Connection",
+          label: gettextCatalog.getString(gettext("Check Server Connection")),
           target: "_blank"
         }];
         break;
       default:
-        $scope.errorMessage = "An error has occurred";
+        $scope.errorMessage = gettextCatalog.getString(gettext("An error has occurred"));
     }
 
     if (params.error_description) {

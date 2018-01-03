@@ -33,7 +33,7 @@ objects:
       dockerfile: |-
         FROM nginx:1.13.6-alpine
 
-        ENV VERSION ${VERSION}
+        # ENV VERSION ${VERSION}
 
         RUN apk add --update bash \
           && touch /root/.bashrc
@@ -87,8 +87,4 @@ parameters:
   name: APP_NAME
   required: true
   value: 'polypite'
-- description: VERSION.
-  displayName: VERSION
-  name: VERSION
-  required: true
-  value: 'latest'
+

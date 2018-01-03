@@ -1,9 +1,9 @@
 <div class='resource-details'>
   <div class="row">
     <div class="col-sm-12">
-      <h3>Status</h3>
+      <h3 translate>Status</h3>
       <dl class="dl-horizontal left">
-        <dt>Status:</dt>
+        <dt translate>Status:</dt>
         <dd>
           <status-icon status="build.status.phase"></status-icon>
           <span ng-if="!build.status.message || build.status.phase === 'Cancelled'">{{build.status.phase}}</span>
@@ -13,7 +13,7 @@
             <a ng-href="{{build | jenkinsLogURL}}" target="_blank" translate>View Log</a>
           </span>
         </dd>
-        <dt>Started:</dt>
+        <dt translate>Started:</dt>
         <dd>
           <span ng-if="build.status.startTimestamp">
             <span am-time-ago="build.status.startTimestamp"></span>
@@ -26,9 +26,9 @@
           <span ng-switch="build.status.phase" class="hide-ng-leave">
             <span ng-switch-when="Complete">{{(build.status.startTimestamp || build.metadata.creationTimestamp) | duration : build.status.completionTimestamp}}</span>
             <span ng-switch-when="Failed">{{build.status.startTimestamp | duration : build.status.completionTimestamp}}</span>
-            <span ng-switch-when="Running">running for <duration-until-now timestamp="build.status.startTimestamp"></duration-until-now></span>
-            <span ng-switch-when="New">waiting for <duration-until-now timestamp="build.metadata.creationTimestamp"></duration-until-now></span>
-            <span ng-switch-when="Pending">waiting for <duration-until-now timestamp="build.metadata.creationTimestamp"></duration-until-now></span>
+            <span ng-switch-when="Running"><translate>running for</translate> <duration-until-now timestamp="build.status.startTimestamp"></duration-until-now></span>
+            <span ng-switch-when="New"><translate>waiting for</translate> <duration-until-now timestamp="build.metadata.creationTimestamp"></duration-until-now></span>
+            <span ng-switch-when="Pending"><translate>waiting for</translate> <duration-until-now timestamp="build.metadata.creationTimestamp"></duration-until-now></span>
             <span ng-switch-default>
               <span ng-if="build.status.startTimestamp">{{build.status.startTimestamp | duration : build.status.completionTimestamp}}</span>
               <span ng-if="!build.status.startTimestamp">waited for {{build.metadata.creationTimestamp | duration : build.status.completionTimestamp}}</span>
@@ -56,7 +56,7 @@
           </dd>
         </div>
       </dl>
-      <h3>Configuration <span class="small" ng-if="buildConfigName" translate>created from <a href="{{build | configURLForResource}}">{{buildConfigName}}</a></span></h3>
+      <h3><translate>Configuration</translate> <span class="small" ng-if="buildConfigName" translate>created from <a href="{{build | configURLForResource}}">{{buildConfigName}}</a></span></h3>
       <dl class="dl-horizontal left">
         <dt translate>Build Strategy:</dt>
         <dd>{{build.spec.strategy.type | startCase}}</dd>
@@ -64,7 +64,7 @@
         <dd ng-if-end class="truncate">{{(build | buildStrategy).from | imageObjectRef : build.metadata.namespace}}<span ng-if="!(build | buildStrategy).from"><em translate>none</em></span></dd>
         <dt translate>Source Type:</dt>
         <dd>{{build.spec.source.type}}</dd>
-        <dt ng-if-start="build.spec.source.git.uri">Source Repo:</dt>
+        <dt ng-if-start="build.spec.source.git.uri" translate>Source Repo:</dt>
         <dd ng-if-end><span class="word-break"><osc-git-link
                     uri="build.spec.source.git.uri"
                     ref="build.spec.source.git.ref"

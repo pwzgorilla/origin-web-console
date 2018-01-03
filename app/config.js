@@ -38,6 +38,9 @@
   // Additional support only for Chinese now: zh-CN
   window.OPENSHIFT_LANG = "en";
 
+  // for dmos
+  window.DMOS_ADDRESS = "http://192.168.1.84:8818/dmos/v1/auth";
+
   window.OPENSHIFT_VERSION = {
     openshift: "dev-mode",
     kubernetes: "dev-mode"

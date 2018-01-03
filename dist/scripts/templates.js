@@ -158,7 +158,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"animate-if\" ng-if=\"expandInitContainers\" ng-repeat=\"containerStatus in pod.status.initContainerStatuses track by containerStatus.name\">\n" +
     "<h4 class=\"component-label\" translate>Init container {{containerStatus.name}}</h4>\n" +
     "<dl class=\"dl-horizontal left\">\n" +
-    "<dt>State:</dt>\n" +
+    "<dt translate>State:</dt>\n" +
     "<dd>\n" +
     "<kubernetes-object-describe-container-state container-state=\"containerStatus.state\"></kubernetes-object-describe-container-state>\n" +
     "</dd>\n" +
@@ -246,13 +246,13 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
 
   $templateCache.put('views/_pod-template-container.html',
     " <div class=\"pod-template\">\n" +
-    "<div class=\"component-label\"><span ng-bind-template=\"{{labelPrefix||'Container'}}:\"></span> {{container.name}}</div>\n" +
+    "<div class=\"component-label\"><translate><span ng-bind-template=\"{{labelPrefix||'Container'}}:\"></span></translate> {{container.name}}</div>\n" +
     "<div row ng-if=\"container.image\" class=\"pod-template-image icon-row\">\n" +
     "<div class=\"icon-wrap\">\n" +
     "<span class=\"pficon pficon-image\" aria-hidden=\"true\"></span>\n" +
     "</div>\n" +
     "<div flex class=\"word-break\">\n" +
-    "<span class=\"pod-template-key\">Image:</span>\n" +
+    "<span class=\"pod-template-key\"><translate>Image</translate>:</span>\n" +
     "<span ng-if=\"!imagesByDockerReference[container.image]\">{{container.image | imageStreamName}}</span>\n" +
     "<span ng-if=\"imagesByDockerReference[container.image]\">\n" +
     "<a ng-href=\"{{imagesByDockerReference[container.image].imageStreamName | navigateResourceURL : 'ImageStream' : imagesByDockerReference[container.image].imageStreamNamespace}}\">{{container.image | imageStreamName}}</a>\n" +
@@ -310,7 +310,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<span aria-hidden=\"true\" class=\"fa fa-terminal\"></span>\n" +
     "</div>\n" +
     "<div flex class=\"word-break\">\n" +
-    "<span class=\"pod-template-key\">\n" +
+    "<span class=\"pod-template-key\" translate>\n" +
     "Command:\n" +
     "</span>\n" +
     "<span>\n" +
@@ -649,12 +649,12 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</h4>\n" +
     "<dl class=\"dl-horizontal left\">\n" +
     "<div ng-if=\"volume.secret\">\n" +
-    "<dt>Type:</dt>\n" +
+    "<dt translate>Type:</dt>\n" +
     "<dd>\n" +
-    "secret\n" +
+    "<translate>secret</translate>\n" +
     "<span class=\"small text-muted\" translate>(populated by a secret when the pod is created)</span>\n" +
     "</dd>\n" +
-    "<dt>Secret:</dt>\n" +
+    "<dt translate>Secret:</dt>\n" +
     "<dd>\n" +
     "<span ng-if=\"'secrets' | canI : 'get'\">\n" +
     "<a ng-href=\"{{volume.secret.secretName | navigateResourceURL : 'Secret' : namespace}}\">{{volume.secret.secretName}}</a>\n" +
@@ -726,15 +726,15 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "</div>\n" +
     "<div ng-if=\"volume.configMap\">\n" +
-    "<dt>Type:</dt>\n" +
+    "<dt translate>Type:</dt>\n" +
     "<dd>\n" +
-    "config map\n" +
-    "<span class=\"small text-muted\">(populated by a config map)</span>\n" +
+    "<translate>config map</translate>\n" +
+    "<span class=\"small text-muted\" translate>(populated by a config map)</span>\n" +
     "</dd>\n" +
-    "<dt>Config Map:</dt>\n" +
+    "<dt translate>Config Map:</dt>\n" +
     "<dd><a ng-href=\"{{volume.configMap.name | navigateResourceURL : 'ConfigMap' : namespace}}\">{{volume.configMap.name}}</a></dd>\n" +
     "<div ng-repeat=\"item in volume.configMap.items\">\n" +
-    "<dt>Key to File:</dt>\n" +
+    "<dt translate>Key to File:</dt>\n" +
     "<dd>{{item.key}}&#8201;&#8594;&#8201;{{item.path}}</dd>\n" +
     "</div>\n" +
     "</div>\n" +
@@ -850,7 +850,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<ui-select-match placeholder=\"{{'Select config map or secret'|translate}}\">\n" +
     "<span>\n" +
     "{{$select.selected.metadata.name}}\n" +
-    "<small class=\"text-muted\">&ndash; {{$select.selected.kind | humanizeKind : true}}</small>\n" +
+    "<small class=\"text-muted\">&ndash; {{$select.selected.kind | humanizeKind : true | translate}}</small>\n" +
     "</span>\n" +
     "</ui-select-match>\n" +
     "<ui-select-choices repeat=\"source in (configMaps.concat(secrets)) | filter : { metadata: { name: $select.search } } track by (source | uid)\" group-by=\"groupByKind\">\n" +
@@ -872,11 +872,11 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "<div class=\"form-group\">\n" +
     "<label for=\"mount-path\" class=\"required\" translate>Mount Path</label>\n" +
-    "<input id=\"mount-path\" class=\"form-control\" type=\"text\" name=\"mountPath\" ng-model=\"attach.mountPath\" required ng-pattern=\"/^\\/.*$/\" osc-unique=\"existingMountPaths\" placeholder=\"example: /data\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\" aria-describedby=\"mount-path-help\">\n" +
+    "<input id=\"mount-path\" class=\"form-control\" type=\"text\" name=\"mountPath\" ng-model=\"attach.mountPath\" required ng-pattern=\"/^\\/.*$/\" osc-unique=\"existingMountPaths\" placeholder=\"{{'example: /data'|translate}}\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\" aria-describedby=\"mount-path-help\">\n" +
     "<div>\n" +
-    "<span id=\"mount-path-help\" class=\"help-block\" translate>\n" +
-    "Mount path for the volume.\n" +
-    "<span ng-if=\"!attach.pickKeys\">\n" +
+    "<span id=\"mount-path-help\" class=\"help-block\">\n" +
+    "<translate>Mount path for the volume.</translate>\n" +
+    "<span ng-if=\"!attach.pickKeys\" translate>\n" +
     "A file will be created in this directory for each key from the config map or secret. The file contents will be the value of the key.\n" +
     "</span>\n" +
     "</span>\n" +
@@ -895,8 +895,8 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"form-group\">\n" +
     "<div class=\"checkbox\">\n" +
     "<label>\n" +
-    "<input id=\"select-keys\" type=\"checkbox\" ng-model=\"attach.pickKeys\" ng-disabled=\"!attach.source\" aria-describedby=\"select-keys-help\" translate>\n" +
-    "Select specific keys and paths\n" +
+    "<input id=\"select-keys\" type=\"checkbox\" ng-model=\"attach.pickKeys\" ng-disabled=\"!attach.source\" aria-describedby=\"select-keys-help\">\n" +
+    "<translate>Select specific keys and paths</translate>\n" +
     "</label>\n" +
     "<div id=\"select-keys-help\" class=\"help-block\" translate>\n" +
     "Add only certain keys or use paths that are different than the key names.\n" +
@@ -925,7 +925,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "<div class=\"form-group col-md-6\">\n" +
     "<label ng-attr-for=\"path-{{$id}}\" class=\"required\" translate>Path</label>\n" +
-    "<input ng-attr-id=\"path-{{$id}}\" class=\"form-control\" ng-class=\"{ 'has-error': forms.addConfigVolumeForm['path-' + $id].$invalid && forms.addConfigVolumeForm['path-' + $id].$touched }\" type=\"text\" name=\"path-{{$id}}\" ng-model=\"item.path\" ng-pattern=\"RELATIVE_PATH_PATTERN\" required osc-unique=\"itemPaths\" placeholder=\"example: config/app.properties\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\">\n" +
+    "<input ng-attr-id=\"path-{{$id}}\" class=\"form-control\" ng-class=\"{ 'has-error': forms.addConfigVolumeForm['path-' + $id].$invalid && forms.addConfigVolumeForm['path-' + $id].$touched }\" type=\"text\" name=\"path-{{$id}}\" ng-model=\"item.path\" ng-pattern=\"RELATIVE_PATH_PATTERN\" required osc-unique=\"itemPaths\" placeholder=\"{{'example: config/app.properties'|translate}}\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\">\n" +
     "<div class=\"has-error\" ng-show=\"forms.addConfigVolumeForm['path-' + $id].$error.pattern\">\n" +
     "<span class=\"help-block\" translate>\n" +
     "Path must be a relative path. It cannot start with <code>/</code> or contain <code>..</code> path elements.\n" +
@@ -995,8 +995,8 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div ng-show=\"!pvcs || !attach.resource\" translate>Loading...</div>\n" +
     "<div ng-show=\"pvcs && !pvcs.length && attach.resource\" class=\"empty-state-message empty-state-full-page\">\n" +
     "<h2 class=\"text-center\" translate>No persistent volume claims.</h2>\n" +
-    "<p class=\"gutter-top\" translate>\n" +
-    "A <b>persistent volume claim</b> is required to attach to this {{kind | humanizeKind}}, but none are loaded on this project.\n" +
+    "<p class=\"gutter-top\">\n" +
+    "<translate>A <b>persistent volume claim</b> is required to attach to this</translate> {{kind | humanizeKind | translate}}, <translate>but none are loaded on this project.</translate>\n" +
     "</p>\n" +
     "<div ng-if=\"project && ('persistentvolumeclaims' | canI : 'create')\" class=\"text-center\">\n" +
     "<a ng-href=\"project/{{project.metadata.name}}/create-pvc\" class=\"btn btn-primary\" translate>Create Storage</a>\n" +
@@ -1004,7 +1004,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<p ng-if=\"project && !('persistentvolumeclaims' | canI : 'create')\" translate>\n" +
     "To claim storage from a persistent volume, refer to the documentation on <a target=\"_blank\" ng-href=\"{{'persistent_volumes' | helpLink}}\">using persistent volumes</a>.\n" +
     "</p>\n" +
-    "<p ng-if=\"attach.resource\"><a ng-href=\"{{attach.resource | navigateResourceURL}}\" translate>Back to {{kind | humanizeKind}} {{name}}</a></p>\n" +
+    "<p ng-if=\"attach.resource\"><a ng-href=\"{{attach.resource | navigateResourceURL}}\"><translate>Back to</translate> {{kind | humanizeKind | translate}} {{name}}</a></p>\n" +
     "</div>\n" +
     "<div ng-show=\"pvcs && pvcs.length && attach.resource\" class=\"mar-top-xl\">\n" +
     "<h1 translate>Add Storage</h1>\n" +
@@ -1048,7 +1048,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "<div class=\"form-group mar-top-xl\">\n" +
     "<label for=\"mount-path\" translate>Mount Path</label>\n" +
-    "<input id=\"mount-path\" class=\"form-control\" type=\"text\" name=\"mountPath\" ng-model=\"attach.mountPath\" ng-pattern=\"/^\\/.*$/\" osc-unique=\"existingMountPaths\" placeholder=\"example: /data\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\" aria-describedby=\"mount-path-help\">\n" +
+    "<input id=\"mount-path\" class=\"form-control\" type=\"text\" name=\"mountPath\" ng-model=\"attach.mountPath\" ng-pattern=\"/^\\/.*$/\" osc-unique=\"existingMountPaths\" placeholder=\"{{'example: /data'|translate}}\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\" aria-describedby=\"mount-path-help\">\n" +
     "<div>\n" +
     "<span id=\"mount-path-help\" class=\"help-block\" translate>Mount path for the volume inside the container. If not specified, the volume will not be mounted automatically.</span>\n" +
     "</div>\n" +
@@ -1065,7 +1065,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "<div class=\"form-group\">\n" +
     "<label for=\"sub-path\" translate>Subpath</label>\n" +
-    "<input id=\"sub-path\" class=\"form-control\" type=\"text\" name=\"subPath\" ng-model=\"attach.subPath\" placeholder=\"example: application/resources\" ng-pattern=\"RELATIVE_PATH_PATTERN\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\" aria-describedby=\"sub-path-help\">\n" +
+    "<input id=\"sub-path\" class=\"form-control\" type=\"text\" name=\"subPath\" ng-model=\"attach.subPath\" placeholder=\"{{'example: application/resources'|translate}}\" ng-pattern=\"RELATIVE_PATH_PATTERN\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\" aria-describedby=\"sub-path-help\">\n" +
     "<div id=\"sub-path-help\" class=\"help-block\" translate>\n" +
     "Optional path within the volume from which it will be mounted into the container. Defaults to the volume's root.\n" +
     "</div>\n" +
@@ -1103,7 +1103,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"checkbox\">\n" +
     "<label>\n" +
     "<input type=\"checkbox\" ng-model=\"attach.readOnly\" aria-describedby=\"read-only-help\" translate>\n" +
-    "Read only\n" +
+    "<translate>Read only</translate>\n" +
     "</label>\n" +
     "<div id=\"read-only-help\" class=\"help-block\" translate>\n" +
     "Mount the volume as read-only.\n" +
@@ -1145,9 +1145,9 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"resource-details\">\n" +
     "<div class=\"row\">\n" +
     "<div class=\"col-sm-12\">\n" +
-    "<h3>Status</h3>\n" +
+    "<h3 translate>Status</h3>\n" +
     "<dl class=\"dl-horizontal left\">\n" +
-    "<dt>Status:</dt>\n" +
+    "<dt translate>Status:</dt>\n" +
     "<dd>\n" +
     "<status-icon status=\"build.status.phase\"></status-icon>\n" +
     "<span ng-if=\"!build.status.message || build.status.phase === 'Cancelled'\">{{build.status.phase}}</span>\n" +
@@ -1157,7 +1157,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<a ng-href=\"{{build | jenkinsLogURL}}\" target=\"_blank\" translate>View Log</a>\n" +
     "</span>\n" +
     "</dd>\n" +
-    "<dt>Started:</dt>\n" +
+    "<dt translate>Started:</dt>\n" +
     "<dd>\n" +
     "<span ng-if=\"build.status.startTimestamp\">\n" +
     "<span am-time-ago=\"build.status.startTimestamp\"></span>\n" +
@@ -1170,9 +1170,9 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<span ng-switch=\"build.status.phase\" class=\"hide-ng-leave\">\n" +
     "<span ng-switch-when=\"Complete\">{{(build.status.startTimestamp || build.metadata.creationTimestamp) | duration : build.status.completionTimestamp}}</span>\n" +
     "<span ng-switch-when=\"Failed\">{{build.status.startTimestamp | duration : build.status.completionTimestamp}}</span>\n" +
-    "<span ng-switch-when=\"Running\">running for <duration-until-now timestamp=\"build.status.startTimestamp\"></duration-until-now></span>\n" +
-    "<span ng-switch-when=\"New\">waiting for <duration-until-now timestamp=\"build.metadata.creationTimestamp\"></duration-until-now></span>\n" +
-    "<span ng-switch-when=\"Pending\">waiting for <duration-until-now timestamp=\"build.metadata.creationTimestamp\"></duration-until-now></span>\n" +
+    "<span ng-switch-when=\"Running\"><translate>running for</translate> <duration-until-now timestamp=\"build.status.startTimestamp\"></duration-until-now></span>\n" +
+    "<span ng-switch-when=\"New\"><translate>waiting for</translate> <duration-until-now timestamp=\"build.metadata.creationTimestamp\"></duration-until-now></span>\n" +
+    "<span ng-switch-when=\"Pending\"><translate>waiting for</translate> <duration-until-now timestamp=\"build.metadata.creationTimestamp\"></duration-until-now></span>\n" +
     "<span ng-switch-default>\n" +
     "<span ng-if=\"build.status.startTimestamp\">{{build.status.startTimestamp | duration : build.status.completionTimestamp}}</span>\n" +
     "<span ng-if=\"!build.status.startTimestamp\">waited for {{build.metadata.creationTimestamp | duration : build.status.completionTimestamp}}</span>\n" +
@@ -1200,7 +1200,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</dd>\n" +
     "</div>\n" +
     "</dl>\n" +
-    "<h3>Configuration <span class=\"small\" ng-if=\"buildConfigName\" translate>created from <a href=\"{{build | configURLForResource}}\">{{buildConfigName}}</a></span></h3>\n" +
+    "<h3><translate>Configuration</translate> <span class=\"small\" ng-if=\"buildConfigName\" translate>created from <a href=\"{{build | configURLForResource}}\">{{buildConfigName}}</a></span></h3>\n" +
     "<dl class=\"dl-horizontal left\">\n" +
     "<dt translate>Build Strategy:</dt>\n" +
     "<dd>{{build.spec.strategy.type | startCase}}</dd>\n" +
@@ -1208,7 +1208,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<dd ng-if-end class=\"truncate\">{{(build | buildStrategy).from | imageObjectRef : build.metadata.namespace}}<span ng-if=\"!(build | buildStrategy).from\"><em translate>none</em></span></dd>\n" +
     "<dt translate>Source Type:</dt>\n" +
     "<dd>{{build.spec.source.type}}</dd>\n" +
-    "<dt ng-if-start=\"build.spec.source.git.uri\">Source Repo:</dt>\n" +
+    "<dt ng-if-start=\"build.spec.source.git.uri\" translate>Source Repo:</dt>\n" +
     "<dd ng-if-end><span class=\"word-break\"><osc-git-link uri=\"build.spec.source.git.uri\" ref=\"build.spec.source.git.ref\" context-dir=\"build.spec.source.contextDir\">{{build.spec.source.git.uri}}</osc-git-link></span></dd>\n" +
     "<dt ng-if-start=\"build.spec.source.git.ref\" translate>Source Ref:</dt>\n" +
     "<dd ng-if-end>{{build.spec.source.git.ref}}</dd>\n" +
@@ -1307,7 +1307,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<a ng-href=\"{{rcName | navigateResourceURL : 'ReplicationController' : pod.metadata.namespace}}\"><span ng-if=\"deploymentVersion\">#{{deploymentVersion}}</span><span ng-if=\"!deploymentVersion\">{{rcName}}</span></a></span>\n" +
     "</dd>\n" +
     "<dt ng-if-start=\"!dcName && controllerRef\">\n" +
-    "{{controllerRef.kind | humanizeKind : true}}:\n" +
+    "{{controllerRef.kind | humanizeKind : true | translate}}:\n" +
     "</dt>\n" +
     "<dd ng-if-end>\n" +
     "<a ng-href=\"{{controllerRef.name | navigateResourceURL : controllerRef.kind : pod.metadata.namespace}}\">{{controllerRef.name}}</a>\n" +
@@ -1479,10 +1479,10 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"row\">\n" +
     "<div class=\"col-lg-6\">\n" +
     "<div class=\"deployment-detail\">\n" +
-    "<h3>Template</h3>\n" +
+    "<h3 translate>Template</h3>\n" +
     "<pod-template pod-template=\"replicaSet.spec.template\" images-by-docker-reference=\"imagesByDockerReference\" builds=\"builds\" detailed=\"true\" add-health-check-url=\"{{((!deploymentConfig || isActive) && ('deploymentconfigs' | canI : 'update')) ? healthCheckURL : ''}}\">\n" +
     "</pod-template>\n" +
-    "<h4>Volumes</h4>\n" +
+    "<h4 translate>Volumes</h4>\n" +
     "<div ng-if=\"kind === 'ReplicaSet'\">\n" +
     "<div ng-if=\"deployment\">\n" +
     "<volumes volumes=\"replicaSet.spec.template.spec.volumes\" namespace=\"project.metadata.name\"></volumes>\n" +
@@ -1962,7 +1962,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "</div>\n" +
     "<div class=\"col-lg-6\">\n" +
-    "<h3><translate>Triggers</translate> <a href=\"{{'build-triggers' | helpLink}}\" target=\"_blank\"><span class=\"learn-more-inline\">Learn More&nbsp;<i class=\"fa fa-external-link\" aria-hidden=\"true\"></i></span></a></h3>\n" +
+    "<h3 translate>Triggers</h3>\n" +
     "<dl class=\"dl-horizontal left build-triggers\">\n" +
     "<div ng-repeat=\"trigger in buildConfig.spec.triggers | orderBy : 'type' : false : compareTriggers\">\n" +
     "<div ng-switch=\"trigger.type\">\n" +
@@ -2040,8 +2040,8 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<ng-form name=\"forms.bcEnvVars\" class=\"mar-bottom-xl block\">\n" +
     "<div ng-if=\"'buildconfigs' | canI : 'update'\">\n" +
     "<confirm-on-exit dirty=\"forms.bcEnvVars.$dirty\"></confirm-on-exit>\n" +
-    "<key-value-editor entries=\"envVars\" key-placeholder=\"{{'Name'|translate}}\" value-placeholder=\"{{'Value'|translate}}\" key-validator=\"[A-Za-z_][A-Za-z0-9_]*\" key-validator-error=\"Please enter a valid key\" key-validator-error-tooltip=\"A valid environment variable name is an alphanumeric (a-z and 0-9) string beginning with a letter that may contain underscores.\" add-row-link=\"Add Environment Variable\" show-header></key-value-editor>\n" +
-    "<button class=\"btn btn-default\" ng-click=\"saveEnvVars()\" ng-disabled=\"forms.bcEnvVars.$pristine || forms.bcEnvVars.$invalid\">Save</button>\n" +
+    "<key-value-editor entries=\"envVars\" key-placeholder=\"{{'Name'|translate}}\" value-placeholder=\"{{'Value'|translate}}\" key-validator=\"[A-Za-z_][A-Za-z0-9_]*\" key-validator-error=\"{{'Please enter a valid key'|translate}}\" key-validator-error-tooltip=\"{{'A valid environment variable name is an alphanumeric (a-z and 0-9) string beginning with a letter that may contain underscores.'|translate}}\" add-row-link=\"{{'Add Environment Variable'|translate}}\" show-header></key-value-editor>\n" +
+    "<button class=\"btn btn-default\" ng-click=\"saveEnvVars()\" ng-disabled=\"forms.bcEnvVars.$pristine || forms.bcEnvVars.$invalid\" translate>Save</button>\n" +
     "<a ng-if=\"!forms.bcEnvVars.$pristine\" href=\"\" ng-click=\"clearEnvVarUpdates()\" class=\"mar-left-sm\" style=\"vertical-align: -2px\" translate>Clear Changes</a>\n" +
     "</div>\n" +
     "<key-value-editor ng-if=\"!('buildconfigs' | canI : 'update')\" entries=\"envVars\" key-placeholder=\"{{'Name'|translate}}\" value-placeholder=\"{{'Value'|translate}}\" is-readonly cannot-add cannot-sort cannot-delete show-header></key-value-editor>\n" +
@@ -2073,7 +2073,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<h1 class=\"contains-actions\">\n" +
     "<div class=\"pull-right dropdown\" ng-hide=\"!('builds' | canIDoAny)\">\n" +
     "\n" +
-    "<button class=\"btn btn-default hidden-xs\" ng-click=\"cancelBuild()\" ng-if=\"!build.metadata.deletionTimestamp && (build | isIncompleteBuild) && ('builds' | canI : 'update')\">Cancel Build</button>\n" +
+    "<button class=\"btn btn-default hidden-xs\" ng-click=\"cancelBuild()\" ng-if=\"!build.metadata.deletionTimestamp && (build | isIncompleteBuild) && ('builds' | canI : 'update')\" translate>Cancel Build</button>\n" +
     "<button class=\"btn btn-default hidden-xs\" ng-click=\"cloneBuild()\" ng-hide=\"build.metadata.deletionTimestamp || (build | isIncompleteBuild) || !('builds/clone' | canI : 'create') || (build | isBinaryBuild)\" ng-disabled=\"!canBuild\" translate>Rebuild</button>\n" +
     "\n" +
     "<button type=\"button\" class=\"dropdown-toggle btn btn-default actions-dropdown-btn hidden-xs\" data-toggle=\"dropdown\">\n" +
@@ -2129,7 +2129,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<ng-include src=\" 'views/browse/_build-details.html' \"></ng-include>\n" +
     "</uib-tab>\n" +
     "<uib-tab heading=\"Environment\" active=\"selectedTab.environment\" ng-if=\"!(build | isJenkinsPipelineStrategy)\">\n" +
-    "<uib-tab-heading>Environment</uib-tab-heading>\n" +
+    "<uib-tab-heading translate>Environment</uib-tab-heading>\n" +
     "<h3 translate>Environment Variables</h3>\n" +
     "<p ng-if=\"'buildconfigs' | canI : 'update'\">\n" +
     "<span class=\"pficon pficon-info\" aria-hidden=\"true\"></span>\n" +
@@ -2299,7 +2299,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<span am-time-ago=\"configMap.metadata.creationTimestamp\"></span>\n" +
     "</td>\n" +
     "<td data-title=\"Labels\">\n" +
-    "<em ng-if=\"(configMap.metadata.labels | hashSize) === 0\">none</em>\n" +
+    "<em ng-if=\"(configMap.metadata.labels | hashSize) === 0\" translate>none</em>\n" +
     "<labels labels=\"configMap.metadata.labels\" clickable=\"true\" kind=\"Config Map\" project-name=\"{{configMap.metadata.namespace}}\" limit=\"3\" filter-current-page=\"true\"></labels>\n" +
     "</td>\n" +
     "</tr>\n" +
@@ -2470,7 +2470,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</span>\n" +
     "</span>\n" +
     "<span ng-switch-when=\"ConfigChange\" translate>Config change</span>\n" +
-    "<span ng-switch-default>{{cause.type}}</span>\n" +
+    "<span ng-switch-default>{{cause.type|translate}}</span>\n" +
     "</span>\n" +
     "</span>\n" +
     "</span>\n" +
@@ -2497,7 +2497,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<span ng-if=\"autoscalers.length\" translate>(autoscaled)</span>\n" +
     "</dd>\n" +
     "<dt ng-if-start=\"deploymentConfig.spec.strategy.type\" translate>Strategy:</dt>\n" +
-    "<dd ng-if-end>{{deploymentConfig.spec.strategy.type}}</dd>\n" +
+    "<dd ng-if-end>{{deploymentConfig.spec.strategy.type|translate}}</dd>\n" +
     "<div ng-if=\"deploymentConfig.spec.strategy.rollingParams || deploymentConfig.spec.strategy.recreateParams\">\n" +
     "<dt translate>Timeout:</dt>\n" +
     "<dd translate>{{strategyParams.timeoutSeconds}} sec</dd>\n" +
@@ -2551,9 +2551,6 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"col-lg-6\" ng-if=\"deploymentConfig.spec.strategy.type !== 'Custom'\">\n" +
     "<h3>\n" +
     "<translate>Hooks</translate>\n" +
-    "<span class=\"learn-more-inline\">\n" +
-    "<a ng-href=\"{{'lifecycle_hooks' | helpLink}}\" target=\"_blank\">Learn More&nbsp;<i class=\"fa fa-external-link\" aria-hidden=\"true\"></i></a>\n" +
-    "</span>\n" +
     "</h3>\n" +
     "<div ng-if=\"strategyParams.pre\">\n" +
     "<lifecycle-hook deployment-config=\"deploymentConfig\" type=\"pre\"></lifecycle-hook>\n" +
@@ -2572,9 +2569,6 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<h3 translate>Triggers</h3>\n" +
     "<dl class=\"dl-horizontal left\">\n" +
     "<dt><translate>Manual (CLI):</translate>\n" +
-    "<a href=\"{{'deployment-operations' | helpLink}}\" target=\"_blank\">\n" +
-    "<span class=\"learn-more-block\"><translate>Learn More</translate>&nbsp;<i class=\"fa fa-external-link\" aria-hidden=\"true\"></i></span>\n" +
-    "</a>\n" +
     "</dt>\n" +
     "<dd>\n" +
     "<copy-to-clipboard clipboard-text=\"'oc rollout latest dc/' + deploymentConfig.metadata.name + ' -n ' + project.metadata.name\"></copy-to-clipboard>\n" +
@@ -3015,7 +3009,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</span>\n" +
     "<span ng-if=\"!pvc.spec.resources.requests['storage']\" translate>waiting for allocation,</span>\n" +
     "</small>\n" +
-    "<small class=\"meta\">created <span am-time-ago=\"pvc.metadata.creationTimestamp\"></span></small>\n" +
+    "<small class=\"meta\"><translate>created</translate> <span am-time-ago=\"pvc.metadata.creationTimestamp\"></span></small>\n" +
     "</h1>\n" +
     "<labels labels=\"pvc.metadata.labels\" clickable=\"true\" kind=\"storage\" project-name=\"{{pvc.metadata.namespace}}\" limit=\"3\"></labels>\n" +
     "</div>\n" +
@@ -3129,7 +3123,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<em ng-if=\"!container.env.length\" translate>The container specification has no environment variables set.</em>\n" +
     "</div>\n" +
     "</uib-tab>\n" +
-    "<uib-tab ng-if=\"metricsAvailable\" heading=\"Metrics\" active=\"selectedTab.metrics\">\n" +
+    "<uib-tab ng-if=\"metricsAvailable\" heading=\"{{'Metrics'|translate}}\" active=\"selectedTab.metrics\">\n" +
     "\n" +
     "<pod-metrics ng-if=\"selectedTab.metrics\" pod=\"pod\" alerts=\"alerts\">\n" +
     "</pod-metrics>\n" +
@@ -3425,12 +3419,12 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<dl class=\"dl-horizontal left\">\n" +
     "<dt ng-if-start=\"route.spec.wildcardPolicy && route.spec.wildcardPolicy !== 'None' && route.spec.wildcardPolicy !== 'Subdomain'\" translate>Wildcard Policy:</dt>\n" +
     "<dd ng-if-end>{{route.spec.wildcardPolicy}}</dd>\n" +
-    "<dt>Path:</dt>\n" +
+    "<dt translate>Path:</dt>\n" +
     "<dd>\n" +
     "<span ng-if=\"route.spec.path\">{{route.spec.path}}</span>\n" +
-    "<span ng-if=\"!route.spec.path\"><em>none</em></span>\n" +
+    "<span ng-if=\"!route.spec.path\"><em translate>none</em></span>\n" +
     "</dd>\n" +
-    "<dt>{{route.spec.to.kind || \"Routes To\"}}:</dt>\n" +
+    "<dt>{{(route.spec.to.kind|translate) || (\"Routes To\"|translate)}}:</dt>\n" +
     "<dd>\n" +
     "<a ng-href=\"{{route.spec.to.name | navigateResourceURL : route.spec.to.kind : route.metadata.namespace}}\">{{route.spec.to.name}}</a>\n" +
     "</dd>\n" +
@@ -3439,7 +3433,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<span ng-if=\"route.spec.port.targetPort\">\n" +
     "{{route.spec.port.targetPort}}\n" +
     "</span>\n" +
-    "<span ng-if=\"!route.spec.port.targetPort\"><em>any</em></span>\n" +
+    "<span ng-if=\"!route.spec.port.targetPort\"><em translate>any</em></span>\n" +
     "</dd>\n" +
     "<div ng-if=\"route.spec.port.targetPort && route.spec.to.kind === 'Service' && (route | routeTargetPortMapping : services[route.spec.to.name])\" class=\"help-block\" translate>\n" +
     "This target port will route to {{route | routeTargetPortMapping : services[route.spec.to.name]}}.\n" +
@@ -4508,7 +4502,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"col-md-10 col-md-offset-1\">\n" +
     "<breadcrumbs breadcrumbs=\"breadcrumbs\"></breadcrumbs>\n" +
     "<div class=\"mar-top-xl\">\n" +
-    "<h1>Create Config Map</h1>\n" +
+    "<h1 translate>Create Config Map</h1>\n" +
     "<div class=\"help-block\" translate>\n" +
     "Config maps hold key-value pairs that can be used in pods to read application configuration.\n" +
     "</div>\n" +
@@ -4635,13 +4629,12 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<h1 translate>Create Storage</h1>\n" +
     "<div class=\"help-block\">\n" +
     "<translate>Create a request for an administrator-defined storage asset by specifying size and permissions for a best fit.</translate>\n" +
-    "<a href=\"{{'persistent_volumes' | helpLink}}\" target=\"_blank\"><span class=\"learn-more-inline\" translate>Learn More&nbsp;<i class=\"fa fa-external-link\" aria-hidden=\"true\"></i></span></a>\n" +
     "</div>\n" +
     "<form name=\"createPersistentVolumeClaimForm\" class=\"mar-top-lg\">\n" +
     "<fieldset ng-disabled=\"disableInputs\">\n" +
     "<osc-persistent-volume-claim model=\"claim\" project-name=\"projectName\"></osc-persistent-volume-claim>\n" +
     "<div class=\"button-group gutter-bottom\">\n" +
-    "<button type=\"submit\" class=\"btn btn-primary btn-lg\" ng-click=\"createPersistentVolumeClaim()\" ng-disabled=\"createPersistentVolumeClaimForm.$invalid || disableInputs\" value=\"\">Create</button>\n" +
+    "<button type=\"submit\" class=\"btn btn-primary btn-lg\" ng-click=\"createPersistentVolumeClaim()\" ng-disabled=\"createPersistentVolumeClaimForm.$invalid || disableInputs\" value=\"\" translate>Create</button>\n" +
     "<a class=\"btn btn-default btn-lg\" href=\"\" ng-click=\"cancel()\" role=\"button\" translate>Cancel</a>\n" +
     "</div>\n" +
     "</fieldset>\n" +
@@ -5056,9 +5049,6 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"help-block\" id=\"scale-type-help\" translate>\n" +
     "Scale replicas manually or automatically based on CPU usage.\n" +
     "</div>\n" +
-    "<div class=\"learn-more-block\">\n" +
-    "<a href=\"{{'pod_autoscaling' | helpLink}}\" target=\"_blank\"><translate>Learn More</translate>&nbsp;<i class=\"fa fa-external-link\" aria-hidden=\"true\"></i></a>\n" +
-    "</div>\n" +
     "<div class=\"has-warning\" ng-if=\"metricsWarning && scaling.autoscale\">\n" +
     "<span class=\"help-block\" translate>\n" +
     "CPU metrics might not be available. In order to use horizontal pod autoscalers, your cluster administrator must have properly configured cluster metrics.\n" +
@@ -5243,7 +5233,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<status-icon status=\"replicationController | deploymentStatus\" disable-animation></status-icon>\n" +
     "<span flex>\n" +
     "{{replicationController | deploymentStatus}}<span ng-if=\"(replicationController | deploymentStatus) == 'Active' || (replicationController | deploymentStatus) == 'Running'\">,\n" +
-    "<span ng-if=\"replicationController.spec.replicas !== replicationController.status.replicas\">{{replicationController.status.replicas}}/</span>{{replicationController.spec.replicas}} replica<span ng-if=\"replicationController.spec.replicas != 1\">s</span></span>\n" +
+    "<span ng-if=\"replicationController.spec.replicas !== replicationController.status.replicas\">{{replicationController.status.replicas}}/</span>{{replicationController.spec.replicas}} <translate>replica<span ng-if=\"replicationController.spec.replicas != 1\">s</span></translate></span>\n" +
     "</span>\n" +
     "</div>\n" +
     "\n" +
@@ -5396,7 +5386,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"build-pipeline-collapsed animate-show animate-hide animate-slide\" ng-show=\"!hideBuild\">\n" +
     "<div class=\"build-summary\" ng-class=\"{'dismissible' : !(build | isIncompleteBuild)}\">\n" +
     "<div class=\"build-name\">\n" +
-    "Pipeline\n" +
+    "<translate>Pipeline</translate>\n" +
     "<a ng-href=\"{{build | configURLForResource}}\">{{buildConfigName}}</a>,\n" +
     "<a ng-href=\"{{build | navigateResourceURL}}\">#{{build | annotation : 'buildNumber'}}</a>\n" +
     "</div>\n" +
@@ -5500,7 +5490,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
 
   $templateCache.put('views/directives/_edit-command.html',
     "<ng-form name=\"form\">\n" +
-    "<p ng-hide=\"input.args.length\"><em>No {{type || 'command'}} set.</em></p>\n" +
+    "<p ng-hide=\"input.args.length\"><em translate>No {{type || 'command'}} set.</em></p>\n" +
     "<p ng-show=\"input.args.length\" as-sortable ng-model=\"input.args\" class=\"command-args\">\n" +
     "<span ng-repeat=\"arg in input.args\" as-sortable-item class=\"form-group\">\n" +
     "<span class=\"input-group\">\n" +
@@ -5566,7 +5556,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
   $templateCache.put('views/directives/_edit-probe.html',
     "<ng-form name=\"form\">\n" +
     "<div class=\"form-group\">\n" +
-    "<label class=\"required\">Type</label>\n" +
+    "<label class=\"required\" translate>Type</label>\n" +
     "<ui-select ng-model=\"selected.type\" required search-enabled=\"false\">\n" +
     "<ui-select-match>{{$select.selected.label}}</ui-select-match>\n" +
     "<ui-select-choices repeat=\"item.id as item in types\">{{item.label}}</ui-select-choices>\n" +
@@ -5582,13 +5572,13 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "</div>\n" +
     "<div class=\"form-group\">\n" +
-    "<label ng-attr-for=\"{{id}}-path\">Path</label>\n" +
+    "<label ng-attr-for=\"{{id}}-path\" translate>Path</label>\n" +
     "<div>\n" +
     "<input ng-attr-id=\"{{id}}-path\" ng-model=\"probe.httpGet.path\" type=\"text\" placeholder=\"/\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\" class=\"form-control\">\n" +
     "</div>\n" +
     "</div>\n" +
     "<div class=\"form-group\">\n" +
-    "<label class=\"required\">Port</label>\n" +
+    "<label class=\"required\" translate>Port</label>\n" +
     "<ui-select ng-model=\"probe.httpGet.port\" required>\n" +
     "<ui-select-match>{{$select.selected.containerPort}}</ui-select-match>\n" +
     "<ui-select-choices repeat=\"port.containerPort as port in portOptions\" refresh=\"refreshPorts($select.search, $select.selected)\" refresh-delay=\"200\">{{port.containerPort}}</ui-select-choices>\n" +
@@ -5601,7 +5591,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</fieldset>\n" +
     "<fieldset ng-if=\"selected.type === 'tcpSocket'\">\n" +
     "<div class=\"form-group\">\n" +
-    "<label class=\"required\">Port</label>\n" +
+    "<label class=\"required\" translate>Port</label>\n" +
     "<ui-select ng-model=\"probe.tcpSocket.port\" required>\n" +
     "<ui-select-match>{{$select.selected.containerPort}}</ui-select-match>\n" +
     "<ui-select-choices repeat=\"port.containerPort as port in portOptions\" refresh=\"refreshPorts($select.search, $select.selected)\" refresh-delay=\"200\">{{port.containerPort}}</ui-select-choices>\n" +
@@ -5630,7 +5620,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "</div>\n" +
     "<div class=\"form-group\">\n" +
-    "<label ng-attr-for=\"{{id}}-timeout\">Timeout</label>\n" +
+    "<label ng-attr-for=\"{{id}}-timeout\" translate>Timeout</label>\n" +
     "<span class=\"input-group\" ng-class=\"{ 'has-error': form.timeoutSeconds.$invalid && form.timeoutSeconds.$touched }\">\n" +
     "<input type=\"number\" name=\"timeoutSeconds\" ng-model=\"probe.timeoutSeconds\" ng-pattern=\"/^\\d+$/\" min=\"1\" placeholder=\"1\" select-on-focus ng-attr-id=\"{{id}}-timeout\" class=\"form-control\" ng-attr-aria-describedby=\"{{id}}-timeout-description\">\n" +
     "<span class=\"input-group-addon\" translate>seconds</span>\n" +
@@ -5972,7 +5962,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "<div class=\"has-error\" ng-show=\"secretForm.secretName.$invalid\">\n" +
     "<div ng-show=\"secretForm.secretName.$error.pattern && secretForm.secretName.$touched\" class=\"help-block\">\n" +
-    "{{nameValidation.description}}\n" +
+    "{{nameValidation.description|translate}}\n" +
     "</div>\n" +
     "<div ng-show=\"secretForm.secretName.$error.required && secretForm.secretName.$touched\" class=\"help-block\" translate>\n" +
     "Name is required.\n" +
@@ -6019,8 +6009,8 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"form-group\">\n" +
     "<div class=\"checkbox\">\n" +
     "<label>\n" +
-    "<input type=\"checkbox\" ng-model=\"add.cacert\" translate>\n" +
-    "Use a custom ca.crt file\n" +
+    "<input type=\"checkbox\" ng-model=\"add.cacert\">\n" +
+    "<translate>Use a custom ca.crt file</translate>\n" +
     "</label>\n" +
     "</div>\n" +
     "</div>\n" +
@@ -6057,8 +6047,8 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"form-group\">\n" +
     "<div class=\"checkbox\">\n" +
     "<label>\n" +
-    "<input type=\"checkbox\" ng-model=\"add.gitconfig\" translate>\n" +
-    "Use a custom .gitconfig file\n" +
+    "<input type=\"checkbox\" ng-model=\"add.gitconfig\">\n" +
+    "<translate>Use a custom .gitconfig file</translate>\n" +
     "</label>\n" +
     "</div>\n" +
     "</div>\n" +
@@ -6153,7 +6143,6 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<label>\n" +
     "<input type=\"checkbox\" ng-model=\"newSecret.linkSecret\">\n" +
     "<translate>Link secret to a service account.</translate>\n" +
-    "<a href=\"{{'managing_secrets' | helpLink}}\" target=\"_blank\"><span class=\"learn-more-inline\"><translate>Learn More</translate>&nbsp;<i class=\"fa fa-external-link\" aria-hidden=\"true\"></i></span></a>\n" +
     "</label>\n" +
     "</div>\n" +
     "</div>\n" +
@@ -6245,8 +6234,8 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</fieldset>\n" +
     "<div class=\"radio\">\n" +
     "<label>\n" +
-    "<input type=\"radio\" ng-model=\"mode\" value=\"dockerImage\" translate>\n" +
-    "Image Name\n" +
+    "<input type=\"radio\" ng-model=\"mode\" value=\"dockerImage\">\n" +
+    "<translate>Image Name</translate>\n" +
     "</label>\n" +
     "</div>\n" +
     "<div class=\"form-group\">\n" +
@@ -6314,7 +6303,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"col-sm-12\">\n" +
     "<form name=\"form\" class=\"osc-form\">\n" +
     "<div class=\"form-group\">\n" +
-    "<label for=\"name\" class=\"required\">Name</label>\n" +
+    "<label for=\"name\" class=\"required\" translate>Name</label>\n" +
     "<div ng-class=\"{'has-error': form.name.$invalid || nameTaken}\">\n" +
     "<input type=\"text\" required select-on-focus minlength=\"2\" maxlength=\"24\" pattern=\"[a-z]([-a-z0-9]*[a-z0-9])?\" ng-model=\"app.name\" id=\"name\" name=\"name\" class=\"form-control\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\">\n" +
     "</div>\n" +
@@ -6460,7 +6449,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "</div>\n" +
     "</div>\n" +
-    "<ellipsis-pulser color=\"dark\" size=\"sm\" msg=\"Loading metrics\" ng-if=\"!loaded\"></ellipsis-pulser>\n" +
+    "<ellipsis-pulser color=\"dark\" size=\"sm\" msg=\"{{'Loading metrics'|translate}}\" ng-if=\"!loaded\"></ellipsis-pulser>\n" +
     "<div ng-if=\"loaded && noData && !metricsError\" class=\"mar-top-md\" translate>\n" +
     "No metrics to display.\n" +
     "</div>\n" +
@@ -6505,7 +6494,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "<div class=\"has-error\" ng-show=\"configMapForm.name.$error.pattern && configMapForm.name.$touched\">\n" +
     "<span class=\"help-block\">\n" +
-    "{{nameValidation.description}}\n" +
+    "{{nameValidation.description|translate}}\n" +
     "</span>\n" +
     "</div>\n" +
     "<div class=\"has-error\" ng-show=\"configMapForm.name.$error.required && configMapForm.name.$touched\">\n" +
@@ -6601,7 +6590,6 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div id=\"action-help\" class=\"help-block\">\n" +
     "<span ng-if=\"action.type === 'execNewPod'\" translate>Runs a command in a new pod using the container from the deployment template. You can add additional environment variables and volumes.</span>\n" +
     "<span ng-if=\"action.type === 'tagImages'\" translate>Tags the current image as an image stream tag if the deployment succeeds.</span>\n" +
-    "<a href=\"{{'new_pod_exec' | helpLink}}\" aria-hidden=\"true\" target=\"_blank\"><span class=\"learn-more-inline\"><translate>Learn More</translate>&nbsp;<i class=\"fa fa-external-link\"></i></span></a>\n" +
     "</div>\n" +
     "</div>\n" +
     "<div ng-if=\"action.type === 'execNewPod'\">\n" +
@@ -6971,7 +6959,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"col-sm-12 pod-bottom-xl\">\n" +
     "<form name=\"form\">\n" +
     "<div class=\"form-group\" id=\"from-file\">\n" +
-    "<osc-file-input model=\"editorContent\" drop-zone-id=\"from-file\" help-text=\"Upload file by dragging & dropping, selecting it, or pasting from the clipboard.\" ng-disabled=\"false\"></osc-file-input>\n" +
+    "<osc-file-input model=\"editorContent\" drop-zone-id=\"from-file\" help-text=\"{{'Upload file by dragging & dropping, selecting it, or pasting from the clipboard.'|translate}}\" ng-disabled=\"false\"></osc-file-input>\n" +
     "<div ui-ace=\"{\n" +
     "          mode: 'yaml',\n" +
     "          theme: 'eclipse',\n" +
@@ -7120,9 +7108,9 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "{{hpa.metadata.name}}\n" +
     "\n" +
     "<span ng-if=\"'horizontalPodAutoscalers' | canIDoAny\" class=\"header-actions\">\n" +
-    "<a ng-if=\"{resource: 'horizontalpodautoscalers', group: 'autoscaling'} | canI : 'update'\" ng-href=\"project/{{hpa.metadata.namespace}}/edit/autoscaler?kind=HorizontalPodAutoscaler&group=autoscaling&name={{hpa.metadata.name}}\" role=\"button\">Edit</a>\n" +
+    "<a ng-if=\"{resource: 'horizontalpodautoscalers', group: 'autoscaling'} | canI : 'update'\" ng-href=\"project/{{hpa.metadata.namespace}}/edit/autoscaler?kind=HorizontalPodAutoscaler&group=autoscaling&name={{hpa.metadata.name}}\" role=\"button\" translate>Edit</a>\n" +
     "<span class=\"action-divider\">|</span>\n" +
-    "<delete-link ng-if=\"{resource: 'horizontalpodautoscalers', group: 'autoscaling'} | canI : 'delete'\" kind=\"HorizontalPodAutoscaler\" group=\"autoscaling\" resource-name=\"{{hpa.metadata.name}}\" project-name=\"{{hpa.metadata.namespace}}\" label=\"Remove\" alerts=\"alerts\" stay-on-current-page=\"true\" translate>Delete\n" +
+    "<delete-link ng-if=\"{resource: 'horizontalpodautoscalers', group: 'autoscaling'} | canI : 'delete'\" kind=\"HorizontalPodAutoscaler\" group=\"autoscaling\" resource-name=\"{{hpa.metadata.name|translate}}\" project-name=\"{{hpa.metadata.namespace}}\" label=\"Remove\" alerts=\"alerts\" stay-on-current-page=\"true\" translate>Delete\n" +
     "</delete-link>\n" +
     "</span>\n" +
     "</h4>\n" +
@@ -7327,9 +7315,9 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
 
 
   $templateCache.put('views/directives/label-editor.html',
-    "<osc-form-section header=\"Labels\" about-title=\"Labels\" about=\"{{'Labels are used to organize, group, or select objects and resources, such as pods.'|translate}}\" expand=\"expand\" can-toggle=\"canToggle\">\n" +
+    "<osc-form-section header=\"{{'Labels'|translate}}\" about-title=\"{{'Labels'|translate}}\" about=\"{{'Labels are used to organize, group, or select objects and resources, such as pods.'|translate}}\" expand=\"expand\" can-toggle=\"canToggle\">\n" +
     "<div ng-if=\"systemLabels.length\">\n" +
-    "<div class=\"help-block\">\n" +
+    "<div class=\"help-block\" translate>\n" +
     "The following labels are being added automatically. If you want to override them, you can do so below.\n" +
     "</div>\n" +
     "<key-value-editor entries=\"systemLabels\" is-readonly cannot-sort cannot-delete cannot-add key-placeholder=\"Name\"></key-value-editor>\n" +
@@ -7461,8 +7449,8 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "\n" +
     "<div ng-if=\"(!state)\">\n" +
-    "<ellipsis-pulser ng-if=\"!chromeless\" color=\"dark\" size=\"sm\" display=\"inline\" msg=\"Loading log\" class=\"log-pending-ellipsis\"></ellipsis-pulser>\n" +
-    "<ellipsis-pulser ng-if=\"chromeless\" color=\"light\" size=\"sm\" display=\"inline\" msg=\"Loading log\" class=\"log-pending-ellipsis\"></ellipsis-pulser>\n" +
+    "<ellipsis-pulser ng-if=\"!chromeless\" color=\"dark\" size=\"sm\" display=\"inline\" msg=\"{{'Loading log'|translate}}\" class=\"log-pending-ellipsis\"></ellipsis-pulser>\n" +
+    "<ellipsis-pulser ng-if=\"chromeless\" color=\"light\" size=\"sm\" display=\"inline\" msg=\"{{'Loading log'|translate}}\" class=\"log-pending-ellipsis\"></ellipsis-pulser>\n" +
     "</div>\n" +
     "<div class=\"empty-state-message text-center\" ng-if=\"state=='empty'\" ng-class=\"{'log-fixed-height': fixedHeight}\">\n" +
     "<h2 translate>Logs are not available.</h2>\n" +
@@ -7503,7 +7491,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "\n" +
     "<ellipsis-pulser color=\"light\" size=\"md\" ng-show=\"loading\"></ellipsis-pulser>\n" +
     "<div ng-show=\"showScrollLinks\" class=\"log-scroll log-scroll-bottom\">\n" +
-    "<a href=\"\" ng-click=\"onScrollTop()\">Go to Top</a>\n" +
+    "<a href=\"\" ng-click=\"onScrollTop()\" translate>Go to Top</a>\n" +
     "</div>\n" +
     "</div>\n" +
     "</div>\n" +
@@ -7657,7 +7645,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "Name is required.\n" +
     "</span>\n" +
     "<span ng-show=\"form.name.$error.pattern\" class=\"help-block\">\n" +
-    "{{nameValidation.description}}\n" +
+    "{{nameValidation.description|translate}}\n" +
     "</span>\n" +
     "<span ng-show=\"form.name.$error.maxlength\" class=\"help-block\">\n" +
     "<span class=\"help-block\" translate>\n" +
@@ -7729,9 +7717,6 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<span ng-if=\"!isRequestCalculated\" translate>request</span>\n" +
     "<translate>that each pod should ideally be using. Pods will be added or removed periodically when CPU usage exceeds or drops below this target value.</translate>\n" +
     "<span ng-if=\"defaultTargetCPUDisplayValue\">Defaults to {{defaultTargetCPUDisplayValue}}%.</span>\n" +
-    "</div>\n" +
-    "<div class=\"learn-more-block\">\n" +
-    "<a href=\"{{'compute_resources' | helpLink}}\" target=\"_blank\"><translate>Learn More</translate>&nbsp;<i class=\"fa fa-external-link\" aria-hidden=\"true\"></i></a>\n" +
     "</div>\n" +
     "\n" +
     "<div class=\"has-error\" style=\"margin-top: 10px\" ng-show=\"form.targetCPU.$touched && form.targetCPU.$invalid\">\n" +
@@ -7858,9 +7843,6 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div id=\"claim-storage-class-help\" class=\"help-block\">\n" +
     "<translate>Storage classes are set by the administrator to define types of storage the users can select.</translate>\n" +
     "<span ng-if=\"defaultStorageClass\" translate> If another storage class is not chosen, the default storage class <var>{{defaultStorageClass.metadata.name}}</var> will be used.</span>\n" +
-    "<div class=\"learn-more-block\">\n" +
-    "<a ng-href=\"{{'storage_classes' | helpLink}}\" target=\"_blank\"><translate>Learn More</translate>&nbsp;<i class=\"fa fa-external-link\" aria-hidden=\"true\"> </i></a>\n" +
-    "</div>\n" +
     "</div>\n" +
     "</div>\n" +
     "\n" +
@@ -7879,7 +7861,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "<div class=\"has-error\" ng-show=\"persistentVolumeClaimForm.name.$error.pattern && persistentVolumeClaimForm.name.$touched && !claimDisabled\">\n" +
     "<span class=\"help-block\">\n" +
-    "{{nameValidation.description}}\n" +
+    "{{nameValidation.description|translate}}\n" +
     "</span>\n" +
     "</div>\n" +
     "<div class=\"has-error\" ng-show=\"persistentVolumeClaimForm.name.$error.maxlength && persistentVolumeClaimForm.name.$touched && !claimDisabled\">\n" +
@@ -7892,15 +7874,15 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<label class=\"required\" translate>Access Mode</label><br/>\n" +
     "<label class=\"radio-inline\">\n" +
     "<input type=\"radio\" name=\"accessModes\" ng-model=\"claim.accessModes\" value=\"ReadWriteOnce\" aria-describedby=\"access-modes-help\" ng-checked=\"true\" translate>\n" +
-    "Single User (RWO)\n" +
+    "<translate>Single User</translate> (RWO)\n" +
     "</label>\n" +
     "<label class=\"radio-inline\">\n" +
     "<input type=\"radio\" id=\"accessModes\" name=\"accessModes\" ng-model=\"claim.accessModes\" value=\"ReadWriteMany\" aria-describedby=\"access-modes-help\" translate>\n" +
-    "Shared Access (RWX)\n" +
+    "<translate>Shared Access</translate> (RWX)\n" +
     "</label>\n" +
     "<label class=\"radio-inline\">\n" +
     "<input type=\"radio\" name=\"accessModes\" ng-model=\"claim.accessModes\" value=\"ReadOnlyMany\" aria-describedby=\"access-modes-help\" translate>\n" +
-    "Read Only (ROX)\n" +
+    "<translate>Read Only</translate> (ROX)\n" +
     "</label>\n" +
     "<div>\n" +
     "<span id=\"access-modes-help\" class=\"help-block\" translate>Permissions to the mounted volume.</span>\n" +
@@ -7991,12 +7973,9 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "<div ng-show=\"showAdvancedOptions\" class=\"form-group\">\n" +
     "<fieldset class=\"compute-resource\">\n" +
-    "<label>Label Selector</label>\n" +
+    "<label translate>Label Selector</label>\n" +
     "<div class=\"help-block mar-bottom-lg\">\n" +
     "<translate>Enter a label and value to use for your storage.</translate>\n" +
-    "<div class=\"learn-more-block\">\n" +
-    "<a ng-href=\"{{'selector_label' | helpLink}}\" target=\"_blank\"><translate>Learn More</translate>&nbsp;<i class=\"fa fa-external-link\" aria-hidden=\"true\"></i></a>\n" +
-    "</div>\n" +
     "</div>\n" +
     "<key-value-editor entries=\"claim.selectedLabels\" key-placeholder=\"{{'label'|translate}}\" value-placeholder=\"{{'value'|translate}}\" key-validator=\"[a-zA-Z][a-zA-Z0-9_-]*\" key-validator-error-tooltip=\"{{'A valid label name is an alphanumeric (a-z and 0-9) string beginning with a letter that may contain underscores and dashes.'|translate}}\" add-row-link=\"{{'Add Label'|translate}}\"></key-value-editor>\n" +
     "</fieldset>\n" +
@@ -8079,7 +8058,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "<div class=\"has-error\" ng-show=\"routeForm.name.$error.pattern && routeForm.name.$touched && !routingDisabled\">\n" +
     "<span class=\"help-block\">\n" +
-    "{{nameValidation.description}}\n" +
+    "{{nameValidation.description|translate}}\n" +
     "</span>\n" +
     "</div>\n" +
     "<div class=\"has-error\" ng-show=\"routeForm.name.$error.maxlength && routeForm.name.$touched && !routingDisabled\">\n" +
@@ -8240,9 +8219,6 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "{{option | humanizeTLSTermination}}\n" +
     "</ui-select-choices>\n" +
     "</ui-select>\n" +
-    "<div class=\"learn-more-block help-block\">\n" +
-    "<a href=\"{{'route-types' | helpLink}}\" target=\"_blank\"><translate>Learn More</translate>&nbsp;<i class=\"fa fa-external-link\" aria-hidden=\"true\"></i></a>\n" +
-    "</div>\n" +
     "</div>\n" +
     "\n" +
     "<div class=\"form-group\">\n" +
@@ -8324,8 +8300,8 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"form-group\">\n" +
     "<div class=\"basic-secrets\">\n" +
     "<div class=\"input-labels\">\n" +
-    "<label class=\"input-label\" translate>\n" +
-    "{{displayType | startCase}} Secret\n" +
+    "<label class=\"input-label\">\n" +
+    "{{displayType | startCase | translate}}<translate>Secret</translate>\n" +
     "</label>\n" +
     "</div>\n" +
     "<div ng-repeat=\"pickedSecret in pickedSecrets\">\n" +
@@ -8349,15 +8325,12 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"help-blocks\" ng-switch=\"displayType\">\n" +
     "<div class=\"help-block\" ng-switch-when=\"source\">\n" +
     "<translate>Secret with credentials for pulling your source code.</translate>\n" +
-    "<a href=\"{{'git_secret' | helpLink}}\" target=\"_blank\"><span class=\"learn-more-inline\"><translate>Learn More</translate>&nbsp;<i class=\"fa fa-external-link\" aria-hidden=\"true\"></i></span></a>\n" +
     "</div>\n" +
     "<div class=\"help-block\" ng-switch-when=\"pull\">\n" +
     "<translate>Secret for authentication when pulling images from a secured registry.</translate>\n" +
-    "<a href=\"{{'pull_secret' | helpLink}}\" target=\"_blank\"><span class=\"learn-more-inline\"><translate>Learn More</translate>&nbsp;<i class=\"fa fa-external-link\" aria-hidden=\"true\"></i></span></a>\n" +
     "</div>\n" +
     "<div class=\"help-block\" ng-switch-when=\"push\">\n" +
     "<translate>Secret for authentication when pushing images to a secured registry.</translate>\n" +
-    "<a href=\"{{'pull_secret' | helpLink}}\" target=\"_blank\"><span class=\"learn-more-inline\"><translate>Learn More</translate>&nbsp;<i class=\"fa fa-external-link\" aria-hidden=\"true\"></i></span></a>\n" +
     "</div>\n" +
     "</div>\n" +
     "</div>\n" +
@@ -8468,8 +8441,8 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div ng-if=\"alwaysVisible || !missingConfigChangeTrigger\" class=\"form-group pause-rollouts-checkbox\">\n" +
     "<div class=\"checkbox\">\n" +
     "<label>\n" +
-    "<input type=\"checkbox\" ng-disabled=\"disabled\" ng-model=\"deployment.spec.paused\" aria-describedby=\"pause-help\" translate>\n" +
-    "Pause rollouts for this {{deployment.kind | humanizeKind}}\n" +
+    "<input type=\"checkbox\" ng-disabled=\"disabled\" ng-model=\"deployment.spec.paused\" aria-describedby=\"pause-help\">\n" +
+    "<translate>Pause rollouts for this {{deployment.kind | humanizeKind}}</translate>\n" +
     "</label>\n" +
     "<div id=\"pause-help\" class=\"help-block\">\n" +
     "<translate>Pausing lets you make changes without triggering a rollout. You can resume rollouts at any time.</translate>\n" +
@@ -8525,7 +8498,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "\n" +
     "<div ng-if=\"pod.spec.containers.length\" class=\"form-group\">\n" +
-    "<label for=\"selectContainer\">Container:</label>\n" +
+    "<label for=\"selectContainer\" translate>Container:</label>\n" +
     "<div class=\"select-container\" ng-class=\"{ 'multiple-containers' : pod.spec.containers.length > 1 }\">\n" +
     "<span ng-show=\"pod.spec.containers.length === 1\">\n" +
     "{{pod.spec.containers[0].name}}\n" +
@@ -8544,13 +8517,13 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<ui-select ng-model=\"options.timeRange\" search-enabled=\"false\" ng-disabled=\"metricsError\" input-id=\"timeRange\">\n" +
     "<ui-select-match>{{$select.selected.label}}</ui-select-match>\n" +
     "<ui-select-choices repeat=\"range in options.rangeOptions\">\n" +
-    "{{range.label}}\n" +
+    "{{range.label|translate}}\n" +
     "</ui-select-choices>\n" +
     "</ui-select>\n" +
     "</div>\n" +
     "</div>\n" +
     "</div>\n" +
-    "<ellipsis-pulser color=\"dark\" size=\"sm\" msg=\"Loading metrics\" ng-if=\"!loaded\"></ellipsis-pulser>\n" +
+    "<ellipsis-pulser color=\"dark\" size=\"sm\" msg=\"{{'Loading metrics'|translate}}\" ng-if=\"!loaded\"></ellipsis-pulser>\n" +
     "<div ng-if=\"loaded && noData && !metricsError\" class=\"mar-top-md\" translate>No metrics to display.</div>\n" +
     "<div ng-if=\"metricsError\" class=\"empty-state-message text-center\">\n" +
     "<h2>\n" +
@@ -8566,7 +8539,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "<div ng-repeat=\"metric in metrics\" ng-if=\"!noData && !metricsError\" class=\"metrics-full\">\n" +
     "<h2 ng-class=\"{ 'has-limit': metric.datasets[0].total }\">\n" +
-    "{{metric.label}}\n" +
+    "{{metric.label|translate}}\n" +
     "<small ng-if=\"pod.spec.containers.length > 1\">\n" +
     "<span ng-if=\"metric.containerMetric\">Container Metrics</span>\n" +
     "<span ng-if=\"!metric.containerMetric\">Pod Metrics</span>\n" +
@@ -8842,7 +8815,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     " <table class=\"table table-bordered table-hover table-mobile\">\n" +
     "<thead>\n" +
     "<tr>\n" +
-    "<th>{{customNameHeader || 'Route'}}<span ng-if=\"showNodePorts\" translate> / Node Port</span></th>\n" +
+    "<th translate>{{customNameHeader || 'Route'}}<span ng-if=\"showNodePorts\"> / Node Port</span></th>\n" +
     "<th role=\"presentation\"></th>\n" +
     "<th translate>Service Port</th>\n" +
     "<th role=\"presentation\"></th>\n" +
@@ -8895,7 +8868,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<tr ng-repeat-end style=\"display: none\"></tr>\n" +
     "<tr ng-repeat=\"port in portsByRoute['']\">\n" +
     "<td data-title=\"{{customNameHeader || 'Route'}}{{ showNodePorts ? ' / Node Port' : '' }}\">\n" +
-    "<span ng-if=\"!port.nodePort\" class=\"text-muted\">none</span>\n" +
+    "<span ng-if=\"!port.nodePort\" class=\"text-muted\" translate>none</span>\n" +
     "<span ng-if=\"port.nodePort\">{{port.nodePort}}</span>\n" +
     "</td>\n" +
     "<td role=\"presentation\" class=\"text-muted arrow\"></td>\n" +
@@ -8952,13 +8925,10 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "<form name=\"form\" ng-submit=\"save()\" class=\"osc-form\" ng-show=\"targetKind && targetName\">\n" +
     "<h1>\n" +
-    "<translate>Autoscale</translate> {{targetKind | humanizeKind : true}} {{targetName}}\n" +
+    "<translate>Autoscale</translate> {{targetKind | humanizeKind : true | translate}} {{targetName}}\n" +
     "</h1>\n" +
     "<div class=\"help-block\" translate>\n" +
     "Scale replicas automatically based on CPU usage.\n" +
-    "</div>\n" +
-    "<div class=\"learn-more-block\" ng-class=\"{ 'gutter-bottom': metricsWarning || showCPURequestWarning }\">\n" +
-    "<a href=\"{{'pod_autoscaling' | helpLink}}\" target=\"_blank\"><translate>Learn More</translate>&nbsp;<i class=\"fa fa-external-link\" aria-hidden> </i></a>\n" +
     "</div>\n" +
     "\n" +
     "<div ng-if=\"metricsWarning\" class=\"alert alert-warning\">\n" +
@@ -8970,7 +8940,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div ng-if=\"showCPURequestWarning\" class=\"alert alert-warning\">\n" +
     "<span class=\"pficon pficon-warning-triangle-o\" aria-hidden=\"true\"></span>\n" +
     "<span class=\"sr-only\" translate>Warning:</span>\n" +
-    "<translate>This {{targetKind | humanizeKind}} does not have any containers with a CPU</translate>\n" +
+    "<translate>This</translate> {{targetKind | humanizeKind | translate}} <translate>does not have any containers with a CPU</translate>\n" +
     "<span ng-if=\"'cpu' | isRequestCalculated : project\" translate>limit</span>\n" +
     "<span ng-if=\"!('cpu' | isRequestCalculated : project)\" translate>request</span>\n" +
     "<translate>set. Autoscaling will not work without a CPU</translate>\n" +
@@ -9126,13 +9096,13 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div ng-if=\"imageOptions.fromSource.type==='ImageStreamImage'\" class=\"form-group\">\n" +
     "<label for=\"imageSourceImage\" translate>Image Stream Image</label>\n" +
     "<div>\n" +
-    "<input class=\"form-control\" type=\"text\" ng-model=\"imageOptions.fromSource.imageStreamImage\" placeholder=\"example: openshift/ruby-20-centos7@603bfa418\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\" required>\n" +
+    "<input class=\"form-control\" type=\"text\" ng-model=\"imageOptions.fromSource.imageStreamImage\" placeholder=\"{{'example: openshift/ruby-20-centos7@603bfa418'|translate}}\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\" required>\n" +
     "</div>\n" +
     "</div>\n" +
     "<div ng-if=\"imageOptions.fromSource.type==='DockerImage'\" class=\"form-group\">\n" +
     "<label for=\"imageSourceLink\" translate>Docker Image Repository</label>\n" +
     "<div>\n" +
-    "<input class=\"form-control\" id=\"imageSourceLink\" name=\"imageSourceLink\" type=\"text\" ng-model=\"imageOptions.fromSource.dockerImage\" placeholder=\"example: centos/ruby-20-centos7:latest\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\" required>\n" +
+    "<input class=\"form-control\" id=\"imageSourceLink\" name=\"imageSourceLink\" type=\"text\" ng-model=\"imageOptions.fromSource.dockerImage\" placeholder=\"{{'example: centos/ruby-20-centos7:latest'|translate}}\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\" required>\n" +
     "</div>\n" +
     "</div>\n" +
     "<div class=\"form-group\">\n" +
@@ -9229,13 +9199,13 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div ng-if=\"imageOptions.from.type==='DockerImage'\" class=\"form-group\">\n" +
     "<label for=\"FromTypeLink\" translate>Docker Image Repository</label>\n" +
     "<div>\n" +
-    "<input class=\"form-control\" type=\"text\" ng-model=\"imageOptions.from.dockerImage\" autocorrect=\"off\" autocapitalize=\"off\" placeholder=\"example: centos/ruby-20-centos7:latest\" spellcheck=\"false\" required>\n" +
+    "<input class=\"form-control\" type=\"text\" ng-model=\"imageOptions.from.dockerImage\" autocorrect=\"off\" autocapitalize=\"off\" placeholder=\"{{'example: centos/ruby-20-centos7:latest'|translate}}\" spellcheck=\"false\" required>\n" +
     "</div>\n" +
     "</div>\n" +
     "<div ng-if=\"imageOptions.from.type==='ImageStreamImage'\" class=\"form-group\">\n" +
     "<label for=\"FromTypeImage\" translate>Image Stream Image</label>\n" +
     "<div>\n" +
-    "<input class=\"form-control\" type=\"text\" ng-model=\"imageOptions.from.imageStreamImage\" placeholder=\"example: openshift/ruby-20-centos7@603bfa418\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\" required>\n" +
+    "<input class=\"form-control\" type=\"text\" ng-model=\"imageOptions.from.imageStreamImage\" placeholder=\"{{'example: openshift/ruby-20-centos7@603bfa418'|translate}}\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\" required>\n" +
     "</div>\n" +
     "</div>\n" +
     "</div>\n" +
@@ -9271,7 +9241,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div ng-if=\"imageOptions.to.type==='DockerImage'\" class=\"form-group\">\n" +
     "<label for=\"pushToLink\" translate>Docker Image Repository</label>\n" +
     "<div>\n" +
-    "<input class=\"form-control\" id=\"pushToLink\" name=\"pushToLink\" type=\"text\" ng-model=\"imageOptions.to.dockerImage\" placeholder=\"example: centos/ruby-20-centos7:latest\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\" required>\n" +
+    "<input class=\"form-control\" id=\"pushToLink\" name=\"pushToLink\" type=\"text\" ng-model=\"imageOptions.to.dockerImage\" placeholder=\"{{'example: centos/ruby-20-centos7:latest'|translate}}\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\" required>\n" +
     "</div>\n" +
     "</div>\n" +
     "\n" +
@@ -9292,14 +9262,13 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</a>\n" +
     "</span></h3>\n" +
     "<div>\n" +
-    "<key-value-editor ng-if=\"envVars\" entries=\"envVars\" key-validator=\"[a-zA-Z_][a-zA-Z0-9_]*\" key-validator-error-tooltip=\"{{'A valid environment variable name is an alphanumeric (a-z and 0-9) string beginning with a letter that may contain underscores.'|translate}}\" add-row-link=\"Add Environment Variable\"></key-value-editor>\n" +
+    "<key-value-editor ng-if=\"envVars\" entries=\"envVars\" key-validator=\"[a-zA-Z_][a-zA-Z0-9_]*\" key-validator-error-tooltip=\"{{'A valid environment variable name is an alphanumeric (a-z and 0-9) string beginning with a letter that may contain underscores.'|translate}}\" add-row-link=\"{{'Add Environment Variable'|translate}}\"></key-value-editor>\n" +
     "</div>\n" +
     "</div>\n" +
     "<div ng-if=\"sources.git || !(updatedBuildConfig | isJenkinsPipelineStrategy)\" class=\"section\">\n" +
     "\n" +
     "<div ng-show=\"view.advancedOptions\">\n" +
-    "<h3 class=\"with-divider\">Triggers\n" +
-    "<a ng-href=\"{{'build-triggers' | helpLink}}\" target=\"_blank\"><span class=\"learn-more-inline\"><translate>Learn More</translate>&nbsp;<i class=\"fa fa-external-link\" aria-hidden=\"true\"></i></span></a>\n" +
+    "<h3 class=\"with-divider\" translate>Triggers\n" +
     "</h3>\n" +
     "<dl class=\"dl-horizontal left\">\n" +
     "<div>\n" +
@@ -9364,7 +9333,6 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div ng-show=\"view.advancedOptions\">\n" +
     "<h3 class=\"with-divider\">\n" +
     "<translate>Build Secrets</translate>\n" +
-    "<a href=\"{{'source_secrets' | helpLink}}\" target=\"_blank\"><span class=\"learn-more-inline\"><translate>Learn More</translate>&nbsp;<i class=\"fa fa-external-link\" aria-hidden=\"true\"></i></span></a>\n" +
     "</h3>\n" +
     "<div class=\"form-group\">\n" +
     "<osc-source-secrets model=\"secrets.picked.sourceSecrets\" namespace=\"projectName\" secrets-by-type=\"secrets.secretsByType\" strategy-type=\"strategyType\" service-account-to-link=\"builder\" alerts=\"alerts\" display-type=\"source\" type=\"source\">\n" +
@@ -9381,7 +9349,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</span>\n" +
     "</h3>\n" +
     "<div class=\"form-group\">\n" +
-    "<label class=\"sr-only\">Run policy type</label>\n" +
+    "<label class=\"sr-only\" translate>Run policy type</label>\n" +
     "<ui-select required ng-model=\"updatedBuildConfig.spec.runPolicy\" search-enabled=\"false\">\n" +
     "<ui-select-match>{{$select.selected | sentenceCase}}</ui-select-match>\n" +
     "<ui-select-choices repeat=\"type in runPolicyTypes\">\n" +
@@ -9402,7 +9370,6 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<h3 class=\"with-divider\">\n" +
     "<translate>Post-Commit Hooks</translate>\n" +
     "<span class=\"help action-inline\">\n" +
-    "<a href=\"{{'build-hooks' | helpLink}}\" aria-hidden=\"true\" target=\"_blank\"><span class=\"learn-more-inline\"><translate>Learn More</translate>&nbsp;<i class=\"fa fa-external-link\"></i></span></a>\n" +
     "</span>\n" +
     "</h3>\n" +
     "<div class=\"checkbox\">\n" +
@@ -9567,15 +9534,12 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<span ng-switch=\"strategyData.type\">\n" +
     "<span class=\"help-block\" ng-switch-when=\"Recreate\">\n" +
     "<translate>The recreate strategy has basic rollout behavior and supports lifecycle hooks for injecting code into the deployment process.</translate>\n" +
-    "<a ng-href=\"{{'recreate_strategy' | helpLink}}\" target=\"_blank\"><span class=\"learn-more-inline\"><translate>Learn More</translate>&nbsp;<i class=\"fa fa-external-link\" aria-hidden=\"true\"></i></span></a>\n" +
     "</span>\n" +
     "<span class=\"help-block\" ng-switch-when=\"Rolling\">\n" +
     "<translate>The rolling strategy will wait for pods to pass their readiness check, scale down old components and then scale up.</translate>\n" +
-    "<a ng-href=\"{{'rolling_strategy' | helpLink}}\" target=\"_blank\"><span class=\"learn-more-inline\"><translate>Learn More</translate>&nbsp;<i class=\"fa fa-external-link\" aria-hidden=\"true\"></i></span></a>\n" +
     "</span>\n" +
     "<span class=\"help-block\" ng-switch-when=\"Custom\">\n" +
     "<translate>The custom strategy allows you to specify container image that will provide your own deployment behavior.</translate>\n" +
-    "<a ng-href=\"{{'custom_strategy' | helpLink}}\" target=\"_blank\"><span class=\"learn-more-inline\"><translate>Learn More</translate>&nbsp;<i class=\"fa fa-external-link\" aria-hidden=\"true\"></i></span></a>\n" +
     "</span>\n" +
     "</span>\n" +
     "</div>\n" +
@@ -9819,9 +9783,6 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<h1 translate>Health Checks: {{name}}</h1>\n" +
     "<div class=\"help-block\">\n" +
     "<translate>Container health is periodically checked using readiness and liveness probes.</translate>\n" +
-    "<div class=\"learn-more-block\">\n" +
-    "<a href=\"{{'application_health' | helpLink}}\" target=\"_blank\"><translate>Learn More</translate>&nbsp;<i class=\"fa fa-external-link\" aria-hidden=\"true\"></i></a>\n" +
-    "</div>\n" +
     "</div>\n" +
     "<fieldset ng-disabled=\"disableInputs\">\n" +
     "<div ng-repeat=\"container in containers\">\n" +
@@ -9948,11 +9909,11 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<fieldset ng-disabled=\"disableInputs\">\n" +
     "<div class=\"form-group\">\n" +
     "<label for=\"displayName\" translate>Display Name</label>\n" +
-    "<input class=\"form-control input-lg\" name=\"displayName\" id=\"displayName\" placeholder=\"My Project\" type=\"text\" ng-model=\"editableFields.displayName\">\n" +
+    "<input class=\"form-control input-lg\" name=\"displayName\" id=\"displayName\" placeholder=\"{{'My Project'|translate}}\" type=\"text\" ng-model=\"editableFields.displayName\">\n" +
     "</div>\n" +
     "<div class=\"form-group\">\n" +
     "<label for=\"description\" translate>Description</label>\n" +
-    "<textarea class=\"form-control input-lg\" name=\"description\" id=\"description\" placeholder=\"A short description.\" ng-model=\"editableFields.description\"></textarea>\n" +
+    "<textarea class=\"form-control input-lg\" name=\"description\" id=\"description\" placeholder=\"{{'A short description.'|translate}}\" ng-model=\"editableFields.description\"></textarea>\n" +
     "</div>\n" +
     "<div class=\"button-group\">\n" +
     "<button type=\"submit\" class=\"btn btn-primary btn-lg\" ng-click=\"update()\" ng-disabled=\"editProjectForm.$invalid || disableInputs\" value=\"\" translate>Save</button>\n" +
@@ -10025,7 +9986,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<alerts alerts=\"alerts\"></alerts>\n" +
     "<div ng-if=\"!resource\" class=\"pad-top-md\" translate>Loading...</div>\n" +
     "<div ng-if=\"resource\" class=\"pad-top-md\">\n" +
-    "<h1 class=\"truncate\"><translate>Edit</translate> <span class=\"hidden-xs\">{{resource.kind | humanizeKind : true}}</span> {{resource.metadata.name}}</h1>\n" +
+    "<h1 class=\"truncate\"><translate>Edit</translate> <span class=\"hidden-xs\">{{resource.kind | humanizeKind : true | translate}}</span> {{resource.metadata.name}}</h1>\n" +
     "<parse-error error=\"error\" ng-if=\"error\"></parse-error>\n" +
     "<div ng-if=\"resourceChanged && !resourceDeleted && !updatingNow\" class=\"alert alert-warning\">\n" +
     "<span class=\"pficon pficon-warning-triangle-o\" aria-hidden=\"true\"></span>\n" +
@@ -10103,11 +10064,6 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"page-header page-header-bleed-right page-header-bleed-left\">\n" +
     "<h1>\n" +
     "<translate>Image Streams</translate>\n" +
-    "<span class=\"page-header-link\">\n" +
-    "<a ng-href=\"{{'image-streams' | helpLink}}\" target=\"_blank\">\n" +
-    "Learn More <i class=\"fa fa-external-link\" aria-hidden=\"true\"></i>\n" +
-    "</a>\n" +
-    "</span>\n" +
     "</h1>\n" +
     "</div>\n" +
     "<div class=\"data-toolbar\">\n" +
@@ -10328,9 +10284,6 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div ng-if=\"subjectKind.description\">\n" +
     "<p>\n" +
     "{{subjectKind.description}}\n" +
-    "<a ng-if=\"subjectKind.helpLinkKey\" target=\"_blank\" ng-href=\"{{subjectKind.helpLinkKey | helpLink}}\" class=\"learn-more-inline\">\n" +
-    "<translate>Learn More</translate> <i class=\"fa fa-external-link\" aria-hidden=\"true\"></i>\n" +
-    "</a>\n" +
     "</p>\n" +
     "</div>\n" +
     "<div column class=\"content-pane\" ng-class=\"'content-' + subjectKind.name.toLowerCase()\">\n" +
@@ -10388,7 +10341,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "</ui-select-choices>\n" +
     "</ui-select>\n" +
-    "<button ng-disabled=\"disableAddForm || (!subject.newRole)\" ng-click=\"addRoleTo(subject.name, subjectKind.name, subject.newRole)\" class=\"btn btn-default add-role-to\">\n" +
+    "<button ng-disabled=\"disableAddForm || (!subject.newRole)\" ng-click=\"addRoleTo(subject.name, subjectKind.name, subject.newRole)\" class=\"btn btn-default add-role-to\" translate>\n" +
     "Add\n" +
     "</button>\n" +
     "</div>\n" +
@@ -10402,7 +10355,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "Name\n" +
     "</label>\n" +
     "\n" +
-    "<input ng-if=\"newBinding.kind !== 'ServiceAccount'\" type=\"text\" class=\"form-control input-name\" placeholder=\"Name\" ng-model=\"newBinding.name\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\">\n" +
+    "<input ng-if=\"newBinding.kind !== 'ServiceAccount'\" type=\"text\" class=\"form-control input-name\" placeholder=\"{{'Name'|translate}}\" ng-model=\"newBinding.name\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\">\n" +
     "\n" +
     "<div ng-if=\"newBinding.kind === 'ServiceAccount'\" class=\"service-account-namespace\" aria-hidden=\"true\">\n" +
     "<ui-select ng-model=\"newBinding.namespace\" on-select=\"selectProject($item, $model)\" theme=\"bootstrap\" search-enabled=\"true\" title=\"{{'Select a project'|translate}}\" class=\"select-role pad-bottom-sm\">\n" +
@@ -10458,7 +10411,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"checkbox\">\n" +
     "<label>\n" +
     "<input type=\"checkbox\" class=\"toggle-hidden\" ng-click=\"showAllRoles($event)\">\n" +
-    "Show hidden roles</label>&nbsp;<a href=\"\" class=\"action-inline\" data-toggle=\"popover\" data-trigger=\"hover focus\" data-content=\"{{'System roles are hidden by default and do not typically need to be managed.'|translate}}\"><i class=\"pficon pficon-help\"></i></a>\n" +
+    "<translate>Show hidden roles</translate></label>&nbsp;<a href=\"\" class=\"action-inline\" data-toggle=\"popover\" data-trigger=\"hover focus\" data-content=\"{{'System roles are hidden by default and do not typically need to be managed.'|translate}}\"><i class=\"pficon pficon-help\"></i></a>\n" +
     "</div>\n" +
     "</div>\n" +
     "</div>\n" +
@@ -10607,11 +10560,6 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"modal-header\">\n" +
     "<h2>\n" +
     "<translate>Create {{type | capitalize}} Secret</translate>\n" +
-    "<span ng-switch=\"type\">\n" +
-    "<a ng-switch-when=\"source\" ng-href=\"{{'git_secret' | helpLink}}\" target=\"_blank\"><span class=\"learn-more-inline\"><translate>Learn More</translate>&nbsp;<i class=\"fa fa-external-link\" aria-hidden=\"true\"></i></span></a>\n" +
-    "<a ng-switch-when=\"image\" ng-href=\"{{'pull_secret' | helpLink}}\" target=\"_blank\"><span class=\"learn-more-inline\"><translate>Learn More</translate>&nbsp;<i class=\"fa fa-external-link\" aria-hidden=\"true\"></i></span></a>\n" +
-    "<a ng-switch-default ng-href=\"{{'source_secrets' | helpLink}}\" target=\"_blank\"><span class=\"learn-more-inline\"><translate>Learn More</translate>&nbsp;<i class=\"fa fa-external-link\" aria-hidden=\"true\"></i></span></a>\n" +
-    "</span>\n" +
     "</h2>\n" +
     "</div>\n" +
     "<div class=\"modal-body\">\n" +
@@ -10820,9 +10768,9 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "<div class=\"data-toolbar\">\n" +
     "<ui-select class=\"data-toolbar-dropdown\" ng-model=\"kindSelector.selected\" theme=\"bootstrap\" search-enabled=\"true\" ng-disabled=\"kindSelector.disabled\" title=\"{{'Choose a resource'|translate}}\">\n" +
-    "<ui-select-match placeholder=\"{{'Choose a resource'|translate}}\">{{$select.selected.label ? $select.selected.label : ($select.selected.kind | humanizeKind : true)}}</ui-select-match>\n" +
+    "<ui-select-match placeholder=\"{{'Choose a resource'|translate}}\">{{$select.selected.label ? ($select.selected.label|translate) : ($select.selected.kind | humanizeKind : true |translate)}}</ui-select-match>\n" +
     "<ui-select-choices repeat=\"kind in kinds | filter : {kind: $select.search} : matchKind\">\n" +
-    "<div ng-bind-html=\"(kind.label ? kind.label : (kind.kind | humanizeKind : true)) | highlight: $select.search\"></div>\n" +
+    "<div ng-bind-html=\"(kind.label ? (kind.label|translate) : (kind.kind | humanizeKind : true | translate)) | highlight: $select.search\"></div>\n" +
     "</ui-select-choices>\n" +
     "</ui-select>\n" +
     "<div class=\"vertical-divider\"></div>\n" +
@@ -11220,9 +11168,9 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "<div class=\"data-toolbar other-resources-toolbar\">\n" +
     "<ui-select class=\"data-toolbar-dropdown\" ng-model=\"kindSelector.selected\" theme=\"bootstrap\" search-enabled=\"true\" ng-disabled=\"kindSelector.disabled\" title=\"{{'Choose a resource'|translate}}\">\n" +
-    "<ui-select-match placeholder=\"{{'Choose a resource to list...'|translate}}\">{{$select.selected.kind | humanizeKind : true}}</ui-select-match>\n" +
+    "<ui-select-match placeholder=\"{{'Choose a resource to list...'|translate}}\">{{$select.selected.kind | humanizeKind : true | translate}}</ui-select-match>\n" +
     "<ui-select-choices repeat=\"kind in kinds | filter : {kind: $select.search} : matchKind | orderBy : 'kind'\">\n" +
-    "<div ng-bind-html=\"(kind.kind | humanizeKind : true) | highlight: $select.search\"></div>\n" +
+    "<div ng-bind-html=\"(kind.kind | humanizeKind : true | translate) | highlight: $select.search\"></div>\n" +
     "<small ng-if=\"isDuplicateKind(kind.kind)\" ng-bind-html=\"kind.group | highlight: $select.search\" class=\"text-muted\"></small>\n" +
     "</ui-select-choices>\n" +
     "</ui-select>\n" +
@@ -12126,10 +12074,10 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<span dynamic-content=\"{{notification.byType.error}}\" data-toggle=\"tooltip\" data-trigger=\"hover\">\n" +
     "<span class=\"pficon pficon-error-circle-o\" aria-hidden=\"true\"></span>\n" +
     "{{notification.countByType.error}}\n" +
-    "<span ng-if=\"notification.countByType.error === 1\">\n" +
+    "<span ng-if=\"notification.countByType.error === 1\" translate>\n" +
     "Error\n" +
     "</span>\n" +
-    "<span ng-if=\"notification.countByType.error !== 1\">\n" +
+    "<span ng-if=\"notification.countByType.error !== 1\" translate>\n" +
     "Errors\n" +
     "</span>\n" +
     "</span>\n" +
@@ -12775,7 +12723,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "                              disabled: (quota.status.total.hard[resourceType] || quota.spec.quota.hard[resourceType]) === '0'\n" +
     "                            }\">\n" +
     "<td>\n" +
-    "{{resourceType | humanizeQuotaResource : true}}\n" +
+    "{{resourceType | humanizeQuotaResource : true | translate}}\n" +
     "<span ng-if=\"isAtLimit(quota, resourceType)\" data-toggle=\"tooltip\" title=\"Quota limit reached.\" class=\"pficon pficon-warning-triangle-o warnings-popover\"></span>\n" +
     "<span ng-if=\"(quota.status.total.hard[resourceType] || quota.spec.quota.hard[resourceType]) === '0'\" data-toggle=\"tooltip\" title=\"{{'You are not allowed to create resources of this type.'|translate}}\" class=\"pficon pficon-info warnings-popover\"></span>\n" +
     "</td>\n" +
@@ -12857,7 +12805,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "                              disabled: (quota.status.hard[resourceType] || quota.spec.hard[resourceType]) === '0'\n" +
     "                            }\">\n" +
     "<td>\n" +
-    "{{resourceType | humanizeQuotaResource : true}}\n" +
+    "{{resourceType | humanizeQuotaResource : true | translate}}\n" +
     "<span ng-if=\"isAtLimit(quota, resourceType)\" data-toggle=\"tooltip\" title=\"Quota limit reached.\" class=\"pficon pficon-warning-triangle-o warnings-popover\"></span>\n" +
     "<span ng-if=\"(quota.status.hard[resourceType] || quota.spec.hard[resourceType]) === '0'\" data-toggle=\"tooltip\" title=\"{{'You are not allowed to create resources of this type.'|translate}}\" class=\"pficon pficon-info warnings-popover\"></span>\n" +
     "</td>\n" +
@@ -12924,7 +12872,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<tbody>\n" +
     "<tr ng-repeat-start=\"limit in limitRange.spec.limits\"></tr>\n" +
     "<tr ng-repeat=\"(type, typeLimits) in limitsByType[limitRange.metadata.name][limit.type]\">\n" +
-    "<td>{{limit.type}} {{type | computeResourceLabel : true}}</td>\n" +
+    "<td>{{limit.type|translate}} {{type | computeResourceLabel : true | translate}}</td>\n" +
     "<td>{{(typeLimits.min | usageWithUnits : type) || \"&mdash;\"}}</td>\n" +
     "<td>{{(typeLimits.max | usageWithUnits : type) || \"&mdash;\"}}</td>\n" +
     "<td>{{(typeLimits.defaultRequest | usageWithUnits : type) || \"&mdash;\"}}</td>\n" +
@@ -12960,7 +12908,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<a ng-href=\"project/{{project.metadata.name}}/create-secret\" class=\"btn btn-default\" translate>Create Secret</a>\n" +
     "</div>\n" +
     "<h1>\n" +
-    "Secrets\n" +
+    "<translate>Secrets</translate>\n" +
     "\n" +
     "\n" +
     "\n" +
@@ -13118,9 +13066,6 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<h1 translate>Resource Limits: {{name}}</h1>\n" +
     "<div class=\"help-block\">\n" +
     "<translate>Resource limits control how much <span ng-if=\"!hideCPU\">CPU and</span> memory a container will consume on a node.</translate>\n" +
-    "<div class=\"learn-more-block\" ng-class=\"{ 'gutter-bottom': showPodWarning }\">\n" +
-    "<a href=\"{{'compute_resources' | helpLink}}\" target=\"_blank\"><translate>Learn More</translate> <i class=\"fa fa-external-link\" aria-hidden=\"true\"></i></a>\n" +
-    "</div>\n" +
     "</div>\n" +
     "<div ng-if=\"showPodWarning\" class=\"alert alert-warning\">\n" +
     "<span class=\"pficon pficon-warning-triangle-o\" aria-hidden=\"true\"></span>\n" +

@@ -378,7 +378,7 @@
                           </div>
                         </div>
                         <div class="col-lg-6">
-                          <h3><translate>Triggers</translate> <a href="{{'build-triggers' | helpLink}}" target="_blank"><span class="learn-more-inline">Learn More&nbsp;<i class="fa fa-external-link" aria-hidden="true"></i></span></a></h3>
+                          <h3 translate>Triggers</h3>
                           <dl class="dl-horizontal left build-triggers">
                             <div ng-repeat="trigger in buildConfig.spec.triggers | orderBy : 'type' : false : compareTriggers">
                               <div ng-switch="trigger.type">
@@ -471,14 +471,14 @@
                           key-placeholder="{{'Name'|translate}}"
                           value-placeholder="{{'Value'|translate}}"
                           key-validator="[A-Za-z_][A-Za-z0-9_]*"
-                          key-validator-error="Please enter a valid key"
-                          key-validator-error-tooltip="A valid environment variable name is an alphanumeric (a-z and 0-9) string beginning with a letter that may contain underscores."
-                          add-row-link="Add Environment Variable"
+                          key-validator-error="{{'Please enter a valid key'|translate}}"
+                          key-validator-error-tooltip="{{'A valid environment variable name is an alphanumeric (a-z and 0-9) string beginning with a letter that may contain underscores.'|translate}}"
+                          add-row-link="{{'Add Environment Variable'|translate}}"
                           show-header></key-value-editor>
                         <button
                           class="btn btn-default"
                           ng-click="saveEnvVars()"
-                          ng-disabled="forms.bcEnvVars.$pristine || forms.bcEnvVars.$invalid">Save</button>
+                          ng-disabled="forms.bcEnvVars.$pristine || forms.bcEnvVars.$invalid" translate>Save</button>
                         <a
                           ng-if="!forms.bcEnvVars.$pristine"
                           href=""

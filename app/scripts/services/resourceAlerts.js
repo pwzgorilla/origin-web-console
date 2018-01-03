@@ -6,7 +6,9 @@ angular.module("openshiftConsole")
                     AlertMessageService,
                     DeploymentsService,
                     Navigate,
-                    QuotaService) {
+                    QuotaService,
+                    gettext,
+                    gettextCatalog) {
     var annotation = $filter('annotation');
     var humanizeKind = $filter('humanizeKind');
     var deploymentStatus = $filter('deploymentStatus');
@@ -40,7 +42,7 @@ angular.module("openshiftConsole")
             var logLink = URI(podLink).addSearch({ tab: "logs", container: warning.container }).toString();
             alert.links = [{
               href: logLink,
-              label: "View Log"
+              label: gettextCatalog.getString(gettext("View Log"))
             }];
             break;
 
@@ -52,7 +54,7 @@ angular.module("openshiftConsole")
 
             alert.links = [{
               href: "",
-              label: "Don't Show Me Again",
+              label: gettextCatalog.getString(gettext("Don't Show Me Again")),
               onClick: function() {
                 // Hide the alert on future page loads.
                 AlertMessageService.permanentlyHideAlert(alertID, namespace);
@@ -164,11 +166,11 @@ angular.module("openshiftConsole")
           reason: annotation(mostRecentRC, 'openshift.io/deployment.status-reason'),
           links: [{
             href: logLink,
-            label: 'View Log'
+            label: gettextCatalog.getString(gettext('View Log'))
           }, {
             // Show all events since the event might not be on the replication controller itself.
             href: 'project/' + mostRecentRC.metadata.namespace + '/browse/events',
-            label: 'View Events'
+            label: gettextCatalog.getString(gettext('View Events'))
           }]
         };
         break;

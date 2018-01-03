@@ -225,10 +225,10 @@ angular.module('openshiftConsole')
       return label;
     };
   })
-  .filter('parameterPlaceholder', function() {
+  .filter('parameterPlaceholder', function(gettext, gettextCatalog) {
     return function(parameter) {
       if (parameter.generate) {
-        return "(generated if empty)";
+        return gettextCatalog.getString(gettext("(generated if empty)"));
       } else {
         return "";
       }
@@ -1267,7 +1267,7 @@ angular.module('openshiftConsole')
              _.has(build, 'spec.postCommit.args');
     };
   })
-  .filter('volumeMountMode', function() {
+  .filter('volumeMountMode', function(gettext, gettextCatalog) {
     var isConfigVolume = function(volume) {
       return _.has(volume, 'configMap') || _.has(volume, 'secret');
     };
@@ -1288,7 +1288,7 @@ angular.module('openshiftConsole')
         return 'read-only';
       }
 
-      return mount.readOnly ? 'read-only' : 'read-write';
+      return gettextCatalog.getString(mount.readOnly ? gettext('read-only') : gettext('read-write'));
     };
   })
   .filter('managesRollouts', function(APIService) {

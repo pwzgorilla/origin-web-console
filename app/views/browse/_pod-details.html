@@ -26,7 +26,7 @@
             ><span ng-if="deploymentVersion">#{{deploymentVersion}}</span><span ng-if="!deploymentVersion">{{rcName}}</span></a></span>
         </dd>
         <dt ng-if-start="!dcName && controllerRef">
-          {{controllerRef.kind | humanizeKind : true}}:
+          {{controllerRef.kind | humanizeKind : true | translate}}:
         </dt>
         <dd ng-if-end>
           <a ng-href="{{controllerRef.name | navigateResourceURL : controllerRef.kind : pod.metadata.namespace}}">{{controllerRef.name}}</a>

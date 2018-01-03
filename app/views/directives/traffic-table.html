@@ -2,7 +2,7 @@
 <table class="table table-bordered table-hover table-mobile">
   <thead>
     <tr>
-      <th>{{customNameHeader || 'Route'}}<span ng-if="showNodePorts" translate> / Node Port</span></th>
+      <th translate>{{customNameHeader || 'Route'}}<span ng-if="showNodePorts"> / Node Port</span></th>
       <th role="presentation"></th>
       <th translate>Service Port</th>
       <th role="presentation"></th>
@@ -57,7 +57,7 @@
     <tr ng-repeat-end style="display: none;"></tr>
     <tr ng-repeat="port in portsByRoute['']">
       <td data-title="{{customNameHeader || 'Route'}}{{ showNodePorts ? ' / Node Port' : '' }}">
-        <span ng-if="!port.nodePort" class="text-muted">none</span>
+        <span ng-if="!port.nodePort" class="text-muted" translate>none</span>
         <span ng-if="port.nodePort">{{port.nodePort}}</span>
       </td>
       <td role="presentation" class="text-muted arrow"></td>
