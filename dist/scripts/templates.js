@@ -5944,8 +5944,8 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<label translate>Secret Type</label>\n" +
     "<ui-select required ng-model=\"newSecret.type\" search-enabled=\"false\" ng-change=\"newSecret.authType = secretAuthTypeMap[newSecret.type].authTypes[0].id\">\n" +
     "<ui-select-match>{{$select.selected | upperFirst}} Secret</ui-select-match>\n" +
-    "<ui-select-choices repeat=\"type in secretTypes\" translate>\n" +
-    "{{type | upperFirst}} Secret\n" +
+    "<ui-select-choices repeat=\"type in secretTypes\">\n" +
+    "{{type | upperFirst}} <translate>Secret</translate>\n" +
     "</ui-select-choices>\n" +
     "</ui-select>\n" +
     "</div>\n" +
