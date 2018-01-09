@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2018-01-03 15:43+0800\n"
+"PO-Revision-Date: 2018-01-09 14:44+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh-CN\n"
@@ -1498,7 +1498,7 @@ msgstr "创建示例管道"
 #: app/views/add-config-volume.html:62 app/views/create-secret.html:19
 #: app/views/secrets.html:11
 msgid "Create Secret"
-msgstr "创建的私密凭证"
+msgstr "创建私密凭证"
 
 #: app/views/attach-pvc.html:26
 #: app/views/create-persistent-volume-claim.html:16 app/views/storage.html:33
@@ -5959,7 +5959,7 @@ msgstr "警告"
 msgid ""
 "We checked your application for potential problems. Please confirm you still "
 "want to create this application."
-msgstr ""
+msgstr "我们发现你的应用存在潜在的问题。请确认您仍要创建此应用程序。"
 
 #: app/views/browse/route.html:134
 msgid "Weight"
@@ -5977,7 +5977,7 @@ msgstr "欢迎来到DataMan OS。"
 
 #: app/views/overview.html:26
 msgid "Welcome to project {{projectName}}."
-msgstr "欢迎来到项目{ { projectName } }。"
+msgstr "欢迎来到项目{{projectName}}。"
 
 #: app/views/_edit-request-limit.html:41
 msgid ""
@@ -6134,7 +6134,7 @@ msgstr "您没有权限查看这个项目中的角色。"
 
 #: app/scripts/directives/confirmOnExit.js:20
 msgid "You have unsaved changes. Leave this page anyway?"
-msgstr ""
+msgstr "你有没有保存的更改。仍然要离开这个页面？"
 
 #: app/views/directives/next-steps.html:47
 msgid ""
