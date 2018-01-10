@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2018-01-10 16:12+0800\n"
+"PO-Revision-Date: 2018-01-10 16:25+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -840,6 +840,7 @@ msgstr "回到{{kind | humanizeKind}} {{name}}"
 msgid "Binary Input as File:"
 msgstr "二进制输入文件："
 
+#: app/scripts/directives/oscPersistentVolumeClaim.js:55
 #: app/views/modals/about-compute-units-modal.html:31
 msgid "Binary Units"
 msgstr "二进制单位"
@@ -1607,6 +1608,7 @@ msgstr "在终端调试"
 msgid "Debugging pod {{pod | debugPodSourceName}}"
 msgstr "调试pod{{pod | debugPodSourceName}}"
 
+#: app/scripts/directives/oscPersistentVolumeClaim.js:59
 #: app/views/modals/about-compute-units-modal.html:40
 msgid "Decimal Units"
 msgstr "十进制单位"

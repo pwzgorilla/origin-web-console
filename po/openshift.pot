@@ -717,6 +717,7 @@ msgstr ""
 msgid "Binary Input as File:"
 msgstr ""
 
+#: app/scripts/directives/oscPersistentVolumeClaim.js:55
 #: app/views/modals/about-compute-units-modal.html:31
 msgid "Binary Units"
 msgstr ""
@@ -1483,6 +1484,7 @@ msgstr ""
 msgid "Debugging pod {{pod | debugPodSourceName}}"
 msgstr ""
 
+#: app/scripts/directives/oscPersistentVolumeClaim.js:59
 #: app/views/modals/about-compute-units-modal.html:40
 msgid "Decimal Units"
 msgstr ""
