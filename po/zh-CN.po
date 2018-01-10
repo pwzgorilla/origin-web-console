@@ -3,10 +3,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2018-01-09 14:44+0800\n"
+"PO-Revision-Date: 2018-01-10 16:12+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: zh-CN\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -266,8 +266,6 @@ msgstr ""
 "收任何流量，即使它正在运行。"
 
 #: app/views/edit/project.html:33
-#: src/components/create-project/createProject.html:64
-#: src/components/edit-project/editProject.html:18
 msgid "A short description."
 msgstr "简短描述。"
 
@@ -844,7 +842,7 @@ msgstr "二进制输入文件："
 
 #: app/views/modals/about-compute-units-modal.html:31
 msgid "Binary Units"
-msgstr "二进制单元"
+msgstr "二进制单位"
 
 #: app/views/directives/bind-service/delete-binding-result.html:3
 msgid "Binding for the following has been deleted:"
@@ -1070,8 +1068,6 @@ msgstr "不能是负数。"
 #: app/views/modals/process-or-save-template.html:23
 #: app/views/overview/_list-row-content.html:52 app/views/set-limits.html:60
 #: app/views/util/oauth.html:14 app/views/util/oauth.html:22
-#: src/components/create-project/createProject.html:77
-#: src/components/delete-project/delete-project-modal.html:27
 msgid "Cancel"
 msgstr "取消"
 
@@ -1181,7 +1177,6 @@ msgid "Clear {{ (type || 'Command') | upperFirst }}"
 msgstr "清除{{ (type || 'Command') | upperFirst }}"
 
 #: app/views/_alerts.html:13 app/views/modals/debug-terminal.html:58
-#: src/components/toast-notifications/toast-notifications.html:7
 msgid "Close"
 msgstr "关闭"
 
@@ -1195,8 +1190,6 @@ msgstr "集群IP"
 
 #: app/views/_templateopt.html:9 app/views/directives/osc-form-section.html:9
 #: app/views/overview/_list-row-chevron.html:4
-#: src/components/truncate-long-text/truncateLongText.html:16
-#: src/components/truncate-long-text/truncateLongText.html:20
 msgid "Collapse"
 msgstr "折叠"
 
@@ -1454,7 +1447,6 @@ msgstr "计数"
 #: app/views/directives/deploy-image.html:184
 #: app/views/directives/from-file.html:28
 #: app/views/directives/process-template.html:14
-#: src/components/create-project/createProject.html:69
 msgid "Create"
 msgstr "创建"
 
@@ -1498,7 +1490,7 @@ msgstr "创建示例管道"
 #: app/views/add-config-volume.html:62 app/views/create-secret.html:19
 #: app/views/secrets.html:11
 msgid "Create Secret"
-msgstr "创建私密凭证"
+msgstr "创建的私密凭证"
 
 #: app/views/attach-pvc.html:26
 #: app/views/create-persistent-volume-claim.html:16 app/views/storage.html:33
@@ -1651,7 +1643,6 @@ msgstr "延迟不能是负数。"
 #: app/views/modals/delete-resource.html:75
 #: app/views/modals/delete-resource.html:88 app/views/other-resources.html:68
 #: app/views/overview/_service-instance-row.html:64 app/views/projects.html:109
-#: src/components/delete-project/delete-project-modal.html:26
 msgid "Delete"
 msgstr "删除"
 
@@ -1662,7 +1653,6 @@ msgid "Delete Binding"
 msgstr "删除绑定"
 
 #: app/views/projects.html:111
-#: src/components/delete-project/delete-project-button.html:10
 msgid "Delete Project"
 msgstr "删除项目"
 
@@ -1767,8 +1757,6 @@ msgid "Deployments"
 msgstr "部署"
 
 #: app/views/edit/project.html:29
-#: src/components/create-project/createProject.html:60
-#: src/components/edit-project/editProject.html:14
 msgid "Description"
 msgstr "描述"
 
@@ -1815,8 +1803,6 @@ msgid "Dismiss"
 msgstr "撤销"
 
 #: app/scripts/controllers/projects.js:95 app/views/edit/project.html:19
-#: src/components/create-project/createProject.html:50
-#: src/components/edit-project/editProject.html:4
 msgid "Display Name"
 msgstr "显示名称"
 
@@ -2082,7 +2068,6 @@ msgid "Environment variables to supply to the hook pod's container."
 msgstr "将环境变量提供给钩子容器的容器。"
 
 #: app/views/overview/_notification-icon.html:10 app/views/util/error.html:9
-#: src/components/binding/bindResults.html:35
 msgid "Error"
 msgstr "错误"
 
@@ -2095,6 +2080,7 @@ msgstr "错误"
 #: app/views/browse/persistent-volume-claim.html:85
 #: app/views/browse/pod.html:222 app/views/browse/replica-set.html:152
 #: app/views/browse/service.html:109 app/views/browse/stateful-set.html:187
+#: app/views/directives/events-badge.html:2
 #: app/views/directives/events-sidebar.html:6 app/views/events.html:10
 msgid "Events"
 msgstr "事件"
@@ -2527,6 +2513,12 @@ msgstr "镜像名"
 #: app/views/directives/create-secret.html:182
 msgid "Image Registry Server Address"
 msgstr "镜像注册表服务器地址"
+
+#: app/scripts/directives/createSecret.js:28
+#, fuzzy
+#| msgid "Image Stream"
+msgid "Image Secret"
+msgstr "镜像流"
 
 #: app/views/edit/build-config.html:159
 msgid "Image Source From"
@@ -3064,6 +3056,12 @@ msgstr "介质:"
 msgid "Membership"
 msgstr "成员"
 
+#: app/scripts/directives/podMetrics.js:53
+#, fuzzy
+#| msgid "Memory:"
+msgid "Memory"
+msgstr "内存:"
+
 #: app/views/quota.html:152 app/views/quota.html:60
 msgid "Memory <small>Limit</small>"
 msgstr "内存<small>限制</small>"
@@ -3264,8 +3262,6 @@ msgid "Must be a whole number."
 msgstr "一定是一个整数。"
 
 #: app/views/edit/project.html:23
-#: src/components/create-project/createProject.html:54
-#: src/components/edit-project/editProject.html:8
 msgid "My Project"
 msgstr "我的项目"
 
@@ -3296,7 +3292,6 @@ msgstr "我的项目"
 #: app/views/membership.html:175 app/views/membership.html:62
 #: app/views/other-resources.html:41 app/views/secrets.html:37
 #: app/views/services.html:37 app/views/storage.html:48
-#: src/components/create-project/createProject.html:4
 msgid "Name"
 msgstr "名称"
 
@@ -3308,7 +3303,6 @@ msgstr "名称不能超过24个字符。"
 #: app/views/directives/edit-config-map.html:33
 #: app/views/directives/osc-autoscaling.html:28
 #: app/views/directives/osc-persistent-volume-claim.html:80
-#: src/components/create-project/createProject.html:28
 msgid "Name is required."
 msgstr "名字是必需的。"
 
@@ -3755,7 +3749,6 @@ msgstr "暂停可让您进行更改，而不会触发滚动更新。 您可以�
 
 #: app/views/browse/routes.html:72 app/views/directives/traffic-table.html:48
 #: app/views/overview/_service-binding.html:13
-#: src/components/binding/bindResults.html:5
 msgid "Pending"
 msgstr "等待"
 
@@ -4335,6 +4328,7 @@ msgid "Script"
 msgstr "脚本"
 
 #: app/views/directives/bind-service/delete-binding-result.html:13
+#: app/views/directives/create-secret.html:7
 #: app/views/directives/osc-secrets.html:6
 msgid "Secret"
 msgstr "私密凭证"
@@ -4664,6 +4658,12 @@ msgstr "代码仓库:"
 #: app/views/pipelines.html:68
 msgid "Source Repository:"
 msgstr "代码仓库:"
+
+#: app/scripts/directives/createSecret.js:41
+#, fuzzy
+#| msgid "Create Secret"
+msgid "Source Secret"
+msgstr "创建的私密凭证"
 
 #: app/views/browse/_build-details.html:65
 msgid "Source Type:"
@@ -5411,7 +5411,6 @@ msgid ""
 msgstr "这个名称已经在项目中使用了。请选择其它名称。"
 
 #: app/views/directives/create-secret.html:31
-#: src/components/create-project/createProject.html:43
 msgid "This name is already in use. Please choose a different name."
 msgstr "这个名字已经在使用了。请选择其它名称。"
 
@@ -5959,7 +5958,7 @@ msgstr "警告"
 msgid ""
 "We checked your application for potential problems. Please confirm you still "
 "want to create this application."
-msgstr "我们发现你的应用存在潜在的问题。请确认您仍要创建此应用程序。"
+msgstr ""
 
 #: app/views/browse/route.html:134
 msgid "Weight"
@@ -5977,7 +5976,7 @@ msgstr "欢迎来到DataMan OS。"
 
 #: app/views/overview.html:26
 msgid "Welcome to project {{projectName}}."
-msgstr "欢迎来到项目{{projectName}}。"
+msgstr "欢迎来到项目{ { projectName } }。"
 
 #: app/views/_edit-request-limit.html:41
 msgid ""
@@ -6134,7 +6133,7 @@ msgstr "您没有权限查看这个项目中的角色。"
 
 #: app/scripts/directives/confirmOnExit.js:20
 msgid "You have unsaved changes. Leave this page anyway?"
-msgstr "你有没有保存的更改。仍然要离开这个页面？"
+msgstr ""
 
 #: app/views/directives/next-steps.html:47
 msgid ""
@@ -6912,10 +6911,6 @@ msgstr "{{trigger.message}} 为了 {{trigger.imageChangeBuild.fromRef.name}}"
 msgid "{{type | upperFirst}} Hook"
 msgstr "{{type | upperFirst}}钩子"
 
-#: app/views/directives/create-secret.html:6
-msgid "{{type | upperFirst}} Secret"
-msgstr "{{type | upperFirst}}Secret"
-
 #: app/views/modals/delete-resource.html:34
 msgid "{{typeDisplayName || (kind | humanizeKind)}} to delete"
 msgstr "{{typeDisplayName || (kind | humanizeKind)}}可以删除"
@@ -6936,168 +6931,139 @@ msgstr "{{view.advancedOptions ? '隐藏' : '显示'}}高级选项"
 msgid "{{view.showSecret ? \"Hide\" : \"Reveal\"}} Secret"
 msgstr "{{view.showSecret ? \"隐藏\" : \"显示\"}}私密凭证"
 
-#: src/components/binding/bindResults.html:13
-msgid ""
-"<strong>{{ctrl.serviceToBind}}</strong> <span>has been bound</span> <span ng-"
-"if=\"ctrl.bindType === 'application'\"> to <strong>{{ctrl.applicationToBind}}"
-"</strong> successfully</span>"
-msgstr ""
-"<strong>{{ctrl.serviceToBind}}</strong> <span>已绑定</span> <span ng-if="
-"\"ctrl.bindType === 'application'\"> 到 <strong>{{ctrl.applicationToBind}}</"
-"strong> 成功</span>"
+#~ msgid "{{type | upperFirst}} Secret"
+#~ msgstr "{{type | upperFirst}}Secret"
 
-#: src/components/create-project/createProject.html:25
-msgid "A unique name for the project."
-msgstr "唯一的项目名称。"
+#~ msgid ""
+#~ "<strong>{{ctrl.serviceToBind}}</strong> <span>has been bound</span> <span "
+#~ "ng-if=\"ctrl.bindType === 'application'\"> to <strong>{{ctrl."
+#~ "applicationToBind}}</strong> successfully</span>"
+#~ msgstr ""
+#~ "<strong>{{ctrl.serviceToBind}}</strong> <span>已绑定</span> <span ng-if="
+#~ "\"ctrl.bindType === 'application'\"> 到 <strong>{{ctrl.applicationToBind}}"
+#~ "</strong> 成功</span>"
 
-#: src/components/binding/bindResults.html:44
-msgid "An error occurred creating the binding."
-msgstr "创建绑定时出错。"
+#~ msgid "A unique name for the project."
+#~ msgstr "唯一的项目名称。"
 
-#: src/components/delete-project/delete-project-modal.html:5
-msgid ""
-"Are you sure you want to delete the project '<strong>{{displayName ? "
-"displayName : projectName}}</strong>'?"
-msgstr ""
-"你确定要删除项目'<strong>{{displayName ? displayName : projectName}}</"
-"strong>'吗？"
+#~ msgid "An error occurred creating the binding."
+#~ msgstr "创建绑定时出错。"
 
-#: src/components/binding/bindResults.html:37
-msgid "Binding Failed"
-msgstr "绑定失败"
+#~ msgid ""
+#~ "Are you sure you want to delete the project '<strong>{{displayName ? "
+#~ "displayName : projectName}}</strong>'?"
+#~ msgstr ""
+#~ "你确定要删除项目'<strong>{{displayName ? displayName : projectName}}</"
+#~ "strong>'吗？"
 
-#: src/components/binding/bindServiceForm.html:47
-msgid "Bindings can be created later from within a project."
-msgstr "可以在项目中稍后创建绑定。"
+#~ msgid "Binding Failed"
+#~ msgstr "绑定失败"
 
-#: src/components/binding/bindApplicationForm.html:7
-msgid ""
-"Bindings create a secret containing the necessary information for an "
-"application to use a service."
-msgstr "绑定创建一个包含应用程序使用服务的必要信息的私密凭证。"
+#~ msgid "Bindings can be created later from within a project."
+#~ msgstr "可以在项目中稍后创建绑定。"
 
-#: src/components/binding/bindServiceForm.html:7
-msgid ""
-"Bindings create a secret containing the necessary information for an "
-"application to use this service."
-msgstr "绑定创建这个包含应用程序使用服务的必要信息的私密凭证。"
+#~ msgid ""
+#~ "Bindings create a secret containing the necessary information for an "
+#~ "application to use a service."
+#~ msgstr "绑定创建一个包含应用程序使用服务的必要信息的私密凭证。"
 
-#: src/components/binding/bindServiceForm.html:5
-msgid "Create a binding for"
-msgstr "创建绑定，为"
+#~ msgid ""
+#~ "Bindings create a secret containing the necessary information for an "
+#~ "application to use this service."
+#~ msgstr "绑定创建这个包含应用程序使用服务的必要信息的私密凭证。"
 
-#: src/components/binding/bindApplicationForm.html:5
-msgid ""
-"Create a binding for application <strong>{{ctrl.applicationName}}</strong>"
-msgstr "为应用程序<strong>{{ctrl.applicationName}}</strong>创建一个绑定"
+#~ msgid "Create a binding for"
+#~ msgstr "创建绑定，为"
 
-#: src/components/binding/bindServiceForm.html:16
-msgid "Create a secret and inject it into an application"
-msgstr "创建一个私密凭证并将其注入应用程序"
+#~ msgid ""
+#~ "Create a binding for application <strong>{{ctrl.applicationName}}</strong>"
+#~ msgstr "为应用程序<strong>{{ctrl.applicationName}}</strong>创建一个绑定"
 
-#: src/components/binding/bindServiceForm.html:44
-msgid "Do not bind at this time"
-msgstr "此时不要绑定"
+#~ msgid "Create a secret and inject it into an application"
+#~ msgstr "创建一个私密凭证并将其注入应用程序"
 
-#: src/components/binding/bindApplicationForm.html:22
-msgid "Do not bind at this time."
-msgstr "此时不要绑定。"
+#~ msgid "Do not bind at this time"
+#~ msgstr "此时不要绑定"
 
-#: src/components/binding/bindResults.html:27
-msgid "Info"
-msgstr "信息"
+#~ msgid "Do not bind at this time."
+#~ msgstr "此时不要绑定。"
 
-#: src/components/binding/bindResults.html:23
-msgid ""
-"Its data will be available to your application as environment variables."
-msgstr "其数据将作为环境变量提供给您的应用程序。"
+#~ msgid "Info"
+#~ msgstr "信息"
 
-#: src/openshiftCommonUI.module.js:27
-msgid ""
-"Name must consist of lower-case letters, numbers, periods, and hyphens. It "
-"must start and end with a letter or a number."
-msgstr ""
-"主机名必须由小写字母，数字，句号和连字符组成。 并且必须以字母或数字开头和结"
-"尾。"
+#~ msgid ""
+#~ "Its data will be available to your application as environment variables."
+#~ msgstr "其数据将作为环境变量提供给您的应用程序。"
 
-#: src/components/create-project/createProject.html:33
-msgid "Name must have at least two characters."
-msgstr "名称必须至少有两个字符。"
+#~ msgid ""
+#~ "Name must consist of lower-case letters, numbers, periods, and hyphens. "
+#~ "It must start and end with a letter or a number."
+#~ msgstr ""
+#~ "主机名必须由小写字母，数字，句号和连字符组成。 并且必须以字母或数字开头和"
+#~ "结尾。"
 
-#: src/components/create-project/createProject.html:38
-msgid ""
-"Project names may only contain lower-case letters, numbers, and dashes. They "
-"may not start or end with a dash."
-msgstr "项目名称只能包含小写字母，数字和破折号。 他们不能以破折号开始或结束。"
+#~ msgid "Name must have at least two characters."
+#~ msgstr "名称必须至少有两个字符。"
 
-#: src/components/binding/bindServiceForm.html:39
-msgid "Secrets can be referenced later from an application."
-msgstr "私密凭证可以在以后从应用中引用。"
+#~ msgid ""
+#~ "Project names may only contain lower-case letters, numbers, and dashes. "
+#~ "They may not start or end with a dash."
+#~ msgstr ""
+#~ "项目名称只能包含小写字母，数字和破折号。 他们不能以破折号开始或结束。"
 
-#: src/components/truncate-long-text/truncateLongText.html:12
-msgid "See All"
-msgstr "查看全部"
+#~ msgid "Secrets can be referenced later from an application."
+#~ msgstr "私密凭证可以在以后从应用中引用。"
 
-#: src/components/binding/bindApplicationForm.html:13
-msgid "Select a service:"
-msgstr "选择一个服务:"
+#~ msgid "See All"
+#~ msgstr "查看全部"
 
-#: src/components/binding/bindResults.html:12
-msgid "Success"
-msgstr "成功"
+#~ msgid "Select a service:"
+#~ msgstr "选择一个服务:"
 
-#: src/components/binding/bindResults.html:18
-msgid "The binding operation created the secret"
-msgstr "绑定操作创建了私密凭证"
+#~ msgid "Success"
+#~ msgstr "成功"
 
-#: src/components/binding/bindResults.html:28
-msgid ""
-"The binding secret will only be available to new pods. You will need to "
-"redeploy your application."
-msgstr "绑定私密凭证仅适用于新的Pod。 您将需要重新部署应用程序。"
+#~ msgid "The binding operation created the secret"
+#~ msgstr "绑定操作创建了私密凭证"
 
-#: src/components/binding/bindResults.html:6
-msgid "The binding was created but is not ready yet."
-msgstr "绑定已创建，但还没有准备好。"
+#~ msgid ""
+#~ "The binding secret will only be available to new pods. You will need to "
+#~ "redeploy your application."
+#~ msgstr "绑定私密凭证仅适用于新的Pod。 您将需要重新部署应用程序。"
 
-#: src/components/binding/bindApplicationForm.html:49
-msgid "There are no bindable services in this project"
-msgstr "此项目中没有可绑定的服务"
+#~ msgid "The binding was created but is not ready yet."
+#~ msgstr "绑定已创建，但还没有准备好。"
 
-#: src/components/binding/bindApplicationForm.html:38
-msgid ""
-"This service is not yet ready. If you bind to it, then the binding will be "
-"pending until the service is ready."
-msgstr "此服务尚未准备好。 如果绑定到它，则绑定将待处理，直到服务准备就绪。"
+#~ msgid "There are no bindable services in this project"
+#~ msgstr "此项目中没有可绑定的服务"
 
-#: src/components/delete-project/delete-project-modal.html:6
-msgid ""
-"This will <strong>delete all resources</strong> associated with the project "
-"{{displayName ? displayName : projectName}} and <strong>cannot be undone</"
-"strong>.  Make sure this is something you really want to do!"
-msgstr ""
-"这将<strong>删除与项目{{displayName ? displayName : projectName}}相关联的所有"
-"资源</strong>并且<strong>无法撤消</strong>。 确保这是你真正想做的！"
+#~ msgid ""
+#~ "This service is not yet ready. If you bind to it, then the binding will "
+#~ "be pending until the service is ready."
+#~ msgstr "此服务尚未准备好。 如果绑定到它，则绑定将待处理，直到服务准备就绪。"
 
-#: src/components/delete-project/delete-project-modal.html:10
-msgid "Type the name of the project to confirm."
-msgstr "键入要确认的项目的名称。"
+#~ msgid ""
+#~ "This will <strong>delete all resources</strong> associated with the "
+#~ "project {{displayName ? displayName : projectName}} and <strong>cannot be "
+#~ "undone</strong>.  Make sure this is something you really want to do!"
+#~ msgstr ""
+#~ "这将<strong>删除与项目{{displayName ? displayName : projectName}}相关联的"
+#~ "所有资源</strong>并且<strong>无法撤消</strong>。 确保这是你真正想做的！"
 
-#: src/components/create-project/createProject.html:9
-msgid "my-project"
-msgstr "我的项目"
+#~ msgid "Type the name of the project to confirm."
+#~ msgstr "键入要确认的项目的名称。"
 
-#: src/components/delete-project/delete-project-modal.html:12
-msgid "project to delete"
-msgstr "要删除的项目"
+#~ msgid "my-project"
+#~ msgstr "我的项目"
 
-#: src/components/binding/bindResults.html:22
-msgid "that you may need to reference in your application."
-msgstr "，那个您可能需要在您的应用程序中引用的。"
+#~ msgid "project to delete"
+#~ msgstr "要删除的项目"
 
-#: labelFilter.js:140
-msgid "Filter by label"
-msgstr "根据标签过滤"
+#~ msgid "that you may need to reference in your application."
+#~ msgstr "，那个您可能需要在您的应用程序中引用的。"
+
+#~ msgid "Filter by label"
+#~ msgstr "根据标签过滤"
 
 #~ msgid "{{displayType | startCase}} Secret"
 #~ msgstr "{{displayType | startCase}}私密凭证"
