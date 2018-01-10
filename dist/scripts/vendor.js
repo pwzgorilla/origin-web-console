@@ -42764,7 +42764,7 @@ this._onActiveFiltersChangedCallbacks.add(a);
 var f = this, e = e || {};
 this._labelFilterRootElement = a, this._labelFilterActiveFiltersRootElement = d;
 var g = $("<div>").addClass("label-filter").appendTo(a);
-this._labelFilterKeyInput = $("<select>").addClass("label-filter-key").attr("placeholder", c.getString(b("Filter by label")) + " ").appendTo(g), this._labelFilterOperatorInput = $("<select>").addClass("label-filter-operator").attr("placeholder", "matching(...)").hide().appendTo(g), this._labelFilterValuesInput = $("<select>").addClass("label-filter-values").attr("placeholder", "Value(s)").attr("multiple", !0).hide().appendTo(g), this._labelFilterAddBtn = $("<button>").addClass("label-filter-add btn btn-default disabled").attr("disabled", !0).appendTo(a).append($("<span>").text(e.addButtonText || "Add Filter")), this._labelFilterActiveFiltersElement = $("<span>").addClass("label-filter-active-filters").appendTo(d), this._labelFilterActiveElement = $("<span>").addClass("label-filter-clear").hide().appendTo(this._labelFilterActiveFiltersElement).append($("<a>").addClass("label-filtering-remove-all label label-primary").prop("href", "javascript:;").append($("<i>").addClass("fa fa-filter")).append($("<span>").text("Clear filters"))).click(function() {
+this._labelFilterKeyInput = $("<select>").addClass("label-filter-key").attr("placeholder", c.getString(b("Filter by label")) + " ").appendTo(g), this._labelFilterOperatorInput = $("<select>").addClass("label-filter-operator").attr("placeholder", "matching(...)").hide().appendTo(g), this._labelFilterValuesInput = $("<select>").addClass("label-filter-values").attr("placeholder", "Value(s)").attr("multiple", !0).hide().appendTo(g), this._labelFilterAddBtn = $("<button>").addClass("label-filter-add btn btn-default disabled").attr("disabled", !0).appendTo(a).append($("<span>").text(e.addButtonText || c.getString(b("Add Filter")))), this._labelFilterActiveFiltersElement = $("<span>").addClass("label-filter-active-filters").appendTo(d), this._labelFilterActiveElement = $("<span>").addClass("label-filter-clear").hide().appendTo(this._labelFilterActiveFiltersElement).append($("<a>").addClass("label-filtering-remove-all label label-primary").prop("href", "javascript:;").append($("<i>").addClass("fa fa-filter")).append($("<span>").text("Clear filters"))).click(function() {
 f.clear();
 }), this._labelFilterKeyInput.selectize({
 dropdownParent:"body",
@@ -61825,7 +61825,7 @@ return c.project = a, c.projectPromise.resolve(a), [ a, c ];
 }, function(d) {
 c.projectPromise.reject(d);
 var e = h.getString(g("The project could not be loaded.")), f = "error";
-return 403 === d.status ? (e = "The project " + c.projectName + " does not exist or you are not authorized to view it.", f = "access_denied") :404 === d.status && (e = "The project " + c.projectName + " does not exist.", f = "not_found"), a.url(URI("error").query({
+return 403 === d.status ? (e = h.getString(g("The project ")) + c.projectName + h.getString(g(" does not exist or you are not authorized to view it.")), f = "access_denied") :404 === d.status && (e = h.getString(g("The project ")) + c.projectName + h.getString(g(" does not exist.")), f = "not_found"), a.url(URI("error").query({
 error:f,
 error_description:e
 }).toString()), b.reject();

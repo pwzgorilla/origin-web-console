@@ -3,14 +3,345 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2018-01-10 16:25+0800\n"
+"PO-Revision-Date: 2018-01-10 17:45+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: zh_CN\n"
+"Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.0.5\n"
+
+#: src/components/binding/bindResults.html:13
+msgid ""
+"<strong>{{ctrl.serviceToBind}}</strong> <span>has been bound</span> <span ng-"
+"if=\"ctrl.bindType === 'application'\"> to <strong>{{ctrl.applicationToBind}}"
+"</strong> successfully</span>"
+msgstr ""
+"<strong>{{ctrl.serviceToBind}}</strong> <span>已绑定</span> <span ng-if="
+"\"ctrl.bindType === 'application'\"> 到 <strong>{{ctrl.applicationToBind}}</"
+"strong> 成功</span>"
+
+#: src/components/create-project/createProject.html:64
+#: src/components/edit-project/editProject.html:18
+#: app/views/edit/project.html:33
+msgid "A short description."
+msgstr "简短描述。"
+
+#: src/components/create-project/createProject.html:25
+msgid "A unique name for the project."
+msgstr "唯一的项目名称。"
+
+#: src/components/binding/bindResults.html:44
+msgid "An error occurred creating the binding."
+msgstr "创建绑定时出错。"
+
+#: src/components/delete-project/delete-project-modal.html:5
+msgid ""
+"Are you sure you want to delete the project '<strong>{{displayName ? "
+"displayName : projectName}}</strong>'?"
+msgstr ""
+"你确定要删除项目'<strong>{{displayName ? displayName : projectName}}</"
+"strong>'吗？"
+
+#: src/components/binding/bindResults.html:37
+msgid "Binding Failed"
+msgstr "绑定失败"
+
+#: src/components/binding/bindServiceForm.html:47
+msgid "Bindings can be created later from within a project."
+msgstr "可以在项目中稍后创建绑定。"
+
+#: src/components/binding/bindApplicationForm.html:7
+msgid ""
+"Bindings create a secret containing the necessary information for an "
+"application to use a service."
+msgstr "绑定创建一个包含应用程序使用服务的必要信息的私密凭证。"
+
+#: src/components/binding/bindServiceForm.html:7
+msgid ""
+"Bindings create a secret containing the necessary information for an "
+"application to use this service."
+msgstr "绑定创建这个包含应用程序使用服务的必要信息的私密凭证。"
+
+#: src/components/create-project/createProject.html:77
+#: src/components/delete-project/delete-project-modal.html:27
+#: app/scripts/controllers/deployment.js:316
+#: app/scripts/directives/fromFile.js:74
+#: app/scripts/directives/processTemplate.js:161
+#: app/views/add-config-volume.html:203 app/views/attach-pvc.html:219
+#: app/views/browse/_replica-set-details.html:46
+#: app/views/create-config-map.html:29 app/views/create-from-url.html:62
+#: app/views/create-persistent-volume-claim.html:29
+#: app/views/create-route.html:42 app/views/create/fromimage.html:414
+#: app/views/directives/create-secret.html:320
+#: app/views/directives/deploy-image.html:189
+#: app/views/directives/from-file.html:35
+#: app/views/directives/process-template.html:15
+#: app/views/directives/replicas.html:37 app/views/edit/autoscaler.html:65
+#: app/views/edit/build-config.html:676
+#: app/views/edit/deployment-config.html:378
+#: app/views/edit/health-checks.html:70 app/views/edit/project.html:43
+#: app/views/edit/route.html:33 app/views/edit/yaml.html:49
+#: app/views/modals/confirm-replace.html:21
+#: app/views/modals/confirm-save-log.html:15
+#: app/views/modals/confirmScale.html:10 app/views/modals/delete-project.html:8
+#: app/views/modals/delete-resource.html:89
+#: app/views/modals/process-or-save-template.html:23
+#: app/views/overview/_list-row-content.html:52 app/views/set-limits.html:60
+#: app/views/util/oauth.html:14 app/views/util/oauth.html:22
+msgid "Cancel"
+msgstr "取消"
+
+#: src/components/toast-notifications/toast-notifications.html:7
+#: app/views/_alerts.html:13 app/views/modals/debug-terminal.html:58
+msgid "Close"
+msgstr "关闭"
+
+#: src/components/truncate-long-text/truncateLongText.html:16
+#: src/components/truncate-long-text/truncateLongText.html:20
+#: app/views/_templateopt.html:9 app/views/directives/osc-form-section.html:9
+#: app/views/overview/_list-row-chevron.html:4
+msgid "Collapse"
+msgstr "折叠"
+
+#: src/components/create-project/createProject.html:69
+#: app/views/create-config-map.html:24
+#: app/views/create-persistent-volume-claim.html:24
+#: app/views/create/fromimage.html:410
+#: app/views/directives/create-secret.html:316
+#: app/views/directives/deploy-image.html:184
+#: app/views/directives/from-file.html:28
+#: app/views/directives/process-template.html:14
+msgid "Create"
+msgstr "创建"
+
+#: src/components/binding/bindServiceForm.html:5
+msgid "Create a binding for"
+msgstr "创建绑定，为"
+
+#: src/components/binding/bindApplicationForm.html:5
+msgid ""
+"Create a binding for application <strong>{{ctrl.applicationName}}</strong>"
+msgstr "为应用程序<strong>{{ctrl.applicationName}}</strong>创建一个绑定"
+
+#: src/components/binding/bindServiceForm.html:16
+msgid "Create a secret and inject it into an application"
+msgstr "创建一个私密凭证并将其注入应用程序"
+
+#: src/components/delete-project/delete-project-modal.html:26
+#: app/views/browse/_replica-set-actions.html:42
+#: app/views/browse/_replication-controller-actions.html:43
+#: app/views/browse/build-config.html:51 app/views/browse/build.html:63
+#: app/views/browse/config-map.html:33
+#: app/views/browse/deployment-config.html:75
+#: app/views/browse/deployment.html:60 app/views/browse/imagestream.html:27
+#: app/views/browse/persistent-volume-claim.html:27
+#: app/views/browse/pod.html:31 app/views/browse/route.html:30
+#: app/views/browse/secret.html:30 app/views/browse/service.html:31
+#: app/views/browse/stateful-set.html:40
+#: app/views/directives/delete-button.html:10 app/views/directives/hpa.html:8
+#: app/views/modals/delete-resource.html:75
+#: app/views/modals/delete-resource.html:88 app/views/other-resources.html:68
+#: app/views/overview/_service-instance-row.html:64 app/views/projects.html:109
+msgid "Delete"
+msgstr "删除"
+
+#: src/components/delete-project/delete-project-button.html:10
+#: app/views/projects.html:111
+msgid "Delete Project"
+msgstr "删除项目"
+
+#: src/components/create-project/createProject.html:60
+#: src/components/edit-project/editProject.html:14
+#: app/views/edit/project.html:29
+msgid "Description"
+msgstr "描述"
+
+#: src/components/create-project/createProject.html:50
+#: src/components/edit-project/editProject.html:4
+#: app/scripts/controllers/projects.js:95 app/views/edit/project.html:19
+msgid "Display Name"
+msgstr "显示名称"
+
+#: src/components/binding/bindServiceForm.html:44
+msgid "Do not bind at this time"
+msgstr "此时不要绑定"
+
+#: src/components/binding/bindApplicationForm.html:22
+msgid "Do not bind at this time."
+msgstr "此时不要绑定。"
+
+#: src/components/binding/bindResults.html:35
+#: app/views/overview/_notification-icon.html:10 app/views/util/error.html:9
+msgid "Error"
+msgstr "错误"
+
+#: src/components/binding/bindResults.html:27
+msgid "Info"
+msgstr "信息"
+
+#: src/components/binding/bindResults.html:23
+msgid ""
+"Its data will be available to your application as environment variables."
+msgstr "其数据将作为环境变量提供给您的应用程序。"
+
+#: src/components/create-project/createProject.html:54
+#: src/components/edit-project/editProject.html:8
+#: app/views/edit/project.html:23
+msgid "My Project"
+msgstr "我的项目"
+
+#: src/components/create-project/createProject.html:4
+#: app/scripts/controllers/projects.js:99 app/scripts/directives/events.js:146
+#: app/views/browse/build-config.html:459
+#: app/views/browse/build-config.html:471
+#: app/views/browse/build-config.html:492 app/views/browse/build.html:108
+#: app/views/browse/config-maps.html:42
+#: app/views/browse/deployment-config.html:343
+#: app/views/browse/deployment-config.html:353
+#: app/views/browse/deployment.html:105 app/views/browse/deployment.html:115
+#: app/views/browse/deployment.html:269 app/views/browse/deployment.html:279
+#: app/views/browse/stateful-sets.html:44 app/views/builds.html:43
+#: app/views/create/fromimage.html:31 app/views/deployments.html:128
+#: app/views/deployments.html:169 app/views/deployments.html:197
+#: app/views/deployments.html:42 app/views/directives/deploy-image.html:111
+#: app/views/directives/deploy-image.html:165
+#: app/views/directives/edit-config-map.html:5
+#: app/views/directives/events.html:42
+#: app/views/directives/label-editor.html:28
+#: app/views/directives/next-steps.html:108
+#: app/views/directives/osc-persistent-volume-claim.html:57
+#: app/views/directives/osc-routing.html:6 app/views/images.html:35
+#: app/views/membership.html:175 app/views/membership.html:62
+#: app/views/other-resources.html:41 app/views/secrets.html:37
+#: app/views/services.html:37 app/views/storage.html:48
+msgid "Name"
+msgstr "名称"
+
+#: src/components/create-project/createProject.html:28
+#: app/views/directives/create-secret.html:39
+#: app/views/directives/edit-config-map.html:33
+#: app/views/directives/osc-autoscaling.html:28
+#: app/views/directives/osc-persistent-volume-claim.html:80
+msgid "Name is required."
+msgstr "名字是必需的。"
+
+#: src/openshiftCommonUI.module.js:27
+msgid ""
+"Name must consist of lower-case letters, numbers, periods, and hyphens. It "
+"must start and end with a letter or a number."
+msgstr ""
+"主机名必须由小写字母，数字，句号和连字符组成。 并且必须以字母或数字开头和结"
+"尾。"
+
+#: src/components/create-project/createProject.html:33
+msgid "Name must have at least two characters."
+msgstr "名称必须至少有两个字符。"
+
+#: src/components/binding/bindResults.html:5 app/views/browse/routes.html:72
+#: app/views/directives/traffic-table.html:48
+#: app/views/overview/_service-binding.html:13
+msgid "Pending"
+msgstr "等待"
+
+#: src/components/create-project/createProject.html:38
+msgid ""
+"Project names may only contain lower-case letters, numbers, and dashes. They "
+"may not start or end with a dash."
+msgstr "项目名称只能包含小写字母，数字和破折号。 他们不能以破折号开始或结束。"
+
+#: src/components/binding/bindServiceForm.html:39
+msgid "Secrets can be referenced later from an application."
+msgstr "私密凭证可以在以后从应用中引用。"
+
+#: src/components/truncate-long-text/truncateLongText.html:12
+msgid "See All"
+msgstr "查看全部"
+
+#: src/components/binding/bindApplicationForm.html:13
+msgid "Select a service:"
+msgstr "选择一个服务:"
+
+#: src/components/binding/bindResults.html:12
+msgid "Success"
+msgstr "成功"
+
+#: src/components/binding/bindResults.html:18
+msgid "The binding operation created the secret"
+msgstr "绑定操作创建了私密凭证"
+
+#: src/components/binding/bindResults.html:28
+msgid ""
+"The binding secret will only be available to new pods. You will need to "
+"redeploy your application."
+msgstr "绑定私密凭证仅适用于新的Pod。 您将需要重新部署应用程序。"
+
+#: src/components/binding/bindResults.html:6
+msgid "The binding was created but is not ready yet."
+msgstr "绑定已创建，但还没有准备好。"
+
+#: src/services/projects.js:48 src/services/projects.js:51
+msgid "The project"
+msgstr "项目"
+
+#: src/services/projects.js:45
+msgid "The project could not be loaded."
+msgstr "无法载入项目。"
+
+#: src/components/binding/bindApplicationForm.html:49
+msgid "There are no bindable services in this project"
+msgstr "此项目中没有可绑定的服务"
+
+#: src/components/create-project/createProject.html:43
+#: app/views/directives/create-secret.html:31
+msgid "This name is already in use. Please choose a different name."
+msgstr "这个名字已经在使用了。请选择其它名称。"
+
+#: src/components/binding/bindApplicationForm.html:38
+msgid ""
+"This service is not yet ready. If you bind to it, then the binding will be "
+"pending until the service is ready."
+msgstr "此服务尚未准备好。 如果绑定到它，则绑定将待处理，直到服务准备就绪。"
+
+#: src/components/delete-project/delete-project-modal.html:6
+msgid ""
+"This will <strong>delete all resources</strong> associated with the project "
+"{{displayName ? displayName : projectName}} and <strong>cannot be undone</"
+"strong>.  Make sure this is something you really want to do!"
+msgstr ""
+"这将<strong>删除与项目{{displayName ? displayName : projectName}}相关联的所有"
+"资源</strong>并且<strong>无法撤消</strong>。 确保这是你真正想做的！"
+
+#: src/components/delete-project/delete-project-modal.html:10
+msgid "Type the name of the project to confirm."
+msgstr "键入要确认的项目的名称。"
+
+#: src/services/apiService.js:215
+msgid ""
+"Unable to load details about the server. If the problem continues, please "
+"contact your system administrator."
+msgstr "不能载入服务器详情。如果问题仍存在，请联系系统管理员。"
+
+#: src/services/projects.js:48
+msgid "does not exist or you are not authorized to view it."
+msgstr "不存在或者你没有浏览权限。"
+
+#: src/services/projects.js:51
+msgid "does not exist."
+msgstr "不存在。"
+
+#: src/components/create-project/createProject.html:9
+msgid "my-project"
+msgstr "我的项目"
+
+#: src/components/delete-project/delete-project-modal.html:12
+msgid "project to delete"
+msgstr "要删除的项目"
+
+#: src/components/binding/bindResults.html:22
+msgid "that you may need to reference in your application."
+msgstr "，那个您可能需要在您的应用程序中引用的。"
 
 #: app/views/edit/build-config.html:17
 msgid "&mdash; {{strategyType | startCase}} Build Strategy"
@@ -264,10 +595,6 @@ msgid ""
 msgstr ""
 "准备探针会检查容器是否准备好处理请求。 失败的准备探针意味着容器不应该从代理接"
 "收任何流量，即使它正在运行。"
-
-#: app/views/edit/project.html:33
-msgid "A short description."
-msgstr "简短描述。"
 
 #: app/views/command-line.html:48
 msgid "A token is a form of a password."
@@ -840,8 +1167,8 @@ msgstr "回到{{kind | humanizeKind}} {{name}}"
 msgid "Binary Input as File:"
 msgstr "二进制输入文件："
 
-#: app/scripts/directives/oscPersistentVolumeClaim.js:55
 #: app/views/modals/about-compute-units-modal.html:31
+#: app/scripts/directives/oscPersistentVolumeClaim.js:55
 msgid "Binary Units"
 msgstr "二进制单位"
 
@@ -1045,33 +1372,6 @@ msgstr "不能多于 {{nameValidation.maxlength}} 个字符。"
 msgid "Can't be negative."
 msgstr "不能是负数。"
 
-#: app/scripts/controllers/deployment.js:316
-#: app/scripts/directives/fromFile.js:74
-#: app/scripts/directives/processTemplate.js:161
-#: app/views/add-config-volume.html:203 app/views/attach-pvc.html:219
-#: app/views/browse/_replica-set-details.html:46
-#: app/views/create-config-map.html:29 app/views/create-from-url.html:62
-#: app/views/create-persistent-volume-claim.html:29
-#: app/views/create-route.html:42 app/views/create/fromimage.html:414
-#: app/views/directives/create-secret.html:320
-#: app/views/directives/deploy-image.html:189
-#: app/views/directives/from-file.html:35
-#: app/views/directives/process-template.html:15
-#: app/views/directives/replicas.html:37 app/views/edit/autoscaler.html:65
-#: app/views/edit/build-config.html:676
-#: app/views/edit/deployment-config.html:378
-#: app/views/edit/health-checks.html:70 app/views/edit/project.html:43
-#: app/views/edit/route.html:33 app/views/edit/yaml.html:49
-#: app/views/modals/confirm-replace.html:21
-#: app/views/modals/confirm-save-log.html:15
-#: app/views/modals/confirmScale.html:10 app/views/modals/delete-project.html:8
-#: app/views/modals/delete-resource.html:89
-#: app/views/modals/process-or-save-template.html:23
-#: app/views/overview/_list-row-content.html:52 app/views/set-limits.html:60
-#: app/views/util/oauth.html:14 app/views/util/oauth.html:22
-msgid "Cancel"
-msgstr "取消"
-
 #: app/views/browse/build.html:16 app/views/browse/build.html:46
 msgid "Cancel Build"
 msgstr "取消构建"
@@ -1177,10 +1477,6 @@ msgstr "清除值"
 msgid "Clear {{ (type || 'Command') | upperFirst }}"
 msgstr "清除{{ (type || 'Command') | upperFirst }}"
 
-#: app/views/_alerts.html:13 app/views/modals/debug-terminal.html:58
-msgid "Close"
-msgstr "关闭"
-
 #: app/views/quota.html:13
 msgid "Cluster"
 msgstr "集群"
@@ -1188,11 +1484,6 @@ msgstr "集群"
 #: app/views/services.html:38
 msgid "Cluster IP"
 msgstr "集群IP"
-
-#: app/views/_templateopt.html:9 app/views/directives/osc-form-section.html:9
-#: app/views/overview/_list-row-chevron.html:4
-msgid "Collapse"
-msgstr "折叠"
 
 #: app/views/directives/events-sidebar.html:5
 msgid "Collapse event sidebar"
@@ -1441,16 +1732,6 @@ msgstr "不能启动容器容器{{container.name}}。"
 msgid "Count"
 msgstr "计数"
 
-#: app/views/create-config-map.html:24
-#: app/views/create-persistent-volume-claim.html:24
-#: app/views/create/fromimage.html:410
-#: app/views/directives/create-secret.html:316
-#: app/views/directives/deploy-image.html:184
-#: app/views/directives/from-file.html:28
-#: app/views/directives/process-template.html:14
-msgid "Create"
-msgstr "创建"
-
 #: app/scripts/directives/fromFile.js:72
 #: app/scripts/directives/processTemplate.js:159
 msgid "Create Anyway"
@@ -1608,8 +1889,8 @@ msgstr "在终端调试"
 msgid "Debugging pod {{pod | debugPodSourceName}}"
 msgstr "调试pod{{pod | debugPodSourceName}}"
 
-#: app/scripts/directives/oscPersistentVolumeClaim.js:59
 #: app/views/modals/about-compute-units-modal.html:40
+#: app/scripts/directives/oscPersistentVolumeClaim.js:59
 msgid "Decimal Units"
 msgstr "十进制单位"
 
@@ -1631,32 +1912,11 @@ msgstr "定义运行时资源（如内存和CPU）的最小和最大限制。"
 msgid "Delay can't be negative."
 msgstr "延迟不能是负数。"
 
-#: app/views/browse/_replica-set-actions.html:42
-#: app/views/browse/_replication-controller-actions.html:43
-#: app/views/browse/build-config.html:51 app/views/browse/build.html:63
-#: app/views/browse/config-map.html:33
-#: app/views/browse/deployment-config.html:75
-#: app/views/browse/deployment.html:60 app/views/browse/imagestream.html:27
-#: app/views/browse/persistent-volume-claim.html:27
-#: app/views/browse/pod.html:31 app/views/browse/route.html:30
-#: app/views/browse/secret.html:30 app/views/browse/service.html:31
-#: app/views/browse/stateful-set.html:40
-#: app/views/directives/delete-button.html:10 app/views/directives/hpa.html:8
-#: app/views/modals/delete-resource.html:75
-#: app/views/modals/delete-resource.html:88 app/views/other-resources.html:68
-#: app/views/overview/_service-instance-row.html:64 app/views/projects.html:109
-msgid "Delete"
-msgstr "删除"
-
 #: app/views/overview/_list-row-actions.html:34
 #: app/views/overview/_list-row-actions.html:74
 #: app/views/overview/_service-instance-row.html:61
 msgid "Delete Binding"
 msgstr "删除绑定"
-
-#: app/views/projects.html:111
-msgid "Delete Project"
-msgstr "删除项目"
 
 #: app/views/modals/delete-resource.html:53
 msgid ""
@@ -1758,10 +2018,6 @@ msgstr "部署:"
 msgid "Deployments"
 msgstr "部署"
 
-#: app/views/edit/project.html:29
-msgid "Description"
-msgstr "描述"
-
 #: app/views/directives/osc-persistent-volume-claim.html:159
 msgid "Desired storage capacity."
 msgstr "所需的存储容量。"
@@ -1803,10 +2059,6 @@ msgstr "文件在构建时可用的目录。"
 #: app/views/_tasks.html:19 app/views/directives/_build-close.html:3
 msgid "Dismiss"
 msgstr "撤销"
-
-#: app/scripts/controllers/projects.js:95 app/views/edit/project.html:19
-msgid "Display Name"
-msgstr "显示名称"
 
 #: app/views/command-line.html:49
 msgid ""
@@ -2069,10 +2321,6 @@ msgstr ""
 msgid "Environment variables to supply to the hook pod's container."
 msgstr "将环境变量提供给钩子容器的容器。"
 
-#: app/views/overview/_notification-icon.html:10 app/views/util/error.html:9
-msgid "Error"
-msgstr "错误"
-
 #: app/views/overview/_notification-icon.html:13
 msgid "Errors"
 msgstr "错误"
@@ -2082,8 +2330,8 @@ msgstr "错误"
 #: app/views/browse/persistent-volume-claim.html:85
 #: app/views/browse/pod.html:222 app/views/browse/replica-set.html:152
 #: app/views/browse/service.html:109 app/views/browse/stateful-set.html:187
-#: app/views/directives/events-badge.html:2
 #: app/views/directives/events-sidebar.html:6 app/views/events.html:10
+#: app/views/directives/events-badge.html:2
 msgid "Events"
 msgstr "事件"
 
@@ -2515,12 +2763,6 @@ msgstr "镜像名"
 #: app/views/directives/create-secret.html:182
 msgid "Image Registry Server Address"
 msgstr "镜像注册表服务器地址"
-
-#: app/scripts/directives/createSecret.js:28
-#, fuzzy
-#| msgid "Image Stream"
-msgid "Image Secret"
-msgstr "镜像流"
 
 #: app/views/edit/build-config.html:159
 msgid "Image Source From"
@@ -3058,12 +3300,6 @@ msgstr "介质:"
 msgid "Membership"
 msgstr "成员"
 
-#: app/scripts/directives/podMetrics.js:53
-#, fuzzy
-#| msgid "Memory:"
-msgid "Memory"
-msgstr "内存:"
-
 #: app/views/quota.html:152 app/views/quota.html:60
 msgid "Memory <small>Limit</small>"
 msgstr "内存<small>限制</small>"
@@ -3263,50 +3499,13 @@ msgstr "一定是大于等于0的整数。"
 msgid "Must be a whole number."
 msgstr "一定是一个整数。"
 
-#: app/views/edit/project.html:23
-msgid "My Project"
-msgstr "我的项目"
-
 #: app/views/projects.html:25
 msgid "My Projects"
 msgstr "我的项目"
 
-#: app/scripts/controllers/projects.js:99 app/scripts/directives/events.js:146
-#: app/views/browse/build-config.html:459
-#: app/views/browse/build-config.html:471
-#: app/views/browse/build-config.html:492 app/views/browse/build.html:108
-#: app/views/browse/config-maps.html:42
-#: app/views/browse/deployment-config.html:343
-#: app/views/browse/deployment-config.html:353
-#: app/views/browse/deployment.html:105 app/views/browse/deployment.html:115
-#: app/views/browse/deployment.html:269 app/views/browse/deployment.html:279
-#: app/views/browse/stateful-sets.html:44 app/views/builds.html:43
-#: app/views/create/fromimage.html:31 app/views/deployments.html:128
-#: app/views/deployments.html:169 app/views/deployments.html:197
-#: app/views/deployments.html:42 app/views/directives/deploy-image.html:111
-#: app/views/directives/deploy-image.html:165
-#: app/views/directives/edit-config-map.html:5
-#: app/views/directives/events.html:42
-#: app/views/directives/label-editor.html:28
-#: app/views/directives/next-steps.html:108
-#: app/views/directives/osc-persistent-volume-claim.html:57
-#: app/views/directives/osc-routing.html:6 app/views/images.html:35
-#: app/views/membership.html:175 app/views/membership.html:62
-#: app/views/other-resources.html:41 app/views/secrets.html:37
-#: app/views/services.html:37 app/views/storage.html:48
-msgid "Name"
-msgstr "名称"
-
 #: app/views/directives/deploy-image.html:139
 msgid "Name can't have more than 24 characters."
 msgstr "名称不能超过24个字符。"
-
-#: app/views/directives/create-secret.html:39
-#: app/views/directives/edit-config-map.html:33
-#: app/views/directives/osc-autoscaling.html:28
-#: app/views/directives/osc-persistent-volume-claim.html:80
-msgid "Name is required."
-msgstr "名字是必需的。"
 
 #: app/views/directives/deploy-image.html:133
 msgid ""
@@ -3748,11 +3947,6 @@ msgid ""
 "Pausing lets you make changes without triggering a rollout. You can resume "
 "rollouts at any time."
 msgstr "暂停可让您进行更改，而不会触发滚动更新。 您可以随时恢复滚动更新。"
-
-#: app/views/browse/routes.html:72 app/views/directives/traffic-table.html:48
-#: app/views/overview/_service-binding.html:13
-msgid "Pending"
-msgstr "等待"
 
 #: app/views/directives/osc-routing.html:215
 msgid ""
@@ -4330,8 +4524,8 @@ msgid "Script"
 msgstr "脚本"
 
 #: app/views/directives/bind-service/delete-binding-result.html:13
-#: app/views/directives/create-secret.html:7
 #: app/views/directives/osc-secrets.html:6
+#: app/views/directives/create-secret.html:7
 msgid "Secret"
 msgstr "私密凭证"
 
@@ -4660,12 +4854,6 @@ msgstr "代码仓库:"
 #: app/views/pipelines.html:68
 msgid "Source Repository:"
 msgstr "代码仓库:"
-
-#: app/scripts/directives/createSecret.js:41
-#, fuzzy
-#| msgid "Create Secret"
-msgid "Source Secret"
-msgstr "创建的私密凭证"
 
 #: app/views/browse/_build-details.html:65
 msgid "Source Type:"
@@ -5412,10 +5600,6 @@ msgid ""
 "name."
 msgstr "这个名称已经在项目中使用了。请选择其它名称。"
 
-#: app/views/directives/create-secret.html:31
-msgid "This name is already in use. Please choose a different name."
-msgstr "这个名字已经在使用了。请选择其它名称。"
-
 #: app/views/browse/deployment.html:86
 msgid ""
 "This pauses any in-progress rollouts and stops new rollouts from running "
@@ -5960,7 +6144,7 @@ msgstr "警告"
 msgid ""
 "We checked your application for potential problems. Please confirm you still "
 "want to create this application."
-msgstr ""
+msgstr "我们发现你的应用存在潜在的问题。请确认您仍要创建此应用程序。"
 
 #: app/views/browse/route.html:134
 msgid "Weight"
@@ -6135,7 +6319,7 @@ msgstr "您没有权限查看这个项目中的角色。"
 
 #: app/scripts/directives/confirmOnExit.js:20
 msgid "You have unsaved changes. Leave this page anyway?"
-msgstr ""
+msgstr "你有没有保存的更改。仍然要离开这个页面？"
 
 #: app/views/directives/next-steps.html:47
 msgid ""
@@ -6913,6 +7097,10 @@ msgstr "{{trigger.message}} 为了 {{trigger.imageChangeBuild.fromRef.name}}"
 msgid "{{type | upperFirst}} Hook"
 msgstr "{{type | upperFirst}}钩子"
 
+#: app/views/directives/create-secret.html:6
+msgid "{{type | upperFirst}} Secret"
+msgstr "{{type | upperFirst}}Secret"
+
 #: app/views/modals/delete-resource.html:34
 msgid "{{typeDisplayName || (kind | humanizeKind)}} to delete"
 msgstr "{{typeDisplayName || (kind | humanizeKind)}}可以删除"
@@ -6933,830 +7121,14 @@ msgstr "{{view.advancedOptions ? '隐藏' : '显示'}}高级选项"
 msgid "{{view.showSecret ? \"Hide\" : \"Reveal\"}} Secret"
 msgstr "{{view.showSecret ? \"隐藏\" : \"显示\"}}私密凭证"
 
-#~ msgid "{{type | upperFirst}} Secret"
-#~ msgstr "{{type | upperFirst}}Secret"
-
-#~ msgid ""
-#~ "<strong>{{ctrl.serviceToBind}}</strong> <span>has been bound</span> <span "
-#~ "ng-if=\"ctrl.bindType === 'application'\"> to <strong>{{ctrl."
-#~ "applicationToBind}}</strong> successfully</span>"
-#~ msgstr ""
-#~ "<strong>{{ctrl.serviceToBind}}</strong> <span>已绑定</span> <span ng-if="
-#~ "\"ctrl.bindType === 'application'\"> 到 <strong>{{ctrl.applicationToBind}}"
-#~ "</strong> 成功</span>"
-
-#~ msgid "A unique name for the project."
-#~ msgstr "唯一的项目名称。"
-
-#~ msgid "An error occurred creating the binding."
-#~ msgstr "创建绑定时出错。"
-
-#~ msgid ""
-#~ "Are you sure you want to delete the project '<strong>{{displayName ? "
-#~ "displayName : projectName}}</strong>'?"
-#~ msgstr ""
-#~ "你确定要删除项目'<strong>{{displayName ? displayName : projectName}}</"
-#~ "strong>'吗？"
-
-#~ msgid "Binding Failed"
-#~ msgstr "绑定失败"
-
-#~ msgid "Bindings can be created later from within a project."
-#~ msgstr "可以在项目中稍后创建绑定。"
-
-#~ msgid ""
-#~ "Bindings create a secret containing the necessary information for an "
-#~ "application to use a service."
-#~ msgstr "绑定创建一个包含应用程序使用服务的必要信息的私密凭证。"
-
-#~ msgid ""
-#~ "Bindings create a secret containing the necessary information for an "
-#~ "application to use this service."
-#~ msgstr "绑定创建这个包含应用程序使用服务的必要信息的私密凭证。"
-
-#~ msgid "Create a binding for"
-#~ msgstr "创建绑定，为"
-
-#~ msgid ""
-#~ "Create a binding for application <strong>{{ctrl.applicationName}}</strong>"
-#~ msgstr "为应用程序<strong>{{ctrl.applicationName}}</strong>创建一个绑定"
-
-#~ msgid "Create a secret and inject it into an application"
-#~ msgstr "创建一个私密凭证并将其注入应用程序"
-
-#~ msgid "Do not bind at this time"
-#~ msgstr "此时不要绑定"
-
-#~ msgid "Do not bind at this time."
-#~ msgstr "此时不要绑定。"
-
-#~ msgid "Info"
-#~ msgstr "信息"
-
-#~ msgid ""
-#~ "Its data will be available to your application as environment variables."
-#~ msgstr "其数据将作为环境变量提供给您的应用程序。"
-
-#~ msgid ""
-#~ "Name must consist of lower-case letters, numbers, periods, and hyphens. "
-#~ "It must start and end with a letter or a number."
-#~ msgstr ""
-#~ "主机名必须由小写字母，数字，句号和连字符组成。 并且必须以字母或数字开头和"
-#~ "结尾。"
-
-#~ msgid "Name must have at least two characters."
-#~ msgstr "名称必须至少有两个字符。"
-
-#~ msgid ""
-#~ "Project names may only contain lower-case letters, numbers, and dashes. "
-#~ "They may not start or end with a dash."
-#~ msgstr ""
-#~ "项目名称只能包含小写字母，数字和破折号。 他们不能以破折号开始或结束。"
-
-#~ msgid "Secrets can be referenced later from an application."
-#~ msgstr "私密凭证可以在以后从应用中引用。"
-
-#~ msgid "See All"
-#~ msgstr "查看全部"
-
-#~ msgid "Select a service:"
-#~ msgstr "选择一个服务:"
-
-#~ msgid "Success"
-#~ msgstr "成功"
-
-#~ msgid "The binding operation created the secret"
-#~ msgstr "绑定操作创建了私密凭证"
-
-#~ msgid ""
-#~ "The binding secret will only be available to new pods. You will need to "
-#~ "redeploy your application."
-#~ msgstr "绑定私密凭证仅适用于新的Pod。 您将需要重新部署应用程序。"
-
-#~ msgid "The binding was created but is not ready yet."
-#~ msgstr "绑定已创建，但还没有准备好。"
-
-#~ msgid "There are no bindable services in this project"
-#~ msgstr "此项目中没有可绑定的服务"
-
-#~ msgid ""
-#~ "This service is not yet ready. If you bind to it, then the binding will "
-#~ "be pending until the service is ready."
-#~ msgstr "此服务尚未准备好。 如果绑定到它，则绑定将待处理，直到服务准备就绪。"
-
-#~ msgid ""
-#~ "This will <strong>delete all resources</strong> associated with the "
-#~ "project {{displayName ? displayName : projectName}} and <strong>cannot be "
-#~ "undone</strong>.  Make sure this is something you really want to do!"
-#~ msgstr ""
-#~ "这将<strong>删除与项目{{displayName ? displayName : projectName}}相关联的"
-#~ "所有资源</strong>并且<strong>无法撤消</strong>。 确保这是你真正想做的！"
-
-#~ msgid "Type the name of the project to confirm."
-#~ msgstr "键入要确认的项目的名称。"
-
-#~ msgid "my-project"
-#~ msgstr "我的项目"
-
-#~ msgid "project to delete"
-#~ msgstr "要删除的项目"
-
-#~ msgid "that you may need to reference in your application."
-#~ msgstr "，那个您可能需要在您的应用程序中引用的。"
-
-#~ msgid "Filter by label"
-#~ msgstr "根据标签过滤"
-
-#~ msgid "{{displayType | startCase}} Secret"
-#~ msgstr "{{displayType | startCase}}私密凭证"
-
-#~ msgid "/ Node Port"
-#~ msgstr "/ 节点端口"
-
-#~ msgid ""
-#~ "Learn More&nbsp;<i class=\"fa fa-external-link\" aria-hidden=\"true\"></i>"
-#~ msgstr ""
-#~ "了解更多&nbsp;<i class=\"fa fa-external-link\" aria-hidden=\"true\"></i>"
-
-#~ msgid ""
-#~ "Mount path for the volume.\n"
-#~ "                              <span ng-if=\"!attach.pickKeys\">\n"
-#~ "                                A file will be created in this directory "
-#~ "for each key from the config\n"
-#~ "                                map or secret. The file contents will be "
-#~ "the value of the key.\n"
-#~ "                              </span>"
-#~ msgstr ""
-#~ "挂载volume路径。\n"
-#~ "                              <span ng-if=\"!attach.pickKeys\">\n"
-#~ "                                将在该目录中为配置映射或secret中的每个密钥"
-#~ "创建一个文件。文件内容将是密钥的值。\n"
-#~ "                              </span>"
-
-#~ msgid ""
-#~ "Learn More <i class=\"fa fa-external-link\" aria-hidden=\"true\"></i>"
-#~ msgstr "了解更多 <i class=\"fa fa-external-link\" aria-hidden=\"true\"></i>"
-
-#~ msgid "Help"
-#~ msgstr "帮助"
-
-#~ msgid ""
-#~ "To learn more, visit the DataMan OS <a target=\"_blank\" ng-href=\"{{'' | "
-#~ "helpLink}}\">documentation</a>."
-#~ msgstr ""
-#~ "了解更多, 请访问DataMan OS <a target=\"_blank\" ng-href=\"{{'' | "
-#~ "helpLink}}\">文档</a>."
-
-#~ msgid "Add Config Files to {{name}}"
-#~ msgstr "添加配置文件到{{name}}"
-
-#~ msgid "Add Storage to {{name}}"
-#~ msgstr "添加存储{{name}}"
-
-#~ msgid "Environment variables can be edited on deployment config"
-#~ msgstr "可以在部署配置中编辑环境变量"
-
-#~ msgid "Environment variables can be edited on the deployment"
-#~ msgstr "可以在部署中编辑环境变量"
-
-#~ msgid "Image search is only available for existing projects."
-#~ msgstr "镜像搜索仅适用于现有项目。"
-
-#~ msgid ""
-#~ "No environment variables set in the {{$ctrl.apiObject.kind | "
-#~ "humanizeKind}} template for container {{container.name}}."
-#~ msgstr ""
-#~ "容器{{container.name}}的模板{{$ctrl.apiObject.kind | humanizeKind}}中没有"
-#~ "设置环境变量。"
-
-#~ msgid "OpenShift Web Console"
-#~ msgstr "OpenShift Web控制台"
-
-#~ msgid "Progress Deadline:"
-#~ msgstr "进度截止期限:"
-
-#~ msgid "Project Name"
-#~ msgstr "项目名称"
-
-#~ msgid ""
-#~ "The amount of time to wait for a deployment to make progress before it's "
-#~ "considered failed."
-#~ msgstr "在被认为是失败之前等待部署的时间的数量。"
-
-#~ msgid "The complete list of your projects could not be loaded."
-#~ msgstr "您的项目的完整列表无法加载。"
-
-#~ msgid "The number of old replica sets to keep."
-#~ msgstr "要保持的旧副本集的数量。"
-
-#~ msgid "Type a project name to go to that project."
-#~ msgstr "键入项目名称以转到该项目。"
-
-#~ msgid ""
-#~ "You must have a bindable service in your namespace in order to create "
-#~ "bindings."
-#~ msgstr "您的命名空间中必须具有可绑定的服务才能创建绑定。"
-
-#~ msgid "labels"
-#~ msgstr "标签"
-
-#~ msgid "ready"
-#~ msgstr "准备好"
-
-#~ msgid ""
-#~ "{{updated.resource.kind | humanizeKind | upperFirst}} <strong>{{updated."
-#~ "resource.metadata.name}}</strong> has changed since you started editing "
-#~ "it. You'll need to copy any changes you've made and edit the {{updated."
-#~ "resource.kind | humanizeKind}} again."
-#~ msgstr ""
-#~ "{{updated.resource.kind | humanizeKind | upperFirst}} <strong>{{updated."
-#~ "resource.metadata.name}}</strong>自您开始编辑它以来已经改变了。您需要复制"
-#~ "所做的任何更改，并再次编辑{{updated.resource.kind | humanizeKind}}。"
-
-#~ msgid "Are you sure you want to delete the project"
-#~ msgstr "确定要删除项目"
-
-#~ msgid "Deleting"
-#~ msgstr "删除"
-
-#~ msgid "No bindings"
-#~ msgstr "没有绑定"
-
-#~ msgid "Results"
-#~ msgstr "结果"
-
-#~ msgid "console"
-#~ msgstr "控制台"
-
-#~ msgid ""
-#~ "Config map {{configMap.metadata.name}} has changed since you started "
-#~ "editing it.\n"
-#~ "                          You'll need to copy any changes you've made and "
-#~ "edit the config map again."
-#~ msgstr ""
-#~ "自从您编辑它以来，配置映射{{configMap.metadata.name}}已经更改。 您需要复制"
-#~ "所做的任何更改，然后再次编辑配置映射。"
-
-#~ msgid ""
-#~ "<a ng-href=\"{{pvc | navigateResourceURL}}\">{{pvc.metadata.name}}</a>\n"
-#~ "                      <span ng-if=\"pvc | storageClass\" class=\"text-"
-#~ "muted\"> using storage class {{pvc | storageClass}}</span>"
-#~ msgstr ""
-#~ "<a ng-href=\"{{pvc | navigateResourceURL}}\">{{pvc.metadata.name}}</a>\n"
-#~ "                      <span ng-if=\"pvc | storageClass\" class=\"text-"
-#~ "muted\"> 使用存储类 {{pvc | storageClass}}</span>"
-
-#~ msgid ""
-#~ "<ng-pluralize count=\"pod.status.initContainerStatuses.length\" when="
-#~ "\"{'1': '&nbsp;Init container {{pod.status.initContainerStatuses[0]."
-#~ "name}}','other': '&nbsp;{} init containers'}\">\n"
-#~ "      </ng-pluralize>\n"
-#~ "      completed successfully"
-#~ msgstr ""
-#~ "<ng-pluralize count=\"pod.status.initContainerStatuses.length\" when="
-#~ "\"{'1': '&nbsp;Init container {{pod.status.initContainerStatuses[0]."
-#~ "name}}','other': '&nbsp;{} init containers'}\">\n"
-#~ "      </ng-pluralize>\n"
-#~ "      成功完成"
-
-#~ msgid ""
-#~ "<span ng-if=\"!advancedOptions\">Show</span>\n"
-#~ "                            <span ng-if=\"advancedOptions\">Hide</span>\n"
-#~ "                            <a href=\"\" ng-click=\"advancedOptions = !"
-#~ "advancedOptions\" role=\"button\">advanced options</a>\n"
-#~ "                            for source, routes, builds, and deployments."
-#~ msgstr ""
-#~ "<span ng-if=\"!advancedOptions\">显示</span>\n"
-#~ "                            <span ng-if=\"advancedOptions\">隐藏</span>\n"
-#~ "                            <a href=\"\" ng-click=\"advancedOptions = !"
-#~ "advancedOptions\" role=\"button\">高级选项</a>\n"
-#~ "                            为 源码、路由、构建和部署。"
-
-#~ msgid ""
-#~ "<span ng-if=\"!expandInitContainers\" translate=\"\">Show</span>\n"
-#~ "        <span ng-if=\"expandInitContainers\" translate=\"\">Hide</span>\n"
-#~ "        Details"
-#~ msgstr ""
-#~ "<span ng-if=\"!expandInitContainers\" translate=\"\">显示</span>\n"
-#~ "        <span ng-if=\"expandInitContainers\" translate=\"\">隐藏</span>\n"
-#~ "        细节"
-
-#~ msgid ""
-#~ "<span ng-if=\"!image.name\">Image value set</span>\n"
-#~ "                            from parameter<span ng-if=\"image."
-#~ "usesParameters.length > 1\">s</span>\n"
-#~ "                            <span ng-repeat=\"parameterName in image."
-#~ "usesParameters\">\n"
-#~ "                              {{parameterDisplayNames[parameterName]}}"
-#~ "<span ng-if=\"!$last\">,</span>\n"
-#~ "                            </span>"
-#~ msgstr ""
-#~ "<span ng-if=\"!image.name\">镜像值集合</span>\n"
-#~ "                            从参数\n"
-#~ "                            <span ng-repeat=\"parameterName in image."
-#~ "usesParameters\">\n"
-#~ "                              {{parameterDisplayNames[parameterName]}}"
-#~ "<span ng-if=\"!$last\">,</span>\n"
-#~ "                            </span>"
-
-#~ msgid ""
-#~ "<span ng-if=\"ports.length === 1\">Port</span>\n"
-#~ "          <span ng-if=\"ports.length > 1\">Ports</span>\n"
-#~ "          <span ng-repeat=\"port in ports\">\n"
-#~ "            <span ng-if=\"!$first && $last\">and</span>\n"
-#~ "            {{port.containerPort}}/{{port.protocol}}<span ng-if=\"!$last "
-#~ "&& ports.length > 2\">,</span>\n"
-#~ "          </span>\n"
-#~ "          will be load balanced by Service <strong>{{app.name || \"&lt;"
-#~ "name&gt;\"}}</strong>.\n"
-#~ "          <div>Other containers can access this service through the "
-#~ "hostname <strong>{{app.name || \"&lt;name&gt;\"}}</strong>.</div>"
-#~ msgstr ""
-#~ "<span ng-if=\"ports.length === 1\">端口</span>\n"
-#~ "          <span ng-if=\"ports.length > 1\">端口</span>\n"
-#~ "          <span ng-repeat=\"port in ports\">\n"
-#~ "            <span ng-if=\"!$first && $last\">和</span>\n"
-#~ "            {{port.containerPort}}/{{port.protocol}}<span ng-if=\"!$last "
-#~ "&& ports.length > 2\">，</span>\n"
-#~ "          </span>\n"
-#~ "          将使用服务 <strong>{{app.name || \"&lt;name&gt;\"}}</strong>的负"
-#~ "载均衡.\n"
-#~ "          <div>其他容器能够访问这个服务通过 <strong>{{app.name || \"&lt;"
-#~ "name&gt;\"}}</strong>.</div>"
-
-#~ msgid ""
-#~ "<span ng-if=\"service.spec.ports.length === 5\">,\n"
-#~ "                        {{service.spec.ports[4].port}}/{{service.spec."
-#~ "ports[4].protocol}}</span><span ng-if=\"service.spec.ports.length > "
-#~ "5\">,\n"
-#~ "                      and {{service.spec.ports.length - 4}} others</span>"
-#~ msgstr ""
-#~ "<span ng-if=\"service.spec.ports.length === 5\">,\n"
-#~ "                        {{service.spec.ports[4].port}}/{{service.spec."
-#~ "ports[4].protocol}}</span><span ng-if=\"service.spec.ports.length > "
-#~ "5\">,\n"
-#~ "                      和 {{service.spec.ports.length - 4}} 个其它的</span>"
-
-#~ msgid ""
-#~ "<span ng-if=\"service.status.loadBalancer.ingress.length === 5\">,\n"
-#~ "                        {{service.status.loadBalancer.ingress[4].ip}}</"
-#~ "span><span ng-if=\"service.status.loadBalancer.ingress.length > 5\">,\n"
-#~ "                      and {{service.status.loadBalancer.ingress.length - "
-#~ "4}} others</span>"
-#~ msgstr ""
-#~ "<span ng-if=\"service.status.loadBalancer.ingress.length === 5\">,\n"
-#~ "                        {{service.status.loadBalancer.ingress[4].ip}}</"
-#~ "span><span ng-if=\"service.status.loadBalancer.ingress.length > 5\">,\n"
-#~ "                      和 {{service.status.loadBalancer.ingress.length - "
-#~ "4}} 个其它的</span>"
-
-#~ msgid ""
-#~ "A new deployment will start automatically when\n"
-#~ "  <span ng-if=\"row.imageChangeTriggers.length === 1\">\n"
-#~ "    an image is pushed to\n"
-#~ "    <a ng-href=\"{{row.urlForImageChangeTrigger(row."
-#~ "imageChangeTriggers[0])}}\">\n"
-#~ "      {{row.imageChangeTriggers[0].imageChangeParams.from | "
-#~ "imageObjectRef : row.apiObject.metadata.namespace}}</a>.\n"
-#~ "  </span>\n"
-#~ "  <span ng-if=\"row.imageChangeParams.length > 1\">\n"
-#~ "    one of the images referenced by this deployment config changes.\n"
-#~ "  </span>"
-#~ msgstr ""
-#~ "新的部署将自动启动，在\n"
-#~ "  <span ng-if=\"row.imageChangeTriggers.length === 1\">\n"
-#~ "    一个镜像被推送到\n"
-#~ "    <a ng-href=\"{{row.urlForImageChangeTrigger(row."
-#~ "imageChangeTriggers[0])}}\">\n"
-#~ "      {{row.imageChangeTriggers[0].imageChangeParams.from | "
-#~ "imageObjectRef : row.apiObject.metadata.namespace}}</a>.\n"
-#~ "  </span>\n"
-#~ "  <span ng-if=\"row.imageChangeParams.length > 1\">\n"
-#~ "    此部署配置引用的映像之一更改。\n"
-#~ "  </span>"
-
-#~ msgid ""
-#~ "Actions\n"
-#~ "                  <span class=\"caret\" aria-hidden=\"true\"></span>"
-#~ msgstr ""
-#~ "行动\n"
-#~ "                  <span class=\"caret\" aria-hidden=\"true\"></span>"
-
-#~ msgid ""
-#~ "All events hidden by filter.\n"
-#~ "            <a href=\"\" ng-click=\"filter.text = ''\" role=\"button\" "
-#~ "translate=\"\">Clear Filter</a>"
-#~ msgstr ""
-#~ "所有的事件都被过滤器隐藏了\n"
-#~ "            <a href=\"\" ng-click=\"filter.text = ''\" role=\"button\" "
-#~ "translate=\"\">清除过滤器</a>"
-
-#~ msgid ""
-#~ "Autoscaling is not enabled. There are no autoscalers for this\n"
-#~ "      <span ng-if=\"deploymentConfigName\">deployment config or "
-#~ "deployment.</span>\n"
-#~ "      <span ng-if=\"!deploymentConfigName\">{{replicaSet.kind | "
-#~ "humanizeKind}}.</span>"
-#~ msgstr ""
-#~ "自动扩缩不可用. 没有扩缩器的目标为\n"
-#~ "      <span ng-if=\"deploymentConfigName\">部署设置或者部署。</span>\n"
-#~ "      <span ng-if=\"!deploymentConfigName\">{{replicaSet.kind | "
-#~ "humanizeKind}}.</span>"
-
-#~ msgid ""
-#~ "CPU\n"
-#~ "      <span ng-if=\"'cpu' | isRequestCalculated : project\">Limit</span>\n"
-#~ "      <span ng-if=\"!('cpu' | isRequestCalculated : project)\">Request</"
-#~ "span>\n"
-#~ "      Target:"
-#~ msgstr ""
-#~ "CPU\n"
-#~ "      <span ng-if=\"'cpu' | isRequestCalculated : project\">限制</span>\n"
-#~ "      <span ng-if=\"!('cpu' | isRequestCalculated : project)\">需求</"
-#~ "span>\n"
-#~ "      目标:"
-
-#~ msgid ""
-#~ "CPU\n"
-#~ "      <span ng-if=\"isRequestCalculated\">Limit</span>\n"
-#~ "      <span ng-if=\"!isRequestCalculated\">Request</span>\n"
-#~ "      Target"
-#~ msgstr ""
-#~ "CPU\n"
-#~ "      <span ng-if=\"isRequestCalculated\">限制</span>\n"
-#~ "      <span ng-if=\"!isRequestCalculated\">需求</span>\n"
-#~ "      目标"
-
-#~ msgid ""
-#~ "Edit Build Config {{buildConfig.metadata.name}}\n"
-#~ "              <small>&mdash; {{strategyType | startCase}} Build Strategy</"
-#~ "small>"
-#~ msgstr ""
-#~ "编辑构建配置{{buildConfig.metadata.name}}\n"
-#~ "              <small>&mdash; {{strategyType | startCase}} 构建策略</small>"
-
-#~ msgid ""
-#~ "Edit Resource\n"
-#~ "                              <span ng-if=\"!('cpu' | "
-#~ "isRequestCalculated : project)\">Requests and</span> Limits"
-#~ msgstr ""
-#~ "编辑资源\n"
-#~ "                              <span ng-if=\"!('cpu' | "
-#~ "isRequestCalculated : project)\">需求和</span>限制"
-
-#~ msgid ""
-#~ "Edit Resource\n"
-#~ "                            <span ng-if=\"!('cpu' | isRequestCalculated : "
-#~ "project)\">Requests and</span> Limits"
-#~ msgstr ""
-#~ "编辑资源\n"
-#~ "                            <span ng-if=\"!('cpu' | isRequestCalculated : "
-#~ "project)\">需求和</span>限制"
-
-#~ msgid ""
-#~ "Environment variables can be edited on deployment config\n"
-#~ "                        <a ng-href=\"{{replicaSet | "
-#~ "configURLForResource}}?tab=environment\">{{deploymentConfigName}}</a>."
-#~ msgstr ""
-#~ "可以在部署配置中编辑环境变量\n"
-#~ "                        <a ng-href=\"{{replicaSet | "
-#~ "configURLForResource}}?tab=environment\">{{deploymentConfigName}}</a>."
-
-#~ msgid ""
-#~ "Environment variables can be edited on the deployment\n"
-#~ "                        <a ng-href=\"{{deployment | navigateResourceURL}}?"
-#~ "tab=environment\">{{deployment.metadata.name}}</a>."
-#~ msgstr ""
-#~ "环境变量可以在部署进行编辑\n"
-#~ "                        <a ng-href=\"{{deployment | navigateResourceURL}}?"
-#~ "tab=environment\">{{deployment.metadata.name}}</a>."
-
-#~ msgid ""
-#~ "Learn more about\n"
-#~ "                      <a ng-href=\"{{ 'pipeline-builds' | helpLink}}\" "
-#~ "target=\"_blank\">Pipeline Builds</a>\n"
-#~ "                      and the\n"
-#~ "                        <a ng-href=\"{{ 'pipeline-plugin' | helpLink}}\" "
-#~ "target=\"_blank\">OpenShift Pipeline Plugin</a>."
-#~ msgstr ""
-#~ "进一步了解\n"
-#~ "                      <a ng-href=\"{{ 'pipeline-builds' | helpLink}}\" "
-#~ "target=\"_blank\">Pipeline Builds</a>\n"
-#~ "                      和\n"
-#~ "                        <a ng-href=\"{{ 'pipeline-plugin' | helpLink}}\" "
-#~ "target=\"_blank\">OpenShift Pipeline Plugin</a>。"
-
-#~ msgid ""
-#~ "Learn more about\n"
-#~ "                    <a ng-href=\"{{ 'pipeline-builds' | helpLink}}\" "
-#~ "target=\"_blank\">Pipeline Builds</a>\n"
-#~ "                    and the\n"
-#~ "                      <a ng-href=\"{{ 'pipeline-plugin' | helpLink}}\" "
-#~ "target=\"_blank\">OpenShift Pipeline Plugin</a>."
-#~ msgstr ""
-#~ "进一步了解\n"
-#~ "                    <a ng-href=\"{{ 'pipeline-builds' | helpLink}}\" "
-#~ "target=\"_blank\">Pipeline Builds</a>\n"
-#~ "                    和\n"
-#~ "                      <a ng-href=\"{{ 'pipeline-plugin' | helpLink}}\" "
-#~ "target=\"_blank\">OpenShift Pipeline Plugin</a>的事。"
-
-#~ msgid ""
-#~ "Learn more about\n"
-#~ "    <a ng-href=\"{{ 'pipeline-builds' | helpLink}}\" target=\"_blank"
-#~ "\">Pipeline Builds</a>\n"
-#~ "    and the\n"
-#~ "    <a ng-href=\"{{ 'pipeline-plugin' | helpLink}}\" target=\"_blank"
-#~ "\">OpenShift Pipeline Plugin</a>."
-#~ msgstr ""
-#~ "进一步了解\n"
-#~ "    <a ng-href=\"{{ 'pipeline-builds' | helpLink}}\" target=\"_blank"
-#~ "\">Pipeline Builds</a>\n"
-#~ "    和\n"
-#~ "    <a ng-href=\"{{ 'pipeline-plugin' | helpLink}}\" target=\"_blank"
-#~ "\">OpenShift Pipeline Plugin</a>的事."
-
-#~ msgid ""
-#~ "Limit cannot be more than {{maxLimitRequestRatio}} times request value.\n"
-#~ "          (Request: {{request | usageWithUnits : type}},\n"
-#~ "          <!-- Show default if amount is unset. -->\n"
-#~ "          Limit: {{(input.amount ? (input.amount + input.unit) : "
-#~ "defaultValue) | usageWithUnits : type}})"
-#~ msgstr ""
-#~ "限制不能超过{{maxLimitRequestRatio}}倍需求值。\n"
-#~ "          (需求: {{request | usageWithUnits : type}},\n"
-#~ "          <!— Show default if amount is unset. —>\n"
-#~ "          Limit: {{(input.amount ? (input.amount + input.unit) : "
-#~ "defaultValue) | usageWithUnits : type}})"
-
-#~ msgid ""
-#~ "No deployments for {{row.apiObject.kind | humanizeKind}}\n"
-#~ "    <a ng-href=\"{{row.apiObject | navigateResourceURL}}\">{{row."
-#~ "apiObject.metadata.name}}</a>."
-#~ msgstr ""
-#~ "没有部署，为{{row.apiObject.kind | humanizeKind}}\n"
-#~ "    <a ng-href=\"{{row.apiObject | navigateResourceURL}}\">{{row."
-#~ "apiObject.metadata.name}}</a>。"
-
-#~ msgid ""
-#~ "Path must be a relative path. It cannot start with <code>/</code> or\n"
-#~ "                                    contain <code>..</code> path elements."
-#~ msgstr ""
-#~ "路径必须是相对路径。 它不能以<code>/</code>开设或包含<code>..</code>路径元"
-#~ "素。"
-
-#~ msgid ""
-#~ "Select the keys to use and the file paths where each key will be "
-#~ "exposed.\n"
-#~ "                            The file paths are relative to the mount "
-#~ "path.\n"
-#~ "                            The contents of each file will be the value "
-#~ "of the key."
-#~ msgstr ""
-#~ "选择要使用的键和每个键将被暴露的文件路径。文件路径相对于安装路径。每个文件"
-#~ "的内容将是键的值。"
-
-#~ msgid ""
-#~ "Tag image as <a ng-if=\"!tagImage.to.namespace || tagImage.to.namespace "
-#~ "=== deploymentConfig.metadata.namespace\" ng-href=\"{{tagImage.to.name | "
-#~ "navigateResourceURL : 'ImageStreamTag' : deploymentConfig.metadata."
-#~ "namespace}}\">{{tagImage.to | imageObjectRef : deploymentConfig.metadata."
-#~ "namespace}}</a>\n"
-#~ "          <span ng-if=\"tagImage.to.namespace && tagImage.to.namespace !"
-#~ "== deploymentConfig.metadata.namespace\">{{tagImage.to | imageObjectRef : "
-#~ "deploymentConfig.metadata.namespace}}</span>"
-#~ msgstr ""
-#~ "标记镜像为<a ng-if=\"!tagImage.to.namespace || tagImage.to.namespace === "
-#~ "deploymentConfig.metadata.namespace\" ng-href=\"{{tagImage.to.name | "
-#~ "navigateResourceURL : 'ImageStreamTag' : deploymentConfig.metadata."
-#~ "namespace}}\">{{tagImage.to | imageObjectRef : deploymentConfig.metadata."
-#~ "namespace}}</a>\n"
-#~ "          <span ng-if=\"tagImage.to.namespace && tagImage.to.namespace !"
-#~ "== deploymentConfig.metadata.namespace\">{{tagImage.to | imageObjectRef : "
-#~ "deploymentConfig.metadata.namespace}}</span>"
-
-#~ msgid ""
-#~ "The OpenShift web console requires JavaScript to provide a rich "
-#~ "interactive experience. Please\n"
-#~ "                enable JavaScript to continue. If you do not wish to "
-#~ "enable JavaScript or are unable to do so,\n"
-#~ "                you may use the command-line tools to manage your "
-#~ "projects and applications instead."
-#~ msgstr ""
-#~ "OpenShift Web控制台需要JavaScript来提供丰富的互动体验。 请启用JavaScript以"
-#~ "继续。 如果您不希望启用JavaScript或无法启用JavaScript，则可以使用命令行工"
-#~ "具来管理项目和应用程序。"
-
-#~ msgid ""
-#~ "The current value is \"{{parameter.value}}\", which is not empty.\n"
-#~ "        <span ng-if=\"parameter.generate\">This will prevent a value from "
-#~ "being generated.</span>\n"
-#~ "        If this isn't what you want,\n"
-#~ "          <a href=\"\" ng-click=\"parameter.value=''; cleared = true; "
-#~ "focus(paramID)\">clear the value</a>."
-#~ msgstr ""
-#~ "当前值为\"{{parameter.value}}\"，不为空。\n"
-#~ "        <span ng-if=\"parameter.generate\">这将阻止生成值。</span>\n"
-#~ "        如果这不是你想要的，\n"
-#~ "          <a href=\"\" ng-click=\"parameter.value=''; cleared = true; "
-#~ "focus(paramID)\">清除值</a>."
-
-#~ msgid ""
-#~ "The lower limit for the number of pods that can be set by the "
-#~ "autoscaler.\n"
-#~ "      If not specified, defaults to 1."
-#~ msgstr "可由自动扩缩器设置的Pod数量的下限。如果未指定，则默认为1。"
-
-#~ msgid ""
-#~ "The percentage of the CPU\n"
-#~ "      <span ng-if=\"isRequestCalculated\">limit</span>\n"
-#~ "      <span ng-if=\"!isRequestCalculated\">request</span>\n"
-#~ "      that each pod should ideally be using. Pods will be added or "
-#~ "removed\n"
-#~ "      periodically when CPU usage exceeds or drops below this target "
-#~ "value.\n"
-#~ "      <span ng-if=\"defaultTargetCPUDisplayValue\">Defaults to "
-#~ "{{defaultTargetCPUDisplayValue}}%.</span>"
-#~ msgstr ""
-#~ "CPU的百分比\n"
-#~ "      <span ng-if=\"isRequestCalculated\">限制</span>\n"
-#~ "      <span ng-if=\"!isRequestCalculated\">需求</span>\n"
-#~ "      每个Pod用来理想地使用. 当CPU使用率超过或低于此目标值时，Pods会被定期"
-#~ "添加或删除。\n"
-#~ "      <span ng-if=\"defaultTargetCPUDisplayValue\">默认为"
-#~ "{{defaultTargetCPUDisplayValue}}%.</span>"
-
-#~ msgid ""
-#~ "The volume will be mounted into all containers. You can\n"
-#~ "                            <a href=\"\" ng-click=\"attach.allContainers "
-#~ "= false\">select specific containers</a>\n"
-#~ "                            instead."
-#~ msgstr ""
-#~ "卷将被挂载到所有容器中。 您可以<a href=\"\" ng-click=\"attach."
-#~ "allContainers = false\">选择指定的容器</a>代替。"
-
-#~ msgid ""
-#~ "This deployment config is part of the pipeline\n"
-#~ "        <a ng-href=\"{{pipeline | navigateResourceURL}}\">{{pipeline."
-#~ "metadata.name}}</a>."
-#~ msgstr ""
-#~ "这个Deployment配置是Pipeline的一部分\n"
-#~ "        <a ng-href=\"{{pipeline | navigateResourceURL}}\">{{pipeline."
-#~ "metadata.name}}</a>."
-
-#~ msgid ""
-#~ "This {{targetKind | humanizeKind}} does not have any containers with a "
-#~ "CPU\n"
-#~ "                      <span ng-if=\"'cpu' | isRequestCalculated : project"
-#~ "\">limit</span>\n"
-#~ "                      <span ng-if=\"!('cpu' | isRequestCalculated : "
-#~ "project)\">request</span>\n"
-#~ "                      set. Autoscaling will not work without a CPU\n"
-#~ "                      <span ng-if=\"'cpu' | isRequestCalculated : project"
-#~ "\">limit.</span>\n"
-#~ "                      <span ng-if=\"!('cpu' | isRequestCalculated : "
-#~ "project)\">request.</span>"
-#~ msgstr ""
-#~ "这个{{targetKind | humanizeKind}}没有任何带有CPU的容器\n"
-#~ "                      <span ng-if=\"'cpu' | isRequestCalculated : project"
-#~ "\">限制</span>\n"
-#~ "                      <span ng-if=\"!('cpu' | isRequestCalculated : "
-#~ "project)\">需求</span>\n"
-#~ "                      集合。自动扩缩将不会执行，只要没有CPU\n"
-#~ "                      <span ng-if=\"'cpu' | isRequestCalculated : project"
-#~ "\">限制。</span>\n"
-#~ "                      <span ng-if=\"!('cpu' | isRequestCalculated : "
-#~ "project)\">需求。</span>"
-
-#~ msgid ""
-#~ "Use\n"
-#~ "      <a href=\"\" ng-click=\"showAdvancedOptions = true\">label "
-#~ "selectors</a>\n"
-#~ "      to request storage."
-#~ msgstr ""
-#~ "使用<a href=\"\" ng-click=\"showAdvancedOptions = true\">标签选择器</a>来"
-#~ "请求存储。"
-
-#~ msgid ""
-#~ "View the file <code>{{buildConfig.spec.strategy.jenkinsPipelineStrategy."
-#~ "jenkinsfilePath}}</code> in the\n"
-#~ "                              <a ng-if=\"buildConfig | jenkinsfileLink\" "
-#~ "ng-href=\"buildConfig | jenkinsfileLink\">source repository</a>\n"
-#~ "                              <span ng-if=\"!(buildConfig | "
-#~ "jenkinsfileLink)\">source repository</span>\n"
-#~ "                              to see what stages will run."
-#~ msgstr ""
-#~ "查看文件<code>{{buildConfig.spec.strategy.jenkinsPipelineStrategy."
-#~ "jenkinsfilePath}}</code>，位于\n"
-#~ "                              <a ng-if=\"buildConfig | jenkinsfileLink\" "
-#~ "ng-href=\"buildConfig | jenkinsfileLink\">代码仓库</a>\n"
-#~ "                              <span ng-if=\"!(buildConfig | "
-#~ "jenkinsfileLink)\">代码仓库</span>\n"
-#~ "                              以查看将运行的阶段。"
-
-#~ msgid ""
-#~ "View the file <code>{{buildConfig.spec.strategy.jenkinsPipelineStrategy."
-#~ "jenkinsfilePath}}</code> in the\n"
-#~ "                    <a ng-if=\"buildConfig | jenkinsfileLink\" ng-href="
-#~ "\"buildConfig | jenkinsfileLink\">source repository</a>\n"
-#~ "                    <span ng-if=\"!(buildConfig | "
-#~ "jenkinsfileLink)\">source repository</span>\n"
-#~ "                    to see what stages will run."
-#~ msgstr ""
-#~ "查看文件<code>{{buildConfig.spec.strategy.jenkinsPipelineStrategy."
-#~ "jenkinsfilePath}}</code>，位于\n"
-#~ "                    <a ng-if=\"buildConfig | jenkinsfileLink\" ng-href="
-#~ "\"buildConfig | jenkinsfileLink\">代码仓库</a>\n"
-#~ "                    <span ng-if=\"!(buildConfig | jenkinsfileLink)\">代码"
-#~ "仓库</span>\n"
-#~ "                    以查看将运行的阶段。"
-
-#~ msgid ""
-#~ "Volume names may only contain lower-case letters, numbers, and dashes.\n"
-#~ "                            They may not start or end with a dash."
-#~ msgstr ""
-#~ "卷名称只能包含小写字母，数字和破折号。 他们可能不会以破折号开始或结束。"
-
-#~ msgid ""
-#~ "You should configure resource limits below for autoscaling.\n"
-#~ "                                  Autoscaling will not work without a "
-#~ "CPU\n"
-#~ "                                  <span ng-if=\"'cpu' | "
-#~ "isRequestCalculated : project\">limit.</span>\n"
-#~ "                                  <span ng-if=\"!('cpu' | "
-#~ "isRequestCalculated : project)\">request.</span>\n"
-#~ "                                  <span ng-if=\"'cpu' | "
-#~ "isLimitCalculated : project\">\n"
-#~ "                                    The CPU limit will be automatically "
-#~ "calculated from the container memory limit.\n"
-#~ "                                  </span>"
-#~ msgstr ""
-#~ "您应该在下面配置资源限制以进行自动缩放。\n"
-#~ "                                  自动缩放不起作用，由于没有CPU\n"
-#~ "                                  <span ng-if=\"'cpu' | "
-#~ "isRequestCalculated : project\">限制。</span>\n"
-#~ "                                  <span ng-if=\"!('cpu' | "
-#~ "isRequestCalculated : project)\">要求。</span>\n"
-#~ "                                  <span ng-if=\"'cpu' | "
-#~ "isLimitCalculated : project\">\n"
-#~ "                                    将从容器内存限制自动计算CPU限制。\n"
-#~ "                                  </span>"
-
-#~ msgid ""
-#~ "created\n"
-#~ "                                <span ng-if=\"project | annotation : "
-#~ "'openshift.io/requester'\">by <span ng-bind-html=\"project | annotation : "
-#~ "'openshift.io/requester' | highlightKeywords : keywords\"></span></span>"
-#~ msgstr ""
-#~ "创建\n"
-#~ "                                <span ng-if=\"project | annotation : "
-#~ "'openshift.io/requester'\">被 <span ng-bind-html=\"project | annotation : "
-#~ "'openshift.io/requester' | highlightKeywords : keywords\"></span></span>"
-
-#~ msgid ""
-#~ "downward API\n"
-#~ "        <span class=\"small text-muted\">(populated with information "
-#~ "about the pod)</span>"
-#~ msgstr ""
-#~ "向下的API\n"
-#~ "        <span class=\"small text-muted\">（填充有关pod的信息）</span>"
-
-#~ msgid ""
-#~ "git repo\n"
-#~ "       <span class=\"small text-muted\">(pulled from git when the pod is "
-#~ "created)</span>"
-#~ msgstr ""
-#~ "git仓库\n"
-#~ "       <span class=\"small text-muted\">(在创建pod时从git中拉出)</span>"
-
-#~ msgid ""
-#~ "host path\n"
-#~ "        <span class=\"small text-muted\">(bare host directory volume)</"
-#~ "span>"
-#~ msgstr ""
-#~ "主机路径\n"
-#~ "        <span class=\"small text-muted\">(裸机目录卷)</span>"
-
-#~ msgid ""
-#~ "persistent volume claim\n"
-#~ "        <span class=\"small text-muted\">(reference to a persistent "
-#~ "volume claim)</span>"
-#~ msgstr ""
-#~ "持久卷声明\n"
-#~ "        <span class=\"small text-muted\">(引用持久性卷声明)</span>"
-
-#~ msgid ""
-#~ "source repository\n"
-#~ "                              <span class=\"word-break\"><osc-git-link "
-#~ "uri=\"buildConfig.spec.source.git.uri\" ref=\"buildConfig.spec.source.git."
-#~ "ref\" context-dir=\"buildConfig.spec.source.contextDir\">{{buildConfig."
-#~ "spec.source.git.uri}}</osc-git-link></span>"
-#~ msgstr ""
-#~ "代码库\n"
-#~ "                              <span class=\"word-break\"><osc-git-link "
-#~ "uri=\"buildConfig.spec.source.git.uri\" ref=\"buildConfig.spec.source.git."
-#~ "ref\" context-dir=\"buildConfig.spec.source.contextDir\">{{buildConfig."
-#~ "spec.source.git.uri}}</osc-git-link></span>"
-
-#~ msgid "documentation"
-#~ msgstr "文档"
+#: app/scripts/directives/createSecret.js:28
+msgid "Image Secret"
+msgstr "镜像私密凭证"
+
+#: app/scripts/directives/podMetrics.js:53
+msgid "Memory"
+msgstr "内存"
+
+#: app/scripts/directives/createSecret.js:41
+msgid "Source Secret"
+msgstr "源码私密凭证"
