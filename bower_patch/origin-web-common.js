@@ -4611,10 +4611,10 @@ angular.module('openshiftCommonServices')
                                 var description = gettextCatalog.getString(gettext('The project could not be loaded.'));
                                 var type = 'error';
                                 if(e.status === 403) {
-                                  description = 'The project ' + context.projectName + ' does not exist or you are not authorized to view it.';
+                                  description = gettextCatalog.getString(gettext('The project ')) + context.projectName + gettextCatalog.getString(gettext(' does not exist or you are not authorized to view it.'));
                                   type = 'access_denied';
                                 } else if (e.status === 404) {
-                                  description = 'The project ' + context.projectName + ' does not exist.';
+                                  description = gettextCatalog.getString(gettext('The project ')) + context.projectName + gettextCatalog.getString(gettext(' does not exist.'));
                                   type = 'not_found';
                                 }
                                 $location

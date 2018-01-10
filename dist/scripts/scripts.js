@@ -9681,7 +9681,7 @@ a.optionNames = [], a.selectedExists = !1, a.optionNames = _.map(a.serviceOption
 });
 }
 };
-}), angular.module("openshiftConsole").directive("oscPersistentVolumeClaim", [ "$filter", "DataService", "LimitRangesService", "QuotaService", "ModalsService", "DNS1123_SUBDOMAIN_VALIDATION", function(a, b, c, d, e, f) {
+}), angular.module("openshiftConsole").directive("oscPersistentVolumeClaim", [ "$filter", "DataService", "LimitRangesService", "QuotaService", "ModalsService", "gettextCatalog", "gettext", "DNS1123_SUBDOMAIN_VALIDATION", function(a, b, c, d, e, f, g, h) {
 return {
 restrict:"E",
 scope:{
@@ -9689,9 +9689,9 @@ claim:"=model",
 projectName:"="
 },
 templateUrl:"views/directives/osc-persistent-volume-claim.html",
-link:function(g) {
-var h = a("amountAndUnit"), i = a("usageValue");
-g.nameValidation = f, g.storageClasses = [], g.defaultStorageClass = "", g.claim.unit = "Gi", g.units = [ {
+link:function(i) {
+var j = a("amountAndUnit"), k = a("usageValue");
+i.nameValidation = h, i.storageClasses = [], i.defaultStorageClass = "", i.claim.unit = "Gi", i.units = [ {
 value:"Mi",
 label:"MiB"
 }, {
@@ -9709,28 +9709,28 @@ label:"GB"
 }, {
 value:"T",
 label:"TB"
-} ], g.claim.selectedLabels = [], g.groupUnits = function(a) {
+} ], i.claim.selectedLabels = [], i.groupUnits = function(a) {
 switch (a.value) {
 case "Mi":
 case "Gi":
 case "Ti":
-return "Binary Units";
+return f.getString(g("Binary Units"));
 
 case "M":
 case "G":
 case "T":
-return "Decimal Units";
+return f.getString(g("Decimal Units"));
 }
 return "";
-}, g.showComputeUnitsHelp = function() {
+}, i.showComputeUnitsHelp = function() {
 e.showComputeUnitsHelp();
 };
-var j = function() {
-var a = g.claim.amount && i(g.claim.amount + g.claim.unit), b = _.has(g, "limits.min") && i(g.limits.min), c = _.has(g, "limits.max") && i(g.limits.max), d = !0, e = !0;
-a && b && (d = a >= b), a && c && (e = a <= c), g.persistentVolumeClaimForm.capacity.$setValidity("limitRangeMin", d), g.persistentVolumeClaimForm.capacity.$setValidity("limitRangeMax", e);
-}, k = function() {
-var a = d.isAnyStorageQuotaExceeded(g.quotas, g.clusterQuotas), b = d.willRequestExceedQuota(g.quotas, g.clusterQuotas, "requests.storage", g.claim.amount + g.claim.unit);
-g.persistentVolumeClaimForm.capacity.$setValidity("willExceedStorage", !b), g.persistentVolumeClaimForm.capacity.$setValidity("outOfClaims", !a);
+var l = function() {
+var a = i.claim.amount && k(i.claim.amount + i.claim.unit), b = _.has(i, "limits.min") && k(i.limits.min), c = _.has(i, "limits.max") && k(i.limits.max), d = !0, e = !0;
+a && b && (d = a >= b), a && c && (e = a <= c), i.persistentVolumeClaimForm.capacity.$setValidity("limitRangeMin", d), i.persistentVolumeClaimForm.capacity.$setValidity("limitRangeMax", e);
+}, m = function() {
+var a = d.isAnyStorageQuotaExceeded(i.quotas, i.clusterQuotas), b = d.willRequestExceedQuota(i.quotas, i.clusterQuotas, "requests.storage", i.claim.amount + i.claim.unit);
+i.persistentVolumeClaimForm.capacity.$setValidity("willExceedStorage", !b), i.persistentVolumeClaimForm.capacity.$setValidity("outOfClaims", !a);
 };
 b.list({
 group:"storage.k8s.io",
@@ -9738,11 +9738,11 @@ resource:"storageclasses"
 }, {}, function(b) {
 var c = b.by("metadata.name");
 if (!_.isEmpty(c)) {
-g.storageClasses = _.sortBy(c, "metadata.name");
+i.storageClasses = _.sortBy(c, "metadata.name");
 var d = a("annotation");
-if (g.defaultStorageClass = _.find(g.storageClasses, function(a) {
+if (i.defaultStorageClass = _.find(i.storageClasses, function(a) {
 return "true" === d(a, "storageclass.beta.kubernetes.io/is-default-class");
-}), g.defaultStorageClass) g.claim.storageClass = g.defaultStorageClass; else {
+}), i.defaultStorageClass) i.claim.storageClass = i.defaultStorageClass; else {
 var e = {
 metadata:{
 name:"No Storage Class",
@@ -9752,32 +9752,32 @@ description:"No storage class will be assigned"
 }
 }
 };
-g.storageClasses.unshift(e);
+i.storageClasses.unshift(e);
 }
 }
 }, {
 errorNotification:!1
 }), b.list("limitranges", {
-namespace:g.projectName
+namespace:i.projectName
 }, function(a) {
 var b = a.by("metadata.name");
 if (!_.isEmpty(b)) {
-g.limits = c.getEffectiveLimitRange(b, "storage", "PersistentVolumeClaim");
+i.limits = c.getEffectiveLimitRange(b, "storage", "PersistentVolumeClaim");
 var d;
-if (g.limits.min && g.limits.max) {
-var e = i(g.limits.min), f = i(g.limits.max);
-e === f && (d = h(g.limits.max), g.claim.amount = Number(d[0]), g.claim.unit = d[1], g.capacityReadOnly = !0);
+if (i.limits.min && i.limits.max) {
+var e = k(i.limits.min), f = k(i.limits.max);
+e === f && (d = j(i.limits.max), i.claim.amount = Number(d[0]), i.claim.unit = d[1], i.capacityReadOnly = !0);
 }
-g.$watchGroup([ "claim.amount", "claim.unit" ], j);
+i.$watchGroup([ "claim.amount", "claim.unit" ], l);
 }
 }), b.list("resourcequotas", {
-namespace:g.projectName
+namespace:i.projectName
 }, function(a) {
-g.quotas = a.by("metadata.name"), g.$watchGroup([ "claim.amount", "claim.unit" ], k);
+i.quotas = a.by("metadata.name"), i.$watchGroup([ "claim.amount", "claim.unit" ], m);
 }), b.list("appliedclusterresourcequotas", {
-namespace:g.projectName
+namespace:i.projectName
 }, function(a) {
-g.clusterQuotas = a.by("metadata.name");
+i.clusterQuotas = a.by("metadata.name");
 });
 }
 };
