@@ -27,6 +27,7 @@ angular.module('openshiftConsole').controller('OverviewController', [
   'ResourceAlertsService',
   'RoutesService',
   'gettext',
+  'gettextCatalog',
   OverviewController
 ]);
 
