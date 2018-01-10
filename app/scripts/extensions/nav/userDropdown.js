@@ -13,7 +13,7 @@ angular.module('openshiftConsole')
         var token = AuthService.UserStore().getToken();
         var nodeHtml = "";
         if ($rootScope.user.metadata.annotations && $rootScope.user.metadata.annotations.manager) {
-          nodeHtml += '<li><a href="' + window.DMOS_ADDRESS + '?t=' + token + '">管理</a></li>';
+          nodeHtml += '<li><a href="' + window.DMOS_ADDRESS + '?t=' + token + '">集群管理</a></li>';
         }
 
         return [{
