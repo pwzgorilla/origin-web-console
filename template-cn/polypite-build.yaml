@@ -31,7 +31,7 @@ objects:
     runPolicy: SerialLatestOnly
     source:
       dockerfile: |-
-        FROM nginx:1.13.6-alpine
+        FROM demoregistry.dataman-inc.com/library/nginx:1.13.6-alpine
 
         # ENV VERSION ${VERSION}
 
