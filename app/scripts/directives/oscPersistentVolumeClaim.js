@@ -7,6 +7,8 @@ angular.module("openshiftConsole")
                       LimitRangesService,
                       QuotaService,
                       ModalsService,
+		      gettextCatalog,
+		      gettext,
                       DNS1123_SUBDOMAIN_VALIDATION) {
     return {
       restrict: 'E',
@@ -50,11 +52,11 @@ angular.module("openshiftConsole")
           case 'Mi':
           case 'Gi':
           case 'Ti':
-            return 'Binary Units';
+            return gettextCatalog.getString(gettext("Binary Units"));
           case 'M':
           case 'G':
           case 'T':
-            return 'Decimal Units';
+            return gettextCatalog.getString(gettext("Decimal Units"));
           }
 
           return '';
