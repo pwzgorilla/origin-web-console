@@ -1959,6 +1959,7 @@ msgstr ""
 #: app/views/browse/replica-set.html:152
 #: app/views/browse/service.html:109
 #: app/views/browse/stateful-set.html:187
+#: app/views/directives/events-badge.html:2
 #: app/views/directives/events-sidebar.html:6
 #: app/views/events.html:10
 msgid "Events"
@@ -2330,6 +2331,10 @@ msgstr ""
 
 #: app/views/directives/create-secret.html:182
 msgid "Image Registry Server Address"
+msgstr ""
+
+#: app/scripts/directives/createSecret.js:28
+msgid "Image Secret"
 msgstr ""
 
 #: app/views/edit/build-config.html:159
@@ -2877,6 +2882,10 @@ msgstr ""
 #: app/scripts/constants.js:256
 #: app/views/membership.html:18
 msgid "Membership"
+msgstr ""
+
+#: app/scripts/directives/podMetrics.js:53
+msgid "Memory"
 msgstr ""
 
 #: app/views/quota.html:152
@@ -4114,6 +4123,7 @@ msgid "Script"
 msgstr ""
 
 #: app/views/directives/bind-service/delete-binding-result.html:13
+#: app/views/directives/create-secret.html:7
 #: app/views/directives/osc-secrets.html:6
 msgid "Secret"
 msgstr ""
@@ -4428,6 +4438,10 @@ msgstr ""
 
 #: app/views/pipelines.html:68
 msgid "Source Repository:"
+msgstr ""
+
+#: app/scripts/directives/createSecret.js:41
+msgid "Source Secret"
 msgstr ""
 
 #: app/views/browse/_build-details.html:65
@@ -6381,10 +6395,6 @@ msgstr ""
 
 #: app/views/directives/lifecycle-hook.html:2
 msgid "{{type | upperFirst}} Hook"
-msgstr ""
-
-#: app/views/directives/create-secret.html:6
-msgid "{{type | upperFirst}} Secret"
 msgstr ""
 
 #: app/views/modals/delete-resource.html:34
