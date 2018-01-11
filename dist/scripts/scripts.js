@@ -15038,7 +15038,7 @@ a.add("nav-user-dropdown", function() {
 var a = d("Log out");
 a = e.getString(a), b.user.fullName && b.user.fullName !== b.user.metadata.name && (a += " (" + b.user.metadata.name + ")");
 var f = c.UserStore().getToken(), g = "";
-return b.user.metadata.annotations && b.user.metadata.annotations.manager && (g += '<li><a href="' + window.DMOS_ADDRESS + "?t=" + f + '">管理</a></li>'), [ {
+return b.user.metadata.annotations && b.user.metadata.annotations.manager && (g += '<li><a href="' + window.DMOS_ADDRESS + "?t=" + f + '">集群管理</a></li>'), [ {
 type:"dom",
 node:g + '<li><a href="logout">' + _.escape(a) + "</a></li>"
 } ];
