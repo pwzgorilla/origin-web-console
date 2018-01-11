@@ -4,6 +4,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
+#: app/scripts/services/routes.js:55
+msgid "\" does not expose that port."
+msgstr ""
+
+#: app/scripts/services/routes.js:51
+msgid "\" has no port with that name."
+msgstr ""
+
+#: app/scripts/services/routes.js:50
+#: app/scripts/services/routes.js:54
+msgid "\", but service \""
+msgstr ""
+
 #: app/views/edit/build-config.html:17
 msgid "&mdash; {{strategyType | startCase}} Build Strategy"
 msgstr ""
@@ -90,8 +103,12 @@ msgstr ""
 msgid ". You cannot create new storage since you are at quota."
 msgstr ""
 
-#: app/scripts/constants.js:426
+#: app/scripts/constants.js:427
 msgid ".NET"
+msgstr ""
+
+#: app/views/directives/traffic-table.html:5
+msgid "/ Node Port"
 msgstr ""
 
 #: app/views/modals/about-compute-units-modal.html:19
@@ -143,7 +160,7 @@ msgstr ""
 msgid "A build configuration describes how to build your deployable image.  This includes your source, the base builder image, and when to launch new builds."
 msgstr ""
 
-#: app/scripts/constants.js:493
+#: app/scripts/constants.js:494
 msgid "A centralized authentication server for users to log in, log out, register, and manage user accounts for applications and RESTful web services."
 msgstr ""
 
@@ -485,8 +502,8 @@ msgstr ""
 msgid "Add to command"
 msgstr ""
 
-#: app/views/add-config-volume.html:36
-msgid "Add values from a config map or secret as volume. This will make the data available as files for {{kind | humanizeKind}} {{name}}."
+#: app/views/add-config-volume.html:37
+msgid "Add values from a config map or secret as volume. This will make the data available as files for"
 msgstr ""
 
 #: app/views/directives/edit-lifecycle-hook.html:131
@@ -525,6 +542,10 @@ msgstr ""
 msgid "All pipelines are filtered."
 msgstr ""
 
+#: app/views/directives/osc-routing.html:149
+msgid "Alternate Services"
+msgstr ""
+
 #: app/views/directives/osc-routing-service.html:16
 msgid "Alternate service for route traffic."
 msgstr ""
@@ -545,7 +566,7 @@ msgstr ""
 msgid "An error occurred deleting the binding."
 msgstr ""
 
-#: app/scripts/controllers/overview.js:398
+#: app/scripts/controllers/overview.js:399
 msgid "An error occurred getting metrics."
 msgstr ""
 
@@ -566,7 +587,7 @@ msgstr ""
 msgid "An image that can carry out the deployment."
 msgstr ""
 
-#: app/scripts/controllers/overview.js:154
+#: app/scripts/controllers/overview.js:155
 #: app/views/overview.html:120
 msgid "Application"
 msgstr ""
@@ -575,7 +596,7 @@ msgstr ""
 msgid "Application created."
 msgstr ""
 
-#: app/scripts/constants.js:166
+#: app/scripts/constants.js:167
 msgid "Applications"
 msgstr ""
 
@@ -615,7 +636,7 @@ msgstr ""
 msgid "Autodeploy when"
 msgstr ""
 
-#: app/scripts/constants.js:471
+#: app/scripts/constants.js:472
 msgid "Automate the build, test, and deployment of your application with each new code revision."
 msgstr ""
 
@@ -795,8 +816,8 @@ msgstr ""
 msgid "Builder Image:"
 msgstr ""
 
-#: app/scripts/constants.js:214
-#: app/scripts/constants.js:220
+#: app/scripts/constants.js:215
+#: app/scripts/constants.js:221
 #: app/views/builds.html:11
 #: app/views/monitoring.html:335
 #: app/views/overview/_builds.html:2
@@ -828,7 +849,7 @@ msgstr ""
 msgid "Builds will create an image from"
 msgstr ""
 
-#: app/scripts/constants.js:464
+#: app/scripts/constants.js:465
 msgid "Business Process Services"
 msgstr ""
 
@@ -906,6 +927,7 @@ msgid "Can't be negative."
 msgstr ""
 
 #: app/scripts/controllers/deployment.js:316
+#: app/scripts/controllers/deploymentConfig.js:411
 #: app/scripts/directives/fromFile.js:74
 #: app/scripts/directives/processTemplate.js:161
 #: app/views/add-config-volume.html:203
@@ -1123,7 +1145,7 @@ msgstr ""
 msgid "Config Map:"
 msgstr ""
 
-#: app/scripts/constants.js:265
+#: app/scripts/constants.js:266
 #: app/views/browse/config-maps.html:14
 msgid "Config Maps"
 msgstr ""
@@ -1187,7 +1209,7 @@ msgstr ""
 msgid "Confirm User Change"
 msgstr ""
 
-#: app/scripts/constants.js:487
+#: app/scripts/constants.js:488
 msgid "Connect with other applications and data to enhance functionality without duplication."
 msgstr ""
 
@@ -1275,7 +1297,7 @@ msgstr ""
 msgid "Continue with deployment on failure"
 msgstr ""
 
-#: app/scripts/constants.js:470
+#: app/scripts/constants.js:471
 msgid "Continuous Integration & Deployment"
 msgstr ""
 
@@ -1308,6 +1330,7 @@ msgstr ""
 
 #: app/views/create-config-map.html:24
 #: app/views/create-persistent-volume-claim.html:24
+#: app/views/create-route.html:37
 #: app/views/create/fromimage.html:410
 #: app/views/directives/create-secret.html:316
 #: app/views/directives/deploy-image.html:184
@@ -1348,6 +1371,7 @@ msgstr ""
 
 #: app/views/browse/routes.html:11
 #: app/views/browse/service.html:24
+#: app/views/create-route.html:16
 #: app/views/overview/_networking.html:50
 msgid "Create Route"
 msgstr ""
@@ -1459,7 +1483,7 @@ msgstr ""
 msgid "Custom certificates cannot be used with passthrough termination."
 msgstr ""
 
-#: app/scripts/constants.js:476
+#: app/scripts/constants.js:477
 msgid "Data Stores"
 msgstr ""
 
@@ -1627,7 +1651,7 @@ msgstr ""
 msgid "Deployment:"
 msgstr ""
 
-#: app/scripts/constants.js:172
+#: app/scripts/constants.js:173
 #: app/scripts/controllers/deployment.js:36
 #: app/views/deployments.html:11
 #: app/views/deployments.html:117
@@ -1724,7 +1748,7 @@ msgstr ""
 msgid "Dockerfile Path"
 msgstr ""
 
-#: app/scripts/controllers/overview.js:405
+#: app/scripts/controllers/overview.js:406
 #: app/scripts/services/resourceAlerts.js:57
 #: app/views/browse/route.html:90
 msgid "Don't Show Me Again"
@@ -2012,7 +2036,7 @@ msgstr ""
 msgid "External Traffic"
 msgstr ""
 
-#: app/scripts/constants.js:482
+#: app/scripts/constants.js:483
 msgid "Facilitate communication between applications and distributed processes with a messaging server."
 msgstr ""
 
@@ -2131,7 +2155,7 @@ msgstr ""
 msgid "GitLab Webhook URL:"
 msgstr ""
 
-#: app/scripts/constants.js:452
+#: app/scripts/constants.js:453
 msgid "Go"
 msgstr ""
 
@@ -2387,7 +2411,7 @@ msgstr ""
 msgid "Image value set"
 msgstr ""
 
-#: app/scripts/constants.js:235
+#: app/scripts/constants.js:236
 #: app/views/edit/deployment-config.html:282
 #: app/views/newfromtemplate.html:25
 msgid "Images"
@@ -2427,7 +2451,7 @@ msgstr ""
 msgid "Insecure Traffic:"
 msgstr ""
 
-#: app/scripts/constants.js:486
+#: app/scripts/constants.js:487
 msgid "Integration"
 msgstr ""
 
@@ -2456,22 +2480,25 @@ msgid "It is recommended you delete the autoscalers with the resource they scale
 msgstr ""
 
 #: app/scripts/controllers/deployment.js:308
+#: app/scripts/controllers/deploymentConfig.js:403
 msgid "It will not delete the config map."
 msgstr ""
 
 #: app/scripts/controllers/deployment.js:304
+#: app/scripts/controllers/deploymentConfig.js:399
 msgid "It will not delete the persistent volume claim."
 msgstr ""
 
 #: app/scripts/controllers/deployment.js:306
+#: app/scripts/controllers/deploymentConfig.js:401
 msgid "It will not delete the secret."
 msgstr ""
 
-#: app/scripts/constants.js:374
+#: app/scripts/constants.js:375
 msgid "Java"
 msgstr ""
 
-#: app/scripts/constants.js:421
+#: app/scripts/constants.js:422
 msgid "JavaScript"
 msgstr ""
 
@@ -2562,7 +2589,7 @@ msgstr ""
 msgid "Labels for this route."
 msgstr ""
 
-#: app/scripts/constants.js:369
+#: app/scripts/constants.js:370
 msgid "Languages"
 msgstr ""
 
@@ -2639,7 +2666,7 @@ msgstr ""
 
 #: app/views/_compute-resource.html:53
 #: app/views/directives/hpa.html:31
-#: app/views/directives/osc-autoscaling.html:103
+#: app/views/directives/osc-autoscaling.html:101
 #: app/views/quota.html:239
 msgid "Limit"
 msgstr ""
@@ -2705,7 +2732,7 @@ msgstr ""
 #: app/index.html:56
 #: app/scripts/controllers/buildConfig.js:47
 #: app/scripts/controllers/builds.js:18
-#: app/scripts/controllers/deploymentConfig.js:46
+#: app/scripts/controllers/deploymentConfig.js:47
 #: app/scripts/controllers/deployments.js:28
 #: app/scripts/controllers/images.js:19
 #: app/scripts/controllers/imagestream.js:27
@@ -2846,7 +2873,7 @@ msgstr ""
 msgid "Max Unavailable:"
 msgstr ""
 
-#: app/views/directives/osc-autoscaling.html:95
+#: app/views/directives/osc-autoscaling.html:93
 msgid "Max pods is a required field."
 msgstr ""
 
@@ -2855,10 +2882,7 @@ msgid "Max pods must be a number."
 msgstr ""
 
 #: app/views/directives/osc-autoscaling.html:90
-msgid ""
-"Max pods must be greater than or equal to\n"
-"        <span ng-if=\"autoscaling.minReplicas\">min pods, which is</span>\n"
-"        {{autoscaling.minReplicas || 1}."
+msgid "Max pods must be greater than or equal to <span ng-if=\"autoscaling.minReplicas\">min pods, which is</span> {{autoscaling.minReplicas || 1}."
 msgstr ""
 
 #: app/views/directives/osc-persistent-volume-claim.html:134
@@ -2881,7 +2905,7 @@ msgstr ""
 msgid "Medium:"
 msgstr ""
 
-#: app/scripts/constants.js:256
+#: app/scripts/constants.js:257
 #: app/views/membership.html:18
 msgid "Membership"
 msgstr ""
@@ -2928,7 +2952,7 @@ msgstr ""
 msgid "Messages"
 msgstr ""
 
-#: app/scripts/constants.js:481
+#: app/scripts/constants.js:482
 msgid "Messaging"
 msgstr ""
 
@@ -2957,6 +2981,10 @@ msgstr ""
 
 #: app/views/quota.html:219
 msgid "Min"
+msgstr ""
+
+#: app/views/directives/osc-autoscaling.html:42
+msgid "Min Pods"
 msgstr ""
 
 #: app/views/directives/hpa.html:25
@@ -2997,11 +3025,11 @@ msgstr ""
 msgid "Mode:"
 msgstr ""
 
-#: app/scripts/constants.js:465
+#: app/scripts/constants.js:466
 msgid "Model, automate, and orchestrate business processes across applications, services, and data."
 msgstr ""
 
-#: app/scripts/constants.js:299
+#: app/scripts/constants.js:300
 #: app/views/monitoring.html:12
 msgid "Monitoring"
 msgstr ""
@@ -3228,7 +3256,7 @@ msgstr ""
 msgid "No deployments for <a ng-href=\"{{row.apiObject | navigateResourceURL}}\">{{row.apiObject.metadata.name}}</a>"
 msgstr ""
 
-#: app/scripts/controllers/deploymentConfig.js:199
+#: app/scripts/controllers/deploymentConfig.js:200
 msgid "No deployments to show"
 msgstr ""
 
@@ -3385,7 +3413,7 @@ msgstr ""
 msgid "Open Fullscreen Terminal"
 msgstr ""
 
-#: app/scripts/controllers/overview.js:401
+#: app/scripts/controllers/overview.js:402
 msgid "Open Metrics URL"
 msgstr ""
 
@@ -3427,7 +3455,7 @@ msgstr ""
 msgid "Other Replication Controllers"
 msgstr ""
 
-#: app/scripts/constants.js:283
+#: app/scripts/constants.js:284
 #: app/views/other-resources.html:10
 #: app/views/overview.html:133
 msgid "Other Resources"
@@ -3449,11 +3477,11 @@ msgstr ""
 msgid "Output To:"
 msgstr ""
 
-#: app/scripts/constants.js:161
+#: app/scripts/constants.js:162
 msgid "Overview"
 msgstr ""
 
-#: app/scripts/constants.js:436
+#: app/scripts/constants.js:437
 msgid "PHP"
 msgstr ""
 
@@ -3495,6 +3523,7 @@ msgstr ""
 
 #: app/views/add-config-volume.html:144
 #: app/views/directives/_edit-probe.html:23
+#: app/views/directives/osc-routing.html:87
 msgid "Path"
 msgstr ""
 
@@ -3559,7 +3588,7 @@ msgstr ""
 msgid "Percentage of traffic sent to each service. Drag the slider to adjust the values or <a href=\"\" ng-click=\"controls.hideSlider = true\">edit weights as integers</a>."
 msgstr ""
 
-#: app/scripts/constants.js:431
+#: app/scripts/constants.js:432
 msgid "Perl"
 msgstr ""
 
@@ -3579,7 +3608,7 @@ msgstr ""
 msgid "Pick the config source. Its data will be mounted as a volume in the container."
 msgstr ""
 
-#: app/scripts/controllers/overview.js:160
+#: app/scripts/controllers/overview.js:161
 #: app/views/directives/_build-pipeline-collapsed.html:4
 #: app/views/overview.html:288
 msgid "Pipeline"
@@ -3590,7 +3619,7 @@ msgstr ""
 msgid "Pipeline Builds"
 msgstr ""
 
-#: app/scripts/constants.js:228
+#: app/scripts/constants.js:229
 #: app/views/overview/_list-row-expanded.html:151
 #: app/views/overview/_pipelines.html:2
 #: app/views/pipelines.html:11
@@ -3615,7 +3644,7 @@ msgstr ""
 msgid "Please wait while you are logged in&hellip;"
 msgstr ""
 
-#: app/scripts/constants.js:189
+#: app/scripts/constants.js:190
 #: app/views/browse/service.html:101
 #: app/views/browse/stateful-set.html:138
 #: app/views/pods.html:11
@@ -3708,11 +3737,11 @@ msgstr ""
 msgid "Push To"
 msgstr ""
 
-#: app/scripts/constants.js:441
+#: app/scripts/constants.js:442
 msgid "Python"
 msgstr ""
 
-#: app/scripts/constants.js:252
+#: app/scripts/constants.js:253
 #: app/views/quota.html:13
 msgid "Quota"
 msgstr ""
@@ -3776,35 +3805,35 @@ msgstr ""
 msgid "Red Hat DataMan OS <span class=\"about-reg\">&reg;</span>"
 msgstr ""
 
-#: app/scripts/constants.js:381
+#: app/scripts/constants.js:382
 msgid "Red Hat JBoss A-MQ"
 msgstr ""
 
-#: app/scripts/constants.js:385
+#: app/scripts/constants.js:386
 msgid "Red Hat JBoss BPM Suite"
 msgstr ""
 
-#: app/scripts/constants.js:389
+#: app/scripts/constants.js:390
 msgid "Red Hat JBoss BRMS"
 msgstr ""
 
-#: app/scripts/constants.js:393
+#: app/scripts/constants.js:394
 msgid "Red Hat JBoss Data Grid"
 msgstr ""
 
-#: app/scripts/constants.js:397
+#: app/scripts/constants.js:398
 msgid "Red Hat JBoss EAP"
 msgstr ""
 
-#: app/scripts/constants.js:401
+#: app/scripts/constants.js:402
 msgid "Red Hat JBoss Fuse"
 msgstr ""
 
-#: app/scripts/constants.js:405
+#: app/scripts/constants.js:406
 msgid "Red Hat JBoss Web Server (Tomcat)"
 msgstr ""
 
-#: app/scripts/constants.js:409
+#: app/scripts/constants.js:410
 msgid "Red Hat Single Sign-On"
 msgstr ""
 
@@ -3821,6 +3850,7 @@ msgid "Reload"
 msgstr ""
 
 #: app/scripts/controllers/deployment.js:314
+#: app/scripts/controllers/deploymentConfig.js:409
 #: app/views/_volumes.html:10
 #: app/views/directives/edit-webhook-triggers.html:17
 #: app/views/directives/edit-webhook-triggers.html:18
@@ -3854,6 +3884,7 @@ msgid "Remove build secret"
 msgstr ""
 
 #: app/scripts/controllers/deployment.js:312
+#: app/scripts/controllers/deploymentConfig.js:407
 msgid "Remove volume"
 msgstr ""
 
@@ -3907,7 +3938,7 @@ msgstr ""
 
 #: app/views/_compute-resource.html:51
 #: app/views/directives/hpa.html:32
-#: app/views/directives/osc-autoscaling.html:104
+#: app/views/directives/osc-autoscaling.html:102
 #: app/views/quota.html:232
 msgid "Request"
 msgstr ""
@@ -3924,7 +3955,7 @@ msgstr ""
 msgid "Resource Limits: {{name}}"
 msgstr ""
 
-#: app/scripts/controllers/overview.js:157
+#: app/scripts/controllers/overview.js:158
 #: app/views/quota.html:161
 #: app/views/quota.html:216
 #: app/views/quota.html:69
@@ -3939,7 +3970,7 @@ msgstr ""
 msgid "Resource limits control how much <span ng-if=\"!hideCPU\">CPU and</span> memory a container will consume on a node."
 msgstr ""
 
-#: app/scripts/constants.js:246
+#: app/scripts/constants.js:247
 msgid "Resources"
 msgstr ""
 
@@ -3987,11 +4018,20 @@ msgstr ""
 msgid "Rolling"
 msgstr ""
 
+#: app/scripts/constants.js:23
+msgid "Route"
+msgstr ""
+
 #: app/views/overview/_networking.html:41
 msgid "Route <a ng-href=\"{{route | navigateResourceURL}}\">{{route.metadata.name}}</a><span ng-if=\"route.spec.port.targetPort\">, target port {{route.spec.port.targetPort}}</span>"
 msgstr ""
 
-#: app/scripts/constants.js:203
+#: app/scripts/services/routes.js:49
+#: app/scripts/services/routes.js:53
+msgid "Route target port is set to \""
+msgstr ""
+
+#: app/scripts/constants.js:204
 #: app/views/browse/routes.html:14
 #: app/views/overview/_networking.html:28
 msgid "Routes"
@@ -4022,7 +4062,7 @@ msgstr ""
 msgid "Routing is a way to make your application publicly visible. Otherwise you may only be able to access your application by its IP address, if allowed by the system administrator."
 msgstr ""
 
-#: app/scripts/constants.js:446
+#: app/scripts/constants.js:447
 msgid "Ruby"
 msgstr ""
 
@@ -4160,7 +4200,7 @@ msgstr ""
 msgid "Secret:"
 msgstr ""
 
-#: app/scripts/constants.js:272
+#: app/scripts/constants.js:273
 #: app/views/secrets.html:14
 msgid "Secrets"
 msgstr ""
@@ -4282,6 +4322,10 @@ msgstr ""
 msgid "Service Port"
 msgstr ""
 
+#: app/views/directives/osc-routing.html:184
+msgid "Service Weights"
+msgstr ""
+
 #: app/views/membership.html:220
 msgid "Service account"
 msgstr ""
@@ -4314,7 +4358,7 @@ msgstr ""
 msgid "Service {{route.to.service.metadata.name}} Weight"
 msgstr ""
 
-#: app/scripts/constants.js:196
+#: app/scripts/constants.js:197
 #: app/views/services.html:11
 msgid "Services"
 msgstr ""
@@ -4381,7 +4425,7 @@ msgstr ""
 msgid "Showing <strong>{{overview.filteredSize}}</strong> of <strong>{{overview.size}}</strong> items"
 msgstr ""
 
-#: app/scripts/constants.js:492
+#: app/scripts/constants.js:493
 msgid "Single Sign-On"
 msgstr ""
 
@@ -4475,6 +4519,10 @@ msgstr ""
 msgid "Specify details about how volumes are going to be mounted inside containers."
 msgstr ""
 
+#: app/views/directives/osc-routing.html:154
+msgid "Split traffic across multiple services"
+msgstr ""
+
 #: app/views/browse/build-config.html:126
 #: app/views/browse/build-config.html:17
 #: app/views/browse/build-config.html:36
@@ -4513,7 +4561,7 @@ msgstr ""
 msgid "State:"
 msgstr ""
 
-#: app/scripts/constants.js:182
+#: app/scripts/constants.js:183
 #: app/views/browse/stateful-sets.html:14
 #: app/views/monitoring.html:270
 msgid "Stateful Sets"
@@ -4552,7 +4600,7 @@ msgstr ""
 msgid "Stop Following"
 msgstr ""
 
-#: app/scripts/constants.js:291
+#: app/scripts/constants.js:292
 #: app/views/attach-pvc.html:45
 #: app/views/storage.html:11
 msgid "Storage"
@@ -4574,7 +4622,7 @@ msgstr ""
 msgid "Storage quota will be exceeded."
 msgstr ""
 
-#: app/scripts/constants.js:477
+#: app/scripts/constants.js:478
 msgid "Store and manage collections of data."
 msgstr ""
 
@@ -4654,19 +4702,19 @@ msgid "Tags the current image as an image stream tag if the deployment succeeds.
 msgstr ""
 
 #: app/views/directives/hpa.html:33
-#: app/views/directives/osc-autoscaling.html:105
+#: app/views/directives/osc-autoscaling.html:103
 msgid "Target"
 msgstr ""
 
-#: app/views/directives/osc-autoscaling.html:126
+#: app/views/directives/osc-autoscaling.html:124
 msgid "Target CPU percentage must be a number."
 msgstr ""
 
-#: app/views/directives/osc-autoscaling.html:129
+#: app/views/directives/osc-autoscaling.html:127
 msgid "Target CPU percentage must be a whole number."
 msgstr ""
 
-#: app/views/directives/osc-autoscaling.html:132
+#: app/views/directives/osc-autoscaling.html:130
 msgid "Target CPU percentage must be greater than 1."
 msgstr ""
 
@@ -4685,7 +4733,7 @@ msgstr ""
 msgid "Target port for traffic."
 msgstr ""
 
-#: app/scripts/constants.js:459
+#: app/scripts/constants.js:460
 msgid "Technologies"
 msgstr ""
 
@@ -4911,7 +4959,7 @@ msgstr ""
 msgid "The number of instances of your image."
 msgstr ""
 
-#: app/views/directives/osc-autoscaling.html:118
+#: app/views/directives/osc-autoscaling.html:116
 msgid "The percentage of the CPU"
 msgstr ""
 
@@ -5147,6 +5195,14 @@ msgstr ""
 msgid "This will remove the volume from the deployment and start a new rollout."
 msgstr ""
 
+#: app/scripts/controllers/deploymentConfig.js:393
+msgid "This will remove the volume from the deployment config and trigger a new deployment."
+msgstr ""
+
+#: app/scripts/controllers/deploymentConfig.js:395
+msgid "This will remove the volume from the deployment config."
+msgstr ""
+
 #: app/scripts/controllers/deployment.js:298
 msgid "This will remove the volume from the deployment."
 msgstr ""
@@ -5282,7 +5338,7 @@ msgstr ""
 msgid "Type:"
 msgstr ""
 
-#: app/scripts/constants.js:497
+#: app/scripts/constants.js:498
 msgid "Uncategorized"
 msgstr ""
 
@@ -5565,6 +5621,7 @@ msgid "We checked your application for potential problems. Please confirm you st
 msgstr ""
 
 #: app/views/browse/route.html:134
+#: app/views/directives/osc-routing-service.html:38
 msgid "Weight"
 msgstr ""
 
@@ -5603,7 +5660,7 @@ msgstr ""
 msgid "When you navigate away from this pod, any open terminal connections will be closed."
 msgstr ""
 
-#: app/scripts/constants.js:413
+#: app/scripts/constants.js:414
 msgid "WildFly"
 msgstr ""
 
@@ -5960,7 +6017,7 @@ msgstr ""
 msgid "label selectors"
 msgstr ""
 
-#: app/views/directives/osc-autoscaling.html:119
+#: app/views/directives/osc-autoscaling.html:117
 #: app/views/edit/autoscaler.html:38
 msgid "limit"
 msgstr ""
@@ -6085,7 +6142,7 @@ msgstr ""
 msgid "replica<span ng-if=\"replicationController.spec.replicas != 1\">s</span>"
 msgstr ""
 
-#: app/views/directives/osc-autoscaling.html:120
+#: app/views/directives/osc-autoscaling.html:118
 #: app/views/edit/autoscaler.html:39
 msgid "request"
 msgstr ""
@@ -6147,7 +6204,7 @@ msgstr ""
 msgid "started"
 msgstr ""
 
-#: app/views/directives/osc-autoscaling.html:121
+#: app/views/directives/osc-autoscaling.html:119
 msgid "that each pod should ideally be using. Pods will be added or removed periodically when CPU usage exceeds or drops below this target value."
 msgstr ""
 
@@ -6251,6 +6308,10 @@ msgstr ""
 msgid "you may use the command-line tools to manage your projects and applications instead."
 msgstr ""
 
+#: app/views/directives/create-secret.html:5
+msgid "{{$select.selected | upperFirst}} Secret"
+msgstr ""
+
 #: app/views/_pod-template-container.html:143
 msgid "{{container.resources.limits.cpu | usageWithUnits: 'cpu'}} limit"
 msgstr ""
@@ -6273,10 +6334,6 @@ msgstr ""
 
 #: app/views/_pod-template-container.html:159
 msgid "{{container.resources.requests.memory | usageWithUnits: 'memory'}} to {{container.resources.limits.memory | usageWithUnits: 'memory'}}"
-msgstr ""
-
-#: app/views/directives/traffic-table.html:5
-msgid "{{customNameHeader || 'Route'}}<span ng-if=\"showNodePorts\"> / Node Port</span>"
 msgstr ""
 
 #: app/views/browse/deployment.html:85

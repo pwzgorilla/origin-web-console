@@ -839,8 +839,8 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "<div ng-if=\"configMaps.length || secrets.length || ('configmaps' | canI : 'create') || ('secrets' | canI : 'create')\" class=\"mar-top-xl\">\n" +
     "<h1 translate>Add Config Files</h1>\n" +
-    "<div class=\"help-block\" translate>\n" +
-    "Add values from a config map or secret as volume. This will make the data available as files for {{kind | humanizeKind}} {{name}}.\n" +
+    "<div class=\"help-block\">\n" +
+    "<translate>Add values from a config map or secret as volume. This will make the data available as files for</translate> {{kind | humanizeKind | translate}} {{name}}.\n" +
     "</div>\n" +
     "<form name=\"forms.addConfigVolumeForm\" class=\"mar-top-lg\">\n" +
     "<fieldset ng-disabled=\"disableInputs\">\n" +
@@ -4692,7 +4692,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"col-md-10 col-md-offset-1\">\n" +
     "<breadcrumbs breadcrumbs=\"breadcrumbs\"></breadcrumbs>\n" +
     "<div class=\"mar-top-xl\">\n" +
-    "<h1>Create Route</h1>\n" +
+    "<h1 translate>Create Route</h1>\n" +
     "<div class=\"help-block\" translate>\n" +
     "Routing is a way to make your application publicly visible.\n" +
     "</div>\n" +
@@ -4706,7 +4706,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</label-editor>\n" +
     "<a href=\"\" ng-click=\"copyServiceLabels()\" translate>Copy Service Labels</a>\n" +
     "<div class=\"button-group gutter-top gutter-bottom\">\n" +
-    "<button type=\"submit\" class=\"btn btn-primary btn-lg\" ng-click=\"createRoute()\" ng-disabled=\"createRouteForm.$invalid || disableInputs || !createRoute\" value=\"\">Create</button>\n" +
+    "<button type=\"submit\" class=\"btn btn-primary btn-lg\" ng-click=\"createRoute()\" ng-disabled=\"createRouteForm.$invalid || disableInputs || !createRoute\" value=\"\" translate>Create</button>\n" +
     "<a class=\"btn btn-default btn-lg\" href=\"\" ng-click=\"cancel()\" translate>Cancel</a>\n" +
     "</div>\n" +
     "</fieldset>\n" +
@@ -5943,7 +5943,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div for=\"secretType\" ng-if=\"!type\" class=\"form-group mar-top-lg\">\n" +
     "<label translate>Secret Type</label>\n" +
     "<ui-select required ng-model=\"newSecret.type\" search-enabled=\"false\" ng-change=\"newSecret.authType = secretAuthTypeMap[newSecret.type].authTypes[0].id\">\n" +
-    "<ui-select-match>{{$select.selected | upperFirst}} Secret</ui-select-match>\n" +
+    "<ui-select-match><translate>{{$select.selected | upperFirst}} Secret</translate></ui-select-match>\n" +
     "<ui-select-choices repeat=\"type in secretTypes\">\n" +
     "{{type | upperFirst | translate}} <translate>Secret</translate>\n" +
     "</ui-select-choices>\n" +
@@ -7264,7 +7264,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<ui-select-match placeholder=\"{{'Select a resource'|translate}}\">\n" +
     "<span>\n" +
     "{{$select.selected.metadata.name}}\n" +
-    "<small class=\"text-muted\">&ndash; {{$select.selected.kind | humanizeKind : true}}</small>\n" +
+    "<small class=\"text-muted\">&ndash; {{$select.selected.kind | humanizeKind : true | translate}}</small>\n" +
     "</span>\n" +
     "</ui-select-match>\n" +
     "<ui-select-choices repeat=\"source in valueFromSelectorOptions | filter : { metadata: { name: $select.search } } track by (source | uid)\" group-by=\"groupByKind\">\n" +
@@ -7655,7 +7655,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "</div>\n" +
     "<div class=\"form-group\">\n" +
-    "<label>Min Pods</label>\n" +
+    "<label translate>Min Pods</label>\n" +
     "<span ng-class=\"{ 'has-error': form.minReplicas.$dirty && form.minReplicas.$invalid }\">\n" +
     "<input type=\"number\" class=\"form-control\" min=\"1\" name=\"minReplicas\" ng-model=\"autoscaling.minReplicas\" ng-pattern=\"/^\\d+$/\" aria-describedby=\"min-replicas-help\">\n" +
     "</span>\n" +
@@ -7691,9 +7691,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "Min pods must be a whole number.\n" +
     "</span>\n" +
     "<span class=\"help-block\" ng-if=\"form.maxReplicas.$error.min\" translate>\n" +
-    "Max pods must be greater than or equal to\n" +
-    "<span ng-if=\"autoscaling.minReplicas\">min pods, which is</span>\n" +
-    "{{autoscaling.minReplicas || 1}.\n" +
+    "Max pods must be greater than or equal to <span ng-if=\"autoscaling.minReplicas\">min pods, which is</span> {{autoscaling.minReplicas || 1}.\n" +
     "</span>\n" +
     "<span class=\"help-block\" ng-if=\"form.maxReplicas.$error.required\" translate>\n" +
     "Max pods is a required field.\n" +
@@ -8022,7 +8020,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "</div>\n" +
     "<div ng-if=\"showWeight\" class=\"form-group col-sm-6\">\n" +
-    "<label for=\"{{id}}-service-weight\" class=\"required\">Weight</label>\n" +
+    "<label for=\"{{id}}-service-weight\" class=\"required\" translate>Weight</label>\n" +
     "<input ng-model=\"model.weight\" name=\"weight\" id=\"{{id}}-service-weight\" type=\"number\" required min=\"0\" max=\"256\" ng-pattern=\"/^\\d+$/\" class=\"form-control\" aria-describedby=\"{{id}}-weight-help\">\n" +
     "<div>\n" +
     "<span id=\"{{id}}-weight-help\" class=\"help-block\" translate>\n" +
@@ -8101,7 +8099,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "\n" +
     "<div class=\"form-group\">\n" +
-    "<label for=\"path\">Path</label>\n" +
+    "<label for=\"path\" translate>Path</label>\n" +
     "<span ng-class=\"{ 'has-error': routeForm.path.$invalid && routeForm.path.$touched && !routingDisabled }\">\n" +
     "<input id=\"path\" class=\"form-control\" type=\"text\" name=\"path\" ng-model=\"route.path\" ng-pattern=\"/^\\/.*$/\" ng-disabled=\"route.tls.termination === 'passthrough'\" placeholder=\"/\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\" aria-describedby=\"route-path-help\">\n" +
     "</span>\n" +
@@ -8143,12 +8141,12 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "\n" +
     "<div ng-if=\"alternateServiceOptions.length\">\n" +
-    "<h3>Alternate Services</h3>\n" +
+    "<h3 translate>Alternate Services</h3>\n" +
     "<div class=\"form-group\">\n" +
     "<div class=\"checkbox\">\n" +
     "<label>\n" +
-    "<input type=\"checkbox\" ng-model=\"options.alternateServices\" aria-describedby=\"secure-route-help\" translate>\n" +
-    "Split traffic across multiple services\n" +
+    "<input type=\"checkbox\" ng-model=\"options.alternateServices\" aria-describedby=\"secure-route-help\">\n" +
+    "<translate>Split traffic across multiple services</translate>\n" +
     "</label>\n" +
     "<div class=\"help-block\" translate>\n" +
     "Routes can direct traffic to multiple services for A/B testing. Each service has a weight controlling how much traffic it gets.\n" +
@@ -8172,7 +8170,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "\n" +
     "<div ng-if=\"route.alternateServices.length === 1 && !controls.hideSlider\">\n" +
-    "<h3>Service Weights</h3>\n" +
+    "<h3 translate>Service Weights</h3>\n" +
     "<div class=\"form-group\">\n" +
     "<div class=\"weight-slider-values\">\n" +
     "<div>\n" +
@@ -8815,7 +8813,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     " <table class=\"table table-bordered table-hover table-mobile\">\n" +
     "<thead>\n" +
     "<tr>\n" +
-    "<th translate>{{customNameHeader || 'Route'}}<span ng-if=\"showNodePorts\"> / Node Port</span></th>\n" +
+    "<th>{{(customNameHeader || 'Route') | translate}}<span ng-if=\"showNodePorts\" translate> / Node Port</span></th>\n" +
     "<th role=\"presentation\"></th>\n" +
     "<th translate>Service Port</th>\n" +
     "<th role=\"presentation\"></th>\n" +

@@ -146,7 +146,7 @@
                 <ui-select-match placeholder="{{'Select a resource'|translate}}">
                   <span>
                     {{$select.selected.metadata.name}}
-                    <small class="text-muted">&ndash; {{$select.selected.kind | humanizeKind : true}}</small>
+                    <small class="text-muted">&ndash; {{$select.selected.kind | humanizeKind : true | translate}}</small>
                   </span>
                 </ui-select-match>
                 <ui-select-choices
