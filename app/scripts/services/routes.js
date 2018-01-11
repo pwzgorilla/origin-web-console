@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module("openshiftConsole")
-  .factory("RoutesService", function($filter) {
+  .factory("RoutesService", function($filter, gettext, gettextCatalog) {
     var isPortNamed = function(port) {
       return angular.isString(port);
     };
@@ -46,9 +46,13 @@ angular.module("openshiftConsole")
       var servicePort = getServicePortForRoute(targetPort, service);
       if (!servicePort) {
         if (isPortNamed(targetPort)) {
-          warnings.push('Route target port is set to "' + targetPort + '", but service "' + service.metadata.name + '" has no port with that name.');
+          warnings.push(gettextCatalog.getString(gettext('Route target port is set to "')) +
+            targetPort + gettextCatalog.getString(gettext('", but service "')) +
+            service.metadata.name + gettextCatalog.getString(gettext('" has no port with that name.')));
         } else {
-          warnings.push('Route target port is set to "' + targetPort + '", but service "' + service.metadata.name + '" does not expose that port.');
+          warnings.push(gettextCatalog.getString(gettext('Route target port is set to "')) +
+            targetPort + gettextCatalog.getString(gettext('", but service "')) +
+            service.metadata.name + gettextCatalog.getString(gettext('" does not expose that port.')));
         }
       }
     };

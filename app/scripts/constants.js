@@ -20,6 +20,7 @@ gettext('horizontal pod autoscaler');
 gettext('Config Map');
 gettext('pull');
 gettext('push');
+gettext('Route');
 
 if (angular.isUndefined(window.OPENSHIFT_CONSTANTS)) {
   window.OPENSHIFT_CONSTANTS = {};
