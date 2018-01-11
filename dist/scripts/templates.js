@@ -8515,7 +8515,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<label for=\"timeRange\" translate>Time Range:</label>\n" +
     "<div class=\"select-range\">\n" +
     "<ui-select ng-model=\"options.timeRange\" search-enabled=\"false\" ng-disabled=\"metricsError\" input-id=\"timeRange\">\n" +
-    "<ui-select-match>{{$select.selected.label}}</ui-select-match>\n" +
+    "<ui-select-match>{{$select.selected.label|translate}}</ui-select-match>\n" +
     "<ui-select-choices repeat=\"range in options.rangeOptions\">\n" +
     "{{range.label|translate}}\n" +
     "</ui-select-choices>\n" +

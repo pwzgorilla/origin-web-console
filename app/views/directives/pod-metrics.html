@@ -22,7 +22,7 @@
       <label for="timeRange" translate>Time Range:</label>
       <div class="select-range">
         <ui-select ng-model="options.timeRange" search-enabled="false" ng-disabled="metricsError" input-id="timeRange">
-          <ui-select-match>{{$select.selected.label}}</ui-select-match>
+          <ui-select-match>{{$select.selected.label|translate}}</ui-select-match>
           <ui-select-choices repeat="range in options.rangeOptions">
             {{range.label|translate}}
           </ui-select-choices>
