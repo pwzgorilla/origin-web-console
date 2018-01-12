@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2018-01-11 17:35+0800\n"
+"PO-Revision-Date: 2018-01-11 18:26+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh-CN\n"
@@ -2547,7 +2547,7 @@ msgstr "去结尾"
 
 #: app/views/directives/logs/_log-viewer.html:97
 msgid "Go to Top"
-msgstr "转到最顶"
+msgstr "转到顶部"
 
 #: app/views/directives/next-steps.html:45
 msgid ""
