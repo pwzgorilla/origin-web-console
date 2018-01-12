@@ -2,13 +2,13 @@
 
 // http://stackoverflow.com/questions/14852802/detect-unsaved-changes-and-alert-user-using-angularjs
 angular.module("openshiftConsole")
-  .directive("confirmOnExit", function(Logger) {
+  .directive("confirmOnExit", function(Logger, gettext, gettextCatalog) {
     return {
       scope: {
         dirty: '=',
         message: '='
       },
-      link: function($scope, gettext, gettextCatalog) {
+      link: function($scope) {
         // If the feature is disabled or the user has asked the browser to
         // block dialogs, don't try to prompt.
         if (_.get(window, 'OPENSHIFT_CONSTANTS.DISABLE_CONFIRM_ON_EXIT') ||

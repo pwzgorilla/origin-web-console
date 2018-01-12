@@ -92,7 +92,7 @@
                             <span ng-if="isAtLimit(quota, resourceType)" data-toggle="tooltip" title="Quota limit reached." class="pficon pficon-warning-triangle-o warnings-popover"></span>
                             <span ng-if="(quota.status.total.hard[resourceType] || quota.spec.quota.hard[resourceType]) === '0'"
                                   data-toggle="tooltip"
-                                  title="{{'You are not allowed to create resources of this type.'|translate}}"
+                                  title="You are not allowed to create resources of this type."
                                   class="pficon pficon-info warnings-popover"></span>
                           </td>
                           <td>
