@@ -3300,7 +3300,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "</ng-form>\n" +
     "</uib-tab>\n" +
-    "<uib-tab ng-if=\"metricsAvailable\" heading=\"Metrics\" active=\"selectedTab.metrics\">\n" +
+    "<uib-tab ng-if=\"metricsAvailable\" heading=\"{{'Metrics'|translate}}\" active=\"selectedTab.metrics\">\n" +
     "\n" +
     "<deployment-metrics ng-if=\"selectedTab.metrics && podsForDeployment\" pods=\"podsForDeployment\" containers=\"replicaSet.spec.template.spec.containers\" alerts=\"alerts\">\n" +
     "</deployment-metrics>\n" +
@@ -12534,11 +12534,6 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"projects-bar\">\n" +
     "<h1 translate>My Projects</h1>\n" +
     "<div class=\"projects-options\">\n" +
-    "<div class=\"projects-add\" ng-if=\"canCreate\">\n" +
-    "<a href=\"create-project\" class=\"btn btn-md btn-primary\" translate>\n" +
-    "Create Project\n" +
-    "</a>\n" +
-    "</div>\n" +
     "<div class=\"projects-search\">\n" +
     "<form role=\"form\" class=\"search-pf has-button\">\n" +
     "<div class=\"form-group has-clear\">\n" +
@@ -12619,11 +12614,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<h1 translate>Welcome to DataMan OS.</h1>\n" +
     "<p>\n" +
     "<translate>DataMan OS helps you quickly develop, host, and scale applications.</translate><br>\n" +
-    "<span ng-if=\"canCreate\" translate>Create a project for your application.</span>\n" +
     "</p>\n" +
-    "<a ng-if=\"canCreate\" href=\"create-project\" class=\"btn btn-lg btn-primary\" translate>Create Project</a>\n" +
-    "\n" +
-    "<p class=\"projects-instructions\" ng-if=\"canCreate === false\" ng-include=\"'views/_cannot-create-project.html'\"></p>\n" +
     "</div>\n" +
     "</div>\n" +
     "</div>\n" +
