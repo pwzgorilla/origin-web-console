@@ -211,12 +211,12 @@ angular
           alerts: {},
           detailsMarkup: messages.remove.areYouSure.html.subject({
             roleName: roleName,
-            kindName: humanizeKind(kind),
+            kindName: gettextCatalog.getString(humanizeKind(kind)),
             subjectName:  subjectName
           }),
-          okButtonText: 'Remove',
+          okButtonText: gettextCatalog.getString(gettext('Remove')),
           okButtonClass: 'btn-danger',
-          cancelButtonText: 'Cancel'
+          cancelButtonText: gettextCatalog.getString(gettext('Cancel'))
         };
         if(_.isEqual(subjectName, currentUserName)) {
           modalScope.detailsMarkup = messages.remove.areYouSure.html.self({

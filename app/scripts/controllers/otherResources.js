@@ -159,9 +159,9 @@ angular.module('openshiftConsole')
         LabelFilter.addLabelSuggestionsFromResources($scope.unfilteredResources, $scope.labelSuggestions);
         LabelFilter.setLabelSuggestions($scope.labelSuggestions);
         $scope.resources = LabelFilter.getLabelSelector().select($scope.unfilteredResources);
-        $scope.emptyMessage = gettextCatalog.getString(gettext("No ")) +
-          gettextCatalog.getString(APIService.kindToResource(selected.kind, true)) +
-          gettextCatalog.getString(gettext(" to show"));
+        $scope.emptyMessage = gettextCatalog.getString(gettext("No")) + " " +
+          gettextCatalog.getString(APIService.kindToResource(selected.kind, true)) + " " +
+          gettextCatalog.getString(gettext("to show"));
         updateFilterWarning();
       });
     }

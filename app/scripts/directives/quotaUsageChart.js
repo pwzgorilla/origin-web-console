@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module('openshiftConsole')
-  .directive('quotaUsageChart', function($filter, ChartsService) {
+  .directive('quotaUsageChart', function($filter, ChartsService, gettext, gettextCatalog) {
     return {
       restrict: 'E',
       scope: {
@@ -107,7 +107,8 @@ angular.module('openshiftConsole')
               if (!$scope.total) {
                 value = usageWithUnits($scope.used, $scope.type);
               } else {
-                value = percentage(d[0].value / usageValue($scope.total)) + " of " + usageWithUnits($scope.total, $scope.type);
+                value = percentage(d[0].value / usageValue($scope.total)) + " " +
+                  gettextCatalog.getString(gettext("of")) + " " + usageWithUnits($scope.total, $scope.type);
               }
 
               var trValue = $('<tr/>').appendTo(table);
@@ -142,9 +143,9 @@ angular.module('openshiftConsole')
                   available: "#d1d1d1"
                 },
                 names: {
-                  used: hasCrossProject ? 'Used - This Project' : 'Used',
-                  other: 'Used - Other Projects',
-                  available: "Available"
+                  used: hasCrossProject ? gettextCatalog.getString(gettext('Used - This Project')) : gettextCatalog.getString(gettext('Used')),
+                  other: gettextCatalog.getString(gettext('Used - Other Projects')),
+                  available: gettextCatalog.getString(gettext("Available"))
                 }
               };
 

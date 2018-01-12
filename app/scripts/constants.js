@@ -21,6 +21,13 @@ gettext('Config Map');
 gettext('pull');
 gettext('push');
 gettext('Route');
+gettext('openshift.io/imagestreams');
+gettext('CPU (Request)');
+gettext('Memory (Request)');
+gettext('CPU (Limit)');
+gettext('Memory (Limit)');
+gettext('Storage (Request)');
+gettext('user');
 
 if (angular.isUndefined(window.OPENSHIFT_CONSTANTS)) {
   window.OPENSHIFT_CONSTANTS = {};

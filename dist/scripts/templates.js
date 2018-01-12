@@ -2145,9 +2145,9 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<status-icon status=\"build.status.phase\"></status-icon>\n" +
     "<span class=\"space-after\">{{build.status.phase}}</span>\n" +
     "<div ng-if=\"build.status.startTimestamp && !logEmpty\" class=\"log-timestamps\">\n" +
-    "Log from {{build.status.startTimestamp | date : 'medium'}}\n" +
+    "<translate>Log from</translate> {{build.status.startTimestamp | date : 'medium'}}\n" +
     "<span ng-if=\"build.status.completionTimestamp\">\n" +
-    "to {{build.status.completionTimestamp | date : 'medium'}}\n" +
+    "<translate>to</translate> {{build.status.completionTimestamp | date : 'medium'}}\n" +
     "</span>\n" +
     "</div>\n" +
     "</log-viewer>\n" +
@@ -6441,9 +6441,9 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<label for=\"timeRange\" translate>Time Range:</label>\n" +
     "<div class=\"select-range\">\n" +
     "<ui-select ng-model=\"options.timeRange\" search-enabled=\"false\" ng-disabled=\"metricsError\" input-id=\"timeRange\">\n" +
-    "<ui-select-match>{{$select.selected.label}}</ui-select-match>\n" +
+    "<ui-select-match>{{$select.selected.label|translate}}</ui-select-match>\n" +
     "<ui-select-choices repeat=\"range in options.rangeOptions\">\n" +
-    "{{range.label}}\n" +
+    "{{range.label|translate}}\n" +
     "</ui-select-choices>\n" +
     "</ui-select>\n" +
     "</div>\n" +
@@ -9476,7 +9476,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<edit-config-map model=\"configMap\"></edit-config-map>\n" +
     "<div class=\"button-group gutter-top gutter-bottom\">\n" +
     "<button type=\"submit\" class=\"btn btn-primary btn-lg\" ng-click=\"updateConfigMap()\" ng-disabled=\"forms.editConfigMapForm.$invalid || forms.editConfigMapForm.$pristine || disableInputs || resourceChanged || resourceDeleted\" value=\"\" translate>Save</button>\n" +
-    "<a class=\"btn btn-default btn-lg\" href=\"\" ng-click=\"cancel()\" role=\"button\">Cancel</a>\n" +
+    "<a class=\"btn btn-default btn-lg\" href=\"\" ng-click=\"cancel()\" role=\"button\" translate>Cancel</a>\n" +
     "</div>\n" +
     "</fieldset>\n" +
     "</form>\n" +
@@ -10393,7 +10393,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "</ui-select-choices>\n" +
     "</ui-select>\n" +
-    "<button ng-disabled=\"disableAddForm || (!newBinding.name) || (!newBinding.newRole)\" ng-click=\"addRoleTo(newBinding.name, newBinding.kind, newBinding.newRole, newBinding.namespace)\" class=\"btn btn-default add-role-to\">\n" +
+    "<button ng-disabled=\"disableAddForm || (!newBinding.name) || (!newBinding.newRole)\" ng-click=\"addRoleTo(newBinding.name, newBinding.kind, newBinding.newRole, newBinding.namespace)\" class=\"btn btn-default add-role-to\" translate>\n" +
     "Add\n" +
     "</button>\n" +
     "</div>\n" +
@@ -12714,7 +12714,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<td>\n" +
     "{{resourceType | humanizeQuotaResource : true | translate}}\n" +
     "<span ng-if=\"isAtLimit(quota, resourceType)\" data-toggle=\"tooltip\" title=\"Quota limit reached.\" class=\"pficon pficon-warning-triangle-o warnings-popover\"></span>\n" +
-    "<span ng-if=\"(quota.status.total.hard[resourceType] || quota.spec.quota.hard[resourceType]) === '0'\" data-toggle=\"tooltip\" title=\"{{'You are not allowed to create resources of this type.'|translate}}\" class=\"pficon pficon-info warnings-popover\"></span>\n" +
+    "<span ng-if=\"(quota.status.total.hard[resourceType] || quota.spec.quota.hard[resourceType]) === '0'\" data-toggle=\"tooltip\" title=\"You are not allowed to create resources of this type.\" class=\"pficon pficon-info warnings-popover\"></span>\n" +
     "</td>\n" +
     "<td>\n" +
     "<span ng-if=\"!namespaceUsageByClusterQuota[quota.metadata.name].used\">&mdash;</span>\n" +
