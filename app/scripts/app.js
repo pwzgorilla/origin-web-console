@@ -30,10 +30,10 @@ angular
     'angular-inview',
     'angularMoment',
     'ab-base64',
+    'gettext',
     'openshiftCommonServices',
     'openshiftCommonUI',
-    'webCatalog',
-    'gettext'
+    'webCatalog'
   ])
   .config(function ($routeProvider) {
     var landingPageRoute;
