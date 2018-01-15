@@ -61825,7 +61825,7 @@ return c.project = a, c.projectPromise.resolve(a), [ a, c ];
 }, function(d) {
 c.projectPromise.reject(d);
 var e = h.getString(g("The project could not be loaded.")), f = "error";
-return 403 === d.status ? (e = h.getString(g("The project ")) + c.projectName + h.getString(g(" does not exist or you are not authorized to view it.")), f = "access_denied") :404 === d.status && (e = h.getString(g("The project ")) + c.projectName + h.getString(g(" does not exist.")), f = "not_found"), a.url(URI("error").query({
+return 403 === d.status ? (e = h.getString(g("The project")) + " " + c.projectName + " " + h.getString(g("does not exist or you are not authorized to view it.")), f = "access_denied") :404 === d.status && (e = h.getString(g("The project")) + " " + c.projectName + " " + h.getString(g("does not exist.")), f = "not_found"), a.url(URI("error").query({
 error:f,
 error_description:e
 }).toString()), b.reject();
