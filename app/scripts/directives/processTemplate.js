@@ -86,17 +86,17 @@
     var processedResources;
     var createResources = function() {
       var titles = {
-        started: gettextCatalog.getString(gettext("Creating ")) +
-          ctrl.templateDisplayName +
-          gettextCatalog.getString(gettext(" in project ")) +
+        started: gettextCatalog.getString(gettext("Creating")) + ' ' +
+          ctrl.templateDisplayName + ' ' +
+          gettextCatalog.getString(gettext("in project ")) + ' ' +
           displayName(ctrl.selectedProject),
-        success: gettextCatalog.getString(gettext("Created ")) +
-          ctrl.templateDisplayName +
-          gettextCatalog.getString(gettext(" in project ")) +
+        success: gettextCatalog.getString(gettext("Created")) + ' ' +
+          ctrl.templateDisplayName + ' ' +
+          gettextCatalog.getString(gettext("in project")) + ' ' +
           displayName(ctrl.selectedProject),
-        failure: gettextCatalog.getString(gettext("Failed to create ")) +
-          ctrl.templateDisplayName +
-          gettextCatalog.getString(gettext(" in project ")) +
+        failure: gettextCatalog.getString(gettext("Failed to create")) + ' ' +
+          ctrl.templateDisplayName + ' ' +
+          gettextCatalog.getString(gettext("in project")) + ' ' +
           displayName(ctrl.selectedProject)
       };
       var helpLinks = getHelpLinks(ctrl.template);

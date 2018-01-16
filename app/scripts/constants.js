@@ -38,6 +38,9 @@ gettext('Policy Binding');
 gettext('Role');
 gettext('Role Binding');
 gettext('Role Binding Restriction');
+gettext('manual change');
+gettext('complete');
+gettext('running');
 
 if (angular.isUndefined(window.OPENSHIFT_CONSTANTS)) {
   window.OPENSHIFT_CONSTANTS = {};

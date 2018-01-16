@@ -287,17 +287,17 @@ angular.module("openshiftConsole")
         var generatedResources;
         var createResources = function(){
           var titles = {
-            started: gettextCatalog.getString(gettext("Creating application ")) +
-              $scope.name +
-              gettextCatalog.getString(gettext(" in project ")) +
+            started: gettextCatalog.getString(gettext("Creating application")) + ' ' +
+              $scope.name + ' ' +
+              gettextCatalog.getString(gettext("in project")) + ' ' +
               $scope.projectDisplayName(),
-            success: gettextCatalog.getString(gettext("Created application ")) +
-              $scope.name +
-              gettextCatalog.getString(gettext(" in project ")) +
+            success: gettextCatalog.getString(gettext("Created application")) + ' ' +
+              $scope.name + ' ' +
+              gettextCatalog.getString(gettext("in project")) + ' ' +
               $scope.projectDisplayName(),
-            failure: gettextCatalog.getString(gettext("Failed to create ")) +
-              $scope.name +
-              gettextCatalog.getString(gettext(" in project ")) +
+            failure: gettextCatalog.getString(gettext("Failed to create")) + ' ' +
+              $scope.name + ' ' +
+              gettextCatalog.getString(gettext("in project")) + ' ' +
               $scope.projectDisplayName()
           };
           var helpLinks = {};
