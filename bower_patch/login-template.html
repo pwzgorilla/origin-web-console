@@ -228,6 +228,34 @@
     </div>
   </div>
 </div>
+<script>                                                                                              
+  function getErrMessage() {                                                                                
+    var errMap = {
+      "Invalid login or password. Please try again.": "用户名或密码错误", 
+    };
+
+    var errMessage = "{{ .Error }}";                                                                        
+
+    if (!errMessage) {
+      return "";                                                                       
+    }                                                                                  
+                                                                                       
+    if (Object.keys(errMap).indexOf(errMessage) >= 0) {
+      return errMap[errMessage];
+    } else {
+      return "发生未知错误,请联系管理员。"                                          
+    }
+  }
+                                                                                       
+  function setErrMessage() {
+    var errMessage = getErrMessage();
+                                                                                      
+    var elem = document.getElementsByClassName("el-form-item__error")[0];
+    elem.innerHTML = errMessage;
+  }
+                                                                                      
+  setErrMessage();
+</script> 
 </body>
 </html>
 
