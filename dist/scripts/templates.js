@@ -10439,7 +10439,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "<h3 translate>CPU</h3>\n" +
     "<p translate>\n" +
-    "CPU is often measured in units called <var>millicores</var>. Each millicore is equivalent to <sup>1</sup>&frasl;<sub>1000</sub> of a CPU&nbsp;core.\n" +
+    "CPU is often measured in units called <var>millicores</var>. Each millicore is equivalent to <sup>1</sup>⁄<sub>1000</sub> of a CPU&nbsp;core.\n" +
     "</p>\n" +
     "<pre translate>\n" +
     "1000 millcores  =  1 core\n" +
