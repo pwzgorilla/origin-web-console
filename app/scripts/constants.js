@@ -28,6 +28,16 @@ gettext('CPU (Limit)');
 gettext('Memory (Limit)');
 gettext('Storage (Request)');
 gettext('user');
+gettext('Daemon Set');
+gettext('Endpoints');
+gettext('Horizontal Pod Autoscaler');
+gettext('Job');
+gettext('Network Policy');
+gettext('Policy');
+gettext('Policy Binding');
+gettext('Role');
+gettext('Role Binding');
+gettext('Role Binding Restriction');
 
 if (angular.isUndefined(window.OPENSHIFT_CONSTANTS)) {
   window.OPENSHIFT_CONSTANTS = {};
