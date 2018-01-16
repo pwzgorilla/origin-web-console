@@ -56,7 +56,7 @@
       </dd>
       <dt ng-if-start="replicaSet | annotation:'deploymentStatusReason'" translate>Status Reason:</dt>
       <dd ng-if-end>
-        {{replicaSet | annotation:'deploymentStatusReason'}}
+        {{replicaSet | annotation:'deploymentStatusReason' | translate}}
       </dd>
       <dt ng-if-start="replicaSet | deploymentIsInProgress" translate>Duration:</dt>
       <dd ng-if-end>

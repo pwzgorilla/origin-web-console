@@ -1453,7 +1453,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</dd>\n" +
     "<dt ng-if-start=\"replicaSet | annotation:'deploymentStatusReason'\" translate>Status Reason:</dt>\n" +
     "<dd ng-if-end>\n" +
-    "{{replicaSet | annotation:'deploymentStatusReason'}}\n" +
+    "{{replicaSet | annotation:'deploymentStatusReason' | translate}}\n" +
     "</dd>\n" +
     "<dt ng-if-start=\"replicaSet | deploymentIsInProgress\" translate>Duration:</dt>\n" +
     "<dd ng-if-end>\n" +
@@ -2111,7 +2111,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "{{build.metadata.name}}\n" +
     "<span class=\"pficon pficon-warning-triangle-o\" ng-if=\"buildConfigPaused || buildConfigDeleted\" aria-hidden=\"true\" data-toggle=\"tooltip\" data-original-title=\"{{buildConfigDeleted ? 'The build configuration for this build no longer exists.' : 'Building from build configuration ' + buildConfig.metadata.name + ' has been paused.'}}\">\n" +
     "</span>\n" +
-    "<small class=\"meta\">created <span am-time-ago=\"build.metadata.creationTimestamp\"></span></small>\n" +
+    "<small class=\"meta\"><translate>created</translate> <span am-time-ago=\"build.metadata.creationTimestamp\"></span></small>\n" +
     "</h1>\n" +
     "<labels ng-if=\"buildConfigName\" labels=\"build.metadata.labels\" clickable=\"true\" kind=\"builds\" title-kind=\"builds for build config {{buildConfigName}}\" project-name=\"{{build.metadata.namespace}}\" limit=\"3\" navigate-url=\"project/{{build.metadata.namespace}}/browse/builds/{{buildConfigName}}\"></labels>\n" +
     "<labels ng-if=\"!buildConfigName\" labels=\"build.metadata.labels\" limit=\"3\"></labels>\n" +
@@ -5252,7 +5252,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</span>\n" +
     "</span>\n" +
     "<span ng-switch-when=\"ConfigChange\" translate>Config change</span>\n" +
-    "<span ng-switch-default>{{cause.type}}</span>\n" +
+    "<span ng-switch-default>{{cause.type|translate}}</span>\n" +
     "</span>\n" +
     "</span>\n" +
     "</span>\n" +
@@ -8615,7 +8615,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<td data-title=\"Status\">\n" +
     "<div row class=\"status\">\n" +
     "<status-icon status=\"pod | podStatus\" disable-animation></status-icon>\n" +
-    "<span flex>{{pod | podStatus | sentenceCase}}</span>\n" +
+    "<span flex>{{pod | podStatus}}</span>\n" +
     "</div>\n" +
     "</td>\n" +
     "<td data-title=\"Ready\">{{pod | numContainersReady}}/{{pod.spec.containers.length}}</td>\n" +
@@ -11574,7 +11574,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<span ng-switch-when=\"Failed\" translate>failed</span>\n" +
     "<span ng-switch-when=\"Error\" translate>encountered an error</span>\n" +
     "<span ng-switch-when=\"Cancelled\" translate>was cancelled</span>\n" +
-    "<span ng-switch-default><translate>is</translate> {{build.status.phase | lowercase}}</span>\n" +
+    "<span ng-switch-default><translate>is</translate> {{build.status.phase | lowercase | translate}}</span>\n" +
     "</span>\n" +
     "<ellipsis-pulser ng-if=\"build | isIncompleteBuild\" color=\"dark\" size=\"sm\" display=\"inline\" msg=\"\"></ellipsis-pulser>\n" +
     "<small class=\"text-muted mar-left-md\"><translate>created</translate> <span am-time-ago=\"build.metadata.creationTimestamp\"></span></small>\n" +

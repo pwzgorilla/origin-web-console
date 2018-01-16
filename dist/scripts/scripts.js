@@ -526,7 +526,7 @@ var gettext = function(a) {
 return a;
 };
 
-gettext("Manual"), gettext("Rolling"), gettext("Recreate"), gettext("deployment config"), gettext("Deployment Config"), gettext("horizontal pod autoscaler"), gettext("Config Map"), gettext("pull"), gettext("push"), gettext("Route"), gettext("openshift.io/imagestreams"), gettext("CPU (Request)"), gettext("Memory (Request)"), gettext("CPU (Limit)"), gettext("Memory (Limit)"), gettext("Storage (Request)"), gettext("user"), gettext("Daemon Set"), gettext("Endpoints"), gettext("Horizontal Pod Autoscaler"), gettext("Job"), gettext("Network Policy"), gettext("Policy"), gettext("Policy Binding"), gettext("Role"), gettext("Role Binding"), gettext("Role Binding Restriction"), angular.isUndefined(window.OPENSHIFT_CONSTANTS) && (window.OPENSHIFT_CONSTANTS = {}), angular.extend(window.OPENSHIFT_CONSTANTS, {
+gettext("Manual"), gettext("Rolling"), gettext("Recreate"), gettext("deployment config"), gettext("Deployment Config"), gettext("horizontal pod autoscaler"), gettext("Config Map"), gettext("pull"), gettext("push"), gettext("Route"), gettext("openshift.io/imagestreams"), gettext("CPU (Request)"), gettext("Memory (Request)"), gettext("CPU (Limit)"), gettext("Memory (Limit)"), gettext("Storage (Request)"), gettext("user"), gettext("Daemon Set"), gettext("Endpoints"), gettext("Horizontal Pod Autoscaler"), gettext("Job"), gettext("Network Policy"), gettext("Policy"), gettext("Policy Binding"), gettext("Role"), gettext("Role Binding"), gettext("Role Binding Restriction"), gettext("manual change"), gettext("complete"), gettext("running"), angular.isUndefined(window.OPENSHIFT_CONSTANTS) && (window.OPENSHIFT_CONSTANTS = {}), angular.extend(window.OPENSHIFT_CONSTANTS, {
 HELP_BASE_URL:"https://docs.openshift.org/latest/",
 HELP:{
 cli:"cli_reference/index.html",
@@ -7773,9 +7773,9 @@ D.value = a;
 }), q(a);
 var K, L = function() {
 var b = {
-started:y.getString(x("Creating application ")) + a.name + y.getString(x(" in project ")) + a.projectDisplayName(),
-success:y.getString(x("Created application ")) + a.name + y.getString(x(" in project ")) + a.projectDisplayName(),
-failure:y.getString(x("Failed to create ")) + a.name + y.getString(x(" in project ")) + a.projectDisplayName()
+started:y.getString(x("Creating application")) + " " + a.name + " " + y.getString(x("in project")) + " " + a.projectDisplayName(),
+success:y.getString(x("Created application")) + " " + a.name + " " + y.getString(x("in project")) + " " + a.projectDisplayName(),
+failure:y.getString(x("Failed to create")) + " " + a.name + " " + y.getString(x("in project")) + " " + a.projectDisplayName()
 }, c = {};
 u.clear(), u.add(b, c, e.project, function() {
 var b = d.defer();
@@ -12522,9 +12522,9 @@ r.labels = [], r.template = angular.copy(r.template), r.templateDisplayName = s(
 };
 var u, v = function() {
 var a = {
-started:n.getString(m("Creating ")) + r.templateDisplayName + n.getString(m(" in project ")) + s(r.selectedProject),
-success:n.getString(m("Created ")) + r.templateDisplayName + n.getString(m(" in project ")) + s(r.selectedProject),
-failure:n.getString(m("Failed to create ")) + r.templateDisplayName + n.getString(m(" in project ")) + s(r.selectedProject)
+started:n.getString(m("Creating")) + " " + r.templateDisplayName + " " + n.getString(m("in project ")) + " " + s(r.selectedProject),
+success:n.getString(m("Created")) + " " + r.templateDisplayName + " " + n.getString(m("in project")) + " " + s(r.selectedProject),
+failure:n.getString(m("Failed to create")) + " " + r.templateDisplayName + " " + n.getString(m("in project")) + " " + s(r.selectedProject)
 }, d = o(r.template);
 k.clear(), k.add(a, d, r.selectedProject.metadata.name, function() {
 var a = b.defer();
@@ -14174,11 +14174,11 @@ if (!c || !b) return !1;
 var d = parseInt(a(b, "deploymentVersion")), e = c.status.latestVersion;
 return d === e;
 };
-} ]).filter("deploymentStatus", [ "annotationFilter", "hasDeploymentConfigFilter", function(a, b) {
-return function(c) {
-if (a(c, "deploymentCancelled")) return "Cancelled";
-var d = a(c, "deploymentStatus");
-return !b(c) || "Complete" === d && c.spec.replicas > 0 ? "Active" :d;
+} ]).filter("deploymentStatus", [ "annotationFilter", "hasDeploymentConfigFilter", "gettext", "gettextCatalog", function(a, b, c, d) {
+return function(e) {
+if (c("Cancelled"), c("Active"), c("Complete"), a(e, "deploymentCancelled")) return d.getString("Cancelled");
+var f = a(e, "deploymentStatus");
+return !b(e) || "Complete" === f && e.spec.replicas > 0 ? d.getString("Active") :d.getString(f);
 };
 } ]).filter("deploymentIsInProgress", [ "deploymentStatusFilter", function(a) {
 return function(b) {
@@ -14365,17 +14365,17 @@ if (!c.spec.port || !c.spec.port.targetPort || !d) return "";
 var e = c.spec.port.targetPort, f = a.getServicePortForRoute(e, d);
 return f ? b(f.port, f.targetPort, f.protocol) :angular.isString(e) ? b(e, null) :b(null, e);
 };
-} ]).filter("podStatus", function() {
-return function(a) {
-if (!a || !a.metadata.deletionTimestamp && !a.status) return "";
-if (a.metadata.deletionTimestamp) return "Terminating";
-var b = a.status.reason || a.status.phase;
-return angular.forEach(a.status.containerStatuses, function(a) {
-var c, d, e = _.get(a, "state.waiting.reason") || _.get(a, "state.terminated.reason");
-return e ? void (b = e) :(c = _.get(a, "state.terminated.signal")) ? void (b = "Signal: " + c) :(d = _.get(a, "state.terminated.exitCode"), void (d && (b = "Exit Code: " + d)));
-}), b;
+} ]).filter("podStatus", [ "gettext", "gettextCatalog", function(a, b) {
+return function(c) {
+if (!c || !c.metadata.deletionTimestamp && !c.status) return "";
+if (a("Terminating"), a("Running"), a("Completed"), c.metadata.deletionTimestamp) return b.getString("Terminating");
+var d = c.status.reason || c.status.phase;
+return angular.forEach(c.status.containerStatuses, function(a) {
+var b, c, e = _.get(a, "state.waiting.reason") || _.get(a, "state.terminated.reason");
+return e ? void (d = e) :(b = _.get(a, "state.terminated.signal")) ? void (d = "Signal: " + b) :(c = _.get(a, "state.terminated.exitCode"), void (c && (d = "Exit Code: " + c)));
+}), b.getString(d);
 };
-}).filter("podStartTime", function() {
+} ]).filter("podStartTime", function() {
 return function(a) {
 var b = null;
 return _.each(_.get(a, "status.containerStatuses"), function(a) {
