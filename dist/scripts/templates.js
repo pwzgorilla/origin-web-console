@@ -211,10 +211,10 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</small>\n" +
     "</h3>\n" +
     "\n" +
-    "<compute-resource ng-model=\"resources.requests[type]\" type=\"{{type}}\" label=\"Request\" description=\"The minimum amount of {{type | computeResourceLabel}} the container is guaranteed.\" default-value=\"limits.defaultRequest\" limit-range-min=\"limits.min\" limit-range-max=\"limits.max\" max-limit-request-ratio=\"limits.maxLimitRequestRatio\" ng-if=\"!requestCalculated\">\n" +
+    "<compute-resource ng-model=\"resources.requests[type]\" type=\"{{type}}\" label=\"{{'Request'|translate}}\" description=\"{{'The minimum amount of'|translate}} {{type | computeResourceLabel}} {{'the container is guaranteed.'|translate}}\" default-value=\"limits.defaultRequest\" limit-range-min=\"limits.min\" limit-range-max=\"limits.max\" max-limit-request-ratio=\"limits.maxLimitRequestRatio\" ng-if=\"!requestCalculated\">\n" +
     "</compute-resource>\n" +
     "\n" +
-    "<compute-resource ng-model=\"resources.limits[type]\" type=\"{{type}}\" label=\"{{requestCalculated ? undefined : 'Limit'}}\" description=\"The maximum amount of {{type | computeResourceLabel}} the container is allowed to use when running.\" default-value=\"limits.defaultLimit\" limit-range-min=\"limits.min\" limit-range-max=\"limits.max\" request=\"requestCalculated ? undefined : resources.requests[type]\" max-limit-request-ratio=\"limits.maxLimitRequestRatio\" ng-if=\"!hideLimit\">\n" +
+    "<compute-resource ng-model=\"resources.limits[type]\" type=\"{{type}}\" label=\"{{requestCalculated ? undefined : ('Limit'|translate)}}\" description=\"{{'The maximum amount of'|translate}} {{type | computeResourceLabel}} {{'the container is allowed to use when running.'|translate}}\" default-value=\"limits.defaultLimit\" limit-range-min=\"limits.min\" limit-range-max=\"limits.max\" request=\"requestCalculated ? undefined : resources.requests[type]\" max-limit-request-ratio=\"limits.maxLimitRequestRatio\" ng-if=\"!hideLimit\">\n" +
     "</compute-resource>\n" +
     "<div class=\"learn-more-block\">\n" +
     "<a href=\"\" ng-click=\"showComputeUnitsHelp()\" translate>What are <span ng-if=\"type === 'cpu'\">millicores</span><span ng-if=\"type === 'memory'\">MiB</span>?</a>\n" +
@@ -1024,9 +1024,9 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<td><a ng-href=\"{{pvc | navigateResourceURL}}\">{{pvc.metadata.name}}</a></td>\n" +
     "<td ng-if=\"pvc.spec.volumeName\">{{pvc.status.capacity['storage'] | usageWithUnits: 'storage'}}</td>\n" +
     "<td ng-if=\"!pvc.spec.volumeName\">{{pvc.spec.resources.requests['storage'] | usageWithUnits: 'storage'}}</td>\n" +
-    "<td>({{pvc.spec.accessModes | accessModes | join}})</td>\n" +
+    "<td>({{pvc.spec.accessModes | accessModes | join | translate}})</td>\n" +
     "<td>\n" +
-    "{{pvc.status.phase}}\n" +
+    "{{pvc.status.phase|translate}}\n" +
     "<span ng-if=\"pvc.spec.volumeName\" translate>\n" +
     "to volume <strong>{{pvc.spec.volumeName}}</strong>\n" +
     "</span>\n" +
@@ -1078,7 +1078,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"form-group\">\n" +
     "<label for=\"volume-name\" translate>Volume Name</label>\n" +
     "\n" +
-    "<input id=\"volume-path\" class=\"form-control\" type=\"text\" name=\"volumeName\" ng-model=\"attach.volumeName\" osc-unique=\"existingVolumeNames\" ng-pattern=\"/^[a-z0-9]([-a-z0-9]*[a-z0-9])?$/\" maxlength=\"63\" placeholder=\"(generated if empty)\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\" aria-describedby=\"volume-name-help\">\n" +
+    "<input id=\"volume-path\" class=\"form-control\" type=\"text\" name=\"volumeName\" ng-model=\"attach.volumeName\" osc-unique=\"existingVolumeNames\" ng-pattern=\"/^[a-z0-9]([-a-z0-9]*[a-z0-9])?$/\" maxlength=\"63\" placeholder=\"{{'(generated if empty)'|translate}}\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\" aria-describedby=\"volume-name-help\">\n" +
     "<div>\n" +
     "<span id=\"volume-name-help\" class=\"help-block\" translate>Unique name used to identify this volume. If not specified, a volume name is generated.</span>\n" +
     "</div>\n" +
@@ -3273,29 +3273,29 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div ng-if=\"(replicaSet | hasDeployment) || (replicaSet | hasDeploymentConfig)\">\n" +
     "<p ng-if=\"deployment && ({ group: 'extensions', resource: 'deployments' } | canI : 'update')\">\n" +
     "<span class=\"pficon pficon-info\" aria-hidden=\"true\"></span>\n" +
-    "Environment variables can be edited on the <a ng-href=\"{{deployment | navigateResourceURL}}?tab=environment\">deployment</a>.\n" +
+    "<translate>Environment variables can be edited on the <a ng-href=\"{{deployment | navigateResourceURL}}?tab=environment\">deployment</a>.</translate>\n" +
     "</p>\n" +
     "<p ng-if=\"(replicaSet | hasDeploymentConfig) && ('deploymentconfigs' | canI : 'update')\">\n" +
     "<span class=\"pficon pficon-info\" aria-hidden=\"true\"></span>\n" +
-    "Environment variables can be edited on the <a ng-href=\"{{replicaSet | configURLForResource}}?tab=environment\">deployment configuration</a>.\n" +
+    "<translate>Environment variables can be edited on the <a ng-href=\"{{replicaSet | configURLForResource}}?tab=environment\">deployment configuration</a>.</translate>\n" +
     "</p>\n" +
     "<div ng-repeat=\"container in updatedReplicaSet.spec.template.spec.containers\">\n" +
-    "<h3>Container {{container.name}} Environment Variables</h3>\n" +
-    "<key-value-editor ng-if=\"container.env.length\" entries=\"container.env\" key-placeholder=\"Name\" value-placeholder=\"Value\" cannot-add cannot-delete cannot-sort is-readonly show-header></key-value-editor>\n" +
-    "<em ng-if=\"!container.env.length\">The container specification has no environment variables set.</em>\n" +
+    "<h3 translate>Container {{container.name}} Environment Variables</h3>\n" +
+    "<key-value-editor ng-if=\"container.env.length\" entries=\"container.env\" key-placeholder=\"{{'Name'|translate}}\" value-placeholder=\"{{'Value'|translate}}\" cannot-add cannot-delete cannot-sort is-readonly show-header></key-value-editor>\n" +
+    "<em ng-if=\"!container.env.length\" translate>The container specification has no environment variables set.</em>\n" +
     "</div>\n" +
     "</div>\n" +
     "<ng-form ng-if=\"!(replicaSet | hasDeployment) && !(replicaSet | hasDeploymentConfig)\" name=\"forms.envForm\">\n" +
     "<confirm-on-exit dirty=\"forms.envForm.$dirty\"></confirm-on-exit>\n" +
     "<div ng-repeat=\"container in updatedReplicaSet.spec.template.spec.containers\">\n" +
     "<div ng-if=\"resource | canI : 'update'\">\n" +
-    "<key-value-editor entries=\"container.env\" key-placeholder=\"Name\" value-placeholder=\"Value\" value-from-selector-options=\"valueFromObjects\" key-validator=\"[A-Za-z_][A-Za-z0-9_]*\" key-validator-error=\"Please enter a valid key\" key-validator-error-tooltip=\"A valid environment variable name is an alphanumeric (a-z and 0-9) string beginning with a letter that may contain underscores.\" add-row-link=\"Add Environment Variable\" add-row-with-selectors-link=\"Add Environment Variable Using a Config Map or Secret\" show-header></key-value-editor>\n" +
+    "<key-value-editor entries=\"container.env\" key-placeholder=\"{{'Name'|translate}}\" value-placeholder=\"{{'Value'|translate}}\" value-from-selector-options=\"valueFromObjects\" key-validator=\"[A-Za-z_][A-Za-z0-9_]*\" key-validator-error=\"{{'Please enter a valid key'|translate}}\" key-validator-error-tooltip=\"{{'A valid environment variable name is an alphanumeric (a-z and 0-9) string beginning with a letter that may contain underscores.'|translate}}\" add-row-link=\"{{'Add Environment Variable'|translate}}\" add-row-with-selectors-link=\"{{'Add Environment Variable Using a Config Map or Secret'|translate}}\" show-header></key-value-editor>\n" +
     "<button class=\"btn btn-default\" ng-click=\"saveEnvVars()\" ng-disabled=\"forms.envForm.$pristine || forms.envForm.$invalid\">Save</button>\n" +
     "<a ng-if=\"!forms.envForm.$pristine\" href=\"\" ng-click=\"clearEnvVarUpdates()\" class=\"mar-left-sm\" style=\"vertical-align: -2px\">Clear changes</a>\n" +
     "</div>\n" +
     "<div ng-if=\"!(resource | canI : 'update')\">\n" +
-    "<key-value-editor ng-if=\"container.env.length\" entries=\"container.env\" key-placeholder=\"Name\" value-placeholder=\"Value\" cannot-add cannot-delete cannot-sort is-readonly show-header></key-value-editor>\n" +
-    "<em ng-if=\"!container.env.length\">The container specification has no environment variables set.</em>\n" +
+    "<key-value-editor ng-if=\"container.env.length\" entries=\"container.env\" key-placeholder=\"{{'Name'|translate}}\" value-placeholder=\"{{'Value'|translate}}\" cannot-add cannot-delete cannot-sort is-readonly show-header></key-value-editor>\n" +
+    "<em ng-if=\"!container.env.length\" translate>The container specification has no environment variables set.</em>\n" +
     "</div>\n" +
     "</div>\n" +
     "</ng-form>\n" +
@@ -9561,10 +9561,10 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "<div ng-if=\"strategyData.type !== 'Custom'\">\n" +
     "<div class=\"form-group\">\n" +
-    "<label for=\"strategyTimeout\">Timeout</label>\n" +
+    "<label for=\"strategyTimeout\" translate>Timeout</label>\n" +
     "<span class=\"input-group\" ng-class=\"{ 'has-error': form.strategyTimeout.$invalid && form.strategyTimeout.$touched }\">\n" +
     "<input id=\"strategyTimeout\" type=\"number\" name=\"strategyTimeout\" ng-model=\"strategyData[strategyParamsPropertyName].timeoutSeconds\" placeholder=\"600\" ng-pattern=\"/^\\d+$/\" min=\"0\" select-on-focus class=\"form-control\" aria-describedby=\"strategyTimeout\">\n" +
-    "<span class=\"input-group-addon\">seconds</span>\n" +
+    "<span class=\"input-group-addon\" translate>seconds</span>\n" +
     "</span>\n" +
     "<div class=\"help-block\" ng-attr-id=\"strategyTimeout\" translate>\n" +
     "How long to wait for a pod to scale up before giving up.\n" +
@@ -9736,7 +9736,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"container-name\">\n" +
     "<h4 translate>Container {{containerName}}</h4>\n" +
     "</div>\n" +
-    "<key-value-editor ng-if=\"containerConfig\" entries=\"containerConfig.env\" value-from-selector-options=\"valueFromObjects\" key-validator=\"[a-zA-Z_][a-zA-Z0-9_]*\" key-validator-error-tooltip=\"{{'A valid environment variable name is an alphanumeric (a-z and 0-9) string beginning with a letter that may contain underscores.'|translate}}\" add-row-link=\"Add Environment Variable\" add-row-with-selectors-link=\"Add Environment Variable Using a Config Map or Secret\"></key-value-editor>\n" +
+    "<key-value-editor ng-if=\"containerConfig\" entries=\"containerConfig.env\" value-from-selector-options=\"valueFromObjects\" key-validator=\"[a-zA-Z_][a-zA-Z0-9_]*\" key-validator-error-tooltip=\"{{'A valid environment variable name is an alphanumeric (a-z and 0-9) string beginning with a letter that may contain underscores.'|translate}}\" add-row-link=\"{{'Add Environment Variable'|translate}}\" add-row-with-selectors-link=\"{{'Add Environment Variable Using a Config Map or Secret'|translate}}\"></key-value-editor>\n" +
     "</div>\n" +
     "</div>\n" +
     "<pause-rollouts-checkbox deployment=\"updatedDeploymentConfig\" always-visible=\"true\">\n" +
@@ -10277,7 +10277,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<uib-tabset ng-if=\"'rolebindings' | canI : 'list'\">\n" +
     "<uib-tab ng-repeat=\"subjectKind in subjectKindsForUI | orderBy: 'sortOrder'\" active=\"selectedTab[subjectKind.name]\" select=\"selectTab(subjectKind.name)\">\n" +
     "<uib-tab-heading>\n" +
-    "{{subjectKind.name | startCase}}s&nbsp;({{subjectKind.subjects | hashSize}})\n" +
+    "<translate>{{subjectKind.name | startCase}}s</translate>&nbsp;({{subjectKind.subjects | hashSize}})\n" +
     "</uib-tab-heading>\n" +
     "<div ng-if=\"subjectKind.description\">\n" +
     "<p>\n" +
@@ -12713,8 +12713,8 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "                            }\">\n" +
     "<td>\n" +
     "{{resourceType | humanizeQuotaResource : true | translate}}\n" +
-    "<span ng-if=\"isAtLimit(quota, resourceType)\" data-toggle=\"tooltip\" title=\"Quota limit reached.\" class=\"pficon pficon-warning-triangle-o warnings-popover\"></span>\n" +
-    "<span ng-if=\"(quota.status.total.hard[resourceType] || quota.spec.quota.hard[resourceType]) === '0'\" data-toggle=\"tooltip\" title=\"You are not allowed to create resources of this type.\" class=\"pficon pficon-info warnings-popover\"></span>\n" +
+    "<span ng-if=\"isAtLimit(quota, resourceType)\" data-toggle=\"tooltip\" data-original-title=\"{{'Quota limit reached.'|translate}}\" class=\"pficon pficon-warning-triangle-o warnings-popover\"></span>\n" +
+    "<span ng-if=\"(quota.status.total.hard[resourceType] || quota.spec.quota.hard[resourceType]) === '0'\" data-toggle=\"tooltip\" data-original-title=\"{{'You are not allowed to create resources of this type.'|translate}}\" class=\"pficon pficon-info warnings-popover\"></span>\n" +
     "</td>\n" +
     "<td>\n" +
     "<span ng-if=\"!namespaceUsageByClusterQuota[quota.metadata.name].used\">&mdash;</span>\n" +
@@ -13050,7 +13050,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<breadcrumbs breadcrumbs=\"breadcrumbs\"></breadcrumbs>\n" +
     "<div class=\"row\">\n" +
     "<div class=\"col-md-12\">\n" +
-    "<div ng-show=\"!containers.length\">Loading...</div>\n" +
+    "<div ng-show=\"!containers.length\" translate>Loading...</div>\n" +
     "<form ng-if=\"containers.length\" name=\"form\" class=\"set-limits-form\">\n" +
     "<h1 translate>Resource Limits: {{name}}</h1>\n" +
     "<div class=\"help-block\">\n" +

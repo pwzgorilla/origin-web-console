@@ -57,9 +57,9 @@
                               <td><a ng-href="{{pvc | navigateResourceURL}}">{{pvc.metadata.name}}</a></td>
                               <td ng-if="pvc.spec.volumeName">{{pvc.status.capacity['storage'] | usageWithUnits: 'storage'}}</td>
                               <td ng-if="!pvc.spec.volumeName">{{pvc.spec.resources.requests['storage'] | usageWithUnits: 'storage'}}</td>
-                              <td>({{pvc.spec.accessModes | accessModes | join}})</td>
+                              <td>({{pvc.spec.accessModes | accessModes | join | translate}})</td>
                               <td>
-                                {{pvc.status.phase}}
+                                {{pvc.status.phase|translate}}
                                 <span ng-if="pvc.spec.volumeName" translate>
                                   to volume <strong>{{pvc.spec.volumeName}}</strong>
                                 </span>
@@ -151,7 +151,7 @@
                             osc-unique="existingVolumeNames"
                             ng-pattern="/^[a-z0-9]([-a-z0-9]*[a-z0-9])?$/"
                             maxlength="63"
-                            placeholder="(generated if empty)"
+                            placeholder="{{'(generated if empty)'|translate}}"
                             autocorrect="off"
                             autocapitalize="off"
                             spellcheck="false"

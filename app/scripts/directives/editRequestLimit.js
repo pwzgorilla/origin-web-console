@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module('openshiftConsole')
-  .directive('computeResource', function($filter) {
+  .directive('computeResource', function($filter, gettext, gettextCatalog) {
     return {
       restrict: 'E',
       require: 'ngModel',
@@ -32,7 +32,7 @@ angular.module('openshiftConsole')
           if (!_.some(scope.units, { value: unit })) {
             scope.units.push({
               value: unit,
-              label: humanizeUnit(unit, scope.type)
+              label: gettextCatalog.getString(humanizeUnit(unit, scope.type))
             });
           }
         };
@@ -59,10 +59,10 @@ angular.module('openshiftConsole')
           scope.input.unit = 'm';
           scope.units = [{
             value: "m",
-            label: "millicores"
+            label: gettextCatalog.getString(gettext("millicores"))
           }, {
             value: "",
-            label: "cores"
+            label: gettextCatalog.getString(gettext("cores"))
           }];
           break;
         case 'memory':
@@ -73,12 +73,6 @@ angular.module('openshiftConsole')
           }, {
             value: "Gi",
             label: "GiB"
-          }, {
-            value: "M",
-            label: "MB"
-          }, {
-            value: "G",
-            label: "GB"
           }];
           break;
         }
@@ -87,10 +81,10 @@ angular.module('openshiftConsole')
           switch (unit.value) {
           case 'Mi':
           case 'Gi':
-            return 'Binary Units';
+            return gettextCatalog.getString(gettext('Binary Units'));
           case 'M':
           case 'G':
-            return 'Decimal Units';
+            return gettextCatalog.getString(gettext('Decimal Units'));
           }
 
           return '';

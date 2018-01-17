@@ -43,7 +43,7 @@
               active="selectedTab[subjectKind.name]"
               select="selectTab(subjectKind.name)">
               <uib-tab-heading>
-                {{subjectKind.name | startCase}}s&nbsp;({{subjectKind.subjects | hashSize}})
+                <translate>{{subjectKind.name | startCase}}s</translate>&nbsp;({{subjectKind.subjects | hashSize}})
               </uib-tab-heading>
               <div ng-if="subjectKind.description">
                 <p>

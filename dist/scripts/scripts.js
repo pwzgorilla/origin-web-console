@@ -526,7 +526,8 @@ var gettext = function(a) {
 return a;
 };
 
-gettext("Manual"), gettext("Rolling"), gettext("Recreate"), gettext("deployment config"), gettext("Deployment Config"), gettext("horizontal pod autoscaler"), gettext("Config Map"), gettext("pull"), gettext("push"), gettext("Route"), gettext("openshift.io/imagestreams"), gettext("CPU (Request)"), gettext("Memory (Request)"), gettext("CPU (Limit)"), gettext("Memory (Limit)"), gettext("Storage (Request)"), gettext("user"), gettext("Daemon Set"), gettext("Endpoints"), gettext("Horizontal Pod Autoscaler"), gettext("Job"), gettext("Network Policy"), gettext("Policy"), gettext("Policy Binding"), gettext("Role"), gettext("Role Binding"), gettext("Role Binding Restriction"), gettext("manual change"), gettext("complete"), gettext("running"), angular.isUndefined(window.OPENSHIFT_CONSTANTS) && (window.OPENSHIFT_CONSTANTS = {}), angular.extend(window.OPENSHIFT_CONSTANTS, {
+gettext("Manual"), gettext("Rolling"), gettext("Recreate"), gettext("deployment config"), gettext("Deployment Config"), gettext("horizontal pod autoscaler"), gettext("Config Map"), gettext("pull"), gettext("push"), gettext("Route"), gettext("openshift.io/imagestreams"), gettext("CPU (Request)"), gettext("Memory (Request)"), gettext("CPU (Limit)"), gettext("Memory (Limit)"), gettext("Storage (Request)"), gettext("user"), gettext("Daemon Set"), gettext("Endpoints"), gettext("Horizontal Pod Autoscaler"), gettext("Job"), gettext("Network Policy"), gettext("Policy"), gettext("Policy Binding"), gettext("Role"), gettext("Role Binding"), gettext("Role Binding Restriction"), gettext("manual change"), gettext("complete"), gettext("running"), gettext("The minimum amount of"), gettext("the container is guaranteed."), gettext("The maximum amount of"), gettext("the container is allowed to use when running."), gettext("User"), gettext("user"), gettext("Group"), gettext("group"), gettext("Service Account"), 
+gettext("service account"), gettext("System User"), gettext("system user"), gettext("System Group"), gettext("system group"), gettext("Read-Write-Once"), gettext("Read-Write-Many"), gettext("Read-Only-Many"), gettext("Bound"), angular.isUndefined(window.OPENSHIFT_CONSTANTS) && (window.OPENSHIFT_CONSTANTS = {}), angular.extend(window.OPENSHIFT_CONSTANTS, {
 HELP_BASE_URL:"https://docs.openshift.org/latest/",
 HELP:{
 cli:"cli_reference/index.html",
@@ -4023,25 +4024,25 @@ return b.permanentlyHideAlert(j, c), !0;
 e[j] = k;
 }
 }), e;
-}, m = function(a, c, f, g) {
-var h = b.isAlertPermanentlyHidden("overview-quota-limit-reached", f);
-if (!h && e.isAnyQuotaExceeded(a, c)) {
-if (g.quotaExceeded) return;
-g.quotaExceeded = {
+}, m = function(a, c, h, i) {
+var j = b.isAlertPermanentlyHidden("overview-quota-limit-reached", h);
+if (!j && e.isAnyQuotaExceeded(a, c)) {
+if (i.quotaExceeded) return;
+i.quotaExceeded = {
 type:"warning",
-message:"Quota limit has been reached.",
+message:g.getString(f("Quota limit has been reached.")),
 links:[ {
-href:d.quotaURL(f),
-label:"View Quota"
+href:d.quotaURL(h),
+label:g.getString(f("View Quota"))
 }, {
 href:"",
-label:"Don't Show Me Again",
+label:g.getString(f("Don't Show Me Again")),
 onClick:function() {
-return b.permanentlyHideAlert("overview-quota-limit-reached", f), !0;
+return b.permanentlyHideAlert("overview-quota-limit-reached", h), !0;
 }
 } ]
 };
-} else delete g.quotaExceeded;
+} else delete i.quotaExceeded;
 }, n = function(b) {
 var d = {};
 return _.get(b, "spec.paused") && (d[b.metadata.uid + "-paused"] = {
@@ -4071,10 +4072,10 @@ switch (k) {
 case "Cancelled":
 e[b.metadata.uid + "-cancelled"] = {
 type:"info",
-message:"Deployment " + m + " was cancelled.",
+message:g.getString(f("Deployment")) + " " + m + " " + g.getString(f("was cancelled.")),
 links:[ {
 href:n,
-label:"View Deployment"
+label:g.getString(f("View Deployment"))
 } ]
 };
 break;
@@ -4084,7 +4085,7 @@ c = URI(n).addSearch({
 tab:"logs"
 }).toString(), e[b.metadata.uid + "-failed"] = {
 type:"error",
-message:"Deployment " + m + " failed.",
+message:g.getString(f("Deployment")) + " " + m + " " + g.getString(f("failed.")),
 reason:h(b, "openshift.io/deployment.status-reason"),
 links:[ {
 href:c,
@@ -8082,7 +8083,7 @@ b.location.href = "/";
 } ]), angular.module("openshiftConsole").controller("LogoutController", [ "$scope", "$log", "AuthService", "AUTH_CFG", "gettext", "gettextCatalog", function(a, b, c, d, e, f) {
 b.debug("LogoutController"), c.isLoggedIn() ? (b.debug("LogoutController, logged in, initiating logout"), a.logoutMessage = "Logging out...", c.startLogout()["finally"](function() {
 c.isLoggedIn() ? (b.debug("LogoutController, logout failed, still logged in"), a.logoutMessage = 'You could not be logged out. Return to the <a href="./">console</a>.') :d.logout_uri ? (b.debug("LogoutController, logout completed, redirecting to AUTH_CFG.logout_uri", d.logout_uri), window.location.href = d.logout_uri) :(b.debug("LogoutController, logout completed, reloading the page"), window.location.reload(!1));
-})) :d.logout_uri ? (b.debug("LogoutController, logout completed, redirecting to AUTH_CFG.logout_uri", d.logout_uri), a.logoutMessage = f.getString(e("Logging out...")), window.location.href = d.logout_uri) :(b.debug("LogoutController, not logged in, logout complete"), a.logoutMessage = f.getString(e('You are logged out. Return to the <a href="./">console</a>.')));
+})) :d.logout_uri ? (b.debug("LogoutController, logout completed, redirecting to AUTH_CFG.logout_uri", d.logout_uri), a.logoutMessage = f.getString(e("Logging out...")), window.location.href = d.logout_uri) :(console.log("sdfdsfsd"), b.debug("LogoutController, not logged in, logout complete"), a.logoutMessage = f.getString(e('You are logged out. Return to the <a href="./">console</a>.')));
 } ]), angular.module("openshiftConsole").controller("CreateController", [ "$scope", "$filter", "$location", "$q", "$routeParams", "$uibModal", "CatalogService", "Constants", "DataService", "LabelFilter", "Logger", "ProjectsService", "gettext", function(a, b, c, d, e, f, g, h, i, j, k, l, m) {
 a.projectName = e.project, a.categories = h.CATALOG_CATEGORIES, a.alerts = a.alerts || {}, a.breadcrumbs = [ {
 title:a.projectName,
@@ -8701,20 +8702,20 @@ image:{
 label:g.getString(f("Image Secret")),
 authTypes:[ {
 id:"kubernetes.io/dockercfg",
-label:"Image Registry Credentials"
+label:g.getString(f("Image Registry Credentials"))
 }, {
 id:"kubernetes.io/dockerconfigjson",
-label:"Configuration File"
+label:g.getString(f("Configuration File"))
 } ]
 },
 source:{
 label:g.getString(f("Source Secret")),
 authTypes:[ {
 id:"kubernetes.io/basic-auth",
-label:"Basic Authentication"
+label:g.getString(f("Basic Authentication"))
 }, {
 id:"kubernetes.io/ssh-auth",
-label:"SSH Key"
+label:g.getString(f("SSH Key"))
 } ]
 }
 }, h.secretTypes = _.keys(h.secretAuthTypeMap), h.type ? h.newSecret = {
@@ -12046,7 +12047,7 @@ j && (j = j.destroy());
 });
 }
 };
-} ]), angular.module("openshiftConsole").directive("computeResource", [ "$filter", function(a) {
+} ]), angular.module("openshiftConsole").directive("computeResource", [ "$filter", "gettext", "gettextCatalog", function(a, b, c) {
 return {
 restrict:"E",
 require:"ngModel",
@@ -12061,75 +12062,69 @@ maxLimitRequestRatio:"=",
 request:"="
 },
 templateUrl:"views/_compute-resource.html",
-link:function(b, c, d, e) {
-var f = a("usageValue"), g = a("amountAndUnit"), h = a("humanizeUnit");
-b.id = _.uniqueId("compute-resource-"), b.input = {};
-var i = function(a) {
-_.some(b.units, {
+link:function(d, e, f, g) {
+var h = a("usageValue"), i = a("amountAndUnit"), j = a("humanizeUnit");
+d.id = _.uniqueId("compute-resource-"), d.input = {};
+var k = function(a) {
+_.some(d.units, {
 value:a
-}) || b.units.push({
+}) || d.units.push({
 value:a,
-label:h(a, b.type)
+label:c.getString(j(a, d.type))
 });
 };
-switch (b.$watch("defaultValue", function(a) {
-var c = _.spread(function(a, c) {
-b.placeholder = a, i(c), b.input.amount || (b.input.unit = c);
+switch (d.$watch("defaultValue", function(a) {
+var b = _.spread(function(a, b) {
+d.placeholder = a, k(b), d.input.amount || (d.input.unit = b);
 });
-a && c(g(a, b.type));
-}), b.type) {
+a && b(i(a, d.type));
+}), d.type) {
 case "cpu":
-b.input.unit = "m", b.units = [ {
+d.input.unit = "m", d.units = [ {
 value:"m",
-label:"millicores"
+label:c.getString(b("millicores"))
 }, {
 value:"",
-label:"cores"
+label:c.getString(b("cores"))
 } ];
 break;
 
 case "memory":
-b.input.unit = "Mi", b.units = [ {
+d.input.unit = "Mi", d.units = [ {
 value:"Mi",
 label:"MiB"
 }, {
 value:"Gi",
 label:"GiB"
-}, {
-value:"M",
-label:"MB"
-}, {
-value:"G",
-label:"GB"
 } ];
 }
-b.groupUnits = function(a) {
+d.groupUnits = function(a) {
 switch (a.value) {
 case "Mi":
 case "Gi":
-return "Binary Units";
+return c.getString(b("Binary Units"));
 
 case "M":
 case "G":
-return "Decimal Units";
+return c.getString(b("Decimal Units"));
 }
 return "";
 };
-var j = function() {
-var a = b.input.amount && f(b.input.amount + b.input.unit), c = b.limitRangeMin && f(b.limitRangeMin), d = b.limitRangeMax && f(b.limitRangeMax), e = !0, g = !0;
-a && c && (e = a >= c), a && d && (g = a <= d), b.form.amount.$setValidity("limitRangeMin", e), b.form.amount.$setValidity("limitRangeMax", g);
-}, k = function() {
-var a, c = b.request && f(b.request), d = !0, e = !0;
-b.input.amount ? a = f(b.input.amount + b.input.unit) :b.defaultValue && (a = f(b.defaultValue)), c && a && (d = a >= c, b.maxLimitRequestRatio && (e = a / c <= b.maxLimitRequestRatio)), c && !a && b.maxLimitRequestRatio && (e = !1), b.form.amount.$setValidity("limitLargerThanRequest", d), b.form.amount.$setValidity("limitWithinRatio", e);
+var l = function() {
+var a = d.input.amount && h(d.input.amount + d.input.unit), b = d.limitRangeMin && h(d.limitRangeMin), c = d.limitRangeMax && h(d.limitRangeMax), e = !0, f = !0;
+a && b && (e = a >= b), a && c && (f = a <= c), d.form.amount.$setValidity("limitRangeMin", e), d.form.amount.$setValidity("limitRangeMax", f);
+}, m = function() {
+var a, b = d.request && h(d.request), c = !0, e = !0;
+d.input.amount ? a = h(d.input.amount + d.input.unit) :d.defaultValue && (a = h(d.defaultValue)), b && a && (c = a >= b, d.maxLimitRequestRatio && (e = a / b <= d.maxLimitRequestRatio)), b && !a && d.maxLimitRequestRatio && (e = !1), d.form.amount.$setValidity("limitLargerThanRequest", c), d.form.amount.$setValidity("limitWithinRatio", e);
 };
-e.$render = function() {
-var a = _.spread(function(a, c) {
-a ? (b.input.amount = Number(a), b.input.unit = c, i(c)) :b.input.amount = null;
+g.$render = function() {
+var a = _.spread(function(a, b) {
+a ? (d.input.amount = Number(a), d.input.unit = b, k(b)) :d.input.amount = null;
 });
-a(g(e.$viewValue, b.type));
-}, b.$watchGroup([ "input.amount", "input.unit" ], function() {
-j(), k(), b.input.amount ? e.$setViewValue(b.input.amount + b.input.unit) :e.$setViewValue(void 0);
-}), b.$watchGroup([ "limitRangeMin", "limitRangeMax" ], j), b.$watch("request", k);
+a(i(g.$viewValue, d.type));
+}, d.$watchGroup([ "input.amount", "input.unit" ], function() {
+l(), m(), d.input.amount ? g.$setViewValue(d.input.amount + d.input.unit) :g.$setViewValue(void 0);
+}), d.$watchGroup([ "limitRangeMin", "limitRangeMax" ], l), d.$watch("request", m);
 }
 };
 } ]).directive("editRequestLimit", [ "$filter", "LimitRangesService", "ModalsService", function(a, b, c) {
@@ -14760,20 +14755,20 @@ if (c < 1024) return c.toFixed(1) + " MiB";
 var d = c / 1024;
 return d.toFixed(1) + " GiB";
 };
-}).filter("computeResourceLabel", function() {
-return function(a, b) {
-switch (a) {
+}).filter("computeResourceLabel", [ "gettext", "gettextCatalog", function(a, b) {
+return function(c, d) {
+switch (c) {
 case "cpu":
 return "CPU";
 
 case "memory":
-return b ? "Memory" :"memory";
+return d ? b.getString(a("Memory")) :b.getString(a("memory"));
 
 default:
-return a;
+return c;
 }
 };
-}).filter("helpLink", [ "Constants", function(a) {
+} ]).filter("helpLink", [ "Constants", function(a) {
 return function(b) {
 var c = a.HELP[b] || a.HELP["default"];
 return URI(c).is("absolute") || (c = a.HELP_BASE_URL + c), c;
