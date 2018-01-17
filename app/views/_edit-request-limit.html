@@ -15,8 +15,8 @@
   <compute-resource
       ng-model="resources.requests[type]"
       type="{{type}}"
-      label="Request"
-      description="The minimum amount of {{type | computeResourceLabel}} the container is guaranteed."
+      label="{{'Request'|translate}}"
+      description="{{'The minimum amount of'|translate}} {{type | computeResourceLabel}} {{'the container is guaranteed.'|translate}}"
       default-value="limits.defaultRequest"
       limit-range-min="limits.min"
       limit-range-max="limits.max"
@@ -28,8 +28,8 @@
   <compute-resource
       ng-model="resources.limits[type]"
       type="{{type}}"
-      label="{{requestCalculated ? undefined : 'Limit'}}"
-      description="The maximum amount of {{type | computeResourceLabel}} the container is allowed to use when running."
+      label="{{requestCalculated ? undefined : ('Limit'|translate)}}"
+      description="{{'The maximum amount of'|translate}} {{type | computeResourceLabel}} {{'the container is allowed to use when running.'|translate}}"
       default-value="limits.defaultLimit"
       limit-range-min="limits.min"
       limit-range-max="limits.max"

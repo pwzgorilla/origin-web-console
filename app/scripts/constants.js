@@ -41,6 +41,24 @@ gettext('Role Binding Restriction');
 gettext('manual change');
 gettext('complete');
 gettext('running');
+gettext('The minimum amount of');
+gettext('the container is guaranteed.');
+gettext('The maximum amount of');
+gettext('the container is allowed to use when running.');
+gettext('User');
+gettext('user');
+gettext('Group');
+gettext('group');
+gettext('Service Account');
+gettext('service account');
+gettext('System User');
+gettext('system user');
+gettext('System Group');
+gettext('system group');
+gettext('Read-Write-Once');
+gettext('Read-Write-Many');
+gettext('Read-Only-Many');
+gettext('Bound');
 
 if (angular.isUndefined(window.OPENSHIFT_CONSTANTS)) {
   window.OPENSHIFT_CONSTANTS = {};

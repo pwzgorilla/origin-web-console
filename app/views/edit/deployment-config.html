@@ -82,7 +82,7 @@
                           </div>
                           <div ng-if="strategyData.type !== 'Custom'" >
                             <div class="form-group">
-                              <label for="strategyTimeout">Timeout</label>
+                              <label for="strategyTimeout" translate>Timeout</label>
                               <span class="input-group"
                                  ng-class="{ 'has-error': form.strategyTimeout.$invalid && form.strategyTimeout.$touched }">
                                 <input id="strategyTimeout"
@@ -95,7 +95,7 @@
                                     select-on-focus
                                     class="form-control"
                                     aria-describedby="strategyTimeout">
-                                <span class="input-group-addon">seconds</span>
+                                <span class="input-group-addon" translate>seconds</span>
                               </span>
                               <div class="help-block" ng-attr-id="strategyTimeout" translate>
                                 How long to wait for a pod to scale up before giving up.
@@ -361,8 +361,8 @@
                             value-from-selector-options="valueFromObjects"
                             key-validator="[a-zA-Z_][a-zA-Z0-9_]*"
                             key-validator-error-tooltip="{{'A valid environment variable name is an alphanumeric (a-z and 0-9) string beginning with a letter that may contain underscores.'|translate}}"
-                            add-row-link="Add Environment Variable"
-                            add-row-with-selectors-link="Add Environment Variable Using a Config Map or Secret"></key-value-editor>
+                            add-row-link="{{'Add Environment Variable'|translate}}"
+                            add-row-with-selectors-link="{{'Add Environment Variable Using a Config Map or Secret'|translate}}"></key-value-editor>
                         </div>
                       </div>
 

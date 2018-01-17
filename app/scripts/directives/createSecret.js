@@ -29,11 +29,11 @@ angular.module("openshiftConsole")
             authTypes: [
               {
                 id: "kubernetes.io/dockercfg",
-                label: "Image Registry Credentials"
+                label: gettextCatalog.getString(gettext("Image Registry Credentials"))
               },
               {
                 id: "kubernetes.io/dockerconfigjson",
-                label: "Configuration File"
+                label: gettextCatalog.getString(gettext("Configuration File"))
               }
             ]
           },
@@ -42,11 +42,11 @@ angular.module("openshiftConsole")
             authTypes: [
               {
                 id: "kubernetes.io/basic-auth",
-                label: "Basic Authentication"
+                label: gettextCatalog.getString(gettext("Basic Authentication"))
               },
               {
                 id: "kubernetes.io/ssh-auth",
-                label: "SSH Key"
+                label: gettextCatalog.getString(gettext("SSH Key"))
               }
             ]
           }
