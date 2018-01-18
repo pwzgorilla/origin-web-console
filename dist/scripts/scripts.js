@@ -6350,51 +6350,51 @@ a.services = b.by("metadata.name");
 e.unwatchAll(i);
 });
 }));
-} ]), angular.module("openshiftConsole").controller("StorageController", [ "$routeParams", "$scope", "AlertMessageService", "DataService", "ProjectsService", "QuotaService", "$filter", "LabelFilter", "Logger", "gettext", function(a, b, c, d, e, f, g, h, i, j) {
+} ]), angular.module("openshiftConsole").controller("StorageController", [ "$routeParams", "$scope", "AlertMessageService", "DataService", "ProjectsService", "QuotaService", "$filter", "LabelFilter", "Logger", "gettext", "gettextCatalog", function(a, b, c, d, e, f, g, h, i, j, k) {
 b.projectName = a.project, b.pvcs = {}, b.unfilteredPVCs = {}, b.labelSuggestions = {}, b.alerts = b.alerts || {}, b.outOfClaims = !1, b.emptyMessage = j("Loading...");
-var k = function() {
+var l = function() {
 var a = c.isAlertPermanentlyHidden("storage-quota-limit-reached", b.projectName);
 if (b.outOfClaims = f.isAnyStorageQuotaExceeded(b.quotas, b.clusterQuotas), !a && b.outOfClaims) {
 if (b.alerts.quotaExceeded) return;
 b.alerts.quotaExceeded = {
 type:"warning",
-message:"Storage quota limit has been reached. You will not be able to create any new storage.",
+message:k.getString(j("Storage quota limit has been reached. You will not be able to create any new storage.")),
 links:[ {
 href:"project/" + b.projectName + "/quota",
-label:"View Quota"
+label:k.getString(j("View Quota"))
 }, {
 href:"",
-label:"Don't Show Me Again",
+label:k.getString(j("Don't Show Me Again")),
 onClick:function() {
 return c.permanentlyHideAlert("storage-quota-limit-reached", b.projectName), !0;
 }
 } ]
 };
 } else delete b.alerts.quotaExceeded;
-}, l = [];
+}, m = [];
 e.get(a.project).then(_.spread(function(a, c) {
 function e() {
 h.getLabelSelector().isEmpty() || !$.isEmptyObject(b.pvcs) || $.isEmptyObject(b.unfilteredPVCs) ? delete b.alerts.storage :b.alerts.storage = {
 type:"warning",
-details:"The active filters are hiding all persistent volume claims."
+details:k(j("The active filters are hiding all persistent volume claims."))
 };
 }
-b.project = a, l.push(d.watch("persistentvolumeclaims", c, function(a) {
+b.project = a, m.push(d.watch("persistentvolumeclaims", c, function(a) {
 b.unfilteredPVCs = a.by("metadata.name"), h.addLabelSuggestionsFromResources(b.unfilteredPVCs, b.labelSuggestions), h.setLabelSuggestions(b.labelSuggestions), b.pvcs = h.getLabelSelector().select(b.unfilteredPVCs), b.emptyMessage = j("No persistent volume claims to show"), e(), i.log("pvcs (subscribe)", b.unfilteredPVCs);
 })), h.onActiveFiltersChanged(function(a) {
 b.$apply(function() {
 b.pvcs = a.select(b.unfilteredPVCs), e();
 });
 }), b.$on("$destroy", function() {
-d.unwatchAll(l);
+d.unwatchAll(m);
 }), d.list("resourcequotas", {
 namespace:b.projectName
 }, function(a) {
-b.quotas = a.by("metadata.name"), k();
+b.quotas = a.by("metadata.name"), l();
 }), d.list("appliedclusterresourcequotas", {
 namespace:b.projectName
 }, function(a) {
-b.clusterQuotas = a.by("metadata.name"), k();
+b.clusterQuotas = a.by("metadata.name"), l();
 });
 }));
 } ]), angular.module("openshiftConsole").controller("OtherResourcesController", [ "$routeParams", "$location", "$scope", "AuthorizationService", "DataService", "ProjectsService", "$filter", "LabelFilter", "Logger", "APIService", "gettext", "gettextCatalog", function(a, b, c, d, e, f, g, h, i, j, k, l) {
@@ -9701,15 +9701,6 @@ label:"GiB"
 }, {
 value:"Ti",
 label:"TiB"
-}, {
-value:"M",
-label:"MB"
-}, {
-value:"G",
-label:"GB"
-}, {
-value:"T",
-label:"TB"
 } ], i.claim.selectedLabels = [], i.groupUnits = function(a) {
 switch (a.value) {
 case "Mi":
@@ -11519,7 +11510,7 @@ msg:"@"
 },
 templateUrl:"views/directives/_ellipsis-pulser.html"
 };
-} ]), angular.module("openshiftConsole").directive("podDonut", [ "$timeout", "isPullingImageFilter", "isTerminatingFilter", "podWarningsFilter", "numContainersReadyFilter", "Logger", "ChartsService", function(a, b, c, d, e, f, g) {
+} ]), angular.module("openshiftConsole").directive("podDonut", [ "$timeout", "isPullingImageFilter", "isTerminatingFilter", "podWarningsFilter", "numContainersReadyFilter", "Logger", "ChartsService", "gettext", "gettextCatalog", function(a, b, c, d, e, f, g, h, i) {
 return {
 restrict:"E",
 scope:{
@@ -11530,7 +11521,7 @@ mini:"=?"
 },
 templateUrl:"views/directives/pod-donut.html",
 link:function(a, f) {
-function h() {
+function j() {
 var b = _.reject(a.pods, {
 status:{
 phase:"Failed"
@@ -11540,36 +11531,36 @@ if (a.mini) return void a.$evalAsync(function() {
 a.total = c;
 });
 var d;
-d = angular.isNumber(a.desired) && a.desired !== c ? "scaling to " + a.desired + "..." :1 === c ? "pod" :"pods", a.idled ? g.updateDonutCenterText(f[0], "Idle") :g.updateDonutCenterText(f[0], c, d);
+d = angular.isNumber(a.desired) && a.desired !== c ? i.getString(h("scaling to")) + " " + a.desired + "..." :1 === c ? "pod" :"pods", a.idled ? g.updateDonutCenterText(f[0], "Idle") :g.updateDonutCenterText(f[0], c, d);
 }
-function i(b) {
+function k(b) {
 var c = {
 columns:[]
 };
-angular.forEach(o, function(a) {
+angular.forEach(q, function(a) {
 c.columns.push([ a, b[a] || 0 ]);
-}), _.isEmpty(b) ? c.columns.push([ "Empty", 1 ]) :c.unload = "Empty", m ? m.load(c) :(n.data.columns = c.columns, m = c3.generate(n)), a.podStatusData = c.columns;
+}), _.isEmpty(b) ? c.columns.push([ "Empty", 1 ]) :c.unload = "Empty", o ? o.load(c) :(p.data.columns = c.columns, o = c3.generate(p)), a.podStatusData = c.columns;
 }
-function j(a) {
+function l(a) {
 var b = e(a), c = _.size(a.spec.containers);
 return b === c;
 }
-function k(a) {
+function m(a) {
 if (c(a)) return "Terminating";
 var e = d(a);
 return _.some(e, {
 severity:"error"
-}) ? "Error" :_.isEmpty(e) ? b(a) ? "Pulling" :"Running" !== a.status.phase || j(a) ? _.get(a, "status.phase", "Unknown") :"Not Ready" :"Warning";
+}) ? "Error" :_.isEmpty(e) ? b(a) ? "Pulling" :"Running" !== a.status.phase || l(a) ? _.get(a, "status.phase", "Unknown") :"Not Ready" :"Warning";
 }
-function l() {
+function n() {
 var b = {};
 return angular.forEach(a.pods, function(a) {
-var c = k(a);
+var c = m(a);
 b[c] = (b[c] || 0) + 1;
 }), b;
 }
-var m, n, o = [ "Running", "Not Ready", "Warning", "Error", "Pulling", "Pending", "Succeeded", "Terminating", "Unknown" ];
-a.chartId = _.uniqueId("pods-donut-chart-"), n = {
+var o, p, q = [ "Running", "Not Ready", "Warning", "Error", "Pulling", "Pending", "Succeeded", "Terminating", "Unknown" ];
+a.chartId = _.uniqueId("pods-donut-chart-"), p = {
 type:"donut",
 bindto:"#" + a.chartId,
 donut:{
@@ -11586,7 +11577,7 @@ width:a.mini ? 45 :150
 legend:{
 show:!1
 },
-onrendered:h,
+onrendered:j,
 tooltip:{
 format:{
 value:function(a, b, c) {
@@ -11599,7 +11590,7 @@ duration:350
 },
 data:{
 type:"donut",
-groups:[ o ],
+groups:[ q ],
 order:null,
 colors:{
 Empty:"#ffffff",
@@ -11617,17 +11608,17 @@ selection:{
 enabled:!1
 }
 }
-}, a.mini && (n.padding = {
+}, a.mini && (p.padding = {
 top:0,
 right:0,
 bottom:0,
 left:0
 });
-var p = _.debounce(i, 350, {
+var r = _.debounce(k, 350, {
 maxWait:500
 });
-a.$watch(l, p, !0), a.$watchGroup([ "desired", "idled" ], h), a.$on("destroy", function() {
-m && (m = m.destroy());
+a.$watch(n, r, !0), a.$watchGroup([ "desired", "idled" ], j), a.$on("destroy", function() {
+o && (o = o.destroy());
 });
 }
 };

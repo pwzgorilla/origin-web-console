@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2018-01-17 18:53+0800\n"
+"PO-Revision-Date: 2018-01-18 14:49+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh-CN\n"
@@ -1229,7 +1229,7 @@ msgid "Binary Input as File:"
 msgstr "二进制输入文件："
 
 #: app/scripts/directives/editRequestLimit.js:84
-#: app/scripts/directives/oscPersistentVolumeClaim.js:55
+#: app/scripts/directives/oscPersistentVolumeClaim.js:46
 #: app/views/modals/about-compute-units-modal.html:31
 msgid "Binary Units"
 msgstr "二进制单位"
@@ -1977,7 +1977,7 @@ msgid "Debugging pod {{pod | debugPodSourceName}}"
 msgstr "调试pod{{pod | debugPodSourceName}}"
 
 #: app/scripts/directives/editRequestLimit.js:87
-#: app/scripts/directives/oscPersistentVolumeClaim.js:59
+#: app/scripts/directives/oscPersistentVolumeClaim.js:50
 #: app/views/modals/about-compute-units-modal.html:40
 msgid "Decimal Units"
 msgstr "十进制单位"
@@ -2184,6 +2184,7 @@ msgid "Dockerfile Path"
 msgstr "Dockerfile路径"
 
 #: app/scripts/controllers/overview.js:406
+#: app/scripts/controllers/storage.js:36
 #: app/scripts/services/resourceAlerts.js:57
 #: app/scripts/services/resourceAlerts.js:91 app/views/browse/route.html:90
 msgid "Don't Show Me Again"
@@ -2754,7 +2755,7 @@ msgstr "在容器开始检查它的健康之前要等待多长时间。"
 
 #: app/views/edit/deployment-config.html:100
 msgid "How long to wait for a pod to scale up before giving up."
-msgstr "在放弃之前，等待一个豆荚的大小需要多长时间。"
+msgstr "在放弃之前，等待一个Pod的大小需要多长时间。"
 
 #: app/views/directives/_edit-probe.html:111
 msgid ""
@@ -5206,6 +5207,7 @@ msgid ""
 "users can select."
 msgstr "管理员设置存储类来定义用户可以选择的存储类型。"
 
+#: app/scripts/controllers/storage.js:30
 #: app/views/directives/osc-persistent-volume-claim.html:6
 msgid ""
 "Storage quota limit has been reached. You will not be able to create any new "
@@ -5458,6 +5460,10 @@ msgid ""
 "pasting from the clipboard."
 msgstr "PEM格式秘钥文件。 通过拖放，选择或从剪贴板粘贴来上传文件。"
 
+#: app/scripts/controllers/storage.js:71
+msgid "The active filters are hiding all persistent volume claims."
+msgstr "激活的过滤器隐藏了所有的持久化卷声明。"
+
 #: app/views/edit/build-config.html:570
 msgid ""
 "The build run policy describes the order in which the builds created from "
@@ -5598,20 +5604,20 @@ msgid ""
 "of pods while the rolling deployment is in progress. This can be either a "
 "percentage (10%) or a whole number (1)."
 msgstr ""
-"在滚动部署正在进行时，可以调度在原始Pod数上方的荚的最大数量。 这可以是百分比"
-"（10％）或全数（1）。"
+"在滚动部署正在进行时，可以在原Pod数上调整的最大数量。 这可以是百分比（10％）"
+"或整数（1）。"
 
 #: app/views/edit/deployment-config.html:197
 msgid ""
 "The maximum number of pods that can be unavailable during the rolling "
 "deployment. This can be either a percentage (10%) or a whole number (1)."
 msgstr ""
-"在滚动部署期间可以不可用的最大数量的pod。 这可以是百分比（10％）或全数（1）。"
+"在滚动部署期间不可用pod的最大数量。 这可以是百分比（10％）或全数（1）。"
 
 #: app/views/browse/deployment.html:164
 msgid ""
 "The maximum number of pods that can be unavailable during the update process."
-msgstr "在更新过程中可能不可用的最大数量的pod。"
+msgstr "在更新过程中不可用pod的最大数量。"
 
 #: app/views/directives/logs/_log-viewer.html:103
 msgid ""
@@ -5669,7 +5675,7 @@ msgstr ""
 msgid ""
 "The rolling strategy will wait for pods to pass their readiness check, scale "
 "down old components and then scale up."
-msgstr "滚动策略将等待豆荚通过它们的准备检查，缩小旧部件，然后扩大规模。"
+msgstr "滚动策略将等待Pod通过它们的准备检查，缩小旧组件，然后扩大新的。"
 
 #: app/views/browse/route.html:61 app/views/browse/routes.html:70
 #: app/views/directives/traffic-table.html:46
@@ -6326,6 +6332,7 @@ msgstr "查看成员"
 msgid "View Pipeline Runs"
 msgstr "查看管道运行"
 
+#: app/scripts/controllers/storage.js:33
 #: app/scripts/services/resourceAlerts.js:88
 msgid "View Quota"
 msgstr "查看配额"
@@ -7078,6 +7085,10 @@ msgstr "在前面的部署被缩减为0，并且在新部署的第一个Pod开�
 #: app/views/directives/lifecycle-hook.html:4
 msgid "runs before the deployment begins"
 msgstr "在部署开始之前运行"
+
+#: app/scripts/directives/podDonut.js:46
+msgid "scaling to"
+msgstr "扩缩到"
 
 #: app/scripts/filters/date.js:51
 msgid "second"

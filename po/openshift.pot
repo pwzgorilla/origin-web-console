@@ -775,7 +775,7 @@ msgid "Binary Input as File:"
 msgstr ""
 
 #: app/scripts/directives/editRequestLimit.js:84
-#: app/scripts/directives/oscPersistentVolumeClaim.js:55
+#: app/scripts/directives/oscPersistentVolumeClaim.js:46
 #: app/views/modals/about-compute-units-modal.html:31
 msgid "Binary Units"
 msgstr ""
@@ -1573,7 +1573,7 @@ msgid "Debugging pod {{pod | debugPodSourceName}}"
 msgstr ""
 
 #: app/scripts/directives/editRequestLimit.js:87
-#: app/scripts/directives/oscPersistentVolumeClaim.js:59
+#: app/scripts/directives/oscPersistentVolumeClaim.js:50
 #: app/views/modals/about-compute-units-modal.html:40
 msgid "Decimal Units"
 msgstr ""
@@ -1816,6 +1816,7 @@ msgid "Dockerfile Path"
 msgstr ""
 
 #: app/scripts/controllers/overview.js:406
+#: app/scripts/controllers/storage.js:36
 #: app/scripts/services/resourceAlerts.js:57
 #: app/scripts/services/resourceAlerts.js:91
 #: app/views/browse/route.html:90
@@ -4785,6 +4786,7 @@ msgstr ""
 msgid "Storage classes are set by the administrator to define types of storage the users can select."
 msgstr ""
 
+#: app/scripts/controllers/storage.js:30
 #: app/views/directives/osc-persistent-volume-claim.html:6
 msgid "Storage quota limit has been reached. You will not be able to create any new storage."
 msgstr ""
@@ -4999,6 +5001,10 @@ msgstr ""
 
 #: app/views/directives/osc-routing.html:307
 msgid "The PEM format key. Upload file by dragging & dropping, selecting it, or pasting from the clipboard."
+msgstr ""
+
+#: app/scripts/controllers/storage.js:71
+msgid "The active filters are hiding all persistent volume claims."
 msgstr ""
 
 #: app/views/edit/build-config.html:570
@@ -5740,6 +5746,7 @@ msgstr ""
 msgid "View Pipeline Runs"
 msgstr ""
 
+#: app/scripts/controllers/storage.js:33
 #: app/scripts/services/resourceAlerts.js:88
 msgid "View Quota"
 msgstr ""
@@ -6429,6 +6436,10 @@ msgstr ""
 
 #: app/views/directives/lifecycle-hook.html:4
 msgid "runs before the deployment begins"
+msgstr ""
+
+#: app/scripts/directives/podDonut.js:46
+msgid "scaling to"
 msgstr ""
 
 #: app/scripts/filters/date.js:51

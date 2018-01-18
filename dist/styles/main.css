@@ -5157,7 +5157,7 @@ to{background-color:transparent}
 .build-pipeline-collapsed .close:hover{opacity:1}
 .navbar-project-menu{display:flex}
 @media (min-width:768px){.navbar-project-menu{float:left}
-.navbar-project-menu .bootstrap-select.btn-group .btn:before{color:#9c9c9c;content:'Project';font-size:10px;left:15px;position:absolute;top:8px}
+.navbar-project-menu .bootstrap-select.btn-group .btn:before{color:#9c9c9c;content:'项目';font-size:10px;left:15px;position:absolute;top:8px}
 }
 .navbar-project-menu .bootstrap-select.btn-group .btn{background:#1b2d3e;border-bottom:0;border-color:#000;border-radius:0;border-top:0;box-shadow:none;color:#dbdada;font-size:18px;font-weight:300;line-height:1.66666667;padding:7px 30px 8px 15px;transition:none}
 @media (min-width:768px){.navbar-project-menu .bootstrap-select.btn-group .btn{padding-bottom:15px;padding-top:15px}

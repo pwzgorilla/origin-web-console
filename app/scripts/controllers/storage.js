@@ -8,7 +8,7 @@
  * Controller of the openshiftConsole
  */
 angular.module('openshiftConsole')
-  .controller('StorageController', function ($routeParams, $scope, AlertMessageService, DataService, ProjectsService, QuotaService, $filter, LabelFilter, Logger, gettext) {
+  .controller('StorageController', function ($routeParams, $scope, AlertMessageService, DataService, ProjectsService, QuotaService, $filter, LabelFilter, Logger, gettext, gettextCatalog) {
     $scope.projectName = $routeParams.project;
     $scope.pvcs = {};
     $scope.unfilteredPVCs = {};
@@ -27,13 +27,13 @@ angular.module('openshiftConsole')
         }
         $scope.alerts['quotaExceeded'] = {
           type: 'warning',
-          message: 'Storage quota limit has been reached. You will not be able to create any new storage.',
+          message: gettextCatalog.getString(gettext('Storage quota limit has been reached. You will not be able to create any new storage.')),
           links: [{
             href: "project/" + $scope.projectName + "/quota",
-            label: "View Quota"
+            label: gettextCatalog.getString(gettext("View Quota"))
           },{
             href: "",
-            label: "Don't Show Me Again",
+            label: gettextCatalog.getString(gettext("Don't Show Me Again")),
             onClick: function() {
               // Hide the alert on future page loads.
               AlertMessageService.permanentlyHideAlert("storage-quota-limit-reached", $scope.projectName);
@@ -68,7 +68,7 @@ angular.module('openshiftConsole')
           if (!LabelFilter.getLabelSelector().isEmpty() && $.isEmptyObject($scope.pvcs)  && !$.isEmptyObject($scope.unfilteredPVCs)) {
             $scope.alerts["storage"] = {
               type: "warning",
-              details: "The active filters are hiding all persistent volume claims."
+              details: gettextCatalog(gettext("The active filters are hiding all persistent volume claims."))
             };
           }
           else {
