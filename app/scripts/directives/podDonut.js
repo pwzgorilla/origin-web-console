@@ -7,7 +7,9 @@ angular.module('openshiftConsole')
                                   podWarningsFilter,
                                   numContainersReadyFilter,
                                   Logger,
-                                  ChartsService) {
+                                  ChartsService,
+                                  gettext,
+                                  gettextCatalog) {
     // Make sure our charts always have unique IDs even if the same deployment
     // or monopod is shown on the overview more than once.
 
@@ -43,7 +45,7 @@ angular.module('openshiftConsole')
           if (!angular.isNumber($scope.desired) || $scope.desired === total) {
             smallText = (total === 1) ? "pod" : "pods";
           } else {
-            smallText = "scaling to " + $scope.desired + "...";
+            smallText = gettextCatalog.getString(gettext("scaling to")) + " " + $scope.desired + "...";
           }
 
           if($scope.idled) {

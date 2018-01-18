@@ -35,15 +35,6 @@ angular.module("openshiftConsole")
         }, {
           value: "Ti",
           label: "TiB"
-        }, {
-          value: "M",
-          label: "MB"
-        }, {
-          value: "G",
-          label: "GB"
-        }, {
-          value: "T",
-          label: "TB"
         }];
         scope.claim.selectedLabels = [];
 
