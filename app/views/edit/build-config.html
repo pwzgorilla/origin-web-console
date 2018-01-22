@@ -177,7 +177,7 @@
                                 <input class="form-control"
                                   type="text"
                                   ng-model="imageOptions.fromSource.imageStreamImage"
-                                  placeholder="example: openshift/ruby-20-centos7@603bfa418"
+                                  placeholder="{{'example: openshift/ruby-20-centos7@603bfa418'|translate}}"
                                   autocorrect="off"
                                   autocapitalize="off"
                                   spellcheck="false"
@@ -194,7 +194,7 @@
                                   name="imageSourceLink"
                                   type="text"
                                   ng-model="imageOptions.fromSource.dockerImage"
-                                  placeholder="example: centos/ruby-20-centos7:latest"
+                                  placeholder="{{'example: centos/ruby-20-centos7:latest'|translate}}"
                                   autocorrect="off"
                                   autocapitalize="off"
                                   spellcheck="false"
@@ -327,7 +327,7 @@
                                 ng-model="imageOptions.from.dockerImage"
                                 autocorrect="off"
                                 autocapitalize="off"
-                                placeholder="example: centos/ruby-20-centos7:latest"
+                                placeholder="{{'example: centos/ruby-20-centos7:latest'|translate}}"
                                 spellcheck="false"
                                 required>
                             </div>
@@ -339,7 +339,7 @@
                               <input class="form-control"
                                 type="text"
                                 ng-model="imageOptions.from.imageStreamImage"
-                                placeholder="example: openshift/ruby-20-centos7@603bfa418"
+                                placeholder="{{'example: openshift/ruby-20-centos7@603bfa418'|translate}}"
                                 autocorrect="off"
                                 autocapitalize="off"
                                 spellcheck="false"
@@ -397,7 +397,7 @@
                                 name="pushToLink"
                                 type="text"
                                 ng-model="imageOptions.to.dockerImage"
-                                placeholder="example: centos/ruby-20-centos7:latest"
+                                placeholder="{{'example: centos/ruby-20-centos7:latest'|translate}}"
                                 autocorrect="off"
                                 autocapitalize="off"
                                 spellcheck="false"
@@ -436,14 +436,13 @@
                           entries="envVars"
                           key-validator="[a-zA-Z_][a-zA-Z0-9_]*"
                           key-validator-error-tooltip="{{'A valid environment variable name is an alphanumeric (a-z and 0-9) string beginning with a letter that may contain underscores.'|translate}}"
-                          add-row-link="Add Environment Variable"></key-value-editor>
+                          add-row-link="{{'Add Environment Variable'|translate}}"></key-value-editor>
                       </div>
                     </div>
                     <div ng-if="sources.git || !(updatedBuildConfig | isJenkinsPipelineStrategy)" class="section">
                       <!-- Use ng-show instead of ng-if so the form is still marked invalid if a hidden field has errors. -->
                       <div ng-show="view.advancedOptions">
-                        <h3 class="with-divider">Triggers
-                          <a ng-href="{{'build-triggers' | helpLink}}" target="_blank"><span class="learn-more-inline"><translate>Learn More</translate>&nbsp;<i class="fa fa-external-link" aria-hidden="true"></i></span></a>
+                        <h3 class="with-divider" translate>Triggers
                         </h3>
                         <dl class="dl-horizontal left">
                           <div>
@@ -550,7 +549,6 @@
                       <div ng-show="view.advancedOptions">
                         <h3 class="with-divider">
                           <translate>Build Secrets</translate>
-                          <a href="{{'source_secrets' | helpLink}}" target="_blank"><span class="learn-more-inline"><translate>Learn More</translate>&nbsp;<i class="fa fa-external-link" aria-hidden="true"></i></span></a>
                         </h3>
                         <div class="form-group">
                           <osc-source-secrets model="secrets.picked.sourceSecrets"
@@ -574,7 +572,7 @@
                         </span>
                       </h3>
                       <div class="form-group">
-                        <label class="sr-only">Run policy type</label>
+                        <label class="sr-only" translate>Run policy type</label>
                         <ui-select required ng-model="updatedBuildConfig.spec.runPolicy" search-enabled="false">
                           <ui-select-match>{{$select.selected | sentenceCase}}</ui-select-match>
                           <ui-select-choices repeat="type in runPolicyTypes">
@@ -597,7 +595,6 @@
                         <h3 class="with-divider">
                           <translate>Post-Commit Hooks</translate>
                           <span class="help action-inline">
-                            <a href="{{'build-hooks' | helpLink}}" aria-hidden="true" target="_blank"><span class="learn-more-inline"><translate>Learn More</translate>&nbsp;<i class="fa fa-external-link"></i></span></a>
                           </span>
                         </h3>
 

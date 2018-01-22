@@ -21,16 +21,16 @@
       <label for="timeRange" translate>Time Range:</label>
       <div class="select-range">
         <ui-select ng-model="options.timeRange" search-enabled="false" ng-disabled="metricsError" input-id="timeRange">
-          <ui-select-match>{{$select.selected.label}}</ui-select-match>
+          <ui-select-match>{{$select.selected.label|translate}}</ui-select-match>
           <ui-select-choices repeat="range in options.rangeOptions">
-            {{range.label}}
+            {{range.label|translate}}
           </ui-select-choices>
         </ui-select>
       </div>
     </div>
   </div>
 
-  <ellipsis-pulser color="dark" size="sm" msg="Loading metrics" ng-if="!loaded"></ellipsis-pulser>
+  <ellipsis-pulser color="dark" size="sm" msg="{{'Loading metrics'|translate}}" ng-if="!loaded"></ellipsis-pulser>
   <div ng-if="loaded && noData && !metricsError" class="mar-top-md" translate>
     No metrics to display.
   </div>

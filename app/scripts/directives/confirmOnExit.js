@@ -2,7 +2,7 @@
 
 // http://stackoverflow.com/questions/14852802/detect-unsaved-changes-and-alert-user-using-angularjs
 angular.module("openshiftConsole")
-  .directive("confirmOnExit", function(Logger) {
+  .directive("confirmOnExit", function(Logger, gettext, gettextCatalog) {
     return {
       scope: {
         dirty: '=',
@@ -17,7 +17,7 @@ angular.module("openshiftConsole")
         }
 
         var getMessage = function() {
-          return $scope.message || "You have unsaved changes. Leave this page anyway?";
+          return $scope.message || gettextCatalog.getString(gettext("You have unsaved changes. Leave this page anyway?"));
         };
 
         var confirmBeforeUnload = function() {

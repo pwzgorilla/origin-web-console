@@ -10,6 +10,63 @@ var gettext = function (s) {
   return s;
 };
 
+// for translate
+gettext('Manual');
+gettext('Rolling');
+gettext('Recreate');
+gettext('deployment config');
+gettext('Deployment Config');
+gettext('horizontal pod autoscaler');
+gettext('Config Map');
+gettext('pull');
+gettext('push');
+gettext('Route');
+gettext('openshift.io/imagestreams');
+gettext('CPU (Request)');
+gettext('Memory (Request)');
+gettext('CPU (Limit)');
+gettext('Memory (Limit)');
+gettext('Storage (Request)');
+gettext('user');
+gettext('Daemon Set');
+gettext('Endpoints');
+gettext('Horizontal Pod Autoscaler');
+gettext('Job');
+gettext('Network Policy');
+gettext('Policy');
+gettext('Policy Binding');
+gettext('Role');
+gettext('Role Binding');
+gettext('Role Binding Restriction');
+gettext('manual change');
+gettext('complete');
+gettext('running');
+gettext('The minimum amount of');
+gettext('the container is guaranteed.');
+gettext('The maximum amount of');
+gettext('the container is allowed to use when running.');
+gettext('User');
+gettext('user');
+gettext('Group');
+gettext('group');
+gettext('Service Account');
+gettext('service account');
+gettext('System User');
+gettext('system user');
+gettext('System Group');
+gettext('system group');
+gettext('Read-Write-Once');
+gettext('Read-Write-Many');
+gettext('Read-Only-Many');
+gettext('Bound');
+gettext('Cancelled');
+gettext('Active');
+gettext('Complete');
+gettext('Running');
+gettext('Failed');
+gettext('Terminating');
+gettext('Completed');
+
 if (angular.isUndefined(window.OPENSHIFT_CONSTANTS)) {
   window.OPENSHIFT_CONSTANTS = {};
 }

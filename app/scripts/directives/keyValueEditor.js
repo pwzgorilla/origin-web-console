@@ -7,9 +7,10 @@
       '$routeParams',
       '$timeout',
       '$filter',
+      'gettextCatalog',
       'keyValueEditorConfig',
       'keyValueEditorUtils',
-      function($routeParams, $timeout, $filter, config, utils) {
+      function($routeParams, $timeout, $filter, gettextCatalog, config, utils) {
 
         var humanizeKind = $filter('humanizeKind');
         var canI = $filter('canI');
@@ -138,7 +139,7 @@
             }
 
             $scope.groupByKind = function(object) {
-              return humanizeKind(object.kind);
+              return gettextCatalog.getString(humanizeKind(object.kind));
             };
 
             $scope.valueFromObjectSelected = function(entry, selected) {

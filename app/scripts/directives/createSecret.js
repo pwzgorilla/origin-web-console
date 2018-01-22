@@ -7,7 +7,9 @@ angular.module("openshiftConsole")
                       AuthorizationService,
                       DataService,
                       NotificationsService,
-                      DNS1123_SUBDOMAIN_VALIDATION) {
+                      DNS1123_SUBDOMAIN_VALIDATION,
+                      gettext,
+                      gettextCatalog) {
     return {
       restrict: 'E',
       scope: {
@@ -23,28 +25,28 @@ angular.module("openshiftConsole")
 
         $scope.secretAuthTypeMap = {
           image: {
-            label: "Image Secret",
+            label: gettextCatalog.getString(gettext("Image Secret")),
             authTypes: [
               {
                 id: "kubernetes.io/dockercfg",
-                label: "Image Registry Credentials"
+                label: gettextCatalog.getString(gettext("Image Registry Credentials"))
               },
               {
                 id: "kubernetes.io/dockerconfigjson",
-                label: "Configuration File"
+                label: gettextCatalog.getString(gettext("Configuration File"))
               }
             ]
           },
           source: {
-            label: "Source Secret",
+            label: gettextCatalog.getString(gettext("Source Secret")),
             authTypes: [
               {
                 id: "kubernetes.io/basic-auth",
-                label: "Basic Authentication"
+                label: gettextCatalog.getString(gettext("Basic Authentication"))
               },
               {
                 id: "kubernetes.io/ssh-auth",
-                label: "SSH Key"
+                label: gettextCatalog.getString(gettext("SSH Key"))
               }
             ]
           }

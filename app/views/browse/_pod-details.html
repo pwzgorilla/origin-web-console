@@ -12,7 +12,7 @@
         <dt translate>Status:</dt>
         <dd>
           <status-icon status="pod | podStatus"></status-icon>
-          {{pod | podStatus | sentenceCase}}<span ng-if="pod | podCompletionTime" translate>, ran for {{(pod | podStartTime) | duration : (pod | podCompletionTime)}}</span>
+          {{pod | podStatus | sentenceCase | translate}}<span ng-if="pod | podCompletionTime" translate>, ran for {{(pod | podStartTime) | duration : (pod | podCompletionTime)}}</span>
           <span ng-if="pod.metadata.deletionTimestamp" translate>(expires {{pod.metadata.deletionTimestamp | date : 'medium'}})</span>
         </dd>
         <dt ng-if-start="pod.status.message" translate>Message:</dt>
@@ -26,7 +26,7 @@
             ><span ng-if="deploymentVersion">#{{deploymentVersion}}</span><span ng-if="!deploymentVersion">{{rcName}}</span></a></span>
         </dd>
         <dt ng-if-start="!dcName && controllerRef">
-          {{controllerRef.kind | humanizeKind : true}}:
+          {{controllerRef.kind | humanizeKind : true | translate}}:
         </dt>
         <dd ng-if-end>
           <a ng-href="{{controllerRef.name | navigateResourceURL : controllerRef.kind : pod.metadata.namespace}}">{{controllerRef.name}}</a>

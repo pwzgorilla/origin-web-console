@@ -12,12 +12,12 @@
   </h4>
   <dl class="dl-horizontal left">
     <div ng-if="volume.secret">
-      <dt>Type:</dt>
+      <dt translate>Type:</dt>
       <dd>
-        secret
+        <translate>secret</translate>
         <span class="small text-muted" translate>(populated by a secret when the pod is created)</span>
       </dd>
-      <dt>Secret:</dt>
+      <dt translate>Secret:</dt>
       <dd>
         <span ng-if="'secrets' | canI : 'get'">
           <a ng-href="{{volume.secret.secretName | navigateResourceURL : 'Secret' : namespace}}">{{volume.secret.secretName}}</a>
@@ -89,15 +89,15 @@
       </div>
     </div>
     <div ng-if="volume.configMap">
-      <dt>Type:</dt>
+      <dt translate>Type:</dt>
       <dd>
-        config map
-        <span class="small text-muted">(populated by a config map)</span>
+        <translate>config map</translate>
+        <span class="small text-muted" translate>(populated by a config map)</span>
        </dd>
-      <dt>Config Map:</dt>
+      <dt translate>Config Map:</dt>
       <dd><a ng-href="{{volume.configMap.name | navigateResourceURL : 'ConfigMap' : namespace}}">{{volume.configMap.name}}</a></dd>
       <div ng-repeat="item in volume.configMap.items">
-        <dt>Key to File:</dt>
+        <dt translate>Key to File:</dt>
         <dd>{{item.key}}&#8201;&#8594;&#8201;{{item.path}}</dd>
       </div>
     </div>

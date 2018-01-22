@@ -52,6 +52,15 @@ else
 sed -i "s#{{METRICS_URL}}##g" $JS_CONF_FILE
 fi
 
+echo DMOS_ADDRESS
+if [ $DMOS_ADDRESS ]
+then
+sed -i "s#{{DMOS_ADDRESS}}#$DMOS_ADDRESS#g" $JS_CONF_FILE
+else
+sed -i "s#{{DMOS_ADDRESS}}##g" $JS_CONF_FILE
+fi
+
+echo "Start"
 sh -c "nginx -g \"daemon off;\""
 
 

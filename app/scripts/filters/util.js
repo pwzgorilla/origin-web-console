@@ -176,13 +176,13 @@ angular.module('openshiftConsole')
       return GiB.toFixed(1) + " GiB";
     };
   })
-  .filter('computeResourceLabel', function() {
+  .filter('computeResourceLabel', function(gettext, gettextCatalog) {
     return function(computeResourceType, capitalize) {
       switch (computeResourceType) {
       case 'cpu':
         return 'CPU';
       case 'memory':
-        return capitalize ? 'Memory' : 'memory';
+        return capitalize ? gettextCatalog.getString(gettext('Memory')) : gettextCatalog.getString(gettext('memory'));
       default:
         return computeResourceType;
       }

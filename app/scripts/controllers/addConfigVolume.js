@@ -22,7 +22,8 @@ angular.module('openshiftConsole')
                        NotificationsService,
                        ProjectsService,
                        StorageService,
-                       RELATIVE_PATH_PATTERN) {
+                       RELATIVE_PATH_PATTERN,
+                       gettextCatalog) {
     if (!$routeParams.kind || !$routeParams.name) {
       Navigate.toErrorPage("Kind or name parameter missing.");
       return;
@@ -65,7 +66,7 @@ angular.module('openshiftConsole')
 
     var humanizeKind = $filter('humanizeKind');
     $scope.groupByKind = function(object) {
-      return humanizeKind(object.kind);
+      return gettextCatalog.getString(humanizeKind(object.kind));
     };
 
     var resetItems = function() {

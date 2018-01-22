@@ -22,7 +22,8 @@ angular.module('openshiftConsole')
                                                 Navigate,
                                                 PodsService,
                                                 ProjectsService,
-                                                $rootScope) {
+                                                $rootScope,
+                                                gettext) {
     $scope.projectName = $routeParams.project;
     $scope.alerts = $scope.alerts || {};
     $scope.renderOptions = $scope.renderOptions || {};
@@ -34,7 +35,7 @@ angular.module('openshiftConsole')
 
     $scope.kinds = [
       {
-        kind: "All"
+        kind: gettext("All")
       },
       {
         kind: "Pods"

@@ -15,7 +15,7 @@
                   <!-- Primary Actions -->
                   <button class="btn btn-default hidden-xs"
                           ng-click="cancelBuild()"
-                          ng-if="!build.metadata.deletionTimestamp && (build | isIncompleteBuild) && ('builds' | canI : 'update')">Cancel Build</button>
+                          ng-if="!build.metadata.deletionTimestamp && (build | isIncompleteBuild) && ('builds' | canI : 'update')" translate>Cancel Build</button>
                   <button class="btn btn-default hidden-xs"
                           ng-click="cloneBuild()"
                           ng-hide="build.metadata.deletionTimestamp || (build | isIncompleteBuild) || !('builds/clone' | canI : 'create') || (build | isBinaryBuild)"
@@ -77,7 +77,7 @@
                       data-toggle="tooltip"
                       data-original-title="{{buildConfigDeleted ? 'The build configuration for this build no longer exists.' : 'Building from build configuration ' + buildConfig.metadata.name + ' has been paused.'}}">
                 </span>
-                <small class="meta">created <span am-time-ago="build.metadata.creationTimestamp"></span></small>
+                <small class="meta"><translate>created</translate> <span am-time-ago="build.metadata.creationTimestamp"></span></small>
               </h1>
               <labels ng-if="buildConfigName" labels="build.metadata.labels" clickable="true" kind="builds" title-kind="builds for build config {{buildConfigName}}" project-name="{{build.metadata.namespace}}" limit="3" navigate-url="project/{{build.metadata.namespace}}/browse/builds/{{buildConfigName}}"></labels>
               <labels ng-if="!buildConfigName" labels="build.metadata.labels" limit="3"></labels>
@@ -97,7 +97,7 @@
                     </uib-tab>
 
                     <uib-tab heading="Environment" active="selectedTab.environment" ng-if="!(build | isJenkinsPipelineStrategy)">
-                      <uib-tab-heading>Environment</uib-tab-heading>
+                      <uib-tab-heading translate>Environment</uib-tab-heading>
                       <h3 translate>Environment Variables</h3>
                       <p ng-if="'buildconfigs' | canI : 'update'">
                         <span class="pficon pficon-info" aria-hidden="true"></span>
@@ -132,9 +132,9 @@
                         <span class="space-after">{{build.status.phase}}</span>
 
                         <div ng-if="build.status.startTimestamp && !logEmpty" class="log-timestamps">
-                          Log from {{build.status.startTimestamp  | date : 'medium'}}
+                          <translate>Log from</translate> {{build.status.startTimestamp  | date : 'medium'}}
                           <span ng-if="build.status.completionTimestamp">
-                            to {{build.status.completionTimestamp  | date : 'medium'}}
+                            <translate>to</translate> {{build.status.completionTimestamp  | date : 'medium'}}
                           </span>
                         </div>
 

@@ -48,9 +48,6 @@
       <div id="claim-storage-class-help" class="help-block">
         <translate>Storage classes are set by the administrator to define types of storage the users can select.</translate>
         <span ng-if="defaultStorageClass" translate> If another storage class is not chosen, the default storage class <var>{{defaultStorageClass.metadata.name}}</var> will be used.</span>
-        <div class="learn-more-block">
-          <a ng-href="{{'storage_classes' | helpLink}}" target="_blank"><translate>Learn More</translate>&nbsp;<i class="fa fa-external-link" aria-hidden="true"> </i></a>
-        </div>
       </div>
 
     </div>
@@ -86,7 +83,7 @@
       </div>
       <div class="has-error" ng-show="persistentVolumeClaimForm.name.$error.pattern && persistentVolumeClaimForm.name.$touched && !claimDisabled">
         <span class="help-block">
-          {{nameValidation.description}}
+          {{nameValidation.description|translate}}
         </span>
       </div>
       <div class="has-error" ng-show="persistentVolumeClaimForm.name.$error.maxlength && persistentVolumeClaimForm.name.$touched && !claimDisabled">
@@ -100,15 +97,15 @@
       <label class="required" translate>Access Mode</label><br/>
       <label class="radio-inline">
         <input type="radio" name="accessModes" ng-model="claim.accessModes" value="ReadWriteOnce" aria-describedby="access-modes-help" ng-checked="true" translate>
-        Single User (RWO)
+        <translate>Single User</translate> (RWO)
       </label>
       <label class="radio-inline">
         <input type="radio" id="accessModes" name="accessModes" ng-model="claim.accessModes" value="ReadWriteMany" aria-describedby="access-modes-help" translate>
-        Shared Access (RWX)
+        <translate>Shared Access</translate> (RWX)
       </label>
       <label class="radio-inline">
         <input type="radio" name="accessModes" ng-model="claim.accessModes" value="ReadOnlyMany" aria-describedby="access-modes-help" translate>
-        Read Only (ROX)
+        <translate>Read Only</translate> (ROX)
       </label>
       <div>
         <span id="access-modes-help" class="help-block" translate>Permissions to the mounted volume.</span>
@@ -208,12 +205,9 @@
 
     <div ng-show="showAdvancedOptions" class="form-group">
       <fieldset class="compute-resource">
-        <label>Label Selector</label>
+        <label translate>Label Selector</label>
         <div class="help-block mar-bottom-lg">
           <translate>Enter a label and value to use for your storage.</translate>
-          <div class="learn-more-block">
-            <a ng-href="{{'selector_label' | helpLink}}" target="_blank"><translate>Learn More</translate>&nbsp;<i class="fa fa-external-link" aria-hidden="true"></i></a>
-          </div>
         </div>
         <key-value-editor
           entries="claim.selectedLabels"

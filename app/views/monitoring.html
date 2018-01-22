@@ -15,9 +15,9 @@
             </div>
             <div class="data-toolbar">
               <ui-select class="data-toolbar-dropdown" ng-model="kindSelector.selected" theme="bootstrap" search-enabled="true" ng-disabled="kindSelector.disabled" title="{{'Choose a resource'|translate}}">
-                <ui-select-match placeholder="{{'Choose a resource'|translate}}">{{$select.selected.label ? $select.selected.label : ($select.selected.kind | humanizeKind : true)}}</ui-select-match>
+                <ui-select-match placeholder="{{'Choose a resource'|translate}}">{{$select.selected.label ? ($select.selected.label|translate) : ($select.selected.kind | humanizeKind : true |translate)}}</ui-select-match>
                 <ui-select-choices repeat="kind in kinds | filter : {kind: $select.search} : matchKind">
-                  <div ng-bind-html="(kind.label ? kind.label : (kind.kind | humanizeKind : true)) | highlight: $select.search"></div>
+                  <div ng-bind-html="(kind.label ? (kind.label|translate) : (kind.kind | humanizeKind : true | translate)) | highlight: $select.search"></div>
                 </ui-select-choices>
               </ui-select>
               <div class="vertical-divider"></div>
@@ -95,7 +95,7 @@
                             </div>
                             <div class="list-group-item-text">
                               <status-icon status="pod | podStatus" disable-animation></status-icon>
-                              {{pod | podStatus | sentenceCase}}
+                              {{pod | podStatus | sentenceCase | translate}}
                             </div>
                           </div>
                           <div class="list-view-pf-additional-info">
@@ -178,7 +178,7 @@
                             </div>
                             <div class="list-group-item-text">
                               <status-icon status="replicationController | deploymentStatus" disable-animation></status-icon>
-                              {{replicationController | deploymentStatus | sentenceCase}}<span ng-if="(replicationController | deploymentStatus) === 'Active'">, {{replicationController.status.replicas}} replica<span ng-if="replicationController.status.replicas !== 1">s</span></span>
+                              {{replicationController | deploymentStatus | sentenceCase | translate}}<span ng-if="(replicationController | deploymentStatus) === 'Active'">, {{replicationController.status.replicas}} <translate>replica<span ng-if="replicationController.status.replicas !== 1">s</span></translate></span>
                             </div>
                           </div>
                           <div class="list-view-pf-additional-info">
@@ -235,7 +235,7 @@
                               <small><translate>created</translate> <span am-time-ago="replicaSet.metadata.creationTimestamp"></span></small>
                             </div>
                             <div class="list-group-item-text">
-                              {{replicaSet.status.replicas}} replica<span ng-if="replicaSet.status.replicas !== 1">s</span>
+                              {{replicaSet.status.replicas}} <translate>replica<span ng-if="replicaSet.status.replicas !== 1">s</span></translate>
                             </div>
                           </div>
                           <div class="list-view-pf-additional-info">
@@ -302,7 +302,7 @@
                             <div class="list-group-item-text">
                               <status-icon status="set | deploymentStatus" disable-animation></status-icon>
                               {{set | deploymentStatus | sentenceCase}},
-                              <span ng-if="(podsByOwnerUID[set.metadata.uid] | hashSize) !== set.spec.replicas">{{podsByOwnerUID[set.metadata.uid] | hashSize}}/</span>{{set.spec.replicas}} replica<span ng-if="set.spec.replicas != 1">s</span>
+                              <span ng-if="(podsByOwnerUID[set.metadata.uid] | hashSize) !== set.spec.replicas">{{podsByOwnerUID[set.metadata.uid] | hashSize}}/</span>{{set.spec.replicas}} <translate>replica<span ng-if="set.spec.replicas != 1">s</span></translate>
                             </div>
                           </div>
                           <div class="list-view-pf-additional-info">
@@ -386,7 +386,7 @@
                                   <osc-git-link uri="build.spec.source.git.uri">{{build.spec.source.git.uri}}</osc-git-link>
                                 </span>
                                 <span ng-if="build.spec.source.type && !build.spec.source.git">
-                                  Source: {{build.spec.source.type}}
+                                  <translate>Source:</translate> {{build.spec.source.type}}
                                 </span>
                               </span>
                             </div>

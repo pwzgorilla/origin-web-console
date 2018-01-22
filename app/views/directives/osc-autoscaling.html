@@ -29,7 +29,7 @@
         Name is required.
       </span>
       <span ng-show="form.name.$error.pattern" class="help-block">
-        {{nameValidation.description}}
+        {{nameValidation.description|translate}}
       </span>
       <span ng-show="form.name.$error.maxlength" class="help-block">
         <span class="help-block" translate>
@@ -39,7 +39,7 @@
     </div>
   </div>
   <div class="form-group">
-    <label>Min Pods</label>
+    <label translate>Min Pods</label>
     <span ng-class="{ 'has-error': form.minReplicas.$dirty && form.minReplicas.$invalid }">
       <input type="number"
              class="form-control"
@@ -88,9 +88,7 @@
         Min pods must be a whole number.
       </span>
       <span class="help-block" ng-if="form.maxReplicas.$error.min" translate>
-        Max pods must be greater than or equal to
-        <span ng-if="autoscaling.minReplicas">min pods, which is</span>
-        {{autoscaling.minReplicas || 1}.
+        Max pods must be greater than or equal to <span ng-if="autoscaling.minReplicas">min pods, which is</span> {{autoscaling.minReplicas || 1}.
       </span>
       <span class="help-block" ng-if="form.maxReplicas.$error.required" translate>
         Max pods is a required field.
@@ -120,9 +118,6 @@
       <span ng-if="!isRequestCalculated" translate>request</span>
       <translate>that each pod should ideally be using. Pods will be added or removed periodically when CPU usage exceeds or drops below this target value.</translate>
       <span ng-if="defaultTargetCPUDisplayValue">Defaults to {{defaultTargetCPUDisplayValue}}%.</span>
-    </div>
-    <div class="learn-more-block">
-      <a href="{{'compute_resources' | helpLink}}" target="_blank"><translate>Learn More</translate>&nbsp;<i class="fa fa-external-link" aria-hidden="true"></i></a>
     </div>
     <!-- Add extra top margin for the learn more block -->
     <div class="has-error" style="margin-top: 10px;" ng-show="form.targetCPU.$touched && form.targetCPU.$invalid">

@@ -175,6 +175,10 @@ hawtioPluginLoader.registerPreBootstrapTask(function(next) {
  * @description
  *   Base module for openshiftCommonUI.
  */
+var gettext = function (s) {
+  return s;
+};
+
 angular.module('openshiftCommonUI', [])
 // Sometimes we need to know the css breakpoints, make sure to update this
 // if they ever change!
@@ -191,7 +195,7 @@ angular.module('openshiftCommonUI', [])
 .constant('DNS1123_SUBDOMAIN_VALIDATION', {
   pattern: /^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$/,
   maxlength: 253,
-  description: 'Name must consist of lower-case letters, numbers, periods, and hyphens. It must start and end with a letter or a number.'
+  description: gettext('Name must consist of lower-case letters, numbers, periods, and hyphens. It must start and end with a letter or a number.')
 })
 // http://stackoverflow.com/questions/9038625/detect-if-device-is-ios
 .constant('IS_IOS', /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream);
@@ -1990,7 +1994,7 @@ ResourceGroupVersion.prototype.equals = function(resource, group, version) {
 };
 
 angular.module('openshiftCommonServices')
-.factory('APIService', ["API_CFG", "APIS_CFG", "AuthService", "Constants", "Logger", "$q", "$http", "$filter", "$window", function(API_CFG,
+.factory('APIService', ["API_CFG", "APIS_CFG", "AuthService", "Constants", "Logger", "$q", "$http", "$filter", "$window", "gettext", "gettextCatalog", function(API_CFG,
                                 APIS_CFG,
                                 AuthService,
                                 Constants,
@@ -1998,7 +2002,9 @@ angular.module('openshiftCommonServices')
                                 $q,
                                 $http,
                                 $filter,
-                                $window) {
+                                $window,
+                                gettext,
+                                gettextCatalog) {
   // Set the default api versions the console will use if otherwise unspecified
   var defaultVersion = {
     "":           "v1",
@@ -2161,7 +2167,7 @@ angular.module('openshiftCommonServices')
       }
       // Otherwise go to the error page, the server might be down.  Can't use Navigate.toErrorPage or it will create a circular dependency
       $window.location.href = URI('error').query({
-        error_description: "Unable to load details about the server. If the problem continues, please contact your system administrator.",
+        error_description: gettextCatalog.getString(gettext("Unable to load details about the server. If the problem continues, please contact your system administrator.")),
         error: "API_DISCOVERY"
       }).toString();
       return;
@@ -4562,7 +4568,7 @@ angular.module('openshiftCommonServices')
 
 angular.module('openshiftCommonServices')
   .factory('ProjectsService',
-    ["$location", "$q", "AuthService", "DataService", "annotationNameFilter", "AuthorizationService", function($location, $q, AuthService, DataService, annotationNameFilter, AuthorizationService) {
+    ["$location", "$q", "AuthService", "DataService", "annotationNameFilter", "AuthorizationService", "gettext", "gettextCatalog", function($location, $q, AuthService, DataService, annotationNameFilter, AuthorizationService, gettext, gettextCatalog) {
 
 
       var cleanEditableAnnotations = function(resource) {
@@ -4602,13 +4608,13 @@ angular.module('openshiftCommonServices')
                                         });
                               }, function(e) {
                                 context.projectPromise.reject(e);
-                                var description = 'The project could not be loaded.';
+                                var description = gettextCatalog.getString(gettext('The project could not be loaded.'));
                                 var type = 'error';
                                 if(e.status === 403) {
-                                  description = 'The project ' + context.projectName + ' does not exist or you are not authorized to view it.';
+                                  description = gettextCatalog.getString(gettext('The project')) + ' ' + context.projectName + ' ' + gettextCatalog.getString(gettext('does not exist or you are not authorized to view it.'));
                                   type = 'access_denied';
                                 } else if (e.status === 404) {
-                                  description = 'The project ' + context.projectName + ' does not exist.';
+                                  description = gettextCatalog.getString(gettext('The project')) + ' ' + context.projectName + ' ' + gettextCatalog.getString(gettext('does not exist.'));
                                   type = 'not_found';
                                 }
                                 $location

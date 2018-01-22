@@ -43,18 +43,11 @@
               active="selectedTab[subjectKind.name]"
               select="selectTab(subjectKind.name)">
               <uib-tab-heading>
-                {{subjectKind.name | startCase}}s&nbsp;({{subjectKind.subjects | hashSize}})
+                <translate>{{subjectKind.name | startCase}}s</translate>&nbsp;({{subjectKind.subjects | hashSize}})
               </uib-tab-heading>
               <div ng-if="subjectKind.description">
                 <p>
                   {{subjectKind.description}}
-                  <a
-                    ng-if="subjectKind.helpLinkKey"
-                    target="_blank"
-                    ng-href="{{subjectKind.helpLinkKey | helpLink}}"
-                    class="learn-more-inline">
-                    <translate>Learn More</translate> <i class="fa fa-external-link" aria-hidden="true"></i>
-                  </a>
                 </p>
               </div>
               <div
@@ -151,7 +144,7 @@
                         <button
                           ng-disabled="disableAddForm || (!subject.newRole)"
                           ng-click="addRoleTo(subject.name, subjectKind.name, subject.newRole)"
-                          class="btn btn-default add-role-to">
+                          class="btn btn-default add-role-to" translate>
                           Add
                         </button>
                       </div>
@@ -179,7 +172,7 @@
                         ng-if="newBinding.kind !== 'ServiceAccount'"
                         type="text"
                         class="form-control input-name"
-                        placeholder="Name"
+                        placeholder="{{'Name'|translate}}"
                         ng-model="newBinding.name"
                         autocorrect="off"
                         autocapitalize="off"
@@ -265,7 +258,7 @@
                           <button
                             ng-disabled="disableAddForm || (!newBinding.name) || (!newBinding.newRole)"
                             ng-click="addRoleTo(newBinding.name, newBinding.kind, newBinding.newRole, newBinding.namespace)"
-                            class="btn btn-default add-role-to">
+                            class="btn btn-default add-role-to" translate>
                             Add
                           </button>
                         </div>
@@ -286,7 +279,7 @@
                       <div class="checkbox">
                         <label>
                           <input type="checkbox" class="toggle-hidden" ng-click="showAllRoles($event)">
-                          Show hidden roles</label>&nbsp;<a href=""
+                          <translate>Show hidden roles</translate></label>&nbsp;<a href=""
                                                             class="action-inline"
                                                             data-toggle="popover"
                                                             data-trigger="hover focus"

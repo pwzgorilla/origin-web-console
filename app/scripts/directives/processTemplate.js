@@ -15,6 +15,8 @@
       'SecurityCheckService',
       'TaskList',
       'keyValueEditorUtils',
+      'gettext',
+      'gettextCatalog',
       ProcessTemplate
     ],
     controllerAs: '$ctrl',
@@ -38,7 +40,9 @@
                           QuotaService,
                           SecurityCheckService,
                           TaskList,
-                          keyValueEditorUtils) {
+                          keyValueEditorUtils,
+                          gettext,
+                          gettextCatalog) {
     var ctrl = this;
 
     var context;
@@ -82,9 +86,18 @@
     var processedResources;
     var createResources = function() {
       var titles = {
-        started: "Creating " + ctrl.templateDisplayName + " in project " + displayName(ctrl.selectedProject),
-        success: "Created " + ctrl.templateDisplayName + " in project " + displayName(ctrl.selectedProject),
-        failure: "Failed to create " + ctrl.templateDisplayName + " in project " + displayName(ctrl.selectedProject)
+        started: gettextCatalog.getString(gettext("Creating")) + ' ' +
+          ctrl.templateDisplayName + ' ' +
+          gettextCatalog.getString(gettext("in project ")) + ' ' +
+          displayName(ctrl.selectedProject),
+        success: gettextCatalog.getString(gettext("Created")) + ' ' +
+          ctrl.templateDisplayName + ' ' +
+          gettextCatalog.getString(gettext("in project")) + ' ' +
+          displayName(ctrl.selectedProject),
+        failure: gettextCatalog.getString(gettext("Failed to create")) + ' ' +
+          ctrl.templateDisplayName + ' ' +
+          gettextCatalog.getString(gettext("in project")) + ' ' +
+          displayName(ctrl.selectedProject)
       };
       var helpLinks = getHelpLinks(ctrl.template);
       TaskList.clear();
@@ -142,10 +155,10 @@
           modalConfig: function() {
             return {
               alerts: alerts,
-              message: "We checked your application for potential problems. Please confirm you still want to create this application.",
-              okButtonText: "Create Anyway",
+              message: gettextCatalog.getString(gettext("We checked your application for potential problems. Please confirm you still want to create this application.")),
+              okButtonText: gettextCatalog.getString(gettext("Create Anyway")),
               okButtonClass: "btn-danger",
-              cancelButtonText: "Cancel"
+              cancelButtonText: gettextCatalog.getString(gettext("Cancel"))
             };
           }
         }

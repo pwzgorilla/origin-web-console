@@ -18,8 +18,8 @@
                 <div ng-show="pvcs && !pvcs.length && attach.resource" class="empty-state-message empty-state-full-page">
                   <h2 class="text-center" translate>No persistent volume claims.</h2>
 
-                  <p class="gutter-top" translate>
-                    A <b>persistent volume claim</b> is required to attach to this {{kind | humanizeKind}}, but none are loaded on this project.
+                  <p class="gutter-top">
+                    <translate>A <b>persistent volume claim</b> is required to attach to this</translate> {{kind | humanizeKind | translate}}, <translate>but none are loaded on this project.</translate>
                   </p>
 
                   <div ng-if="project && ('persistentvolumeclaims' | canI : 'create')" class="text-center">
@@ -31,7 +31,7 @@
                     To claim storage from a persistent volume, refer to the documentation on <a target="_blank" ng-href="{{'persistent_volumes' | helpLink}}">using persistent volumes</a>.
                   </p>
 
-                  <p ng-if="attach.resource"><a ng-href="{{attach.resource | navigateResourceURL}}" translate>Back to {{kind | humanizeKind}} {{name}}</a></p>
+                  <p ng-if="attach.resource"><a ng-href="{{attach.resource | navigateResourceURL}}"><translate>Back to</translate> {{kind | humanizeKind | translate}} {{name}}</a></p>
                 </div>
 
                 <div ng-show="pvcs && pvcs.length && attach.resource" class="mar-top-xl">
@@ -57,9 +57,9 @@
                               <td><a ng-href="{{pvc | navigateResourceURL}}">{{pvc.metadata.name}}</a></td>
                               <td ng-if="pvc.spec.volumeName">{{pvc.status.capacity['storage'] | usageWithUnits: 'storage'}}</td>
                               <td ng-if="!pvc.spec.volumeName">{{pvc.spec.resources.requests['storage'] | usageWithUnits: 'storage'}}</td>
-                              <td>({{pvc.spec.accessModes | accessModes | join}})</td>
+                              <td>({{pvc.spec.accessModes | accessModes | join | translate}})</td>
                               <td>
-                                {{pvc.status.phase}}
+                                {{pvc.status.phase|translate}}
                                 <span ng-if="pvc.spec.volumeName" translate>
                                   to volume <strong>{{pvc.spec.volumeName}}</strong>
                                 </span>
@@ -91,7 +91,7 @@
                             ng-model="attach.mountPath"
                             ng-pattern="/^\/.*$/"
                             osc-unique="existingMountPaths"
-                            placeholder="example: /data"
+                            placeholder="{{'example: /data'|translate}}"
                             autocorrect="off"
                             autocapitalize="off"
                             spellcheck="false"
@@ -119,7 +119,7 @@
                             type="text"
                             name="subPath"
                             ng-model="attach.subPath"
-                            placeholder="example: application/resources"
+                            placeholder="{{'example: application/resources'|translate}}"
                             ng-pattern="RELATIVE_PATH_PATTERN"
                             autocorrect="off"
                             autocapitalize="off"
@@ -151,7 +151,7 @@
                             osc-unique="existingVolumeNames"
                             ng-pattern="/^[a-z0-9]([-a-z0-9]*[a-z0-9])?$/"
                             maxlength="63"
-                            placeholder="(generated if empty)"
+                            placeholder="{{'(generated if empty)'|translate}}"
                             autocorrect="off"
                             autocapitalize="off"
                             spellcheck="false"
@@ -181,7 +181,7 @@
                         <div class="checkbox">
                           <label>
                             <input type="checkbox" ng-model="attach.readOnly" aria-describedby="read-only-help" translate>
-                            Read only
+                            <translate>Read only</translate>
                           </label>
                           <div id="read-only-help" class="help-block" translate>
                             Mount the volume as read-only.

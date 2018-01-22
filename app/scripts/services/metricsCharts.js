@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module("openshiftConsole")
-  .factory("MetricsCharts", function($timeout, ConversionService) {
+  .factory("MetricsCharts", function($timeout, ConversionService, gettext) {
     var getValue = function(point, metricID) {
       if (point.value === undefined || point.value === null) {
         // null values appear as gaps in the chart.
@@ -39,22 +39,22 @@ angular.module("openshiftConsole")
 
       getTimeRangeOptions: function() {
         return [{
-          label: "Last hour",
+          label: gettext("Last hour"),
           value: 60
         }, {
-          label: "Last 4 hours",
+          label: gettext("Last 4 hours"),
           value: 4 * 60
         }, {
-          label: "Last 12 hours",
+          label: gettext("Last 12 hours"),
           value: 12 * 60
         }, {
-          label: "Last day",
+          label: gettext("Last day"),
           value: 24 * 60
         }, {
-          label: "Last 3 days",
+          label: gettext("Last 3 days"),
           value: 3 * 24 * 60
         }, {
-          label: "Last week",
+          label: gettext("Last week"),
           value: 7 * 24 * 60
         }];
       },

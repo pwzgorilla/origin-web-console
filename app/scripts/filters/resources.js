@@ -225,10 +225,10 @@ angular.module('openshiftConsole')
       return label;
     };
   })
-  .filter('parameterPlaceholder', function() {
+  .filter('parameterPlaceholder', function(gettext, gettextCatalog) {
     return function(parameter) {
       if (parameter.generate) {
-        return "(generated if empty)";
+        return gettextCatalog.getString(gettext("(generated if empty)"));
       } else {
         return "";
       }
@@ -1151,12 +1151,12 @@ angular.module('openshiftConsole')
       });
     };
   })
-  .filter('scopeDetails', function(sentenceCaseFilter) {
+  .filter('scopeDetails', function(sentenceCaseFilter, gettext, gettextCatalog) {
     var scopeMessages = {
-      "Terminating": "Affects pods that have an active deadline. These pods usually include builds, deployers, and jobs.",
-      "NotTerminating": "Affects pods that do not have an active deadline. These pods usually include your applications.",
-      "BestEffort": "Affects pods that do not have resource limits set. These pods have a best effort quality of service.",
-      "NotBestEffort": "Affects pods that have at least one resource limit set. These pods do not have a best effort quality of service."
+      "Terminating": gettextCatalog.getString(gettext("Affects pods that have an active deadline. These pods usually include builds, deployers, and jobs.")),
+      "NotTerminating": gettextCatalog.getString(gettext("Affects pods that do not have an active deadline. These pods usually include your applications.")),
+      "BestEffort": gettextCatalog.getString(gettext("Affects pods that do not have resource limits set. These pods have a best effort quality of service.")),
+      "NotBestEffort": gettextCatalog.getString(gettext("Affects pods that have at least one resource limit set. These pods do not have a best effort quality of service."))
     };
     return function(scope) {
       return scopeMessages[scope] || sentenceCaseFilter(scope);
@@ -1267,7 +1267,7 @@ angular.module('openshiftConsole')
              _.has(build, 'spec.postCommit.args');
     };
   })
-  .filter('volumeMountMode', function() {
+  .filter('volumeMountMode', function(gettext, gettextCatalog) {
     var isConfigVolume = function(volume) {
       return _.has(volume, 'configMap') || _.has(volume, 'secret');
     };
@@ -1288,7 +1288,7 @@ angular.module('openshiftConsole')
         return 'read-only';
       }
 
-      return mount.readOnly ? 'read-only' : 'read-write';
+      return gettextCatalog.getString(mount.readOnly ? gettext('read-only') : gettext('read-write'));
     };
   })
   .filter('managesRollouts', function(APIService) {

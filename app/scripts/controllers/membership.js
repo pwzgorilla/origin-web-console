@@ -17,7 +17,9 @@ angular
       MembershipService,
       NotificationsService,
       RoleBindingsService,
-      RolesService) {
+      RolesService,
+      gettext,
+      gettextCatalog) {
 
       var requestContext;
       var projectName = $routeParams.project;
@@ -37,8 +39,8 @@ angular
         remove: {
           areYouSure: {
             html: {
-              subject: _.template('Are you sure you want to remove <strong><%- roleName %></strong> from the <%- kindName %> <strong><%- subjectName %></strong>?'),
-              self: _.template('Are you sure you want to remove <strong><%- roleName %></strong> from <strong><%- subjectName %></strong> (you)?')
+              subject: _.template(gettextCatalog.getString(gettext('Are you sure you want to remove <strong><%- roleName %></strong> from the <%- kindName %> <strong><%- subjectName %></strong>?'))),
+              self: _.template(gettextCatalog.getString(gettext('Are you sure you want to remove <strong><%- roleName %></strong> from <strong><%- subjectName %></strong> (you)?')))
             }
           },
           success: _.template('The role "<%= roleName %>" was removed from "<%= subjectName %>".'),
@@ -209,12 +211,12 @@ angular
           alerts: {},
           detailsMarkup: messages.remove.areYouSure.html.subject({
             roleName: roleName,
-            kindName: humanizeKind(kind),
+            kindName: gettextCatalog.getString(humanizeKind(kind)),
             subjectName:  subjectName
           }),
-          okButtonText: 'Remove',
+          okButtonText: gettextCatalog.getString(gettext('Remove')),
           okButtonClass: 'btn-danger',
-          cancelButtonText: 'Cancel'
+          cancelButtonText: gettextCatalog.getString(gettext('Cancel'))
         };
         if(_.isEqual(subjectName, currentUserName)) {
           modalScope.detailsMarkup = messages.remove.areYouSure.html.self({

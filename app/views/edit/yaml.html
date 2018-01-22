@@ -13,7 +13,7 @@
             <alerts alerts="alerts"></alerts>
             <div ng-if="!resource" class="pad-top-md" translate>Loading...</div>
             <div ng-if="resource" class="pad-top-md">
-              <h1 class="truncate"><translate>Edit</translate> <span class="hidden-xs">{{resource.kind | humanizeKind : true}}</span> {{resource.metadata.name}}</h1>
+              <h1 class="truncate"><translate>Edit</translate> <span class="hidden-xs">{{resource.kind | humanizeKind : true | translate}}</span> {{resource.metadata.name}}</h1>
               <parse-error error="error" ng-if="error"></parse-error>
 
               <div ng-if="resourceChanged && !resourceDeleted && !updatingNow" class="alert alert-warning">

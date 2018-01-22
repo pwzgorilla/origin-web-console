@@ -6,7 +6,9 @@ angular.module("openshiftConsole")
                     AlertMessageService,
                     DeploymentsService,
                     Navigate,
-                    QuotaService) {
+                    QuotaService,
+                    gettext,
+                    gettextCatalog) {
     var annotation = $filter('annotation');
     var humanizeKind = $filter('humanizeKind');
     var deploymentStatus = $filter('deploymentStatus');
@@ -40,7 +42,7 @@ angular.module("openshiftConsole")
             var logLink = URI(podLink).addSearch({ tab: "logs", container: warning.container }).toString();
             alert.links = [{
               href: logLink,
-              label: "View Log"
+              label: gettextCatalog.getString(gettext("View Log"))
             }];
             break;
 
@@ -52,7 +54,7 @@ angular.module("openshiftConsole")
 
             alert.links = [{
               href: "",
-              label: "Don't Show Me Again",
+              label: gettextCatalog.getString(gettext("Don't Show Me Again")),
               onClick: function() {
                 // Hide the alert on future page loads.
                 AlertMessageService.permanentlyHideAlert(alertID, namespace);
@@ -80,13 +82,13 @@ angular.module("openshiftConsole")
 
         alerts['quotaExceeded'] = {
           type: 'warning',
-          message: 'Quota limit has been reached.',
+          message: gettextCatalog.getString(gettext('Quota limit has been reached.')),
           links: [{
             href: Navigate.quotaURL(projectName),
-            label: "View Quota"
+            label: gettextCatalog.getString(gettext("View Quota"))
           },{
             href: "",
-            label: "Don't Show Me Again",
+            label: gettextCatalog.getString(gettext("Don't Show Me Again")),
             onClick: function() {
               // Hide the alert on future page loads.
               AlertMessageService.permanentlyHideAlert("overview-quota-limit-reached", projectName);
@@ -148,11 +150,12 @@ angular.module("openshiftConsole")
       case 'Cancelled':
         alerts[mostRecentRC.metadata.uid + '-cancelled'] = {
           type: 'info',
-          message: 'Deployment ' + displayName + ' was cancelled.',
+          message: gettextCatalog.getString(gettext('Deployment')) + ' ' + displayName + ' ' +
+            gettextCatalog.getString(gettext('was cancelled.')),
           // TODO: Add back start deployment link from previous overview (see serviceGroupNotifications.js)
           links: [{
             href: rcLink,
-            label: 'View Deployment'
+            label: gettextCatalog.getString(gettext('View Deployment'))
           }]
         };
         break;
@@ -160,15 +163,16 @@ angular.module("openshiftConsole")
         logLink = URI(rcLink).addSearch({ tab: "logs" }).toString();
         alerts[mostRecentRC.metadata.uid + '-failed'] = {
           type: 'error',
-          message: 'Deployment ' + displayName + ' failed.',
+          message: gettextCatalog.getString(gettext('Deployment')) + ' ' + displayName + ' ' +
+            gettextCatalog.getString(gettext('failed.')),
           reason: annotation(mostRecentRC, 'openshift.io/deployment.status-reason'),
           links: [{
             href: logLink,
-            label: 'View Log'
+            label: gettextCatalog.getString(gettext('View Log'))
           }, {
             // Show all events since the event might not be on the replication controller itself.
             href: 'project/' + mostRecentRC.metadata.namespace + '/browse/events',
-            label: 'View Events'
+            label: gettextCatalog.getString(gettext('View Events'))
           }]
         };
         break;

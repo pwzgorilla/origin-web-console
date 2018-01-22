@@ -3,10 +3,10 @@ kind: Template
 labels:
   template: squid-dependencies-persistent
 message: |-
-  Squid Dependencies has been depolyed.
+  Squid 依赖服务部署完毕
 metadata:
   annotations:
-    description: 数人云一体化异步微服务平台 Squid 的依赖服务。请在部署 Squid 前，请先部署这个模版。
+    description: 数人云一体化异步微服务平台 Squid 的依赖服务。请在部署 Squid 前，先部署这个模版。
     iconClass: icon-squid-dependence
     openshift.io/display-name: Squid 产品依赖服务(技术预览)(持久化)
     tags: quickstart,squid,dataman,persistent
@@ -182,7 +182,7 @@ objects:
         - squid-db
         from:
           kind: ImageStreamTag
-          name: mysql-5.7-squid-db:1.4.7
+          name: mysql-5.7-squid-db:1.4.9
           namespace: openshift
       type: ImageChange
     - type: ConfigChange
@@ -228,20 +228,20 @@ objects:
         dc-name: squid-kafka
 
 parameters:
-- description: The name assigned to all of the frontend objects defined in this template.
-  displayName: Name
+- description: 赋值给该模板中定义的所有前端对象的名称.
+  displayName: 名称 
   name: NAME
   required: true
   value: squid
-- displayName: Kafka And Zookeeper Name
+- displayName: Kafka 和 Zookeeper 名称 
   name: KAFKA_ZK_NAME
   required: true
   value: kafka-zk
-- displayName: Squid DB Name
+- displayName: Squid 数据库名称
   name: SQUID_DB_SERVICE_NAME
   required: true
   value: squid-db
-- displayName: Database Root Password
+- displayName: 数据库Root密码
   name: DATABASE_ROOT_PASSWORD
   required: true
   value: dataman
