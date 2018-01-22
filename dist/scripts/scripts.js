@@ -1243,9 +1243,7 @@ _.get(window, "OPENSHIFT_CONSTANTS.ENABLE_TECH_PREVIEW_FEATURE.service_catalog_l
 } ]).run([ "$window", "gettextCatalog", "amMoment", function(a, b, c) {
 b.debug = !1;
 var d = a.OPENSHIFT_LANG;
-"en" !== d && (b.loadRemote("languages/" + d + ".json").then(function() {
-b.setCurrentLanguage(d);
-}), c.changeLocale(d.toLowerCase()));
+"en" !== d && (b.loadRemote("languages/" + d + ".json"), b.setCurrentLanguage(d), c.changeLocale(d.toLowerCase()));
 } ]), hawtioPluginLoader.addModule("openshiftConsole"), angular.module("openshiftConsole").factory("APIDiscovery", [ "LOGGING_URL", "METRICS_URL", "$q", function(a, b, c) {
 return {
 getLoggingURL:function() {

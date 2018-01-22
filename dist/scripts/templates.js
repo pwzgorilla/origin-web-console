@@ -458,10 +458,9 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
 
 
   $templateCache.put('views/_request-access.html',
-    "<p class=\"gutter-top\" translate>\n" +
-    "If you need to create resources in this project, a project administrator can grant you additional access by running this command:\n" +
-    "</p>\n" +
-    "<code>oc policy add-role-to-user &lt;role&gt; {{user.metadata.name}} -n {{projectName}}</code>"
+    "<p class=\"gutter-top\">\n" +
+    "如果您需要在这个项目中创建资源，请联系集群管理员。\n" +
+    "</p>"
   );
 
 
