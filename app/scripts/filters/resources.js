@@ -697,22 +697,18 @@ angular.module('openshiftConsole')
       return deploymentVersion === deploymentConfigVersion;
     };
   })
-  .filter('deploymentStatus', function(annotationFilter, hasDeploymentConfigFilter, gettext, gettextCatalog) {
+  .filter('deploymentStatus', function(annotationFilter, hasDeploymentConfigFilter) {
     return function(deployment) {
-      gettext('Cancelled');
-      gettext('Active');
-      gettext('Complete');
-
       // We should show Cancelled as an actual status instead of showing Failed
       if (annotationFilter(deployment, 'deploymentCancelled')) {
-        return gettextCatalog.getString("Cancelled");
+        return "Cancelled";
       }
       var status = annotationFilter(deployment, 'deploymentStatus');
       // If it is just an RC (non-deployment) or it is a deployment with more than 0 replicas
       if (!hasDeploymentConfigFilter(deployment) || status === "Complete" && deployment.spec.replicas > 0) {
-        return gettextCatalog.getString("Active");
+        return "Active";
       }
-      return gettextCatalog.getString(status);
+      return status;
     };
   })
   .filter('deploymentIsInProgress', function(deploymentStatusFilter) {
@@ -1005,19 +1001,15 @@ angular.module('openshiftConsole')
       return portDisplayValue(servicePort.port, servicePort.targetPort, servicePort.protocol);
     };
   })
-  .filter('podStatus', function(gettext, gettextCatalog) {
+  .filter('podStatus', function() {
     // Return results that match kubernetes/pkg/kubectl/resource_printer.go
     return function(pod) {
       if (!pod || (!pod.metadata.deletionTimestamp && !pod.status)) {
         return '';
       }
 
-      gettext('Terminating');
-      gettext('Running');
-      gettext('Completed');
-
       if (pod.metadata.deletionTimestamp) {
-        return gettextCatalog.getString('Terminating');
+        return 'Terminating';
       }
 
       var reason = pod.status.reason || pod.status.phase;
@@ -1046,7 +1038,7 @@ angular.module('openshiftConsole')
         }
       });
 
-      return gettextCatalog.getString(reason);
+      return reason;
     };
   })
   .filter('podStartTime', function() {
