@@ -1294,7 +1294,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<dt translate>Status:</dt>\n" +
     "<dd>\n" +
     "<status-icon status=\"pod | podStatus\"></status-icon>\n" +
-    "{{pod | podStatus | sentenceCase}}<span ng-if=\"pod | podCompletionTime\" translate>, ran for {{(pod | podStartTime) | duration : (pod | podCompletionTime)}}</span>\n" +
+    "{{pod | podStatus | sentenceCase | translate}}<span ng-if=\"pod | podCompletionTime\" translate>, ran for {{(pod | podStartTime) | duration : (pod | podCompletionTime)}}</span>\n" +
     "<span ng-if=\"pod.metadata.deletionTimestamp\" translate>(expires {{pod.metadata.deletionTimestamp | date : 'medium'}})</span>\n" +
     "</dd>\n" +
     "<dt ng-if-start=\"pod.status.message\" translate>Message:</dt>\n" +
@@ -2413,7 +2413,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "\n" +
     "<a ng-href=\"{{mostRecent | navigateResourceURL}}\"><span ng-if=\"mostRecent | annotation : 'deploymentVersion'\">#{{mostRecent | annotation : 'deploymentVersion'}}</span><span ng-if=\"!(mostRecent | annotation : 'deploymentVersion')\">{{mostRecent.metadata.name}}</span></a>\n" +
     "<span ng-if=\"(mostRecent | deploymentStatus) !== 'Failed'\" translate>is</span>\n" +
-    "{{mostRecent | deploymentStatus | lowercase}}.\n" +
+    "{{mostRecent | deploymentStatus | lowercase | translate}}.\n" +
     "<a ng-href=\"{{mostRecent | navigateResourceURL}}?tab=logs\" translate>View Log</a>\n" +
     "</span>\n" +
     "\n" +
@@ -2450,7 +2450,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div row class=\"status\">\n" +
     "<status-icon status=\"deployment | deploymentStatus\" disable-animation></status-icon>\n" +
     "<span flex>\n" +
-    "{{deployment | deploymentStatus}}<span ng-if=\"(deployment | deploymentStatus) == 'Active' || (deployment | deploymentStatus) == 'Running'\">,\n" +
+    "{{deployment | deploymentStatus | translate}}<span ng-if=\"(deployment | deploymentStatus) == 'Active' || (deployment | deploymentStatus) == 'Running'\">,\n" +
     "<span ng-if=\"deployment.spec.replicas !== deployment.status.replicas\">{{deployment.status.replicas}}/</span><translate>{{deployment.spec.replicas}} replica<span ng-if=\"deployment.spec.replicas != 1\">s</span></translate></span>\n" +
     "</span>\n" +
     "\n" +
@@ -5232,7 +5232,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div row class=\"status\">\n" +
     "<status-icon status=\"replicationController | deploymentStatus\" disable-animation></status-icon>\n" +
     "<span flex>\n" +
-    "{{replicationController | deploymentStatus}}<span ng-if=\"(replicationController | deploymentStatus) == 'Active' || (replicationController | deploymentStatus) == 'Running'\">,\n" +
+    "{{replicationController | deploymentStatus | translate}}<span ng-if=\"(replicationController | deploymentStatus) == 'Active' || (replicationController | deploymentStatus) == 'Running'\">,\n" +
     "<span ng-if=\"replicationController.spec.replicas !== replicationController.status.replicas\">{{replicationController.status.replicas}}/</span>{{replicationController.spec.replicas}} <translate>replica<span ng-if=\"replicationController.spec.replicas != 1\">s</span></translate></span>\n" +
     "</span>\n" +
     "</div>\n" +
@@ -5933,7 +5933,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
 
   $templateCache.put('views/directives/build-status.html',
     "<status-icon status=\"build.status.phase\" disable-animation></status-icon>\n" +
-    "<span ng-if=\"!build.status.reason || build.status.phase === 'Cancelled'\">{{build.status.phase}}</span><span ng-if=\"build.status.reason && build.status.phase !== 'Cancelled'\">{{build.status.reason | sentenceCase}}</span><span ng-switch=\"build.status.phase\" class=\"hide-ng-leave\" ng-if=\"build.status.startTimestamp\"><span ng-switch-when=\"Complete\">, ran for {{build.status.startTimestamp | timeOnlyDurationFromTimestamps : build.status.completionTimestamp}}</span><span ng-switch-when=\"Failed\">, ran for {{build.status.startTimestamp | timeOnlyDurationFromTimestamps : build.status.completionTimestamp}}</span><span ng-switch-when=\"Cancelled\"> after {{build.status.startTimestamp | timeOnlyDurationFromTimestamps : build.status.completionTimestamp}}</span><span ng-switch-when=\"Running\"> for <time-only-duration-until-now timestamp=\"build.status.startTimestamp\" time-only></time-only-duration-until-now></span><span ng-switch-when=\"New\"></span><span ng-switch-when=\"Pending\"></span><span ng-switch-default>, ran for {{build.status.startTimestamp | duration : build.status.completionTimestamp}}</span>\n" +
+    "<span ng-if=\"!build.status.reason || build.status.phase === 'Cancelled'\">{{build.status.phase | translate}}</span><span ng-if=\"build.status.reason && build.status.phase !== 'Cancelled'\">{{build.status.reason | sentenceCase}}</span><span ng-switch=\"build.status.phase\" class=\"hide-ng-leave\" ng-if=\"build.status.startTimestamp\"><span ng-switch-when=\"Complete\">, <translate>ran for</translate> {{build.status.startTimestamp | timeOnlyDurationFromTimestamps : build.status.completionTimestamp}}</span><span ng-switch-when=\"Failed\">, <translate>ran for</translate> {{build.status.startTimestamp | timeOnlyDurationFromTimestamps : build.status.completionTimestamp}}</span><span ng-switch-when=\"Cancelled\"> <translate>after</translate> {{build.status.startTimestamp | timeOnlyDurationFromTimestamps : build.status.completionTimestamp}}</span><span ng-switch-when=\"Running\"> <translate>for</translate> <time-only-duration-until-now timestamp=\"build.status.startTimestamp\" time-only></time-only-duration-until-now></span><span ng-switch-when=\"New\"></span><span ng-switch-when=\"Pending\"></span><span ng-switch-default>, <translate>ran for</translate> {{build.status.startTimestamp | duration : build.status.completionTimestamp}}</span>\n" +
     "</span>"
   );
 
@@ -8615,7 +8615,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<td data-title=\"Status\">\n" +
     "<div row class=\"status\">\n" +
     "<status-icon status=\"pod | podStatus\" disable-animation></status-icon>\n" +
-    "<span flex>{{pod | podStatus}}</span>\n" +
+    "<span flex>{{pod | podStatus | translate}}</span>\n" +
     "</div>\n" +
     "</td>\n" +
     "<td data-title=\"Ready\">{{pod | numContainersReady}}/{{pod.spec.containers.length}}</td>\n" +
@@ -10574,7 +10574,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<small class=\"text-muted\">\n" +
     "{{debugPod.metadata.name}} &mdash;\n" +
     "<status-icon status=\"debugPod | podStatus\"></status-icon>\n" +
-    "{{debugPod | podStatus | sentenceCase}}\n" +
+    "{{debugPod | podStatus | sentenceCase | translate}}\n" +
     "</small>\n" +
     "</div>\n" +
     "<div class=\"modal-body\">\n" +
@@ -10829,7 +10829,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "<div class=\"list-group-item-text\">\n" +
     "<status-icon status=\"pod | podStatus\" disable-animation></status-icon>\n" +
-    "{{pod | podStatus | sentenceCase}}\n" +
+    "{{pod | podStatus | sentenceCase | translate}}\n" +
     "</div>\n" +
     "</div>\n" +
     "<div class=\"list-view-pf-additional-info\">\n" +
@@ -10894,7 +10894,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "<div class=\"list-group-item-text\">\n" +
     "<status-icon status=\"replicationController | deploymentStatus\" disable-animation></status-icon>\n" +
-    "{{replicationController | deploymentStatus | sentenceCase}}<span ng-if=\"(replicationController | deploymentStatus) === 'Active'\">, {{replicationController.status.replicas}} replica<span ng-if=\"replicationController.status.replicas !== 1\">s</span></span>\n" +
+    "{{replicationController | deploymentStatus | sentenceCase | translate}}<span ng-if=\"(replicationController | deploymentStatus) === 'Active'\">, {{replicationController.status.replicas}} <translate>replica<span ng-if=\"replicationController.status.replicas !== 1\">s</span></translate></span>\n" +
     "</div>\n" +
     "</div>\n" +
     "<div class=\"list-view-pf-additional-info\">\n" +
@@ -10934,7 +10934,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<small><translate>created</translate> <span am-time-ago=\"replicaSet.metadata.creationTimestamp\"></span></small>\n" +
     "</div>\n" +
     "<div class=\"list-group-item-text\">\n" +
-    "{{replicaSet.status.replicas}} replica<span ng-if=\"replicaSet.status.replicas !== 1\">s</span>\n" +
+    "{{replicaSet.status.replicas}} <translate>replica<span ng-if=\"replicaSet.status.replicas !== 1\">s</span></translate>\n" +
     "</div>\n" +
     "</div>\n" +
     "<div class=\"list-view-pf-additional-info\">\n" +
@@ -10991,7 +10991,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"list-group-item-text\">\n" +
     "<status-icon status=\"set | deploymentStatus\" disable-animation></status-icon>\n" +
     "{{set | deploymentStatus | sentenceCase}},\n" +
-    "<span ng-if=\"(podsByOwnerUID[set.metadata.uid] | hashSize) !== set.spec.replicas\">{{podsByOwnerUID[set.metadata.uid] | hashSize}}/</span>{{set.spec.replicas}} replica<span ng-if=\"set.spec.replicas != 1\">s</span>\n" +
+    "<span ng-if=\"(podsByOwnerUID[set.metadata.uid] | hashSize) !== set.spec.replicas\">{{podsByOwnerUID[set.metadata.uid] | hashSize}}/</span>{{set.spec.replicas}} <translate>replica<span ng-if=\"set.spec.replicas != 1\">s</span></translate>\n" +
     "</div>\n" +
     "</div>\n" +
     "<div class=\"list-view-pf-additional-info\">\n" +
@@ -11063,7 +11063,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<osc-git-link uri=\"build.spec.source.git.uri\">{{build.spec.source.git.uri}}</osc-git-link>\n" +
     "</span>\n" +
     "<span ng-if=\"build.spec.source.type && !build.spec.source.git\">\n" +
-    "Source: {{build.spec.source.type}}\n" +
+    "<translate>Source:</translate> {{build.spec.source.type}}\n" +
     "</span>\n" +
     "</span>\n" +
     "</div>\n" +

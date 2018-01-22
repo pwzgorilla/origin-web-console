@@ -527,7 +527,7 @@ return a;
 };
 
 gettext("Manual"), gettext("Rolling"), gettext("Recreate"), gettext("deployment config"), gettext("Deployment Config"), gettext("horizontal pod autoscaler"), gettext("Config Map"), gettext("pull"), gettext("push"), gettext("Route"), gettext("openshift.io/imagestreams"), gettext("CPU (Request)"), gettext("Memory (Request)"), gettext("CPU (Limit)"), gettext("Memory (Limit)"), gettext("Storage (Request)"), gettext("user"), gettext("Daemon Set"), gettext("Endpoints"), gettext("Horizontal Pod Autoscaler"), gettext("Job"), gettext("Network Policy"), gettext("Policy"), gettext("Policy Binding"), gettext("Role"), gettext("Role Binding"), gettext("Role Binding Restriction"), gettext("manual change"), gettext("complete"), gettext("running"), gettext("The minimum amount of"), gettext("the container is guaranteed."), gettext("The maximum amount of"), gettext("the container is allowed to use when running."), gettext("User"), gettext("user"), gettext("Group"), gettext("group"), gettext("Service Account"), 
-gettext("service account"), gettext("System User"), gettext("system user"), gettext("System Group"), gettext("system group"), gettext("Read-Write-Once"), gettext("Read-Write-Many"), gettext("Read-Only-Many"), gettext("Bound"), angular.isUndefined(window.OPENSHIFT_CONSTANTS) && (window.OPENSHIFT_CONSTANTS = {}), angular.extend(window.OPENSHIFT_CONSTANTS, {
+gettext("service account"), gettext("System User"), gettext("system user"), gettext("System Group"), gettext("system group"), gettext("Read-Write-Once"), gettext("Read-Write-Many"), gettext("Read-Only-Many"), gettext("Bound"), gettext("Cancelled"), gettext("Active"), gettext("Complete"), gettext("Running"), gettext("Failed"), gettext("Terminating"), gettext("Completed"), angular.isUndefined(window.OPENSHIFT_CONSTANTS) && (window.OPENSHIFT_CONSTANTS = {}), angular.extend(window.OPENSHIFT_CONSTANTS, {
 HELP_BASE_URL:"https://docs.openshift.org/latest/",
 HELP:{
 cli:"cli_reference/index.html",
@@ -1243,7 +1243,9 @@ _.get(window, "OPENSHIFT_CONSTANTS.ENABLE_TECH_PREVIEW_FEATURE.service_catalog_l
 } ]).run([ "$window", "gettextCatalog", "amMoment", function(a, b, c) {
 b.debug = !1;
 var d = a.OPENSHIFT_LANG;
-"en" !== d && (b.loadRemote("languages/" + d + ".json"), b.setCurrentLanguage(d), c.changeLocale(d.toLowerCase()));
+"en" !== d && (b.loadRemote("languages/" + d + ".json").then(function() {
+b.setCurrentLanguage(d);
+}), c.changeLocale(d.toLowerCase()));
 } ]), hawtioPluginLoader.addModule("openshiftConsole"), angular.module("openshiftConsole").factory("APIDiscovery", [ "LOGGING_URL", "METRICS_URL", "$q", function(a, b, c) {
 return {
 getLoggingURL:function() {
@@ -14160,11 +14162,11 @@ if (!c || !b) return !1;
 var d = parseInt(a(b, "deploymentVersion")), e = c.status.latestVersion;
 return d === e;
 };
-} ]).filter("deploymentStatus", [ "annotationFilter", "hasDeploymentConfigFilter", "gettext", "gettextCatalog", function(a, b, c, d) {
-return function(e) {
-if (c("Cancelled"), c("Active"), c("Complete"), a(e, "deploymentCancelled")) return d.getString("Cancelled");
-var f = a(e, "deploymentStatus");
-return !b(e) || "Complete" === f && e.spec.replicas > 0 ? d.getString("Active") :d.getString(f);
+} ]).filter("deploymentStatus", [ "annotationFilter", "hasDeploymentConfigFilter", function(a, b) {
+return function(c) {
+if (a(c, "deploymentCancelled")) return "Cancelled";
+var d = a(c, "deploymentStatus");
+return !b(c) || "Complete" === d && c.spec.replicas > 0 ? "Active" :d;
 };
 } ]).filter("deploymentIsInProgress", [ "deploymentStatusFilter", function(a) {
 return function(b) {
@@ -14351,17 +14353,17 @@ if (!c.spec.port || !c.spec.port.targetPort || !d) return "";
 var e = c.spec.port.targetPort, f = a.getServicePortForRoute(e, d);
 return f ? b(f.port, f.targetPort, f.protocol) :angular.isString(e) ? b(e, null) :b(null, e);
 };
-} ]).filter("podStatus", [ "gettext", "gettextCatalog", function(a, b) {
-return function(c) {
-if (!c || !c.metadata.deletionTimestamp && !c.status) return "";
-if (a("Terminating"), a("Running"), a("Completed"), c.metadata.deletionTimestamp) return b.getString("Terminating");
-var d = c.status.reason || c.status.phase;
-return angular.forEach(c.status.containerStatuses, function(a) {
-var b, c, e = _.get(a, "state.waiting.reason") || _.get(a, "state.terminated.reason");
-return e ? void (d = e) :(b = _.get(a, "state.terminated.signal")) ? void (d = "Signal: " + b) :(c = _.get(a, "state.terminated.exitCode"), void (c && (d = "Exit Code: " + c)));
-}), b.getString(d);
+} ]).filter("podStatus", function() {
+return function(a) {
+if (!a || !a.metadata.deletionTimestamp && !a.status) return "";
+if (a.metadata.deletionTimestamp) return "Terminating";
+var b = a.status.reason || a.status.phase;
+return angular.forEach(a.status.containerStatuses, function(a) {
+var c, d, e = _.get(a, "state.waiting.reason") || _.get(a, "state.terminated.reason");
+return e ? void (b = e) :(c = _.get(a, "state.terminated.signal")) ? void (b = "Signal: " + c) :(d = _.get(a, "state.terminated.exitCode"), void (d && (b = "Exit Code: " + d)));
+}), b;
 };
-} ]).filter("podStartTime", function() {
+}).filter("podStartTime", function() {
 return function(a) {
 var b = null;
 return _.each(_.get(a, "status.containerStatuses"), function(a) {

@@ -59,6 +59,13 @@ gettext('Read-Write-Once');
 gettext('Read-Write-Many');
 gettext('Read-Only-Many');
 gettext('Bound');
+gettext('Cancelled');
+gettext('Active');
+gettext('Complete');
+gettext('Running');
+gettext('Failed');
+gettext('Terminating');
+gettext('Completed');
 
 if (angular.isUndefined(window.OPENSHIFT_CONSTANTS)) {
   window.OPENSHIFT_CONSTANTS = {};
