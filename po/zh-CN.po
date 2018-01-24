@@ -229,7 +229,7 @@ msgstr "名称"
 #: app/views/directives/osc-autoscaling.html:28
 #: app/views/directives/osc-persistent-volume-claim.html:80
 msgid "Name is required."
-msgstr "名字是必需的。"
+msgstr "名称是必需的。"
 
 #: src/openshiftCommonUI.module.js:27
 msgid ""
@@ -300,7 +300,7 @@ msgstr "此项目中没有可绑定的服务"
 #: src/components/create-project/createProject.html:43
 #: app/views/directives/create-secret.html:31
 msgid "This name is already in use. Please choose a different name."
-msgstr "这个名字已经在使用了。请选择其它名称。"
+msgstr "这个名称已经在使用了。请选择其它名称。"
 
 #: src/components/binding/bindApplicationForm.html:38
 msgid ""
@@ -403,7 +403,7 @@ msgstr "(最新)"
 
 #: app/views/_volumes.html:95
 msgid "(populated by a config map)"
-msgstr "(由配置映射构成)"
+msgstr "(由配置集构成)"
 
 #: app/views/_volumes.html:18
 msgid "(populated by a secret when the pod is created)"
@@ -419,7 +419,7 @@ msgstr "(在创建pod时从git中拉取)"
 
 #: app/views/_volumes.html:38
 msgid "(reference to a persistent volume claim)"
-msgstr "(参考持久卷声明)"
+msgstr "(参考持久化卷声明)"
 
 #: app/views/_volumes.html:61
 msgid "(temporary directory destroyed with the pod)"
@@ -506,7 +506,7 @@ msgstr "<strong>它不能被撤销。</strong> 确认这是你真的想进行的
 
 #: app/views/attach-pvc.html:22
 msgid "A <b>persistent volume claim</b> is required to attach to this"
-msgstr "一个 <b>持久卷声明</b>需要依附到"
+msgstr "一个 <b>持久化卷声明</b>需要依附到"
 
 #: app/views/create/fromimage.html:104 app/views/edit/build-config.html:54
 msgid "A Git repository URL is required."
@@ -579,7 +579,7 @@ msgid ""
 "A file will be created in this directory for each key from the config map or "
 "secret. The file contents will be the value of the key."
 msgstr ""
-"将在该目录中为配置映射或私密凭证中的每个键创建一个文件。文件内容将是键的值。"
+"将在该目录中为配置集或私密凭证中的每个键创建一个文件。文件内容将是键的值。"
 
 #: app/views/edit/build-config.html:463
 msgid ""
@@ -622,11 +622,11 @@ msgstr "令牌是密码的一种形式。"
 
 #: app/views/directives/edit-config-map.html:74
 msgid "A unique key for this config map entry."
-msgstr "配置映射条目的唯一键。"
+msgstr "配置集条目的唯一键。"
 
 #: app/views/directives/edit-config-map.html:25
 msgid "A unique name for the config map within the project."
-msgstr "项目中配置映射的唯一名称。"
+msgstr "项目中配置集的唯一名称。"
 
 #: app/views/directives/osc-autoscaling.html:23
 msgid "A unique name for the horizontal pod autoscaler within the project."
@@ -842,7 +842,7 @@ msgstr "新建环境变量"
 #: app/views/directives/deploy-image.html:171
 #: app/views/edit/deployment-config.html:365
 msgid "Add Environment Variable Using a Config Map or Secret"
-msgstr "通过配置映射或私密凭证新建环境变量"
+msgstr "通过配置集或私密凭证新建环境变量"
 
 #: app/views/_pod-template.html:16
 msgid "Add Health Checks"
@@ -897,7 +897,7 @@ msgstr "添加Webhook"
 msgid ""
 "Add an existing persistent volume claim to the template of {{kind | "
 "humanizeKind}} {{name}}."
-msgstr "将现有持久卷声明添加到{{kind | humanizeKind}} {{name}}的模板中。"
+msgstr "将现有持久化卷声明添加到{{kind | humanizeKind}} {{name}}的模板中。"
 
 #: app/views/directives/_edit-command.html:38
 msgid "Add argument"
@@ -931,7 +931,7 @@ msgstr "添加到命令"
 msgid ""
 "Add values from a config map or secret as volume. This will make the data "
 "available as files for"
-msgstr "从配置映射或私密凭证添加值作为卷。 这将使数据可用作文件，对"
+msgstr "从配置集或私密凭证添加值作为卷。 这将使数据可用作文件，对"
 
 #: app/views/directives/edit-lifecycle-hook.html:131
 msgid "Add {{type | upperFirst}} Lifecycle Hook"
@@ -1149,7 +1149,7 @@ msgstr "自动扩缩:"
 
 #: app/views/directives/osc-autoscaling.html:4
 msgid "Autoscaler Name"
-msgstr "自动扩缩的名字"
+msgstr "自动扩缩的名称"
 
 #: app/views/browse/_replica-set-details.html:161
 #: app/views/browse/deployment-config.html:255
@@ -1177,7 +1177,7 @@ msgstr "自动扩缩将不会生效，如果没有CPU。"
 
 #: app/scripts/services/hpa.js:159
 msgid "Autoscaling will not work without a CPU request."
-msgstr "自动扩缩将不会生效，如果没有设置CPU需求。"
+msgstr "自动扩缩将不会生效，如果没有设置CPU请求。"
 
 #: app/scripts/directives/quotaUsageChart.js:148
 msgid "Available"
@@ -1194,7 +1194,7 @@ msgstr "<small>最近15分钟</small>的平均使用量"
 
 #: app/views/_build-trends-chart.html:27
 msgid "Average build duration {{averageDurationText}}"
-msgstr "平均建造时间{{averageDurationText}}"
+msgstr "平均构建时间{{averageDurationText}}"
 
 #: app/views/directives/deployment-metrics.html:56
 msgid "Average per pod"
@@ -1382,7 +1382,7 @@ msgstr "CPU(限制)"
 
 #: app/scripts/constants.js:25
 msgid "CPU (Request)"
-msgstr "CPU (需求)"
+msgstr "CPU (请求)"
 
 #: app/views/quota.html:148 app/views/quota.html:56
 msgid "CPU <small>Limit</small>"
@@ -1391,7 +1391,7 @@ msgstr "CPU <small>限制</small>"
 #: app/views/quota.html:132 app/views/quota.html:140 app/views/quota.html:40
 #: app/views/quota.html:48
 msgid "CPU <small>Request</small>"
-msgstr "CPU <small>需求</small>"
+msgstr "CPU <small>请求</small>"
 
 #: app/views/modals/about-compute-units-modal.html:15
 msgid ""
@@ -1624,15 +1624,15 @@ msgstr "配置更改："
 
 #: app/scripts/constants.js:20
 msgid "Config Map"
-msgstr "配置映射"
+msgstr "配置集"
 
 #: app/views/_volumes.html:97
 msgid "Config Map:"
-msgstr "配置映射:"
+msgstr "配置集:"
 
 #: app/scripts/constants.js:311 app/views/browse/config-maps.html:14
 msgid "Config Maps"
-msgstr "配置映射"
+msgstr "配置集"
 
 #: app/views/browse/deployment-config.html:177 app/views/deployments.html:106
 msgid "Config change"
@@ -1640,39 +1640,39 @@ msgstr "配置更改"
 
 #: app/views/directives/edit-config-map.html:93
 msgid "Config map keys may not be longer than 253 characters."
-msgstr "配置映射键可能不超过253个字符。"
+msgstr "配置集键可能不超过253个字符。"
 
 #: app/views/directives/edit-config-map.html:88
 msgid ""
 "Config map keys may only consist of letters, numbers, periods, hyphens, and "
 "underscores."
-msgstr "配置映射键可能只包含字母、数字、周期、连字符和下划线。"
+msgstr "配置集键可能只包含字母、数字、周期、连字符和下划线。"
 
 #: app/views/edit/config-map.html:33
 msgid ""
 "Config map {[configMap.metadata.name}} has been deleted since you started "
 "editing it."
 msgstr ""
-"配置映射{[configMap.metadata.name}}已经被删除，因为您已经开始编辑它了。"
+"配置集{[configMap.metadata.name}}已经被删除，因为您已经开始编辑它了。"
 
 #: app/views/edit/config-map.html:27
 msgid ""
 "Config map {{configMap.metadata.name}} has changed since you started editing "
 "it."
-msgstr "自从您编辑它以来，配置映射{{configMap.metadata.name}}已经更改。"
+msgstr "自从您编辑它以来，配置集{{configMap.metadata.name}}已经更改。"
 
 #: app/views/edit/config-map.html:17
 msgid ""
 "Config maps hold key-value pairs that can be used in pods to read "
 "application\n"
 "                    configuration."
-msgstr "配置映射保存可在pod中使用的键值对来读取应用程序配置。"
+msgstr "配置集保存可在pod中使用的键值对来读取应用程序配置。"
 
 #: app/views/create-config-map.html:17
 msgid ""
 "Config maps hold key-value pairs that can be used in pods to read "
 "application configuration."
-msgstr "配置映射保存可在pod中使用的键值对来读取应用程序配置。"
+msgstr "配置集保存可在pod中使用的键值对来读取应用程序配置。"
 
 #: app/views/browse/_build-details.html:59
 #: app/views/browse/build-config.html:230
@@ -1836,7 +1836,7 @@ msgstr "创建绑定"
 #: app/views/add-config-volume.html:58 app/views/browse/config-maps.html:11
 #: app/views/create-config-map.html:16
 msgid "Create Config Map"
-msgstr "创建配置映射"
+msgstr "创建配置集"
 
 #: app/views/directives/osc-secrets.html:48
 #: app/views/directives/osc-source-secrets.html:105
@@ -2205,7 +2205,7 @@ msgstr "减少文件在这里"
 #: app/views/directives/edit-config-map.html:83
 msgid ""
 "Duplicate key \"{{item.key}}\". Keys must be unique within the config map."
-msgstr "重复密钥\"{{item.key}}\"。密钥在配置映射中必须是唯一的。"
+msgstr "重复密钥\"{{item.key}}\"。密钥在配置集中必须是唯一的。"
 
 #: app/views/browse/build-config.html:186 app/views/builds.html:46
 msgid "Duration"
@@ -2250,11 +2250,11 @@ msgstr "编辑构建配置{{buildConfig.metadata.name}}"
 #: app/scripts/controllers/edit/configMap.js:32
 #: app/scripts/controllers/edit/configMap.js:60
 msgid "Edit Config Map"
-msgstr "编辑配置映射"
+msgstr "编辑配置集"
 
 #: app/views/edit/config-map.html:16
 msgid "Edit Config Map {{configMap.metadata.name}}"
-msgstr "编辑配置映射{{configMap.metadata.name}}"
+msgstr "编辑配置集{{configMap.metadata.name}}"
 
 #: app/views/browse/build.html:35
 msgid "Edit Configuration"
@@ -2300,7 +2300,7 @@ msgid ""
 "Edit Resource <span ng-if=\"!('cpu' | isRequestCalculated : "
 "project)\">Requests and</span> Limits"
 msgstr ""
-"编辑资源<span ng-if=\"!('cpu' | isRequestCalculated : project)\">需求和</"
+"编辑资源<span ng-if=\"!('cpu' | isRequestCalculated : project)\">请求和</"
 "span>限制"
 
 #: app/views/browse/_replica-set-actions.html:27
@@ -2353,7 +2353,7 @@ msgstr "输入用于存储的标签和值。"
 
 #: app/views/directives/edit-config-map.html:103
 msgid "Enter a value for the config map entry or use the contents of a file."
-msgstr "输入配置映射条目的值或使用文件的内容。"
+msgstr "输入配置集条目的值或使用文件的内容。"
 
 #: app/views/directives/_edit-command.html:87
 msgid ""
@@ -2531,7 +2531,7 @@ msgstr "失败了，在项目中更新资源"
 
 #: app/views/directives/lifecycle-hook.html:12
 msgid "Failure Policy:"
-msgstr "失败的政策:"
+msgstr "失败的策略:"
 
 #: app/views/directives/create-secret.html:282
 msgid ""
@@ -3018,12 +3018,12 @@ msgstr "建议您删除与此资源相关联的自动扩缩器。"
 #: app/scripts/controllers/deployment.js:308
 #: app/scripts/controllers/deploymentConfig.js:403
 msgid "It will not delete the config map."
-msgstr "这将不会删除配置映射。"
+msgstr "这将不会删除配置集。"
 
 #: app/scripts/controllers/deployment.js:304
 #: app/scripts/controllers/deploymentConfig.js:399
 msgid "It will not delete the persistent volume claim."
-msgstr "这将不会删除持久卷声明。"
+msgstr "这将不会删除持久化卷声明。"
 
 #: app/scripts/controllers/deployment.js:306
 #: app/scripts/controllers/deploymentConfig.js:401
@@ -3215,7 +3215,7 @@ msgstr "限制"
 
 #: app/views/quota.html:204
 msgid "Limit Range"
-msgstr "限制范围内"
+msgstr "限制范围"
 
 #: app/views/_compute-resource.html:42
 msgid "Limit can't be less than request ({{request | usageWithUnits : type}})."
@@ -3223,13 +3223,13 @@ msgstr "限制不能小于要求({{request | usageWithUnits : type}})。"
 
 #: app/views/_compute-resource.html:50
 msgid "Limit cannot be more than {{maxLimitRequestRatio}} times request value."
-msgstr "限制不能超过{{maxLimitRequestRatio}}倍需求值。"
+msgstr "限制不能超过{{maxLimitRequestRatio}}倍请求值。"
 
 #: app/views/_compute-resource.html:46
 msgid ""
 "Limit is required if request is set. (Max Limit/Request Ratio: "
 "{{maxLimitRequestRatio}})"
-msgstr "如果设置了请求，则需要限制。(最大限制/需求比:{{maxLimitRequestRatio}})"
+msgstr "如果设置了请求，则需要限制。(最大限制/请求比:{{maxLimitRequestRatio}})"
 
 #: app/views/quota.html:27
 msgid "Limits resource usage across a set of projects."
@@ -3448,7 +3448,7 @@ msgstr "内存(限制)"
 
 #: app/scripts/constants.js:26
 msgid "Memory (Request)"
-msgstr "内存(需求)"
+msgstr "内存(请求)"
 
 #: app/views/quota.html:152 app/views/quota.html:60
 msgid "Memory <small>Limit</small>"
@@ -3457,7 +3457,7 @@ msgstr "内存<small>限制</small>"
 #: app/views/quota.html:136 app/views/quota.html:144 app/views/quota.html:44
 #: app/views/quota.html:52
 msgid "Memory <small>Request</small>"
-msgstr "内存<small>需求</small>"
+msgstr "内存<small>请求</small>"
 
 #: app/views/modals/about-compute-units-modal.html:23
 msgid "Memory and Storage"
@@ -3737,11 +3737,11 @@ msgstr "没有构建。"
 
 #: app/views/add-config-volume.html:25
 msgid "No config maps or secrets."
-msgstr "没有配置映射或私密凭证。"
+msgstr "没有配置集或私密凭证。"
 
 #: app/views/browse/config-maps.html:48
 msgid "No config maps to show"
-msgstr "没有配置映射可以显示"
+msgstr "没有配置集可以显示"
 
 #: app/scripts/controllers/deployments.js:126
 msgid "No deployment configurations to show"
@@ -3815,7 +3815,7 @@ msgstr "没有指标显示。"
 
 #: app/scripts/controllers/storage.js:62
 msgid "No persistent volume claims to show"
-msgstr "没有持久卷声明可以显示"
+msgstr "没有持久化卷声明可以显示"
 
 #: app/views/attach-pvc.html:19
 msgid "No persistent volume claims."
@@ -4492,11 +4492,11 @@ msgstr "仓库:"
 #: app/views/directives/hpa.html:32
 #: app/views/directives/osc-autoscaling.html:102 app/views/quota.html:232
 msgid "Request"
-msgstr "需求"
+msgstr "请求"
 
 #: app/views/browse/persistent-volume-claim.html:72
 msgid "Requested Capacity:"
-msgstr "容量需求:"
+msgstr "容量请求:"
 
 #: app/views/create/fromimage.html:367
 msgid "Resource Limits"
@@ -4533,7 +4533,7 @@ msgstr "重新启动数:"
 
 #: app/views/browse/_pod-details.html:48
 msgid "Restart Policy:"
-msgstr "重启政策:"
+msgstr "重启策略:"
 
 #: app/views/browse/deployment-config.html:103
 #: app/views/browse/deployment-config.html:47
@@ -4751,7 +4751,7 @@ msgstr "私密凭证"
 
 #: app/views/directives/create-secret.html:14
 msgid "Secret Name"
-msgstr "私密凭证的名字"
+msgstr "私密凭证的名称"
 
 #: app/views/directives/create-secret.html:3
 msgid "Secret Type"
@@ -4844,7 +4844,7 @@ msgstr "选择镜像流标签或输入镜像名称。"
 
 #: app/views/add-config-volume.html:44
 msgid "Select config map or secret"
-msgstr "选择配置映射或私密凭证"
+msgstr "选择配置集或私密凭证"
 
 #: app/views/directives/key-value-editor.html:161
 msgid "Select key"
@@ -4959,7 +4959,7 @@ msgstr "会话关联:"
 
 #: app/views/directives/key-value-editor.html:111
 msgid "Set to the key {{entry.valueFrom.configMapKeyRef.key}} in config map"
-msgstr "这配置映射设置key {{entry.valueFrom.configMapKeyRef.key}}"
+msgstr "这配置集设置key {{entry.valueFrom.configMapKeyRef.key}}"
 
 #: app/views/directives/key-value-editor.html:123
 msgid "Set to the key {{entry.valueFrom.secretKeyRef.key}} in secret"
@@ -5199,7 +5199,7 @@ msgstr "存储"
 
 #: app/scripts/constants.js:29
 msgid "Storage (Request)"
-msgstr "存储(需求)"
+msgstr "存储(请求)"
 
 #: app/views/directives/osc-persistent-volume-claim.html:12
 msgid "Storage Class"
@@ -5492,12 +5492,12 @@ msgstr "您所设置的证书或密钥将不会被使用。"
 
 #: app/views/browse/config-map.html:12
 msgid "The config map could not be loaded."
-msgstr "配置映射不能被加载。"
+msgstr "配置集不能被加载。"
 
 #: app/views/browse/config-map.html:54
 #: app/views/directives/edit-config-map.html:45
 msgid "The config map has no items."
-msgstr "配置映射没有条目。"
+msgstr "配置集没有条目。"
 
 #: app/views/browse/pod.html:70 app/views/browse/replica-set.html:119
 #: app/views/browse/replica-set.html:79
@@ -5749,7 +5749,7 @@ msgid ""
 "There are no config maps or secrets in project {{project | displayName}} to "
 "use as a volume for this {{kind | humanizeKind}}."
 msgstr ""
-"在项目{{project | displayName}}中，没有配置映射或者Secrets可以为{{kind | "
+"在项目{{project | displayName}}中，没有配置集或者Secrets可以为{{kind | "
 "humanizeKind}}当做Volume使用。"
 
 #: app/views/monitoring.html:154
@@ -6027,7 +6027,7 @@ msgid ""
 "target=\"_blank\" ng-href=\"{{'persistent_volumes' | helpLink}}\">using "
 "persistent volumes</a>."
 msgstr ""
-"要从持久卷声明存储，请参阅文档 <a target=\"_blank\" ng-href="
+"要从持久化卷声明存储，请参阅文档 <a target=\"_blank\" ng-href="
 "\"{{'persistent_volumes' | helpLink}}\">使用持久卷</a>。"
 
 #: app/views/modals/confirm-save-log.html:6
@@ -6389,7 +6389,7 @@ msgstr "该路径中的卷挂载已存在。请选择另一个安装路径。"
 
 #: app/views/attach-pvc.html:174
 msgid "Volume name already exists. Please choose another name."
-msgstr "卷名称已存在。请选择另一个名字。"
+msgstr "卷名称已存在。请选择另一个名称。"
 
 #: app/views/attach-pvc.html:169
 msgid "Volume names cannot be longer than 63 characters."
@@ -6495,7 +6495,7 @@ msgstr "WildFly"
 
 #: app/views/browse/route.html:97
 msgid "Wildcard Policy:"
-msgstr "通配符政策:"
+msgstr "通配符策略:"
 
 #: app/views/directives/osc-routing.html:75
 msgid "Wildcard subdomains may start with <var>*.</var>"
@@ -6644,7 +6644,7 @@ msgstr "您将需要重新部署您的Pod以使其生效。"
 #: app/views/edit/config-map.html:28
 msgid ""
 "You'll need to copy any changes you've made and edit the config map again."
-msgstr "您需要复制所做的任何更改，然后再次编辑配置映射。"
+msgstr "您需要复制所做的任何更改，然后再次编辑配置集。"
 
 #: app/views/edit/yaml.html:23
 msgid ""
@@ -6745,7 +6745,7 @@ msgstr "成功完成"
 
 #: app/views/_volumes.html:94
 msgid "config map"
-msgstr "配置映射"
+msgstr "配置集"
 
 #: app/views/create/fromimage.html:99
 msgid "context dir"
@@ -6811,7 +6811,7 @@ msgstr "没有任何设置了CPU限制的容器。"
 
 #: app/scripts/services/hpa.js:158
 msgid "does not have any containers with a CPU request set."
-msgstr "没有任何设置了CPU需求的容器。"
+msgstr "没有任何设置了CPU请求的容器。"
 
 #: app/views/_volumes.html:83
 msgid "downward API"
@@ -7028,7 +7028,7 @@ msgstr "密码"
 
 #: app/views/_volumes.html:37
 msgid "persistent volume claim"
-msgstr "持久卷声明"
+msgstr "持久化卷声明"
 
 #: app/scripts/constants.js:21
 msgid "pull"
@@ -7081,11 +7081,11 @@ msgstr "副本集"
 #: app/views/directives/osc-autoscaling.html:118
 #: app/views/edit/autoscaler.html:39
 msgid "request"
-msgstr "需求"
+msgstr "请求"
 
 #: app/views/create/fromimage.html:354 app/views/edit/autoscaler.html:42
 msgid "request."
-msgstr "需求."
+msgstr "请求."
 
 #: app/scripts/constants.js:43
 msgid "running"
@@ -7308,7 +7308,7 @@ msgstr "{{container.resources.limits.memory | usageWithUnits: 'memory'}}限制"
 
 #: app/views/_pod-template-container.html:146
 msgid "{{container.resources.requests.cpu | usageWithUnits: 'cpu'}} requested"
-msgstr "{{container.resources.requests.cpu | usageWithUnits: 'cpu'}}需求"
+msgstr "{{container.resources.requests.cpu | usageWithUnits: 'cpu'}}请求"
 
 #: app/views/_pod-template-container.html:140
 msgid ""
@@ -7321,7 +7321,7 @@ msgstr ""
 #: app/views/_pod-template-container.html:165
 msgid ""
 "{{container.resources.requests.memory | usageWithUnits: 'memory'}} requested"
-msgstr "{{container.resources.requests.memory | usageWithUnits: 'memory'}}需求"
+msgstr "{{container.resources.requests.memory | usageWithUnits: 'memory'}}请求"
 
 #: app/views/_pod-template-container.html:159
 msgid ""
