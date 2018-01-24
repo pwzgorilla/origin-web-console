@@ -31,6 +31,7 @@ angular
     'angularMoment',
     'ab-base64',
     'gettext',
+    'i18n',
     'openshiftCommonServices',
     'openshiftCommonUI',
     'webCatalog'
@@ -505,16 +506,16 @@ angular
       $rootScope.globalTechPreviewIndicator = true;
       $('body').addClass('tech-preview');
     }
-  })
-  .run(function($window, gettextCatalog, amMoment){
-    gettextCatalog.debug = false;
-    var lang = $window.OPENSHIFT_LANG;
-    if (lang !== 'en') {
-      gettextCatalog.loadRemote('languages/' + lang + '.json');
-      gettextCatalog.setCurrentLanguage(lang);
-
-      amMoment.changeLocale(lang.toLowerCase());
-    }
   });
+  // .run(function($window, gettextCatalog, amMoment){
+  //   gettextCatalog.debug = false;
+  //   var lang = $window.OPENSHIFT_LANG;
+  //   if (lang !== 'en') {
+  //     gettextCatalog.loadRemote('languages/' + lang + '.json');
+  //     gettextCatalog.setCurrentLanguage(lang);
+  //
+  //     amMoment.changeLocale(lang.toLowerCase());
+  //   }
+  // });
 
 hawtioPluginLoader.addModule('openshiftConsole');
