@@ -923,7 +923,20 @@ description:""
 } ]
 } ],
 SAAS_OFFERINGS:[]
-}), angular.module("openshiftConsole", [ "ngAnimate", "ngCookies", "ngResource", "ngRoute", "ngSanitize", "kubernetesUI", "registryUI.images", "ui.bootstrap", "patternfly.charts", "patternfly.navigation", "patternfly.sort", "openshiftConsoleTemplates", "ui.ace", "extension-registry", "as.sortable", "ui.select", "angular-inview", "angularMoment", "ab-base64", "gettext", "openshiftCommonServices", "openshiftCommonUI", "webCatalog" ]).config([ "$routeProvider", function(a) {
+}), angular.module("i18n", [ "gettext", "angularMoment" ]).run([ "$window", "gettextCatalog", "amMoment", function(a, b, c) {
+function d() {
+if (4 === g.readyState) if (200 === g.status) {
+var a = JSON.parse(g.response);
+for (var c in a) b.setStrings(c, a[c]);
+} else console.error("Problem retrieving language data");
+}
+function e(a) {
+null !== g ? (g.onreadystatechange = d, g.open("GET", a, !1), g.send(null)) :console.error("Your browser does not support XMLHttpRequest.");
+}
+b.debug = !1;
+var f = a.OPENSHIFT_LANG, g = new XMLHttpRequest();
+"en" !== f && (e("languages/" + f + ".json"), b.setCurrentLanguage(f), c.changeLocale(f.toLowerCase()));
+} ]), angular.module("openshiftConsole", [ "ngAnimate", "ngCookies", "ngResource", "ngRoute", "ngSanitize", "kubernetesUI", "registryUI.images", "ui.bootstrap", "patternfly.charts", "patternfly.navigation", "patternfly.sort", "openshiftConsoleTemplates", "ui.ace", "extension-registry", "as.sortable", "ui.select", "angular-inview", "angularMoment", "ab-base64", "gettext", "i18n", "openshiftCommonServices", "openshiftCommonUI", "webCatalog" ]).config([ "$routeProvider", function(a) {
 var b, c = {
 templateUrl:"views/projects.html",
 controller:"ProjectsController"
@@ -1240,10 +1253,6 @@ return h ? b(e, null) || d :a(e, null, f, g) || d;
 a && $("body").addClass("ios");
 } ]).run([ "$rootScope", function(a) {
 _.get(window, "OPENSHIFT_CONSTANTS.ENABLE_TECH_PREVIEW_FEATURE.service_catalog_landing_page") && (a.globalTechPreviewIndicator = !0, $("body").addClass("tech-preview"));
-} ]).run([ "$window", "gettextCatalog", "amMoment", function(a, b, c) {
-b.debug = !1;
-var d = a.OPENSHIFT_LANG;
-"en" !== d && (b.loadRemote("languages/" + d + ".json"), b.setCurrentLanguage(d), c.changeLocale(d.toLowerCase()));
 } ]), hawtioPluginLoader.addModule("openshiftConsole"), angular.module("openshiftConsole").factory("APIDiscovery", [ "LOGGING_URL", "METRICS_URL", "$q", function(a, b, c) {
 return {
 getLoggingURL:function() {
