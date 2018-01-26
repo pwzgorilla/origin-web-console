@@ -322,16 +322,16 @@ angular.module('openshiftConsole')
       return limitToFilter(input, limit);
     };
   })
-  .filter("getErrorDetails", function() {
+  .filter("getErrorDetails", function(gettext, gettextCatalog) {
     return function(result) {
       var error = result.data || {};
       if (error.message) {
-        return "Reason: " + error.message;
+        return gettextCatalog.getString(gettext("Reason:")) + " " + error.message;
       }
 
       var status = result.status || error.status;
       if (status) {
-        return "Status: " + status;
+        return gettextCatalog.getString(gettext("Status:")) + " " + status;
       }
 
       return "";

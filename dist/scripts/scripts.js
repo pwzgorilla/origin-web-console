@@ -8216,22 +8216,22 @@ var f = _.get(e, "ENABLE_TECH_PREVIEW_FEATURE.service_catalog_landing_page");
 a.onProjectCreated = function(a) {
 f ? c.history.back() :b.path("project/" + a + "/create");
 }, d.withUser();
-} ]), angular.module("openshiftConsole").controller("EditProjectController", [ "$scope", "$routeParams", "$filter", "$location", "DataService", "ProjectsService", "Navigate", function(a, b, c, d, e, f, g) {
+} ]), angular.module("openshiftConsole").controller("EditProjectController", [ "$scope", "$routeParams", "$filter", "$location", "DataService", "ProjectsService", "Navigate", "gettext", "gettextCatalog", function(a, b, c, d, e, f, g, h, i) {
 a.alerts = {};
-var h = c("annotation"), i = c("annotationName");
+var j = c("annotation"), k = c("annotationName");
 f.get(b.project).then(_.spread(function(e) {
-var j = function(a) {
+var l = function(a) {
 return {
-description:h(a, "description"),
-displayName:h(a, "displayName")
+description:j(a, "description"),
+displayName:j(a, "displayName")
 };
-}, k = function(a, b) {
+}, m = function(a, b) {
 var c = angular.copy(a);
-return c.metadata.annotations[i("description")] = b.description, c.metadata.annotations[i("displayName")] = b.displayName, c;
+return c.metadata.annotations[k("description")] = b.description, c.metadata.annotations[k("displayName")] = b.displayName, c;
 };
 angular.extend(a, {
 project:e,
-editableFields:j(e),
+editableFields:l(e),
 show:{
 editing:!1
 },
@@ -8242,12 +8242,12 @@ canSubmit:function(b) {
 a.actions.canSubmit = b;
 },
 update:function() {
-a.disableInputs = !0, f.update(b.project, k(e, a.editableFields)).then(function() {
+a.disableInputs = !0, f.update(b.project, m(e, a.editableFields)).then(function() {
 b.then ? d.path(b.then) :g.toProjectOverview(e.metadata.name);
 }, function(b) {
-a.disableInputs = !1, a.editableFields = j(e), a.alerts.update = {
+a.disableInputs = !1, a.editableFields = l(e), a.alerts.update = {
 type:"error",
-message:"An error occurred while updating the project",
+message:i.getString(h("An error occurred while updating the project")),
 details:c("getErrorDetails")(b)
 };
 });
@@ -14846,14 +14846,14 @@ return a ? a.replace(/^sha256:/, "") :a;
 return function(b, c) {
 return isNaN(c) ? b :a(b, c);
 };
-} ]).filter("getErrorDetails", function() {
-return function(a) {
-var b = a.data || {};
-if (b.message) return "Reason: " + b.message;
-var c = a.status || b.status;
-return c ? "Status: " + c :"";
+} ]).filter("getErrorDetails", [ "gettext", "gettextCatalog", function(a, b) {
+return function(c) {
+var d = c.data || {};
+if (d.message) return b.getString(a("Reason:")) + " " + d.message;
+var e = c.status || d.status;
+return e ? b.getString(a("Status:")) + " " + e :"";
 };
-}).filter("humanize", function() {
+} ]).filter("humanize", function() {
 return function(a) {
 return a.replace(/([a-z])([A-Z])/g, "$1 $2").replace(/\b([A-Z]+)([A-Z])([a-z])/, "$1 $2$3").replace(/^./, function(a) {
 return a.toUpperCase();
