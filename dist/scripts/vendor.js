@@ -60150,7 +60150,7 @@ b.close("delete");
 }, a.cancel = function() {
 b.dismiss("cancel");
 };
-} ]), angular.module("openshiftCommonUI").directive("editProject", [ "$window", function(a) {
+} ]), angular.module("openshiftCommonUI").directive("editProject", [ "$window", "gettext", "gettextCatalog", function(a, b, c) {
 return {
 restrict:"E",
 scope:{
@@ -60162,45 +60162,45 @@ onCancel:"&",
 isDialog:"@"
 },
 templateUrl:"src/components/edit-project/editProject.html",
-controller:[ "$scope", "$filter", "$location", "DataService", "NotificationsService", "annotationNameFilter", "displayNameFilter", function(b, c, d, e, f, g, h) {
-b.submitButtonLabel || (b.submitButtonLabel = "Save"), b.isDialog = "true" === b.isDialog;
-var i = c("annotation"), j = c("annotationName"), k = function(a) {
+controller:[ "$scope", "$filter", "$location", "DataService", "NotificationsService", "annotationNameFilter", "displayNameFilter", function(d, e, f, g, h, i, j) {
+d.submitButtonLabel || (d.submitButtonLabel = "Save"), d.isDialog = "true" === d.isDialog;
+var k = e("annotation"), l = e("annotationName"), m = function(a) {
 return {
-description:i(a, "description"),
-displayName:i(a, "displayName")
+description:k(a, "description"),
+displayName:k(a, "displayName")
 };
-}, l = function(a, b) {
+}, n = function(a, b) {
 var c = angular.copy(a);
-return c.metadata.annotations[j("description")] = b.description, c.metadata.annotations[j("displayName")] = b.displayName, c;
-}, m = function(a) {
-var b = [ g("description"), g("displayName") ];
+return c.metadata.annotations[l("description")] = b.description, c.metadata.annotations[l("displayName")] = b.displayName, c;
+}, o = function(a) {
+var b = [ i("description"), i("displayName") ];
 return _.each(b, function(b) {
 a.metadata.annotations[b] || delete a.metadata.annotations[b];
 }), a;
-}, n = function(a) {
-b.alerts.update = a, f.addNotification(a);
+}, p = function(a) {
+d.alerts.update = a, h.addNotification(a);
 };
-b.editableFields = k(b.project), b.update = function() {
-b.disableInputs = !0, b.editProjectForm.$valid && e.update("projects", b.project.metadata.name, m(l(b.project, b.editableFields)), {
-projectName:b.project.name
+d.editableFields = m(d.project), d.update = function() {
+d.disableInputs = !0, d.editProjectForm.$valid && g.update("projects", d.project.metadata.name, o(n(d.project, d.editableFields)), {
+projectName:d.project.name
 }, {
 errorNotification:!1
 }).then(function(a) {
-var c = b.redirectAction();
-c && c(encodeURIComponent(b.project.metadata.name)), n({
+var b = d.redirectAction();
+b && b(encodeURIComponent(d.project.metadata.name)), p({
 type:"success",
-message:"Project '" + h(a) + "' was successfully updated."
+message:"Project '" + j(a) + "' was successfully updated."
 });
 }, function(a) {
-b.disableInputs = !1, b.editableFields = k(b.project), n({
+d.disableInputs = !1, d.editableFields = m(d.project), p({
 type:"error",
-message:"An error occurred while updating the project",
-details:c("getErrorDetails")(a)
+message:c.getString(b("An error occurred while updating the project")),
+details:e("getErrorDetails")(a)
 });
 });
-}, b.cancelEditProject = function() {
-var c = b.onCancel();
-c ? c() :a.history.back();
+}, d.cancelEditProject = function() {
+var b = d.onCancel();
+b ? b() :a.history.back();
 };
 } ]
 };
