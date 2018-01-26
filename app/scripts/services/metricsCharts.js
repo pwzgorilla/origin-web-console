@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module("openshiftConsole")
-  .factory("MetricsCharts", function($timeout, ConversionService, gettext) {
+  .factory("MetricsCharts", function($timeout, ConversionService, gettext, gettextCatalog) {
     var getValue = function(point, metricID) {
       if (point.value === undefined || point.value === null) {
         // null values appear as gaps in the chart.
@@ -22,10 +22,10 @@ angular.module("openshiftConsole")
     };
 
     var labels = {
-      'memory/usage': 'Memory',
+      'memory/usage': gettextCatalog.getString(gettext('Memory')),
       'cpu/usage_rate': 'CPU',
-      'network/tx_rate': 'Sent',
-      'network/rx_rate': 'Received'
+      'network/tx_rate': gettextCatalog.getString(gettext('Sent')),
+      'network/rx_rate': gettextCatalog.getString(gettext('Received'))
     };
 
     return {

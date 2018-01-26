@@ -31,10 +31,10 @@ angular
 
       var messages = {
         notice: {
-          yourLastRole: _.template('Removing the role "<%= roleName %>" may completely remove your ability to see this project.')
+          yourLastRole: _.template(gettextCatalog.getString(gettext('Removing the role "<%= roleName %>" may completely remove your ability to see this project.')))
         },
         warning: {
-          serviceAccount: _.template('Removing a system role granted to a service account may cause unexpected behavior.')
+          serviceAccount: _.template(gettextCatalog.getString(gettext('Removing a system role granted to a service account may cause unexpected behavior.')))
         },
         remove: {
           areYouSure: {

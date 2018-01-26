@@ -16,8 +16,8 @@
             name="{{type}}-action-newpod"
             ng-model="action.type"
             value="execNewPod"
-            aria-describedby="action-help" translate>
-          Run a specific command in a new pod
+            aria-describedby="action-help">
+          <translate>Run a specific command in a new pod</translate>
         </label>
         <label class="radio-inline">
           <input
@@ -25,8 +25,8 @@
             name="{{type}}-action-images"
             ng-model="action.type"
             value="tagImages"
-            aria-describedby="action-help" translate>
-          Tag image if the deployment succeeds
+            aria-describedby="action-help">
+          <translate>Tag image if the deployment succeeds</translate>
         </label>
         <div  id="action-help" class="help-block">
           <span ng-if="action.type === 'execNewPod'" translate>Runs a command in a new pod using the container from the deployment template. You can add additional environment variables and volumes.</span>
@@ -55,17 +55,17 @@
           <key-value-editor
             entries="hookParams.execNewPod.env"
             key-validator="[a-zA-Z_][a-zA-Z0-9_]*"
-            key-validator-error-tooltip="{{'A valid environment variable name is an alphanumeric (a-z and 0-9) string beginning with a letter that may contain underscores.'|translate}}"
+            key-validator-error-tooltip="{{'A valid environment variable name is an alphanumeric (a-z and 0-9) string beginning with a letter that may contain underscores.' | translate}}"
             value-from-selector-options="valueFromObjects"
-            add-row-with-selectors-link="Add Environment Variable Using a Config Map or Secret"
-            add-row-link="Add Environment Variable"></key-value-editor>
+            add-row-with-selectors-link="{{'Add Environment Variable Using a Config Map or Secret' | translate }}"
+            add-row-link="{{'Add Environment Variable' | translate}}"></key-value-editor>
           <div class="help-block" translate>
             Environment variables to supply to the hook pod's container.
           </div>
         </div>
 
         <div class="form-group">
-        <label>Volumes</label>
+        <label translate>Volumes</label>
         <ui-select multiple placeholder="Select volume" ng-model="hookParams.execNewPod.volumes" ng-disabled="view.isDisabled">
           <ui-select-match>{{$item}}</ui-select-match>
           <ui-select-choices repeat="volume in availableVolumes | filter : $select.search">
@@ -110,11 +110,11 @@
       </div>
 
       <div class="form-group failure-policy">
-        <label class="required picker-label">Failure Policy</label>
+        <label class="required picker-label" translate>Failure Policy</label>
         <ui-select ng-model="hookParams.failurePolicy" search-enabled="false" ng-disabled="view.isDisabled">
-          <ui-select-match>{{$select.selected}}</ui-select-match>
+          <ui-select-match>{{$select.selected | translate}}</ui-select-match>
           <ui-select-choices repeat="failurePolicyTypes in lifecycleHookFailurePolicyTypes">
-            {{failurePolicyTypes}}
+            {{failurePolicyTypes | translate}}
           </ui-select-choices>
         </ui-select>
 

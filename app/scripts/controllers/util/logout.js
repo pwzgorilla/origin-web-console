@@ -13,7 +13,7 @@ angular.module('openshiftConsole')
 
     if (AuthService.isLoggedIn()) {
       $log.debug("LogoutController, logged in, initiating logout");
-      $scope.logoutMessage = "Logging out...";
+      $scope.logoutMessage = gettextCatalog.getString(gettext("Logging out..."));
 
       AuthService.startLogout().finally(function(){
         // Make sure the logout completed
@@ -35,7 +35,6 @@ angular.module('openshiftConsole')
       $scope.logoutMessage = gettextCatalog.getString(gettext("Logging out..."));
       window.location.href = AUTH_CFG.logout_uri;
     } else {
-      console.log("sdfdsfsd")
       $log.debug("LogoutController, not logged in, logout complete");
       $scope.logoutMessage = gettextCatalog.getString(gettext('You are logged out. Return to the <a href="./">console</a>.'));
     }

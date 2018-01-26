@@ -27,9 +27,9 @@
                           <div class="form-group strategy-name">
                             <label class="picker-label" translate>Strategy Type</label>
                             <ui-select ng-model="strategyData.type" search-enabled="false" ng-change="strategyChanged()">
-                              <ui-select-match>{{$select.selected}}</ui-select-match>
+                              <ui-select-match>{{$select.selected | translate}}</ui-select-match>
                               <ui-select-choices repeat="strategyType in deploymentConfigStrategyTypes">
-                                {{strategyType}}
+                                {{strategyType | translate}}
                               </ui-select-choices>
                             </ui-select>
                             <div>

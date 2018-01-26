@@ -459,7 +459,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
 
   $templateCache.put('views/_request-access.html',
     "<p class=\"gutter-top\">\n" +
-    "如果您需要在这个项目中创建资源，请联系集群管理员。\n" +
+    "如果您需要在这个项目中创建资源，请联系管理员。\n" +
     "</p>"
   );
 
@@ -839,7 +839,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div ng-if=\"configMaps.length || secrets.length || ('configmaps' | canI : 'create') || ('secrets' | canI : 'create')\" class=\"mar-top-xl\">\n" +
     "<h1 translate>Add Config Files</h1>\n" +
     "<div class=\"help-block\">\n" +
-    "<translate>Add values from a config map or secret as volume. This will make the data available as files for</translate> {{kind | humanizeKind | translate}} {{name}}.\n" +
+    "<translate>Add values from a config map or secret as volume. This will make the data available as files for {{kind | humanizeKind}} {{name}}</translate>.\n" +
     "</div>\n" +
     "<form name=\"forms.addConfigVolumeForm\" class=\"mar-top-lg\">\n" +
     "<fieldset ng-disabled=\"disableInputs\">\n" +
@@ -2140,9 +2140,9 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<uib-tab active=\"selectedTab.logs\" ng-if=\"!(build | isJenkinsPipelineStrategy) && ('builds/log' | canI : 'get')\">\n" +
     "<uib-tab-heading translate>Logs</uib-tab-heading>\n" +
     "<log-viewer ng-if=\"selectedTab.logs\" follow-affix-top=\"390\" object=\"build\" context=\"projectContext\" options=\"logOptions\" empty=\"logEmpty\" run=\"logCanRun\">\n" +
-    "<label>Status:</label>\n" +
+    "<label translate>Status:</label>\n" +
     "<status-icon status=\"build.status.phase\"></status-icon>\n" +
-    "<span class=\"space-after\">{{build.status.phase}}</span>\n" +
+    "<span class=\"space-after\">{{build.status.phase | translate}}</span>\n" +
     "<div ng-if=\"build.status.startTimestamp && !logEmpty\" class=\"log-timestamps\">\n" +
     "<translate>Log from</translate> {{build.status.startTimestamp | date : 'medium'}}\n" +
     "<span ng-if=\"build.status.completionTimestamp\">\n" +
@@ -3483,7 +3483,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<dt translate>Termination Type:</dt>\n" +
     "<dd>{{route.spec.tls.termination | humanizeTLSTermination}}</dd>\n" +
     "<dt translate>Insecure Traffic:</dt>\n" +
-    "<dd>{{route.spec.tls.insecureEdgeTerminationPolicy || 'None'}}</dd>\n" +
+    "<dd>{{(route.spec.tls.insecureEdgeTerminationPolicy || 'None') | translate}}</dd>\n" +
     "<dt translate>Certificate:</dt>\n" +
     "<dd>\n" +
     "<span ng-show=\"route.spec.tls.certificate && !reveal.certificate\">\n" +
@@ -5515,7 +5515,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</label>\n" +
     "\n" +
     "<span ng-show=\"!multiline\" class=\"input-group\">\n" +
-    "<input type=\"text\" ng-model=\"nextArg\" name=\"nextArg\" ng-attr-id=\"{{id}}-add-arg\" on-enter=\"addArg()\" ng-attr-placeholder=\"{{placeholder || 'Add argument'}}\" class=\"form-control\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\">\n" +
+    "<input type=\"text\" ng-model=\"nextArg\" name=\"nextArg\" ng-attr-id=\"{{id}}-add-arg\" on-enter=\"addArg()\" ng-attr-placeholder=\"{{placeholder || ('Add argument' | translate)}}\" class=\"form-control\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\">\n" +
     "<span class=\"input-group-btn\">\n" +
     "\n" +
     "<a class=\"btn btn-default\" href=\"\" ng-click=\"addArg()\" ng-disabled=\"!nextArg\" ng-attr-aria-disabled=\"!nextArg\" role=\"button\" translate>Add</a>\n" +
@@ -5523,7 +5523,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</span>\n" +
     "\n" +
     "<span ng-show=\"multiline\">\n" +
-    "<textarea ng-model=\"nextArg\" name=\"nextArg\" rows=\"10\" ng-attr-id=\"{{id}}-add-arg\" ng-attr-placeholder=\"{{placeholder || 'Add argument'}}\" class=\"form-control\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\">\n" +
+    "<textarea ng-model=\"nextArg\" name=\"nextArg\" rows=\"10\" ng-attr-id=\"{{id}}-add-arg\" ng-attr-placeholder=\"{{placeholder || ('Add argument' | translate)}}\" class=\"form-control\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\">\n" +
     "      </textarea>\n" +
     "<div class=\"mar-top-md\">\n" +
     "<a class=\"btn btn-default\" href=\"\" ng-click=\"addArg()\" ng-disabled=\"!nextArg\" ng-attr-aria-disabled=\"!nextArg\" role=\"button\" translate>Add</a>\n" +
@@ -6579,12 +6579,12 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"form-group\">\n" +
     "<label for=\"actionType\" class=\"required\" translate>Lifecycle Action</label><br/>\n" +
     "<label class=\"radio-inline\">\n" +
-    "<input type=\"radio\" name=\"{{type}}-action-newpod\" ng-model=\"action.type\" value=\"execNewPod\" aria-describedby=\"action-help\" translate>\n" +
-    "Run a specific command in a new pod\n" +
+    "<input type=\"radio\" name=\"{{type}}-action-newpod\" ng-model=\"action.type\" value=\"execNewPod\" aria-describedby=\"action-help\">\n" +
+    "<translate>Run a specific command in a new pod</translate>\n" +
     "</label>\n" +
     "<label class=\"radio-inline\">\n" +
-    "<input type=\"radio\" name=\"{{type}}-action-images\" ng-model=\"action.type\" value=\"tagImages\" aria-describedby=\"action-help\" translate>\n" +
-    "Tag image if the deployment succeeds\n" +
+    "<input type=\"radio\" name=\"{{type}}-action-images\" ng-model=\"action.type\" value=\"tagImages\" aria-describedby=\"action-help\">\n" +
+    "<translate>Tag image if the deployment succeeds</translate>\n" +
     "</label>\n" +
     "<div id=\"action-help\" class=\"help-block\">\n" +
     "<span ng-if=\"action.type === 'execNewPod'\" translate>Runs a command in a new pod using the container from the deployment template. You can add additional environment variables and volumes.</span>\n" +
@@ -6607,13 +6607,13 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "<div class=\"form-group\">\n" +
     "<label translate>Environment Variables</label>\n" +
-    "<key-value-editor entries=\"hookParams.execNewPod.env\" key-validator=\"[a-zA-Z_][a-zA-Z0-9_]*\" key-validator-error-tooltip=\"{{'A valid environment variable name is an alphanumeric (a-z and 0-9) string beginning with a letter that may contain underscores.'|translate}}\" value-from-selector-options=\"valueFromObjects\" add-row-with-selectors-link=\"Add Environment Variable Using a Config Map or Secret\" add-row-link=\"Add Environment Variable\"></key-value-editor>\n" +
+    "<key-value-editor entries=\"hookParams.execNewPod.env\" key-validator=\"[a-zA-Z_][a-zA-Z0-9_]*\" key-validator-error-tooltip=\"{{'A valid environment variable name is an alphanumeric (a-z and 0-9) string beginning with a letter that may contain underscores.' | translate}}\" value-from-selector-options=\"valueFromObjects\" add-row-with-selectors-link=\"{{'Add Environment Variable Using a Config Map or Secret' | translate }}\" add-row-link=\"{{'Add Environment Variable' | translate}}\"></key-value-editor>\n" +
     "<div class=\"help-block\" translate>\n" +
     "Environment variables to supply to the hook pod's container.\n" +
     "</div>\n" +
     "</div>\n" +
     "<div class=\"form-group\">\n" +
-    "<label>Volumes</label>\n" +
+    "<label translate>Volumes</label>\n" +
     "<ui-select multiple=\"multiple\" placeholder=\"Select volume\" ng-model=\"hookParams.execNewPod.volumes\" ng-disabled=\"view.isDisabled\">\n" +
     "<ui-select-match>{{$item}}</ui-select-match>\n" +
     "<ui-select-choices repeat=\"volume in availableVolumes | filter : $select.search\">\n" +
@@ -6655,11 +6655,11 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "</div>\n" +
     "<div class=\"form-group failure-policy\">\n" +
-    "<label class=\"required picker-label\">Failure Policy</label>\n" +
+    "<label class=\"required picker-label\" translate>Failure Policy</label>\n" +
     "<ui-select ng-model=\"hookParams.failurePolicy\" search-enabled=\"false\" ng-disabled=\"view.isDisabled\">\n" +
-    "<ui-select-match>{{$select.selected}}</ui-select-match>\n" +
+    "<ui-select-match>{{$select.selected | translate}}</ui-select-match>\n" +
     "<ui-select-choices repeat=\"failurePolicyTypes in lifecycleHookFailurePolicyTypes\">\n" +
-    "{{failurePolicyTypes}}\n" +
+    "{{failurePolicyTypes | translate}}\n" +
     "</ui-select-choices>\n" +
     "</ui-select>\n" +
     "<div ng-switch=\"hookParams.failurePolicy\">\n" +
@@ -7519,7 +7519,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</span>\n" +
     "</div>\n" +
     "<div class=\"usage-label\">\n" +
-    "{{metric.usageUnits(metric.lastValue) | capitalize}} {{metric.compactLabel || metric.label}}\n" +
+    "{{metric.usageUnits(metric.lastValue) | capitalize | translate}} {{(metric.compactLabel || metric.label) | translate}}\n" +
     "</div>\n" +
     "</div>\n" +
     "</div>\n" +
@@ -8209,11 +8209,11 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div ng-show=\"options.secureRoute\">\n" +
     "\n" +
     "<div class=\"form-group\">\n" +
-    "<label for=\"tlsTermination\">TLS Termination</label>\n" +
+    "<label for=\"tlsTermination\" translate>TLS Termination</label>\n" +
     "<ui-select ng-model=\"route.tls.termination\" input-id=\"tlsTermination\" search-enabled=\"false\">\n" +
     "<ui-select-match>{{$select.selected | humanizeTLSTermination}}</ui-select-match>\n" +
     "<ui-select-choices repeat=\"option in ['edge', 'passthrough', 'reencrypt']\">\n" +
-    "{{option | humanizeTLSTermination}}\n" +
+    "{{option | humanizeTLSTermination | translate}}\n" +
     "</ui-select-choices>\n" +
     "</ui-select>\n" +
     "</div>\n" +
@@ -9522,9 +9522,9 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"form-group strategy-name\">\n" +
     "<label class=\"picker-label\" translate>Strategy Type</label>\n" +
     "<ui-select ng-model=\"strategyData.type\" search-enabled=\"false\" ng-change=\"strategyChanged()\">\n" +
-    "<ui-select-match>{{$select.selected}}</ui-select-match>\n" +
+    "<ui-select-match>{{$select.selected | translate}}</ui-select-match>\n" +
     "<ui-select-choices repeat=\"strategyType in deploymentConfigStrategyTypes\">\n" +
-    "{{strategyType}}\n" +
+    "{{strategyType | translate}}\n" +
     "</ui-select-choices>\n" +
     "</ui-select>\n" +
     "<div>\n" +
@@ -9943,7 +9943,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"col-md-10 col-md-offset-1\">\n" +
     "<breadcrumbs breadcrumbs=\"breadcrumbs\"></breadcrumbs>\n" +
     "<alerts alerts=\"alerts\"></alerts>\n" +
-    "<h1>Edit Route {{routeName}}</h1>\n" +
+    "<h1><translate>Edit Route</translate> {{routeName}}</h1>\n" +
     "<div ng-if=\"loading\" translate>\n" +
     "Loading...\n" +
     "</div>\n" +
@@ -11165,9 +11165,9 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "<div class=\"data-toolbar other-resources-toolbar\">\n" +
     "<ui-select class=\"data-toolbar-dropdown\" ng-model=\"kindSelector.selected\" theme=\"bootstrap\" search-enabled=\"true\" ng-disabled=\"kindSelector.disabled\" title=\"{{'Choose a resource'|translate}}\">\n" +
-    "<ui-select-match placeholder=\"{{'Choose a resource to list...'|translate}}\">{{$select.selected.kind | humanizeKind : true | translate}}</ui-select-match>\n" +
+    "<ui-select-match placeholder=\"{{'Choose a resource to list...'|translate}}\">{{$select.selected.kind | humanizeKind : true}}</ui-select-match>\n" +
     "<ui-select-choices repeat=\"kind in kinds | filter : {kind: $select.search} : matchKind | orderBy : 'kind'\">\n" +
-    "<div ng-bind-html=\"(kind.kind | humanizeKind : true | translate) | highlight: $select.search\"></div>\n" +
+    "<div ng-bind-html=\"(kind.kind | humanizeKind : true) | highlight: $select.search\"></div>\n" +
     "<small ng-if=\"isDuplicateKind(kind.kind)\" ng-bind-html=\"kind.group | highlight: $select.search\" class=\"text-muted\"></small>\n" +
     "</ui-select-choices>\n" +
     "</ui-select>\n" +
@@ -11991,7 +11991,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</span>\n" +
     "</div>\n" +
     "<div class=\"usage-label\">\n" +
-    "{{metric.usageUnits(metric.currentUsage) | capitalize}} {{metric.label}}\n" +
+    "{{metric.usageUnits(metric.currentUsage) | capitalize | translate}} {{metric.label | translate}}\n" +
     "</div>\n" +
     "</div>\n" +
     "</div>"
@@ -12794,8 +12794,8 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "                            }\">\n" +
     "<td>\n" +
     "{{resourceType | humanizeQuotaResource : true | translate}}\n" +
-    "<span ng-if=\"isAtLimit(quota, resourceType)\" data-toggle=\"tooltip\" title=\"Quota limit reached.\" class=\"pficon pficon-warning-triangle-o warnings-popover\"></span>\n" +
-    "<span ng-if=\"(quota.status.hard[resourceType] || quota.spec.hard[resourceType]) === '0'\" data-toggle=\"tooltip\" title=\"{{'You are not allowed to create resources of this type.'|translate}}\" class=\"pficon pficon-info warnings-popover\"></span>\n" +
+    "<span ng-if=\"isAtLimit(quota, resourceType)\" data-toggle=\"tooltip\" data-original-title=\"{{'Quota limit reached.'|translate}}\" class=\"pficon pficon-warning-triangle-o warnings-popover\"></span>\n" +
+    "<span ng-if=\"(quota.status.hard[resourceType] || quota.spec.hard[resourceType]) === '0'\" data-toggle=\"tooltip\" data-original-title=\"{{'You are not allowed to create resources of this type.'|translate}}\" class=\"pficon pficon-info warnings-popover\"></span>\n" +
     "</td>\n" +
     "<td>\n" +
     "<span ng-if=\"!quota.status.used\">&mdash;</span>\n" +
