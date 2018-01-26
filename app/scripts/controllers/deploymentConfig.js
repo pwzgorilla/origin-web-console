@@ -396,11 +396,11 @@ angular.module('openshiftConsole')
           }
 
           if (volume.persistentVolumeClaim) {
-            details += + " " + gettextCatalog.getString(gettext("It will not delete the persistent volume claim."));
+            details += " " + gettextCatalog.getString(gettext("It will not delete the persistent volume claim."));
           } else if (volume.secret) {
-            details += + " " + gettextCatalog.getString(gettext("It will not delete the secret."));
+            details += " " + gettextCatalog.getString(gettext("It will not delete the secret."));
           } else if (volume.configMap) {
-            details += + " " + gettextCatalog.getString(gettext("It will not delete the config map."));
+            details += " " + gettextCatalog.getString(gettext("It will not delete the config map."));
           }
 
           var confirm = ModalsService.confirm({

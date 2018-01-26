@@ -1,5 +1,10 @@
 "use strict";
 
+function Noop() {
+gettext("Manual"), gettext("Rolling"), gettext("Recreate"), gettext("deployment config"), gettext("Deployment Config"), gettext("horizontal pod autoscaler"), gettext("Config Map"), gettext("pull"), gettext("push"), gettext("Route"), gettext("openshift.io/imagestreams"), gettext("CPU (Request)"), gettext("Memory (Request)"), gettext("CPU (Limit)"), gettext("Memory (Limit)"), gettext("Storage (Request)"), gettext("user"), gettext("manual change"), gettext("complete"), gettext("running"), gettext("The minimum amount of"), gettext("the container is guaranteed."), gettext("The maximum amount of"), gettext("the container is allowed to use when running."), gettext("User"), gettext("user"), gettext("Group"), gettext("group"), gettext("Service Account"), gettext("service account"), gettext("System User"), gettext("system user"), gettext("System Group"), gettext("system group"), gettext("Read-Write-Once"), gettext("Read-Write-Many"), gettext("Read-Only-Many"), gettext("Bound"), gettext("Cancelled"), 
+gettext("Active"), gettext("Complete"), gettext("Running"), gettext("Failed"), gettext("Terminating"), gettext("Completed"), gettext("Cores"), gettext("Custom"), gettext("Abort"), gettext("Retry"), gettext("Ignore"), gettext("Pre");
+}
+
 function OverviewController(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A) {
 var B = this, C = b("isIE")() || b("isEdge")(), D = 6e4, E = _.get(h, "ENABLE_TECH_PREVIEW_FEATURE.service_catalog_landing_page") && e.apiInfo({
 group:"servicecatalog.k8s.io",
@@ -526,8 +531,7 @@ var gettext = function(a) {
 return a;
 };
 
-gettext("Manual"), gettext("Rolling"), gettext("Recreate"), gettext("deployment config"), gettext("Deployment Config"), gettext("horizontal pod autoscaler"), gettext("Config Map"), gettext("pull"), gettext("push"), gettext("Route"), gettext("openshift.io/imagestreams"), gettext("CPU (Request)"), gettext("Memory (Request)"), gettext("CPU (Limit)"), gettext("Memory (Limit)"), gettext("Storage (Request)"), gettext("user"), gettext("Daemon Set"), gettext("Endpoints"), gettext("Horizontal Pod Autoscaler"), gettext("Job"), gettext("Network Policy"), gettext("Policy"), gettext("Policy Binding"), gettext("Role"), gettext("Role Binding"), gettext("Role Binding Restriction"), gettext("manual change"), gettext("complete"), gettext("running"), gettext("The minimum amount of"), gettext("the container is guaranteed."), gettext("The maximum amount of"), gettext("the container is allowed to use when running."), gettext("User"), gettext("user"), gettext("Group"), gettext("group"), gettext("Service Account"), 
-gettext("service account"), gettext("System User"), gettext("system user"), gettext("System Group"), gettext("system group"), gettext("Read-Write-Once"), gettext("Read-Write-Many"), gettext("Read-Only-Many"), gettext("Bound"), gettext("Cancelled"), gettext("Active"), gettext("Complete"), gettext("Running"), gettext("Failed"), gettext("Terminating"), gettext("Completed"), angular.isUndefined(window.OPENSHIFT_CONSTANTS) && (window.OPENSHIFT_CONSTANTS = {}), angular.extend(window.OPENSHIFT_CONSTANTS, {
+Noop(), angular.isUndefined(window.OPENSHIFT_CONSTANTS) && (window.OPENSHIFT_CONSTANTS = {}), angular.extend(window.OPENSHIFT_CONSTANTS, {
 HELP_BASE_URL:"https://docs.openshift.org/latest/",
 HELP:{
 cli:"cli_reference/index.html",
@@ -2556,8 +2560,8 @@ usage:_.head(g(b.data))
 getPodMetrics:v,
 getCustomMetrics:w
 };
-} ]), angular.module("openshiftConsole").factory("MetricsCharts", [ "$timeout", "ConversionService", "gettext", function(a, b, c) {
-var d = function(a, c) {
+} ]), angular.module("openshiftConsole").factory("MetricsCharts", [ "$timeout", "ConversionService", "gettext", "gettextCatalog", function(a, b, c, d) {
+var e = function(a, c) {
 if (void 0 === a.value || null === a.value) return null;
 switch (c) {
 case "memory/usage":
@@ -2573,11 +2577,11 @@ return _.round(b.bytesToKiB(a.value), 2);
 default:
 return _.round(a.value);
 }
-}, e = {
-"memory/usage":"Memory",
+}, f = {
+"memory/usage":d.getString(c("Memory")),
 "cpu/usage_rate":"CPU",
-"network/tx_rate":"Sent",
-"network/rx_rate":"Received"
+"network/tx_rate":d.getString(c("Sent")),
+"network/rx_rate":d.getString(c("Received"))
 };
 return {
 uniqueID:function() {
@@ -2654,14 +2658,14 @@ getSparklineData:function(a) {
 var b, c = {
 type:"spline",
 x:"dates",
-names:e
-}, f = {};
+names:f
+}, d = {};
 return _.each(a, function(a, c) {
-b = [ "dates" ], f[c] = [ c ], _.each(a, function(a) {
-var e = d(a, c);
-b.push(a.start), f[c].push(e);
+b = [ "dates" ], d[c] = [ c ], _.each(a, function(a) {
+var f = e(a, c);
+b.push(a.start), d[c].push(f);
 });
-}), c.columns = [ b ].concat(_.values(f)), c;
+}), c.columns = [ b ].concat(_.values(d)), c;
 },
 formatUsage:function(a) {
 return a < .001 ? "0" :a < 1 ? d3.format(".1r")(a) :d3.format(".2r")(a);
@@ -4726,10 +4730,10 @@ a !== b && (localStorage.setItem("monitoring.eventsidebar.collapsed", c.renderOp
 } ]), angular.module("openshiftConsole").controller("MembershipController", [ "$filter", "$location", "$routeParams", "$scope", "$timeout", "$uibModal", "AuthService", "AuthorizationService", "DataService", "ProjectsService", "MembershipService", "NotificationsService", "RoleBindingsService", "RolesService", "gettext", "gettextCatalog", function(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p) {
 var q, r = c.project, s = a("humanizeKind"), t = a("annotation"), u = a("canI"), v = [], w = {
 notice:{
-yourLastRole:_.template('Removing the role "<%= roleName %>" may completely remove your ability to see this project.')
+yourLastRole:_.template(p.getString(o('Removing the role "<%= roleName %>" may completely remove your ability to see this project.')))
 },
 warning:{
-serviceAccount:_.template("Removing a system role granted to a service account may cause unexpected behavior.")
+serviceAccount:_.template(p.getString(o("Removing a system role granted to a service account may cause unexpected behavior.")))
 },
 remove:{
 areYouSure:{
@@ -5421,7 +5425,7 @@ r = !0, a.alerts["env-conflict"] = {
 type:"warning",
 message:o("The environment variables for the deployment have been updated in the background. Saving your changes may create a conflict or cause loss of data."),
 links:[ {
-label:"Reload Environment Variables",
+label:p.getString(o("Reload Environment Variables")),
 onClick:function() {
 return a.clearEnvVarUpdates(), !0;
 }
@@ -5533,15 +5537,15 @@ e.scale(a.deployment, c).then(_.noop, d);
 a.updatingPausedState = !0, e.setPaused(a.deployment, c, m).then(_.noop, function(d) {
 a.updatingPausedState = !1, a.alerts = a.alerts || {}, a.alerts.scale = {
 type:"error",
-message:"An error occurred " + (c ? "pausing" :"resuming") + " the deployment.",
+message:p.getString(o("An error occurred")) + " " + (c ? p.getString(o("pausing")) :p.getString(o("resuming"))) + " " + p.getString(o("the deployment.")),
 details:b("getErrorDetails")(d)
 };
 });
 }, a.removeVolume = function(b) {
 var c;
-c = _.get(a, "deployment.spec.paused") ? p.getString(o("This will remove the volume from the deployment.")) :p.getString(o("This will remove the volume from the deployment and start a new rollout.")), b.persistentVolumeClaim ? c += p.getString(o(" It will not delete the persistent volume claim.")) :b.secret ? c += p.getString(o(" It will not delete the secret.")) :b.configMap && (c += p.getString(o(" It will not delete the config map.")));
+c = _.get(a, "deployment.spec.paused") ? p.getString(o("This will remove the volume from the deployment.")) :p.getString(o("This will remove the volume from the deployment and start a new rollout.")), b.persistentVolumeClaim ? c += " " + p.getString(o("It will not delete the persistent volume claim.")) :b.secret ? c += " " + p.getString(o("It will not delete the secret.")) :b.configMap && (c += " " + p.getString(o("It will not delete the config map.")));
 var d = i.confirm({
-message:p.getString(o("Remove volume ")) + b.name + "?",
+message:p.getString(o("Remove volume")) + " " + b.name + "?",
 details:c,
 okButtonText:p.getString(o("Remove")),
 okButtonClass:"btn-danger",
@@ -5721,7 +5725,7 @@ type:"ConfigChange"
 };
 a.removeVolume = function(b) {
 var c;
-c = H() ? s.getString(r("This will remove the volume from the deployment config and trigger a new deployment.")) :s.getString(r("This will remove the volume from the deployment config.")), b.persistentVolumeClaim ? c += 0 + s.getString(r("It will not delete the persistent volume claim.")) :b.secret ? c += 0 + s.getString(r("It will not delete the secret.")) :b.configMap && (c += 0 + s.getString(r("It will not delete the config map.")));
+c = H() ? s.getString(r("This will remove the volume from the deployment config and trigger a new deployment.")) :s.getString(r("This will remove the volume from the deployment config.")), b.persistentVolumeClaim ? c += " " + s.getString(r("It will not delete the persistent volume claim.")) :b.secret ? c += " " + s.getString(r("It will not delete the secret.")) :b.configMap && (c += " " + s.getString(r("It will not delete the config map.")));
 var d = j.confirm({
 message:s.getString(r("Remove volume")) + " " + b.name + "?",
 details:c,
@@ -8090,9 +8094,9 @@ e.error_description && (a.errorDetails = e.error_description), a.reloadConsole =
 b.location.href = "/";
 };
 } ]), angular.module("openshiftConsole").controller("LogoutController", [ "$scope", "$log", "AuthService", "AUTH_CFG", "gettext", "gettextCatalog", function(a, b, c, d, e, f) {
-b.debug("LogoutController"), c.isLoggedIn() ? (b.debug("LogoutController, logged in, initiating logout"), a.logoutMessage = "Logging out...", c.startLogout()["finally"](function() {
+b.debug("LogoutController"), c.isLoggedIn() ? (b.debug("LogoutController, logged in, initiating logout"), a.logoutMessage = f.getString(e("Logging out...")), c.startLogout()["finally"](function() {
 c.isLoggedIn() ? (b.debug("LogoutController, logout failed, still logged in"), a.logoutMessage = 'You could not be logged out. Return to the <a href="./">console</a>.') :d.logout_uri ? (b.debug("LogoutController, logout completed, redirecting to AUTH_CFG.logout_uri", d.logout_uri), window.location.href = d.logout_uri) :(b.debug("LogoutController, logout completed, reloading the page"), window.location.reload(!1));
-})) :d.logout_uri ? (b.debug("LogoutController, logout completed, redirecting to AUTH_CFG.logout_uri", d.logout_uri), a.logoutMessage = f.getString(e("Logging out...")), window.location.href = d.logout_uri) :(console.log("sdfdsfsd"), b.debug("LogoutController, not logged in, logout complete"), a.logoutMessage = f.getString(e('You are logged out. Return to the <a href="./">console</a>.')));
+})) :d.logout_uri ? (b.debug("LogoutController, logout completed, redirecting to AUTH_CFG.logout_uri", d.logout_uri), a.logoutMessage = f.getString(e("Logging out...")), window.location.href = d.logout_uri) :(b.debug("LogoutController, not logged in, logout complete"), a.logoutMessage = f.getString(e('You are logged out. Return to the <a href="./">console</a>.')));
 } ]), angular.module("openshiftConsole").controller("CreateController", [ "$scope", "$filter", "$location", "$q", "$routeParams", "$uibModal", "CatalogService", "Constants", "DataService", "LabelFilter", "Logger", "ProjectsService", "gettext", function(a, b, c, d, e, f, g, h, i, j, k, l, m) {
 a.projectName = e.project, a.categories = h.CATALOG_CATEGORIES, a.alerts = a.alerts || {}, a.breadcrumbs = [ {
 title:a.projectName,
@@ -9572,7 +9576,7 @@ tag:"="
 },
 templateUrl:"views/directives/osc-image-summary.html"
 };
-}), angular.module("openshiftConsole").directive("oscRouting", [ "Constants", "DNS1123_SUBDOMAIN_VALIDATION", function(a, b) {
+}), angular.module("openshiftConsole").directive("oscRouting", [ "Constants", "DNS1123_SUBDOMAIN_VALIDATION", "gettext", "gettextCatalog", function(a, b, c, d) {
 return {
 require:"^form",
 restrict:"E",
@@ -9584,90 +9588,90 @@ routingDisabled:"=",
 hostReadOnly:"="
 },
 templateUrl:"views/directives/osc-routing.html",
-link:function(c, d, e, f) {
-c.form = f, c.controls = {}, c.options = {
+link:function(e, f, g, h) {
+e.form = h, e.controls = {}, e.options = {
 secureRoute:!1,
 alternateServices:!1
-}, c.disableWildcards = a.DISABLE_WILDCARD_ROUTES, c.disableCertificateInputs = function() {
-var a = _.get(c, "route.tls.termination");
+}, e.disableWildcards = a.DISABLE_WILDCARD_ROUTES, e.disableCertificateInputs = function() {
+var a = _.get(e, "route.tls.termination");
 return !a || "passthrough" === a;
-}, c.insecureTrafficOptions = [ {
+}, e.insecureTrafficOptions = [ {
 value:"",
-label:"None"
+label:d.getString(c("None"))
 }, {
 value:"Allow",
-label:"Allow"
+label:d.getString(c("Allow"))
 }, {
 value:"Redirect",
-label:"Redirect"
-} ], _.has(c, "route.tls.insecureEdgeTerminationPolicy") || _.set(c, "route.tls.insecureEdgeTerminationPolicy", "");
-var g = function() {
-var a = "passthrough" !== _.get(c, "route.tls.termination") || "Allow" !== _.get(c, "route.tls.insecureEdgeTerminationPolicy");
-c.routeForm.insecureTraffic.$setValidity("passthrough", a);
+label:d.getString(c("Redirect"))
+} ], _.has(e, "route.tls.insecureEdgeTerminationPolicy") || _.set(e, "route.tls.insecureEdgeTerminationPolicy", "");
+var i = function() {
+var a = "passthrough" !== _.get(e, "route.tls.termination") || "Allow" !== _.get(e, "route.tls.insecureEdgeTerminationPolicy");
+e.routeForm.insecureTraffic.$setValidity("passthrough", a);
 };
-c.$watchGroup([ "route.tls.termination", "route.tls.insecureEdgeTerminationPolicy" ], g), c.nameValidation = b, c.disableWildcards ? c.hostnamePattern = b.pattern :c.hostnamePattern = /^(\*(\.[a-z0-9]([-a-z0-9]*[a-z0-9]))+|[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*)$/, c.hostnameMaxLength = b.maxlength;
-var h = function(a) {
+e.$watchGroup([ "route.tls.termination", "route.tls.insecureEdgeTerminationPolicy" ], i), e.nameValidation = b, e.disableWildcards ? e.hostnamePattern = b.pattern :e.hostnamePattern = /^(\*(\.[a-z0-9]([-a-z0-9]*[a-z0-9]))+|[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*)$/, e.hostnameMaxLength = b.maxlength;
+var j = function(a) {
 if (a) {
 var b = _.get(a, "spec.ports", []);
-c.unnamedServicePort = 1 === b.length && !b[0].name, b.length && !c.unnamedServicePort ? c.route.portOptions = _.map(b, function(a) {
+e.unnamedServicePort = 1 === b.length && !b[0].name, b.length && !e.unnamedServicePort ? e.route.portOptions = _.map(b, function(a) {
 return {
 port:a.name,
 label:a.port + " → " + a.targetPort + " (" + a.protocol + ")"
 };
-}) :c.route.portOptions = [];
+}) :e.route.portOptions = [];
 }
 };
-c.services && !c.route.service && (c.route.service = _.find(c.services)), c.servicesByName, c.services ? c.servicesByName = _.indexBy(c.services, "metadata.name") :c.servicesByName = {}, c.$watch("route.to.name", function(a, b) {
-h(c.servicesByName[a]), a === b && c.route.targetPort || (c.route.targetPort = _.get(c, "route.portOptions[0].port")), c.services && (c.alternateServiceOptions = _.reject(c.services, function(b) {
+e.services && !e.route.service && (e.route.service = _.find(e.services)), e.servicesByName, e.services ? e.servicesByName = _.indexBy(e.services, "metadata.name") :e.servicesByName = {}, e.$watch("route.to.name", function(a, b) {
+j(e.servicesByName[a]), a === b && e.route.targetPort || (e.route.targetPort = _.get(e, "route.portOptions[0].port")), e.services && (e.alternateServiceOptions = _.reject(e.services, function(b) {
 return a === b.metadata.name;
 }));
-}), c.$watch("route.alternateServices", function(a) {
-c.duplicateServices = _(a).map("name").filter(function(a, b, c) {
+}), e.$watch("route.alternateServices", function(a) {
+e.duplicateServices = _(a).map("name").filter(function(a, b, c) {
 return _.includes(c, a, b + 1);
-}).value(), f.$setValidity("duplicateServices", !c.duplicateServices.length), c.options.alternateServices = !_.isEmpty(a);
+}).value(), h.$setValidity("duplicateServices", !e.duplicateServices.length), e.options.alternateServices = !_.isEmpty(a);
 }, !0);
-var i = function() {
-return !!c.route.tls && ((!c.route.tls.termination || "passthrough" === c.route.tls.termination) && (c.route.tls.certificate || c.route.tls.key || c.route.tls.caCertificate || c.route.tls.destinationCACertificate));
+var k = function() {
+return !!e.route.tls && ((!e.route.tls.termination || "passthrough" === e.route.tls.termination) && (e.route.tls.certificate || e.route.tls.key || e.route.tls.caCertificate || e.route.tls.destinationCACertificate));
 };
-c.$watch("route.tls.termination", function() {
-c.options.secureRoute = !!_.get(c, "route.tls.termination"), c.showCertificatesNotUsedWarning = i();
+e.$watch("route.tls.termination", function() {
+e.options.secureRoute = !!_.get(e, "route.tls.termination"), e.showCertificatesNotUsedWarning = k();
 });
-var j;
-c.$watch("options.secureRoute", function(a, b) {
+var l;
+e.$watch("options.secureRoute", function(a, b) {
 if (a !== b) {
-var d = _.get(c, "route.tls.termination");
-!c.securetRoute && d && (j = d, delete c.route.tls.termination), c.options.secureRoute && !d && _.set(c, "route.tls.termination", j || "edge");
+var c = _.get(e, "route.tls.termination");
+!e.securetRoute && c && (l = c, delete e.route.tls.termination), e.options.secureRoute && !c && _.set(e, "route.tls.termination", l || "edge");
 }
-}), c.$watch("options.alternateServices", function(a, b) {
-a !== b && (a || (c.route.alternateServices = []), a && _.isEmpty(c.route.alternateServices) && c.addAlternateService());
-}), c.addAlternateService = function() {
-c.route.alternateServices = c.route.alternateServices || [];
-var a = _.find(c.services, function(a) {
-return a.metadata.name !== c.route.to.service && !_.some(c.route.alternateServices, {
+}), e.$watch("options.alternateServices", function(a, b) {
+a !== b && (a || (e.route.alternateServices = []), a && _.isEmpty(e.route.alternateServices) && e.addAlternateService());
+}), e.addAlternateService = function() {
+e.route.alternateServices = e.route.alternateServices || [];
+var a = _.find(e.services, function(a) {
+return a.metadata.name !== e.route.to.service && !_.some(e.route.alternateServices, {
 service:a.metadata.name
 });
 });
-_.has(c, "route.to.weight") || _.set(c, "route.to.weight", 1), c.route.alternateServices.push({
+_.has(e, "route.to.weight") || _.set(e, "route.to.weight", 1), e.route.alternateServices.push({
 service:a.metadata.name,
 weight:1
 });
-}, c.weightAsPercentage = function(a, b) {
+}, e.weightAsPercentage = function(a, b) {
 a = a || 0;
-var d = _.get(c, "route.to.weight", 0);
-if (_.each(c.route.alternateServices, function(a) {
-d += _.get(a, "weight", 0);
-}), !d) return "";
-var e = a / d * 100;
-return b ? d3.round(e, 1) + "%" :e;
+var c = _.get(e, "route.to.weight", 0);
+if (_.each(e.route.alternateServices, function(a) {
+c += _.get(a, "weight", 0);
+}), !c) return "";
+var d = a / c * 100;
+return b ? d3.round(d, 1) + "%" :d;
 };
-var k = !1;
-c.$watch("route.alternateServices.length", function(a) {
-if (0 === a && _.has(c, "route.to.weight") && delete c.route.to.weight, 1 === a) {
-if (0 === c.route.to.weight && 0 === c.route.alternateServices[0].weight) return void (c.controls.hideSlider = !0);
-k = !0, c.controls.rangeSlider = c.weightAsPercentage(c.route.to.weight);
+var m = !1;
+e.$watch("route.alternateServices.length", function(a) {
+if (0 === a && _.has(e, "route.to.weight") && delete e.route.to.weight, 1 === a) {
+if (0 === e.route.to.weight && 0 === e.route.alternateServices[0].weight) return void (e.controls.hideSlider = !0);
+m = !0, e.controls.rangeSlider = e.weightAsPercentage(e.route.to.weight);
 }
-}), c.$watch("controls.rangeSlider", function(a, b) {
-return k ? void (k = !1) :void (a !== b && (a = parseInt(a, 10), _.set(c, "route.to.weight", a), _.set(c, "route.alternateServices[0].weight", 100 - a)));
+}), e.$watch("controls.rangeSlider", function(a, b) {
+return m ? void (m = !1) :void (a !== b && (a = parseInt(a, 10), _.set(e, "route.to.weight", a), _.set(e, "route.alternateServices[0].weight", 100 - a)));
 });
 }
 };
@@ -12538,7 +12542,9 @@ message:"Created " + t(a.kind).toLowerCase() + ' "' + a.metadata.name + '" succe
 });
 })) :c.push({
 type:"success",
-message:"All items in template " + r.templateDisplayName + " were created successfully."
+message:n.getString(m("All items in template {{templateDisplayName}} were created successfully."), {
+templateDisplayName:r.templateDisplayName
+})
 }), a.resolve({
 alerts:c,
 hasErrors:d
@@ -13053,88 +13059,88 @@ hideLog:"<"
 templateUrl:"views/overview/_builds.html"
 });
 }(), function() {
-function a(a, b, c, d, e, f, g, h) {
-var i = this;
-_.extend(i, f.ui);
-var j = a("canI"), k = a("deploymentIsInProgress"), l = a("isBinaryBuild"), m = a("enableTechPreviewFeature"), n = function(a) {
+function a(a, b, c, d, e, f, g, h, i, j) {
+var k = this;
+_.extend(k, f.ui);
+var l = a("canI"), m = a("deploymentIsInProgress"), n = a("isBinaryBuild"), o = a("enableTechPreviewFeature"), p = function(a) {
 var b = _.get(a, "spec.triggers");
-_.isEmpty(b) || (i.imageChangeTriggers = _.filter(b, function(a) {
+_.isEmpty(b) || (k.imageChangeTriggers = _.filter(b, function(a) {
 return "ImageChange" === a.type && _.get(a, "imageChangeParams.automatic");
 }));
-}, o = function(a) {
-a && !i.current && "DeploymentConfig" !== a.kind && "Deployment" !== a.kind && (i.current = a);
-}, p = function(a) {
-i.rgv = c.objectToResourceGroupVersion(a), o(a), n(a);
+}, q = function(a) {
+a && !k.current && "DeploymentConfig" !== a.kind && "Deployment" !== a.kind && (k.current = a);
+}, r = function(a) {
+k.rgv = c.objectToResourceGroupVersion(a), q(a), p(a);
 };
-i.$onChanges = function(a) {
-a.apiObject && p(a.apiObject.currentValue);
+k.$onChanges = function(a) {
+a.apiObject && r(a.apiObject.currentValue);
 };
-var q = [], r = function(a) {
-if (!i.state.hpaByResource) return null;
+var s = [], t = function(a) {
+if (!k.state.hpaByResource) return null;
 var b = _.get(a, "kind"), c = _.get(a, "metadata.name");
-return _.get(i.state.hpaByResource, [ b, c ], q);
+return _.get(k.state.hpaByResource, [ b, c ], s);
 };
-i.$doCheck = function() {
-i.notifications = f.getNotifications(i.apiObject, i.state), i.hpa = r(i.apiObject), i.current && _.isEmpty(i.hpa) && (i.hpa = r(i.current));
-var a = _.get(i, "apiObject.metadata.uid");
-a && (i.services = _.get(i, [ "state", "servicesByObjectUID", a ]), i.buildConfigs = _.get(i, [ "state", "buildConfigsByObjectUID", a ]), i.bindings = _.get(i, [ "state", "bindingsByApplicationUID", a ]));
-var b, c = _.get(i, "apiObject.kind");
-"DeploymentConfig" === c && (b = _.get(i, "apiObject.metadata.name"), i.pipelines = _.get(i, [ "state", "pipelinesByDeploymentConfig", b ]), i.recentBuilds = _.get(i, [ "state", "recentBuildsByDeploymentConfig", b ]), i.recentPipelines = _.get(i, [ "state", "recentPipelinesByDeploymentConfig", b ]));
-}, i.getPods = function(a) {
+k.$doCheck = function() {
+k.notifications = f.getNotifications(k.apiObject, k.state), k.hpa = t(k.apiObject), k.current && _.isEmpty(k.hpa) && (k.hpa = t(k.current));
+var a = _.get(k, "apiObject.metadata.uid");
+a && (k.services = _.get(k, [ "state", "servicesByObjectUID", a ]), k.buildConfigs = _.get(k, [ "state", "buildConfigsByObjectUID", a ]), k.bindings = _.get(k, [ "state", "bindingsByApplicationUID", a ]));
+var b, c = _.get(k, "apiObject.kind");
+"DeploymentConfig" === c && (b = _.get(k, "apiObject.metadata.name"), k.pipelines = _.get(k, [ "state", "pipelinesByDeploymentConfig", b ]), k.recentBuilds = _.get(k, [ "state", "recentBuildsByDeploymentConfig", b ]), k.recentPipelines = _.get(k, [ "state", "recentPipelinesByDeploymentConfig", b ]));
+}, k.getPods = function(a) {
 var b = _.get(a, "metadata.uid");
-return _.get(i, [ "state", "podsByOwnerUID", b ]);
-}, i.firstPod = function(a) {
-var b = i.getPods(a);
+return _.get(k, [ "state", "podsByOwnerUID", b ]);
+}, k.firstPod = function(a) {
+var b = k.getPods(a);
 return _.find(b);
-}, i.isScalable = function() {
-return !!_.isEmpty(i.hpa) && !i.isDeploymentInProgress();
-}, i.isDeploymentInProgress = function() {
-return !(!i.current || !i.previous) || k(i.current);
-}, i.canIDoAny = function() {
-var a = _.get(i, "apiObject.kind"), b = _.get(i, "apiObject.metadata.uid"), c = _.get(i.state.deleteableBindingsByApplicationUID, b);
+}, k.isScalable = function() {
+return !!_.isEmpty(k.hpa) && !k.isDeploymentInProgress();
+}, k.isDeploymentInProgress = function() {
+return !(!k.current || !k.previous) || m(k.current);
+}, k.canIDoAny = function() {
+var a = _.get(k, "apiObject.kind"), b = _.get(k, "apiObject.metadata.uid"), c = _.get(k.state.deleteableBindingsByApplicationUID, b);
 switch (a) {
 case "DeploymentConfig":
-return !!j("deploymentconfigs/instantiate", "create") || (!!j("deploymentconfigs", "update") || (!(!i.current || !j("deploymentconfigs/log", "get")) || (!(!m("pod_presets") || _.isEmpty(i.state.bindableServiceInstances) || !j({
+return !!l("deploymentconfigs/instantiate", "create") || (!!l("deploymentconfigs", "update") || (!(!k.current || !l("deploymentconfigs/log", "get")) || (!(!o("pod_presets") || _.isEmpty(k.state.bindableServiceInstances) || !l({
 resource:"bindings",
 group:"servicecatalog.k8s.io"
-}, "create")) || (!(!m("pod_presets") || _.isEmpty(c) || !j({
+}, "create")) || (!(!o("pod_presets") || _.isEmpty(c) || !l({
 resource:"bindings",
 group:"servicecatalog.k8s.io"
-}, "delete")) || (i.showStartPipelineAction() || i.showStartBuildAction())))));
+}, "delete")) || (k.showStartPipelineAction() || k.showStartBuildAction())))));
 
 case "Pod":
-return !!j("pods/log", "get") || !!j("pods", "update");
+return !!l("pods/log", "get") || !!l("pods", "update");
 
 default:
-return !(!i.firstPod(i.current) || !j("pods/log", "get")) || (!!j(i.rgv, "update") || (!(!m("pod_presets") || _.isEmpty(i.state.bindableServiceInstances) || !j({
+return !(!k.firstPod(k.current) || !l("pods/log", "get")) || (!!l(k.rgv, "update") || (!(!o("pod_presets") || _.isEmpty(k.state.bindableServiceInstances) || !l({
 resource:"bindings",
 group:"servicecatalog.k8s.io"
-}, "create")) || !(!m("pod_presets") || _.isEmpty(c) || !j({
+}, "create")) || !(!o("pod_presets") || _.isEmpty(c) || !l({
 resource:"bindings",
 group:"servicecatalog.k8s.io"
 }, "delete"))));
 }
-}, i.showStartBuildAction = function() {
-if (!_.isEmpty(i.pipelines)) return !1;
-if (!j("buildconfigs/instantiate", "create")) return !1;
-if (1 !== _.size(i.buildConfigs)) return !1;
-var a = _.first(i.buildConfigs);
-return !l(a);
-}, i.showStartPipelineAction = function() {
-return j("buildconfigs/instantiate", "create") && 1 === _.size(i.pipelines);
-}, i.startBuild = d.startBuild, i.canDeploy = function() {
-return !!i.apiObject && (!i.apiObject.metadata.deletionTimestamp && (!i.deploymentInProgress && !i.apiObject.spec.paused));
-}, i.isPaused = function() {
-return i.apiObject.spec.paused;
-}, i.startDeployment = function() {
-e.startLatestDeployment(i.apiObject, {
-namespace:i.apiObject.metadata.namespace
+}, k.showStartBuildAction = function() {
+if (!_.isEmpty(k.pipelines)) return !1;
+if (!l("buildconfigs/instantiate", "create")) return !1;
+if (1 !== _.size(k.buildConfigs)) return !1;
+var a = _.first(k.buildConfigs);
+return !n(a);
+}, k.showStartPipelineAction = function() {
+return l("buildconfigs/instantiate", "create") && 1 === _.size(k.pipelines);
+}, k.startBuild = d.startBuild, k.canDeploy = function() {
+return !!k.apiObject && (!k.apiObject.metadata.deletionTimestamp && (!k.deploymentInProgress && !k.apiObject.spec.paused));
+}, k.isPaused = function() {
+return k.apiObject.spec.paused;
+}, k.startDeployment = function() {
+e.startLatestDeployment(k.apiObject, {
+namespace:k.apiObject.metadata.namespace
 });
-}, i.cancelDeployment = function() {
-var a = i.current;
+}, k.cancelDeployment = function() {
+var a = k.current;
 if (a) {
-var c, d = a.metadata.name, f = _.get(i, "apiObject.status.latestVersion");
-c = 1 === f ? "This will attempt to stop the in-progress deployment. It may take some time to complete." :"This will attempt to stop the in-progress deployment and rollback to the last successful deployment. It may take some time to complete.";
+var c, d = a.metadata.name, f = _.get(k, "apiObject.status.latestVersion");
+c = 1 === f ? j.getString(i("This will attempt to stop the in-progress deployment. It may take some time to complete.")) :j.getString(i("This will attempt to stop the in-progress deployment and rollback to the last successful deployment. It may take some time to complete."));
 var g = b.open({
 animation:!0,
 templateUrl:"views/modals/confirm.html",
@@ -13142,20 +13148,22 @@ controller:"ConfirmModalController",
 resolve:{
 modalConfig:function() {
 return {
-message:"Cancel deployment " + d + "?",
+message:j.getString(i("Cancel deployment {{rcName}}?"), {
+rcName:d
+}),
 details:c,
-okButtonText:"Yes, cancel",
+okButtonText:j.getString(i("Yes, cancel")),
 okButtonClass:"btn-danger",
-cancelButtonText:"No, don't cancel"
+cancelButtonText:j.getString(i("No, don't cancel"))
 };
 }
 }
 });
 g.result.then(function() {
-return a.metadata.uid !== i.current.metadata.uid ? void h.addNotification({
+return a.metadata.uid !== k.current.metadata.uid ? void h.addNotification({
 type:"error",
 message:"Deployment #" + f + " is no longer the latest."
-}) :(a = i.current, k(a) ? void e.cancelRunningDeployment(a, {
+}) :(a = k.current, m(a) ? void e.cancelRunningDeployment(a, {
 namespace:a.metadata.namespace
 }) :void h.addNotification({
 type:"error",
@@ -13163,20 +13171,20 @@ message:"Deployment " + d + " is no longer in progress."
 }));
 });
 }
-}, i.urlForImageChangeTrigger = function(b) {
-var c = a("stripTag")(_.get(b, "imageChangeParams.from.name")), d = _.get(i, "apiObject.metadata.namespace"), e = _.get(b, "imageChangeParams.from.namespace", d);
+}, k.urlForImageChangeTrigger = function(b) {
+var c = a("stripTag")(_.get(b, "imageChangeParams.from.name")), d = _.get(k, "apiObject.metadata.namespace"), e = _.get(b, "imageChangeParams.from.namespace", d);
 return g.resourceURL(c, "ImageStream", e);
-}, i.navigateToPods = function() {
-var a = i.getPods(i.current);
-_.isEmpty(a) || g.toPodsForDeployment(i.current, a);
-}, i.closeOverlayPanel = function() {
-_.set(i, "overlay.panelVisible", !1);
-}, i.showOverlayPanel = function(a, b) {
-_.set(i, "overlay.panelVisible", !0), _.set(i, "overlay.panelName", a), _.set(i, "overlay.state", b);
+}, k.navigateToPods = function() {
+var a = k.getPods(k.current);
+_.isEmpty(a) || g.toPodsForDeployment(k.current, a);
+}, k.closeOverlayPanel = function() {
+_.set(k, "overlay.panelVisible", !1);
+}, k.showOverlayPanel = function(a, b) {
+_.set(k, "overlay.panelVisible", !0), _.set(k, "overlay.panelName", a), _.set(k, "overlay.state", b);
 };
 }
 angular.module("openshiftConsole").component("overviewListRow", {
-controller:[ "$filter", "$uibModal", "APIService", "BuildsService", "DeploymentsService", "ListRowUtils", "Navigate", "NotificationsService", a ],
+controller:[ "$filter", "$uibModal", "APIService", "BuildsService", "DeploymentsService", "ListRowUtils", "Navigate", "NotificationsService", "gettext", "gettextCatalog", a ],
 controllerAs:"row",
 bindings:{
 apiObject:"<",
@@ -13486,9 +13494,18 @@ c["import"].error = a("getErrorDetails")(b) || "An error occurred.", c.loading =
 }, !0);
 var C, D = a("displayName"), E = function() {
 var a = {
-started:p.getString(o("Deploying image ")) + c.app.name + p.getString(o(" to project ")) + D(c.project),
-success:p.getString(o("Deployed image ")) + c.app.name + p.getString(o(" to project ")) + D(c.project),
-failure:p.getString(o("Failed to deploy image ")) + c.app.name + p.getString(o(" to project ")) + D(c.project)
+started:p.getString(o("Deploying image {{name}} to project {{project}}"), {
+name:c.app.name,
+project:D(c.project)
+}),
+success:p.getString(o("Deployed image {{name}} to project {{project}}"), {
+name:c.app.name,
+project:D(c.project)
+}),
+failure:p.getString(o("Failed to deploy image {{name}} to project {{project}}"), {
+name:c.app.name,
+project:D(c.project)
+})
 };
 l.clear(), l.add(a, {}, c.project.metadata.name, function() {
 var a = b.defer();
@@ -13973,44 +13990,54 @@ if (d(g)) return !0;
 }
 return !1;
 };
-} ]).filter("podWarnings", [ "isPodStuckFilter", "isContainerLoopingFilter", "isContainerFailedFilter", "isContainerUnpreparedFilter", "isTerminatingFilter", function(a, b, c, d, e) {
-return function(f) {
-var g = [];
-return "Unknown" === f.status.phase && g.push({
+} ]).filter("podWarnings", [ "isPodStuckFilter", "isContainerLoopingFilter", "isContainerFailedFilter", "isContainerUnpreparedFilter", "isTerminatingFilter", "gettext", "gettextCatalog", function(a, b, c, d, e, f, g) {
+return function(h) {
+var i = [];
+return "Unknown" === h.status.phase && i.push({
 reason:"Unknown",
-pod:f.metadata.name,
+pod:h.metadata.name,
 message:"The state of the pod could not be obtained. This is typically due to an error communicating with the host of the pod."
-}), a(f) && g.push({
+}), a(h) && i.push({
 reason:"Stuck",
-pod:f.metadata.name,
+pod:h.metadata.name,
 message:"The pod has been stuck in the pending state for more than five minutes."
-}), "Running" === f.status.phase && f.status.containerStatuses && _.each(f.status.containerStatuses, function(a) {
-return !!a.state && (c(a) && (e(f) ? g.push({
+}), "Running" === h.status.phase && h.status.containerStatuses && _.each(h.status.containerStatuses, function(a) {
+return !!a.state && (c(a) && (e(h) ? i.push({
 severity:"error",
 reason:"NonZeroExitTerminatingPod",
-pod:f.metadata.name,
+pod:h.metadata.name,
 container:a.name,
-message:"The container " + a.name + " did not stop cleanly when terminated (exit code " + a.state.terminated.exitCode + ")."
-}) :g.push({
+message:g.getString("The container {{name}} did not stop cleanly when terminated (exit code {{exitCode}}).", {
+name:a.name,
+exitCode:a.state.terminated.exitCode
+})
+}) :i.push({
 severity:"warning",
 reason:"NonZeroExit",
-pod:f.metadata.name,
+pod:h.metadata.name,
 container:a.name,
-message:"The container " + a.name + " failed (exit code " + a.state.terminated.exitCode + ")."
-})), b(a) && g.push({
+message:g.getString("The container {{name}} failed (exit code {{exitCode}}).", {
+name:a.name,
+exitCode:a.state.terminated.exitCode
+})
+})), b(a) && i.push({
 severity:"error",
 reason:"Looping",
-pod:f.metadata.name,
+pod:h.metadata.name,
 container:a.name,
-message:"The container " + a.name + " is crashing frequently. It must wait before it will be restarted again."
-}), void (d(a) && g.push({
+message:g.getString(f("The container {{name}} is crashing frequently. It must wait before it will be restarted again."), {
+name:a.name
+})
+}), void (d(a) && i.push({
 severity:"warning",
 reason:"Unprepared",
-pod:f.metadata.name,
+pod:h.metadata.name,
 container:a.name,
-message:"The container " + a.name + " has been running for more than five minutes and has not passed its readiness check."
+message:g.getString(f("The container {{name}} has been running for more than five minutes and has not passed its readiness check."), {
+name:a.name
+})
 })));
-}), g.length > 0 ? g :null;
+}), i.length > 0 ? i :null;
 };
 } ]).filter("groupedPodWarnings", [ "podWarningsFilter", function(a) {
 return function(b, c) {

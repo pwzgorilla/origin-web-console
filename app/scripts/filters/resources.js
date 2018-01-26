@@ -367,7 +367,7 @@ angular.module('openshiftConsole')
       return false;
     };
   })
-  .filter('podWarnings', function(isPodStuckFilter, isContainerLoopingFilter, isContainerFailedFilter, isContainerUnpreparedFilter, isTerminatingFilter) {
+  .filter('podWarnings', function(isPodStuckFilter, isContainerLoopingFilter, isContainerFailedFilter, isContainerUnpreparedFilter, isTerminatingFilter, gettext, gettextCatalog) {
     return function(pod) {
       var warnings = [];
 
@@ -393,7 +393,9 @@ angular.module('openshiftConsole')
                 reason: "NonZeroExitTerminatingPod",
                 pod: pod.metadata.name,
                 container: containerStatus.name,
-                message: "The container " + containerStatus.name + " did not stop cleanly when terminated (exit code " + containerStatus.state.terminated.exitCode + ")."
+                message: gettextCatalog.getString(
+                  "The container {{name}} did not stop cleanly when terminated (exit code {{exitCode}}).",
+                  { name: containerStatus.name, exitCode: containerStatus.state.terminated.exitCode })
               });
             } else {
               warnings.push({
@@ -401,7 +403,9 @@ angular.module('openshiftConsole')
                 reason: "NonZeroExit",
                 pod: pod.metadata.name,
                 container: containerStatus.name,
-                message: "The container " + containerStatus.name + " failed (exit code " + containerStatus.state.terminated.exitCode + ")."
+                message: gettextCatalog.getString(
+                  "The container {{name}} failed (exit code {{exitCode}}).",
+                  { name: containerStatus.name, exitCode: containerStatus.state.terminated.exitCode })
               });
             }
           }
@@ -411,7 +415,9 @@ angular.module('openshiftConsole')
               reason: "Looping",
               pod: pod.metadata.name,
               container: containerStatus.name,
-              message: "The container " + containerStatus.name + " is crashing frequently. It must wait before it will be restarted again."
+              message: gettextCatalog.getString(
+                gettext("The container {{name}} is crashing frequently. It must wait before it will be restarted again."),
+                { name: containerStatus.name })
             });
           }
           if (isContainerUnpreparedFilter(containerStatus)) {
@@ -420,7 +426,9 @@ angular.module('openshiftConsole')
               reason: "Unprepared",
               pod: pod.metadata.name,
               container: containerStatus.name,
-              message: "The container " + containerStatus.name + " has been running for more than five minutes and has not passed its readiness check."
+              message: gettextCatalog.getString(
+                gettext("The container {{name}} has been running for more than five minutes and has not passed its readiness check."),
+                { name: containerStatus.name })
             });
           }
         });

@@ -9,8 +9,8 @@
       </span>
     </div>
     <div class="usage-label">
-      {{metric.usageUnits(metric.currentUsage) | capitalize}}
-      {{metric.label}}
+      {{metric.usageUnits(metric.currentUsage) | capitalize | translate}}
+      {{metric.label | translate}}
     </div>
   </div>
 </div>

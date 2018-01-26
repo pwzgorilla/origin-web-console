@@ -232,11 +232,11 @@
     <div ng-show="options.secureRoute">
       <!-- TLS Termination -->
       <div class="form-group">
-        <label for="tlsTermination">TLS Termination</label>
+        <label for="tlsTermination" translate>TLS Termination</label>
         <ui-select ng-model="route.tls.termination" input-id="tlsTermination" search-enabled="false">
           <ui-select-match>{{$select.selected | humanizeTLSTermination}}</ui-select-match>
           <ui-select-choices repeat="option in ['edge', 'passthrough', 'reencrypt']">
-            {{option | humanizeTLSTermination}}
+            {{option | humanizeTLSTermination | translate}}
           </ui-select-choices>
         </ui-select>
       </div>

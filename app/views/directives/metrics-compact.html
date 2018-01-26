@@ -11,8 +11,8 @@
         </span>
       </div>
       <div class="usage-label">
-        {{metric.usageUnits(metric.lastValue) | capitalize}}
-        {{metric.compactLabel || metric.label}}
+        {{metric.usageUnits(metric.lastValue) | capitalize | translate}}
+        {{(metric.compactLabel || metric.label) | translate}}
       </div>
     </div>
   </div>

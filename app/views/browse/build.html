@@ -127,9 +127,9 @@
                         empty="logEmpty"
                         run="logCanRun">
 
-                        <label>Status:</label>
+                        <label translate>Status:</label>
                         <status-icon status="build.status.phase"></status-icon>
-                        <span class="space-after">{{build.status.phase}}</span>
+                        <span class="space-after">{{build.status.phase | translate}}</span>
 
                         <div ng-if="build.status.startTimestamp && !logEmpty" class="log-timestamps">
                           <translate>Log from</translate> {{build.status.startTimestamp  | date : 'medium'}}

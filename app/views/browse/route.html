@@ -161,7 +161,7 @@
                     <dt translate>Termination Type:</dt>
                     <dd>{{route.spec.tls.termination | humanizeTLSTermination}}</dd>
                     <dt translate>Insecure Traffic:</dt>
-                    <dd>{{route.spec.tls.insecureEdgeTerminationPolicy || 'None'}}</dd>
+                    <dd>{{(route.spec.tls.insecureEdgeTerminationPolicy || 'None') | translate}}</dd>
                     <dt translate>Certificate:</dt>
                     <dd>
                       <span ng-show="route.spec.tls.certificate && !reveal.certificate">

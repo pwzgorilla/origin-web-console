@@ -180,10 +180,10 @@
                             }">
                           <td>
                             {{resourceType | humanizeQuotaResource : true | translate}}
-                            <span ng-if="isAtLimit(quota, resourceType)" data-toggle="tooltip" title="Quota limit reached." class="pficon pficon-warning-triangle-o warnings-popover"></span>
+                            <span ng-if="isAtLimit(quota, resourceType)" data-toggle="tooltip" data-original-title="{{'Quota limit reached.'|translate}}" class="pficon pficon-warning-triangle-o warnings-popover"></span>
                             <span ng-if="(quota.status.hard[resourceType] || quota.spec.hard[resourceType]) === '0'"
                                   data-toggle="tooltip"
-                                  title="{{'You are not allowed to create resources of this type.'|translate}}"
+                                  data-original-title="{{'You are not allowed to create resources of this type.'|translate}}"
                                   class="pficon pficon-info warnings-popover"></span>
                           </td>
                           <td>

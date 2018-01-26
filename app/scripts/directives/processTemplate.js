@@ -127,8 +127,10 @@
                 }
               );
             } else {
-              alerts.push({ type: "success", message: "All items in template " + ctrl.templateDisplayName +
-                " were created successfully."});
+              alerts.push({ type: "success", message:
+                gettextCatalog.getString(gettext("All items in template {{templateDisplayName}} were created successfully."),
+                  { templateDisplayName: ctrl.templateDisplayName })
+              });
             }
             d.resolve({alerts: alerts, hasErrors: hasErrors});
           }

@@ -11,6 +11,8 @@
       'ListRowUtils',
       'Navigate',
       'NotificationsService',
+      'gettext',
+      'gettextCatalog',
       OverviewListRow
     ],
     controllerAs: 'row',
@@ -32,7 +34,9 @@
                            DeploymentsService,
                            ListRowUtils,
                            Navigate,
-                           NotificationsService) {
+                           NotificationsService,
+                           gettext,
+                           gettextCatalog) {
     var row = this;
 
     _.extend(row, ListRowUtils.ui);
@@ -284,9 +288,9 @@
       var latestVersion = _.get(row, 'apiObject.status.latestVersion');
       var details;
       if (latestVersion === 1) {
-        details = "This will attempt to stop the in-progress deployment. It may take some time to complete.";
+        details = gettextCatalog.getString(gettext("This will attempt to stop the in-progress deployment. It may take some time to complete."));
       } else {
-        details = "This will attempt to stop the in-progress deployment and rollback to the last successful deployment. It may take some time to complete.";
+        details = gettextCatalog.getString(gettext("This will attempt to stop the in-progress deployment and rollback to the last successful deployment. It may take some time to complete."));
       }
 
       var modalInstance = $uibModal.open({
@@ -296,11 +300,11 @@
         resolve: {
           modalConfig: function() {
             return {
-              message: "Cancel deployment " + rcName + "?",
+              message: gettextCatalog.getString(gettext("Cancel deployment {{rcName}}?"), {rcName: rcName}),
               details: details,
-              okButtonText: "Yes, cancel",
+              okButtonText: gettextCatalog.getString(gettext("Yes, cancel")),
               okButtonClass: "btn-danger",
-              cancelButtonText: "No, don't cancel"
+              cancelButtonText: gettextCatalog.getString(gettext("No, don't cancel"))
             };
           }
         }

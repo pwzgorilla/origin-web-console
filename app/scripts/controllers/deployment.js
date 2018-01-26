@@ -70,7 +70,7 @@ angular.module('openshiftConsole')
         message: gettext("The environment variables for the deployment have been updated in the background. Saving your changes may create a conflict or cause loss of data."),
         links: [
           {
-            label: 'Reload Environment Variables',
+            label: gettextCatalog.getString(gettext('Reload Environment Variables')),
             onClick: function() {
               $scope.clearEnvVarUpdates();
               return true;
@@ -286,7 +286,9 @@ angular.module('openshiftConsole')
               $scope.alerts = $scope.alerts || {};
               $scope.alerts["scale"] = {
                 type: "error",
-                message: "An error occurred " + (paused ? "pausing" : "resuming") + " the deployment.",
+                message: gettextCatalog.getString(gettext("An error occurred")) + " " +
+                  (paused ? gettextCatalog.getString(gettext("pausing")) : gettextCatalog.getString(gettext("resuming"))) +
+                  " " + gettextCatalog.getString(gettext("the deployment.")),
                 details: $filter('getErrorDetails')(e)
               };
             });
@@ -301,15 +303,15 @@ angular.module('openshiftConsole')
           }
 
           if (volume.persistentVolumeClaim) {
-            details += gettextCatalog.getString(gettext(" It will not delete the persistent volume claim."));
+            details += " " + gettextCatalog.getString(gettext("It will not delete the persistent volume claim."));
           } else if (volume.secret) {
-            details += gettextCatalog.getString(gettext(" It will not delete the secret."));
+            details += " " + gettextCatalog.getString(gettext("It will not delete the secret."));
           } else if (volume.configMap) {
-            details += gettextCatalog.getString(gettext(" It will not delete the config map."));
+            details += " " + gettextCatalog.getString(gettext("It will not delete the config map."));
           }
 
           var confirm = ModalsService.confirm({
-            message: gettextCatalog.getString(gettext("Remove volume ")) + volume.name + "?",
+            message: gettextCatalog.getString(gettext("Remove volume")) + " " + volume.name + "?",
             details: details,
             okButtonText: gettextCatalog.getString(gettext("Remove")),
             okButtonClass: "btn-danger",

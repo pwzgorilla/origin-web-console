@@ -31,7 +31,9 @@ angular.module("openshiftConsole")
    */
   .directive("oscRouting",
              function(Constants,
-                      DNS1123_SUBDOMAIN_VALIDATION) {
+                      DNS1123_SUBDOMAIN_VALIDATION,
+                      gettext,
+                      gettextCatalog) {
     return {
       require: '^form',
       restrict: 'E',
@@ -58,9 +60,9 @@ angular.module("openshiftConsole")
         };
 
         scope.insecureTrafficOptions = [
-          {value: '', label: 'None'},
-          {value: 'Allow', label: 'Allow'},
-          {value: 'Redirect', label: 'Redirect'}
+          {value: '', label: gettextCatalog.getString(gettext('None'))},
+          {value: 'Allow', label: gettextCatalog.getString(gettext('Allow'))},
+          {value: 'Redirect', label: gettextCatalog.getString(gettext('Redirect'))}
         ];
 
         if (!_.has(scope, 'route.tls.insecureEdgeTerminationPolicy')) {
