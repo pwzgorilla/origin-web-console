@@ -120,7 +120,7 @@ msgstr "创建"
 
 #: src/components/binding/bindServiceForm.html:5
 msgid "Create a binding for"
-msgstr "创建绑定，为"
+msgstr "创建绑定"
 
 #: src/components/binding/bindApplicationForm.html:5
 msgid ""
@@ -236,12 +236,11 @@ msgid ""
 "Name must consist of lower-case letters, numbers, periods, and hyphens. It "
 "must start and end with a letter or a number."
 msgstr ""
-"主机名必须由小写字母，数字，句号和连字符组成。 并且必须以字母或数字开头和结"
-"尾。"
+"主机名必须由小写字母，数字，英文句号（.）和连字符(-)组成并且开头和结尾必须是数字或者字母。" 
 
 #: src/components/create-project/createProject.html:33
 msgid "Name must have at least two characters."
-msgstr "名称必须至少有两个字符。"
+msgstr "名称至少由两个字母组成。"
 
 #: src/components/binding/bindResults.html:5 app/views/browse/routes.html:72
 #: app/views/directives/traffic-table.html:48
@@ -253,7 +252,7 @@ msgstr "等待"
 msgid ""
 "Project names may only contain lower-case letters, numbers, and dashes. They "
 "may not start or end with a dash."
-msgstr "项目名称只能包含小写字母，数字和破折号。 他们不能以破折号开始或结束。"
+msgstr "项目名称只能包含小写字母，数字和破折号，他们不能以破折号开始或结束。"
 
 #: src/components/binding/bindServiceForm.html:39
 msgid "Secrets can be referenced later from an application."
@@ -283,7 +282,7 @@ msgstr "绑定私密凭证仅适用于新的Pod。 您将需要重新部署应�
 
 #: src/components/binding/bindResults.html:6
 msgid "The binding was created but is not ready yet."
-msgstr "绑定已创建，但还没有准备好。"
+msgstr "绑定已创建，但还不可用。"
 
 #: src/services/projects.js:48 src/services/projects.js:51
 msgid "The project"
@@ -291,7 +290,7 @@ msgstr "项目"
 
 #: src/services/projects.js:45
 msgid "The project could not be loaded."
-msgstr "无法载入项目。"
+msgstr "项目无法载入"
 
 #: src/components/binding/bindApplicationForm.html:49
 msgid "There are no bindable services in this project"
@@ -300,13 +299,13 @@ msgstr "此项目中没有可绑定的服务"
 #: src/components/create-project/createProject.html:43
 #: app/views/directives/create-secret.html:31
 msgid "This name is already in use. Please choose a different name."
-msgstr "这个名称已经在使用了。请选择其它名称。"
+msgstr "名称已近被占用，请使用其他名称"
 
 #: src/components/binding/bindApplicationForm.html:38
 msgid ""
 "This service is not yet ready. If you bind to it, then the binding will be "
 "pending until the service is ready."
-msgstr "此服务尚未准备好。 如果绑定到它，则绑定将待处理，直到服务准备就绪。"
+msgstr "此服务还没有就绪，如果绑定到它，则服务在就绪之前，绑定一直处于等待状态"
 
 #: src/components/delete-project/delete-project-modal.html:6
 msgid ""
@@ -315,11 +314,11 @@ msgid ""
 "strong>.  Make sure this is something you really want to do!"
 msgstr ""
 "这将<strong>删除与项目{{displayName ? displayName : projectName}}相关联的所有"
-"资源</strong>并且<strong>无法撤消</strong>。 确保这是你真正想做的！"
+"资源</strong>并且此操作<strong>无法撤消</strong>, 确定么?"
 
 #: src/components/delete-project/delete-project-modal.html:10
 msgid "Type the name of the project to confirm."
-msgstr "键入要确认的项目的名称。"
+msgstr "输入要确认的项目的名称。"
 
 #: src/services/apiService.js:215
 msgid ""
@@ -345,7 +344,7 @@ msgstr "要删除的项目"
 
 #: src/components/binding/bindResults.html:22
 msgid "that you may need to reference in your application."
-msgstr "，那个您可能需要在您的应用程序中引用的。"
+msgstr "可能会在你的应用程序中引用。"
 
 #: app/scripts/services/routes.js:55
 msgid "\" does not expose that port."
@@ -444,7 +443,7 @@ msgstr ",子路径 {{mount.subPath}}"
 
 #: app/views/attach-pvc.html:76
 msgid ". You cannot create new storage since you are at quota."
-msgstr ".由于您受配额限制,所以无法创建新的存储空间."
+msgstr "受配额限制, 您无法创建新的存储空间。"
 
 #: app/scripts/constants.js:469
 msgid ".NET"
@@ -481,8 +480,7 @@ msgid ""
 "doing:"
 msgstr ""
 "<a target=\"_blank\" href=\"command-line\">下载和安装</a> <code>oc</code> 命"
-"令行工具. 在那之后, 你可以从登录开始, 切换到这个特定的项目, 并显示它的概述, "
-"通过做:"
+"令行工具后, 你可以登陆平台、切换到特定的项目, 并显示它的概述, 操作命令如下: "
 
 #: app/views/about.html:22
 msgid ""
@@ -502,7 +500,7 @@ msgstr "<span ng-bind-template=\"{{labelPrefix||'容器'}}:\"></span>"
 msgid ""
 "<strong>It cannot be undone.</strong> Make sure this is something you really "
 "want to do!"
-msgstr "<strong>它不能被撤销。</strong> 确认这是你真的想进行的操作！"
+msgstr "<strong>当前操作无法撤销。</strong> 确认么？"
 
 #: app/views/attach-pvc.html:22
 msgid "A <b>persistent volume claim</b> is required to attach to this"
@@ -510,7 +508,7 @@ msgstr "一个 <b>持久化卷声明</b>需要依附到"
 
 #: app/views/create/fromimage.html:104 app/views/edit/build-config.html:54
 msgid "A Git repository URL is required."
-msgstr "需要一个Git存储库URL。"
+msgstr "需要一个Git仓库地址。"
 
 #: app/views/directives/next-steps.html:77
 msgid ""
@@ -518,7 +516,7 @@ msgid ""
 "trigger</a> has been created for the <strong>{{$ctrl.createdBuildConfig."
 "metadata.name}}</strong> build config."
 msgstr ""
-"GitHub <a target=\"_blank\" href=\"{{'webhooks' | helpLink}}\">网页钩子触发器"
+"GitHub <a target=\"_blank\" href=\"{{'webhooks' | helpLink}}\">Webhook触发器"
 "</a>已被创建，用于<strong>{{$ctrl.createdBuildConfig.metadata.name}}</strong>"
 "的构建配置。"
 
@@ -696,13 +694,13 @@ msgid ""
 "A domain is a sequence of names separated by the '.' character with a "
 "maximum length of 253 characters."
 msgstr ""
-"有效的对象标签具有[domain /]名称，其名称是字母数字（az和0-9）字符串，最大长度"
+"有效的对象标签具可以是域名或者名称，其名称是字母数字（az和0-9）字符串，最大长度"
 "为63个字符，\" - \"字符允许除第一个或最后一个字符以外的任何位置。 域名是"
-"由'。'分隔的名称序列。 字符最大长度为253个字符。"
+"由'.'分隔的名称序列。 字符最大长度为253个字符。"
 
 #: app/views/directives/replicas.html:40
 msgid "A value for replicas is required."
-msgstr "需要对副本进行一个值。"
+msgstr "副本的值是必须的"
 
 #: app/scripts/constants.js:62
 msgid "Abort"
@@ -710,7 +708,7 @@ msgstr "取消"
 
 #: app/views/directives/lifecycle-hook.html:17
 msgid "Abort deployment on failure"
-msgstr "中止部署失败"
+msgstr "失败后终止部署"
 
 #: app/views/about.html:21
 msgid "About"
@@ -739,7 +737,7 @@ msgstr "访问模式:"
 
 #: app/views/about.html:37
 msgid "Account"
-msgstr "帐目"
+msgstr "账户"
 
 #: app/views/directives/lifecycle-hook.html:10
 msgid "Action:"
@@ -912,7 +910,7 @@ msgstr "添加参数"
 #: app/views/add-config-volume.html:117
 msgid ""
 "Add only certain keys or use paths that are different than the key names."
-msgstr "只添加某些键或使用与键名不同的路径。"
+msgstr "只能添加某些键或使用与键名不同的路径。"
 
 #: app/views/add-config-volume.html:193 app/views/attach-pvc.html:204
 msgid "Add the volume to the selected containers."
@@ -938,12 +936,12 @@ msgid ""
 "Add values from a config map or secret as volume. This will make the data "
 "available as files for {{kind | humanizeKind}} {{name}}"
 msgstr ""
-"从配置映射或私密凭证添加值作为卷。 这将使数据可用作{{kind | humanizeKind | "
+"从配置映集合私密凭证添加数据作为挂载卷。 这将使数据可用作{{kind | humanizeKind | "
 "translate}}{{name}}的文件"
 
 #: app/views/directives/edit-lifecycle-hook.html:131
 msgid "Add {{type | upperFirst}} Lifecycle Hook"
-msgstr "添加{{type | upperFirst | translate}}生命周期钩"
+msgstr "添加{{type | upperFirst | translate}}生命周期触发器"
 
 #: app/views/browse/route.html:74
 msgid "Admission status unknown for router '{{ingress.routerName}}'"
@@ -1003,7 +1001,7 @@ msgstr "模板{{templateDisplayName}}中的所有项目都已成功创建。"
 
 #: app/views/overview.html:274
 msgid "All pipelines are filtered."
-msgstr "所有的管道都过滤掉。"
+msgstr "所有的管道都会被过滤。"
 
 #: app/scripts/directives/oscRouting.js:64
 msgid "Allow"
@@ -1021,7 +1019,7 @@ msgstr "路由流量的替代服务。"
 msgid ""
 "Always pull the builder image from the docker registry, even if it is "
 "present locally"
-msgstr "始终从docker注册表中提取构建器镜像，即使它是本地的"
+msgstr "始终从docker镜像仓库中拉去构建镜像，即使它在本地存在"
 
 #: app/views/_compute-resource.html:6
 msgid "Amount"
@@ -1050,7 +1048,7 @@ msgid ""
 "\"> for container {{options.selectedContainer.name}}</span><span ng-if="
 "\"metricsURL\"> from <a ng-href=\"{{metricsURL}}\">{{metricsURL}}</a></span>."
 msgstr ""
-"一个错误发生在获取指标时,<span ng-if=\"options.selectedContainer.name\">,容器"
+"获取监控数据时发生了错误,<span ng-if=\"options.selectedContainer.name\">,容器"
 "为{{options.selectedContainer.name}}</span><span ng-if=\"metricsURL\">,指标为"
 "<a ng-href=\"{{metricsURL}}\">{{metricsURL}}</a></span>."
 
@@ -1080,7 +1078,7 @@ msgstr "应用程序"
 
 #: app/views/directives/next-steps.html:97
 msgid "Applied Parameter Values"
-msgstr "应用参数值"
+msgstr "使用参数值"
 
 #: app/views/modals/delete-project.html:3
 msgid ""
@@ -1102,7 +1100,7 @@ msgid ""
 "Are you sure you want to remove <strong><%- roleName %></strong> from "
 "<strong><%- subjectName %></strong> (you)?"
 msgstr ""
-"你确定要从 <strong><%- subjectName %></strong> (你)删除<strong><%- roleName "
+"你确定要从 <strong><%- subjectName %></strong> 项目中删除<strong><%- roleName "
 "%></strong> 吗?"
 
 #: app/scripts/controllers/membership.js:32
@@ -1142,14 +1140,14 @@ msgstr "使用每个新的代码版本自动化构建，测试和部署应用程
 
 #: app/views/create/fromimage.html:209 app/views/edit/build-config.html:531
 msgid "Automatically build a new image when the builder image changes"
-msgstr "当构建器镜像更改时，自动构建一个新镜像"
+msgstr "当构建器镜像更改时，自动触发应用镜像的构建"
 
 #: app/views/create/fromimage.html:211 app/views/edit/build-config.html:535
 msgid ""
 "Automatically building a new image when the builder image changes allows "
 "your code to always run on the latest updates."
 msgstr ""
-"当构建器镜像更改时，自动构建一个新镜像，允许您的代码总是在最新的更新中运行。"
+"当构建器镜像更改时，自动触发应用镜像的构建, 让程序一直运行在最新的代码上。"
 
 #: app/views/edit/deployment-config.html:324
 msgid ""
@@ -1181,7 +1179,7 @@ msgstr "自动扩缩"
 
 #: app/views/browse/_replica-set-details.html:202
 msgid "Autoscaling is not enabled. There are no autoscalers for this"
-msgstr "自动扩缩功能未启用。 没有自动扩缩器，对"
+msgstr "自动扩缩功能未启用，没有自动扩缩器"
 
 #: app/views/browse/deployment-config.html:273
 msgid ""
@@ -1195,7 +1193,7 @@ msgstr "自动扩缩将不会生效，如果没有CPU"
 
 #: app/scripts/services/hpa.js:151
 msgid "Autoscaling will not work without a CPU limit."
-msgstr "自动扩缩将不会生效，如果没有CPU。"
+msgstr "自动扩缩将不会生效，如果没有CPU限制"
 
 #: app/scripts/services/hpa.js:159
 msgid "Autoscaling will not work without a CPU request."
@@ -1281,7 +1279,7 @@ msgstr "浏览目录"
 
 #: app/views/directives/osc-file-input.html:16
 msgid "Browse&hellip;"
-msgstr "浏览文件&hellip;"
+msgstr "浏览文件"
 
 #: app/views/browse/build-config.html:142
 #: app/views/browse/build-config.html:184 app/views/overview/_builds.html:26
@@ -1348,13 +1346,13 @@ msgstr "构建源代码"
 msgid ""
 "Builds triggered from this Build Configuration will run all at the same "
 "time. The order in which they will finish is not guaranteed."
-msgstr "此构建配置触发的构建将同时运行。 他们执行完成的次序不能保证。"
+msgstr "由此构建配置触发的构建将同时运行， 但他们完成的顺序不能保证"
 
 #: app/views/edit/build-config.html:585
 msgid ""
 "Builds triggered from this Build Configuration will run one at the time, in "
 "the order they have been triggered."
-msgstr "由这个构建配置触发的构建将一次运行一个，按照它们已经触发的顺序运行。"
+msgstr "由此构建配置触发的构建将一次运行一个，按照它们已经触发的顺序运行。"
 
 #: app/views/edit/build-config.html:587
 msgid ""
@@ -1362,7 +1360,7 @@ msgid ""
 "When a currently running build completes, the next build that will run is "
 "the latest build created. Other queued builds will be cancelled."
 msgstr ""
-"此构建配置触发的构建将在当前运行。 当当前运行的构建完成时，将运行的下一个构建"
+"由此构建配置触发的构建将在当前运行。 当当前运行的构建完成时，将运行的下一个构建"
 "是创建的最新版本。 其他排队的构建将被取消。"
 
 #: app/views/edit/build-config.html:588
@@ -1370,12 +1368,12 @@ msgid ""
 "Builds triggered from this Build Configuration will run using the "
 "{{updatedBuildConfig.spec.runPolicy | sentenceCase}} policy."
 msgstr ""
-"此构建配置触发的构建将使用 {{updatedBuildConfig.spec.runPolicy | "
+"此此构建配置触发的构建将使用 {{updatedBuildConfig.spec.runPolicy | "
 "sentenceCase}} 策略运行。"
 
 #: app/views/browse/build-config.html:90
 msgid "Builds will create an image from"
-msgstr "构建将创建一个镜像"
+msgstr "构建一个镜像"
 
 #: app/scripts/constants.js:507
 msgid "Business Process Services"
@@ -1429,8 +1427,7 @@ msgid ""
 "autoscalers, your cluster administrator must have properly configured "
 "cluster metrics."
 msgstr ""
-"CPU指标可能不可用。 为了使用水平pod自动分度器，您的群集管理员必须具有正确配置"
-"的群集度量。"
+"CPU监控指标可能不可用。 为了使用水平pod自动，您的群集管理员必须具正确配置集群监控"
 
 #: app/views/_pod-template-container.html:139
 msgid "CPU:"
@@ -1478,7 +1475,7 @@ msgstr "取消部署{{rcName}}？"
 
 #: app/scripts/constants.js:53
 msgid "Cancelled"
-msgstr "取消"
+msgstr "已取消"
 
 #: app/views/storage.html:50
 msgid "Capacity"
@@ -1544,11 +1541,11 @@ msgstr "选择一个资源"
 
 #: app/views/other-resources.html:14
 msgid "Choose a resource to list..."
-msgstr "选择一个资源来列出……"
+msgstr "选择一个资源列表……"
 
 #: app/views/edit/build-config.html:616
 msgid "Choose a type of build hook"
-msgstr "选择一种构建挂钩"
+msgstr "选择一种构建触发器"
 
 #: app/views/catalog/catalog.html:19
 msgid ""
@@ -1564,22 +1561,22 @@ msgstr "声明名称:"
 #: app/views/browse/deployment-config.html:368
 #: app/views/browse/deployment.html:294
 msgid "Clear Changes"
-msgstr "清除改变"
+msgstr "清空修改"
 
 #: app/views/catalog/catalog.html:49 app/views/catalog/category-content.html:47
 #: app/views/directives/events.html:58 app/views/directives/events.html:65
 #: app/views/overview.html:113 app/views/overview.html:275
 #: app/views/projects.html:60
 msgid "Clear Filter"
-msgstr "清除过滤器"
+msgstr "清空过滤器"
 
 #: app/views/directives/osc-file-input.html:39
 msgid "Clear Value"
-msgstr "清除值"
+msgstr "清空值"
 
 #: app/views/directives/_edit-command.html:96
 msgid "Clear {{ (type || 'Command') | upperFirst }}"
-msgstr "清除{{ (type || 'Command') | upperFirst }}"
+msgstr "清空{{ (type || 'Command') | upperFirst }}"
 
 #: app/views/quota.html:13
 msgid "Cluster"
@@ -1672,7 +1669,7 @@ msgstr "配置集键可能不超过253个字符。"
 msgid ""
 "Config map keys may only consist of letters, numbers, periods, hyphens, and "
 "underscores."
-msgstr "配置集键可能只包含字母、数字、周期、连字符和下划线。"
+msgstr "配置集键值可能只包含字母、数字、英文句号、连字符和下划线。"
 
 #: app/views/edit/config-map.html:33
 msgid ""
@@ -1691,13 +1688,13 @@ msgid ""
 "Config maps hold key-value pairs that can be used in pods to read "
 "application\n"
 "                    configuration."
-msgstr "配置集保存可在pod中使用的键值对来读取应用程序配置。"
+msgstr "在pod 中可以使用配置集中的键值对来读取应用的配置。"
 
 #: app/views/create-config-map.html:17
 msgid ""
 "Config maps hold key-value pairs that can be used in pods to read "
 "application configuration."
-msgstr "配置集保存可在pod中使用的键值对来读取应用程序配置。"
+msgstr "在pod 中可以使用配置集中的键值对来读取应用的配置。"
 
 #: app/views/browse/_build-details.html:59
 #: app/views/browse/build-config.html:230
@@ -1750,7 +1747,7 @@ msgstr "容器重启次数"
 #: app/views/edit/health-checks.html:19
 msgid ""
 "Container health is periodically checked using readiness and liveness probes."
-msgstr "容器健康是使用准备和存活探针定期检查的。"
+msgstr "容器健康状是通过readiness 和 liveness探针定期检查的。"
 
 #: app/views/edit/health-checks.html:23 app/views/set-limits.html:28
 msgid "Container {{container.name}}"
@@ -1794,11 +1791,11 @@ msgstr "容器"
 
 #: app/views/directives/pods-table.html:10
 msgid "Containers Ready"
-msgstr "容器运行状态"
+msgstr "容器启动正常"
 
 #: app/views/create/fromimage.html:134 app/views/edit/build-config.html:84
 msgid "Context Dir"
-msgstr "上下文Dir"
+msgstr "上下文目录"
 
 #: app/views/modals/process-or-save-template.html:22
 #: app/views/util/oauth.html:13
@@ -1843,7 +1840,7 @@ msgstr "无法加载镜像元数据。"
 
 #: app/views/modals/debug-terminal.html:20
 msgid "Could not start container {{container.name}}."
-msgstr "不能启动容器容器{{container.name}}。"
+msgstr "不能启动容器{{container.name}}。"
 
 #: app/scripts/directives/events.js:135
 msgid "Count"
@@ -1905,11 +1902,11 @@ msgstr "创建一个新项目"
 msgid ""
 "Create a request for an administrator-defined storage asset by specifying "
 "size and permissions for a best fit."
-msgstr "通过为最佳匹配指定大小和权限，为管理员定义的存储资产创建一个请求。"
+msgstr "通过管理员定义的存储，创建一个请求"
 
 #: app/views/create/fromimage.html:176
 msgid "Create a route to the application"
-msgstr "为应用程序创建一条路由"
+msgstr "给应用创建路由"
 
 #: app/views/directives/from-file.html:2
 msgid "Create or replace resources from their YAML or JSON definitions."
@@ -1923,7 +1920,7 @@ msgstr "创建路由"
 msgid ""
 "Create the objects defined in the template. You will have an opportunity to "
 "fill in template parameters."
-msgstr "创建模板中定义的对象。"
+msgstr "在模板中定义对象，这可能会在接下来的模板参数中用到。"
 
 #: app/views/modals/create-secret.html:4
 msgid "Create {{type | capitalize}} Secret"
@@ -2066,7 +2063,7 @@ msgstr "部署镜像"
 
 #: app/views/directives/deploy-image.html:2
 msgid "Deploy an existing image from an image stream tag or docker pull spec."
-msgstr "从镜像流标记中部署现有镜像或docker拉取。"
+msgstr "通过拉取镜像或者现有的镜像流部署应用"
 
 #: app/views/edit/deployment-config.html:292
 msgid "Deploy images from an image stream tag"
@@ -2143,11 +2140,11 @@ msgstr "所需的存储容量。"
 
 #: app/views/browse/route.html:195
 msgid "Destination CA Cert:"
-msgstr "目的地CA证书:"
+msgstr "目标CA证书:"
 
 #: app/views/directives/osc-routing.html:322
 msgid "Destination CA Certificate"
-msgstr "目的地CA证书"
+msgstr "目标CA证书"
 
 #: app/views/directives/osc-routing.html:335
 msgid "Destination CA certificates are only used for re-encrypt termination."
@@ -2173,7 +2170,7 @@ msgstr "详情"
 
 #: app/views/directives/osc-source-secrets.html:45
 msgid "Directory where the files will be available at build time."
-msgstr "文件在构建时可用的目录。"
+msgstr "构建时文件存放的目录。"
 
 #: app/views/_tasks.html:19 app/views/directives/_build-close.html:3
 msgid "Dismiss"
@@ -2229,7 +2226,7 @@ msgstr "下载<code>oc</code>:"
 
 #: app/views/directives/osc-file-input.html:3
 msgid "Drop file here"
-msgstr "减少文件在这里"
+msgstr "从这里删除文件"
 
 #: app/views/directives/edit-config-map.html:83
 msgid ""
@@ -2495,13 +2492,13 @@ msgstr "扩大"
 
 #: app/views/_templateopt.html:55
 msgid "Expand to enter multiline input"
-msgstr "展开输入多行输入"
+msgstr "扩展可以多行输入"
 
 #: app/scripts/directives/templateopt.js:30
 msgid ""
 "Expand to enter multiple lines of content. This is required if you need to "
 "include newline characters."
-msgstr "展开以输入多行内容。 如果您需要添加换行符，则需要这样做。"
+msgstr "扩展可以多行输入，如果您需要添加换行符，则需要这样做。"
 
 #: app/views/browse/route.html:77
 msgid "Exposed on router '{{ingress.routerName}}'"
@@ -2540,27 +2537,27 @@ msgstr "失败"
 #: app/scripts/controllers/create/createFromImage.js:298
 #: app/scripts/directives/processTemplate.js:97
 msgid "Failed to create"
-msgstr "失败了，创建"
+msgstr "创建失败"
 
 #: app/scripts/directives/fromFile.js:408
 msgid "Failed to create some resources in project"
-msgstr "失败了，在项目中创建资源"
+msgstr "在项目中创建资源失败"
 
 #: app/scripts/directives/deployImage.js:250
 msgid "Failed to deploy image"
-msgstr "失败了，部署镜像"
+msgstr "部署镜像失败"
 
 #: app/views/_parse-error.html:6
 msgid "Failed to process the resource."
-msgstr "没有处理资源。"
+msgstr "处理资源失败。"
 
 #: app/scripts/directives/fromFile.js:459
 msgid "Failed to update some resources in project"
-msgstr "失败了，在项目中更新资源"
+msgstr "在项目中更新资源失败"
 
 #: app/views/directives/edit-lifecycle-hook.html:113
 msgid "Failure Policy"
-msgstr "失败策略"
+msgstr "失败的策略"
 
 #: app/views/directives/lifecycle-hook.html:12
 msgid "Failure Policy:"
@@ -2653,19 +2650,19 @@ msgstr "Git参考"
 
 #: app/views/create/fromimage.html:79 app/views/edit/build-config.html:32
 msgid "Git Repository URL"
-msgstr "Git存储库URL"
+msgstr "Git仓库地址"
 
 #: app/views/edit/build-config.html:50
 msgid "Git URL of the source code to build."
-msgstr "要构建的源代码的Git URL。"
+msgstr "要构建的源代码的Git 仓库地址。"
 
 #: app/views/browse/build-config.html:393
 msgid "GitHub Webhook URL:"
-msgstr "GitHub Webhook URL:"
+msgstr "GitHub Webhook 地址:"
 
 #: app/views/browse/build-config.html:400
 msgid "GitLab Webhook URL:"
-msgstr "GitLab Webhook URL:"
+msgstr "GitLab Webhook 地址:"
 
 #: app/scripts/constants.js:495
 msgid "Go"
@@ -2673,11 +2670,11 @@ msgstr "Go"
 
 #: app/views/directives/logs/_log-viewer.html:80
 msgid "Go to End"
-msgstr "去结尾"
+msgstr "到底部"
 
 #: app/views/directives/logs/_log-viewer.html:97
 msgid "Go to Top"
-msgstr "转到顶部"
+msgstr "到顶部"
 
 #: app/views/directives/next-steps.html:45
 msgid ""
@@ -2788,7 +2785,7 @@ msgstr "在容器开始检查它的健康之前要等待多长时间。"
 
 #: app/views/edit/deployment-config.html:100
 msgid "How long to wait for a pod to scale up before giving up."
-msgstr "在放弃之前，扩Pod的等待时间。"
+msgstr "Pod 成功启动之前的等待时间，超过此时间，认为Pod 启动失败"
 
 #: app/views/directives/_edit-probe.html:111
 msgid ""
@@ -4224,24 +4221,24 @@ msgstr "端口:"
 
 #: app/views/edit/deployment-config.html:260
 msgid "Post Lifecycle Hook"
-msgstr "Post生命周期钩"
+msgstr "后置生命周期触发器"
 
 #: app/views/directives/edit-lifecycle-hook.html:5
 msgid "Post hooks execute after the deployment strategy completes."
-msgstr "在部署策略完成之后，Post钩执行。"
+msgstr "在部署策略完成之后，执行后置生命周期触发器。"
 
 #: app/views/browse/_build-details.html:135
 #: app/views/browse/build-config.html:376 app/views/edit/build-config.html:596
 msgid "Post-Commit Hooks"
-msgstr "Post-Commit钩"
+msgstr "Post-Commit 触发器"
 
 #: app/views/edit/deployment-config.html:236
 msgid "Pre Lifecycle Hook"
-msgstr "前置周期前钩"
+msgstr "前置生命周期触发器"
 
 #: app/views/directives/edit-lifecycle-hook.html:3
 msgid "Pre hooks execute before the deployment begins."
-msgstr "在部署开始前，前置钩子执行。"
+msgstr "在开始部署前，执行前置生命周期触发器"
 
 #: app/views/directives/osc-routing.html:302
 msgid "Private Key"
@@ -5741,7 +5738,7 @@ msgstr ""
 msgid ""
 "The rolling strategy will wait for pods to pass their readiness check, scale "
 "down old components and then scale up."
-msgstr "滚动策略将等待Pod通过它们的准备检查，缩小旧组件，然后扩大新的。"
+msgstr "滚动更新策略将等待Pod 通过Readiness 健康检查，然后再停掉旧实例，启动新实例。"
 
 #: app/views/browse/route.html:61 app/views/browse/routes.html:70
 #: app/views/directives/traffic-table.html:46
@@ -7511,7 +7508,7 @@ msgid ""
 "name}}</strong> has been deleted since you started editing it."
 msgstr ""
 "{{updated.resource.kind | humanizeKind | upperFirst}} <strong>{{resource."
-"metadata.name}}</strong>已经被删除，在你开始编辑它之后。"
+"metadata.name}}</strong>已经被删除，在你开始编辑它之前。"
 
 #: app/views/edit/yaml.html:22
 msgid ""
@@ -7519,7 +7516,7 @@ msgid ""
 "name}}</strong> has changed since you started editing it."
 msgstr ""
 "{{resource.kind | humanizeKind | upperFirst}} <strong>{{resource.metadata."
-"name}}</strong>已经被删除，在你开始编辑它之后。"
+"name}}</strong>已经被删除，在你开始编辑它之前。"
 
 #: app/views/modals/confirm-replace.html:4
 msgid "{{resourceKind}} '<strong>{{resourceName}}</strong>' already exists"
