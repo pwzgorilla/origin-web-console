@@ -1323,7 +1323,7 @@ msgstr "构建配置{{buildConfig.metadata.name}}。"
 msgid ""
 "Build hooks allow you to run commands at the end of the build to verify the "
 "image."
-msgstr "构建钩子允许您在构建结束时运行命令来验证镜像。"
+msgstr "构建触发器允许您在构建结束时运行命令来验证镜像。"
 
 #: app/views/_pod-template-container.html:39
 msgid "Build:"
@@ -2460,7 +2460,7 @@ msgstr ""
 
 #: app/views/directives/edit-lifecycle-hook.html:62
 msgid "Environment variables to supply to the hook pod's container."
-msgstr "将环境变量提供给钩子容器的容器。"
+msgstr "将环境变量提供给触发器容器的容器。"
 
 #: app/views/overview/_notification-icon.html:13
 msgid "Errors"
@@ -2531,7 +2531,7 @@ msgstr "通过消息服务器促进应用程序和分布式进程之间的通信
 
 #: app/views/directives/edit-lifecycle-hook.html:123
 msgid "Fail the deployment if the hook fails."
-msgstr "如果钩子失败，则部署会失败。"
+msgstr "如果触发器失败，则部署会失败。"
 
 #: app/scripts/constants.js:57
 msgid "Failed"
@@ -2757,7 +2757,7 @@ msgstr "钩类型"
 
 #: app/views/browse/deployment-config.html:284
 msgid "Hooks"
-msgstr "钩子"
+msgstr "触发器"
 
 #: app/views/modals/delete-resource.html:76
 msgid ""
@@ -2825,8 +2825,7 @@ msgid ""
 "If another storage class is not chosen, the default storage class "
 "<var>{{defaultStorageClass.metadata.name}}</var> will be used."
 msgstr ""
-"如果另一个存储类是没有选择,默认存储类<var>{{defaultStorageClass.metadata."
-"name}}</var>将使用。"
+"如果没有选择存储类，系统将使用默认存储类<var>{{defaultStorageClass.metadata.name}}</var>
 
 #: app/views/directives/osc-routing-service.html:32
 msgid ""
@@ -2884,7 +2883,7 @@ msgstr "忽略"
 
 #: app/views/directives/edit-lifecycle-hook.html:124
 msgid "Ignore hook failures and continue the deployment."
-msgstr "忽略钩子故障并继续部署。"
+msgstr "忽略触发器故障并继续部署。"
 
 #: app/views/_pod-template-container.html:18
 #: app/views/browse/deployment-config.html:174 app/views/deployments.html:103
@@ -3270,7 +3269,7 @@ msgstr "列出"
 
 #: app/views/directives/edit-lifecycle-hook.html:75
 msgid "List of named volumes to copy to the hook pod."
-msgstr "将命名卷的列表复制到钩子pod。"
+msgstr "将命名卷的列表复制到触发器pod。"
 
 #: app/views/edit/health-checks.html:41
 msgid "Liveness Probe"
@@ -3526,13 +3525,13 @@ msgstr "监控"
 #: app/views/directives/deployment-metrics.html:41
 #: app/views/directives/pod-metrics.html:41
 msgid "Metrics are not available."
-msgstr "指标不可用。"
+msgstr "监控不可用。"
 
 #: app/views/edit/autoscaler.html:30
 msgid ""
 "Metrics might not be configured by your cluster administrator. Metrics are "
 "required for autoscaling."
-msgstr "集群管理员可能未配置指标。自动扩缩需要使用指标。"
+msgstr "集群管理员可能未配置监控。自动扩缩需要使用监控。"
 
 #: app/views/edit/deployment-config.html:248
 msgid "Mid Lifecycle Hook"
@@ -3663,11 +3662,11 @@ msgstr "必须是一个数字。"
 
 #: app/views/directives/osc-persistent-volume-claim.html:174
 msgid "Must be a positive number."
-msgstr "一定是正数。"
+msgstr "必须是正数。"
 
 #: app/views/directives/osc-routing-service.html:59
 msgid "Must be a whole number greater than or equal to 0."
-msgstr "一定是大于等于0的整数。"
+msgstr "必须是大于等于0的整数。"
 
 #: app/views/directives/_edit-probe.html:121
 #: app/views/directives/_edit-probe.html:89
@@ -3675,7 +3674,7 @@ msgstr "一定是大于等于0的整数。"
 #: app/views/edit/deployment-config.html:145
 #: app/views/edit/deployment-config.html:177
 msgid "Must be a whole number."
-msgstr "一定是一个整数。"
+msgstr "必须是一个整数。"
 
 #: app/views/projects.html:25
 msgid "My Projects"
@@ -3830,7 +3829,7 @@ msgstr "这个镜像没有任何层信息。"
 #: app/views/directives/deployment-metrics.html:34
 #: app/views/directives/pod-metrics.html:36
 msgid "No metrics to display."
-msgstr "没有指标显示。"
+msgstr "没有监控显示。"
 
 #: app/scripts/controllers/storage.js:62
 msgid "No persistent volume claims to show"
@@ -4592,11 +4591,11 @@ msgstr "重试"
 
 #: app/views/directives/lifecycle-hook.html:18
 msgid "Retry the hook until it succeeds"
-msgstr "重试钩子，直到它成功"
+msgstr "重试触发器，直到它成功"
 
 #: app/views/directives/edit-lifecycle-hook.html:122
 msgid "Retry the hook until it succeeds."
-msgstr "重试钩子，直到它成功。"
+msgstr "重试触发器，直到它成功。"
 
 #: app/views/util/error.html:17
 msgid "Return to the <a href=\"\" ng-click=\"reloadConsole()\">console</a>."
@@ -4696,7 +4695,7 @@ msgstr "运行一个构建和部署:"
 
 #: app/views/edit/build-config.html:604
 msgid "Run build hooks after image is built"
-msgstr "在构建镜像之后运行构建钩子"
+msgstr "在构建镜像之后运行构建触发器"
 
 #: app/views/edit/build-config.html:575
 msgid "Run policy type"
@@ -7582,7 +7581,7 @@ msgstr "{{trigger.message}} 为了 {{trigger.imageChangeBuild.fromRef.name}}"
 
 #: app/views/directives/lifecycle-hook.html:2
 msgid "{{type | upperFirst}} Hook"
-msgstr "{{type | upperFirst}}钩子"
+msgstr "{{type | upperFirst}}触发器"
 
 #: app/views/modals/delete-resource.html:34
 msgid "{{typeDisplayName || (kind | humanizeKind)}} to delete"
