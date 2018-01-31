@@ -79,6 +79,8 @@ angular.module('openshiftConsole')
         var select = $elem.find('.selectpicker');
         var options = [];
 
+        var dmFilterKeyword = window.DMOS_OPENSHIFT_PROJECTNAMES.split(",");
+
         var updateOptions = function() {
           var project = $scope.project || {};
           $scope.context = {
@@ -125,7 +127,14 @@ angular.module('openshiftConsole')
 
 
         DataService.list("projects", $scope, function(items) {
+          var tmpProjects = {};
           projects = items.by("metadata.name");
+          Object.keys(projects).forEach(function(name) {
+            if (dmFilterKeyword.indexOf(name) < 0) {
+              tmpProjects[name] = projects[name];
+            }
+          });
+          projects = tmpProjects;
           updateOptions();
         });
 

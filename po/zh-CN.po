@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2018-01-26 20:02+0800\n"
+"PO-Revision-Date: 2018-01-31 18:07+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh-CN\n"
@@ -94,6 +94,10 @@ msgstr "绑定创建这个包含应用程序使用服务的必要信息的私密
 #: app/views/util/oauth.html:14 app/views/util/oauth.html:22
 msgid "Cancel"
 msgstr "取消"
+
+#: src/services/redirectLoginService.js:205
+msgid "Client state could not be verified"
+msgstr "客户端状态无法验证"
 
 #: src/components/toast-notifications/toast-notifications.html:7
 #: app/views/_alerts.html:13 app/views/modals/debug-terminal.html:58
@@ -227,7 +231,7 @@ msgstr "名称"
 #: app/views/directives/create-secret.html:39
 #: app/views/directives/edit-config-map.html:33
 #: app/views/directives/osc-autoscaling.html:28
-#: app/views/directives/osc-persistent-volume-claim.html:80
+#: app/views/directives/osc-persistent-volume-claim.html:79
 msgid "Name is required."
 msgstr "名称是必需的。"
 
@@ -236,7 +240,8 @@ msgid ""
 "Name must consist of lower-case letters, numbers, periods, and hyphens. It "
 "must start and end with a letter or a number."
 msgstr ""
-"主机名必须由小写字母，数字，英文句号（.）和连字符(-)组成并且开头和结尾必须是数字或者字母。"
+"主机名必须由小写字母，数字，英文句号（.）和连字符(-)组成并且开头和结尾必须是"
+"数字或者字母。"
 
 #: src/components/create-project/createProject.html:33
 msgid "Name must have at least two characters."
@@ -380,7 +385,7 @@ msgstr "(自动扩缩)"
 msgid "(bare host directory volume)"
 msgstr "(裸机目录卷)"
 
-#: app/views/directives/osc-persistent-volume-claim.html:120
+#: app/views/directives/osc-persistent-volume-claim.html:119
 msgid "(cannot be changed)"
 msgstr "(不能修改)"
 
@@ -543,7 +548,7 @@ msgid ""
 "A centralized authentication server for users to log in, log out, register, "
 "and manage user accounts for applications and RESTful web services."
 msgstr ""
-"集中式认证服务器，用于用户登录，注销和管理应用程序和RESTful Web服务的用户帐"
+"集中式认证服务器，用于用户登录，注销和管理应用程序和RESTful Web服务的用户账"
 "户。"
 
 #: app/views/_cannot-create-project.html:1
@@ -634,7 +639,7 @@ msgstr "项目中水平pod自动扩展器的唯一名称。"
 msgid "A unique name for the route within the project."
 msgstr "项目中路由的唯一名称。"
 
-#: app/views/directives/osc-persistent-volume-claim.html:77
+#: app/views/directives/osc-persistent-volume-claim.html:76
 msgid "A unique name for the storage claim within the project."
 msgstr "项目中存储声明的唯一名称。"
 
@@ -658,7 +663,7 @@ msgstr ""
 "一个有效的环境变量名是由 字母数字(A-z和0-9) 组成的字符串，开头的字母可能包含"
 "下划线。"
 
-#: app/views/directives/osc-persistent-volume-claim.html:217
+#: app/views/directives/osc-persistent-volume-claim.html:216
 msgid ""
 "A valid label name is an alphanumeric (a-z and 0-9) string beginning with a "
 "letter that may contain underscores and dashes."
@@ -694,8 +699,8 @@ msgid ""
 "A domain is a sequence of names separated by the '.' character with a "
 "maximum length of 253 characters."
 msgstr ""
-"有效的对象标签具可以是域名或者名称，其名称是字母数字（az和0-9）字符串，最大长度"
-"为63个字符，\" - \"字符允许除第一个或最后一个字符以外的任何位置。 域名是"
+"有效的对象标签具可以是域名或者名称，其名称是字母数字（az和0-9）字符串，最大长"
+"度为63个字符，\" - \"字符允许除第一个或最后一个字符以外的任何位置。 域名是"
 "由'.'分隔的名称序列。 字符最大长度为253个字符。"
 
 #: app/views/directives/replicas.html:40
@@ -723,7 +728,7 @@ msgstr "关于计算资源"
 msgid "About {{aboutTitle}}"
 msgstr "关于{{aboutTitle}}"
 
-#: app/views/directives/osc-persistent-volume-claim.html:97
+#: app/views/directives/osc-persistent-volume-claim.html:96
 msgid "Access Mode"
 msgstr "访问模式"
 
@@ -859,7 +864,7 @@ msgid "Add Item"
 msgstr "添加项"
 
 #: app/views/directives/label-editor.html:36
-#: app/views/directives/osc-persistent-volume-claim.html:218
+#: app/views/directives/osc-persistent-volume-claim.html:217
 msgid "Add Label"
 msgstr "新建标签"
 
@@ -936,8 +941,8 @@ msgid ""
 "Add values from a config map or secret as volume. This will make the data "
 "available as files for {{kind | humanizeKind}} {{name}}"
 msgstr ""
-"从配置映集合私密凭证添加数据作为挂载卷。 这将使数据可用作{{kind | humanizeKind | "
-"translate}}{{name}}的文件"
+"从配置映集合私密凭证添加数据作为挂载卷。 这将使数据可用作{{kind | "
+"humanizeKind | translate}}{{name}}的文件"
 
 #: app/views/directives/edit-lifecycle-hook.html:131
 msgid "Add {{type | upperFirst}} Lifecycle Hook"
@@ -975,7 +980,7 @@ msgstr "影响至少有一个资源限制设置的Pod。 这些Pod没有尽力�
 msgid ""
 "After you login to your account you will get a list of projects that you can "
 "switch between:"
-msgstr "登录到您的帐户后，您将获得一个可以自由切换的项目列表："
+msgstr "登录到您的账户后，您将获得一个可以自由切换的项目列表："
 
 #: app/views/directives/pods-table.html:12 app/views/services.html:42
 #: app/views/storage.html:52
@@ -1104,8 +1109,8 @@ msgid ""
 "Are you sure you want to remove <strong><%- roleName %></strong> from "
 "<strong><%- subjectName %></strong> (you)?"
 msgstr ""
-"你确定要从 <strong><%- subjectName %></strong> 项目中删除<strong><%- roleName "
-"%></strong> 吗?"
+"你确定要从 <strong><%- subjectName %></strong> 项目中删除<strong><%- "
+"roleName %></strong> 吗?"
 
 #: app/scripts/controllers/membership.js:42
 msgid ""
@@ -1363,8 +1368,8 @@ msgid ""
 "When a currently running build completes, the next build that will run is "
 "the latest build created. Other queued builds will be cancelled."
 msgstr ""
-"由此构建配置触发的构建将在当前运行。 当当前运行的构建完成时，将运行的下一个构建"
-"是创建的最新版本。 其他排队的构建将被取消。"
+"由此构建配置触发的构建将在当前运行。 当当前运行的构建完成时，将运行的下一个构"
+"建是创建的最新版本。 其他排队的构建将被取消。"
 
 #: app/views/edit/build-config.html:588
 msgid ""
@@ -1430,7 +1435,8 @@ msgid ""
 "autoscalers, your cluster administrator must have properly configured "
 "cluster metrics."
 msgstr ""
-"CPU监控指标可能不可用。 为了使用水平pod自动，您的群集管理员必须具正确配置集群监控"
+"CPU监控指标可能不可用。 为了使用水平pod自动，您的群集管理员必须具正确配置集群"
+"监控"
 
 #: app/views/_pod-template-container.html:139
 msgid "CPU:"
@@ -1440,7 +1446,7 @@ msgstr "CPU:"
 msgid "Can't be greater than {{limitRangeMax | usageWithUnits : type}}."
 msgstr "不能超过 {{limitRangeMax | usageWithUnits : type}}。"
 
-#: app/views/directives/osc-persistent-volume-claim.html:184
+#: app/views/directives/osc-persistent-volume-claim.html:183
 msgid "Can't be greater than {{limits.max | usageWithUnits : 'storage'}}."
 msgstr "不能超过 {{limits.max | usageWithUnits : 'storage'}}。"
 
@@ -1448,7 +1454,7 @@ msgstr "不能超过 {{limits.max | usageWithUnits : 'storage'}}。"
 msgid "Can't be less than {{limitRangeMin | usageWithUnits : type}}."
 msgstr "不能少于 {{limitRangeMin | usageWithUnits : type}}。"
 
-#: app/views/directives/osc-persistent-volume-claim.html:179
+#: app/views/directives/osc-persistent-volume-claim.html:178
 msgid "Can't be less than {{limits.min | usageWithUnits : 'storage'}}."
 msgstr "不能少于 {{limits.min | usageWithUnits : 'storage'}}。"
 
@@ -1459,7 +1465,7 @@ msgstr "不能多于 {{hostnameMaxLength}} 个字符。"
 #: app/views/directives/create-secret.html:42
 #: app/views/directives/edit-config-map.html:38
 #: app/views/directives/osc-autoscaling.html:35
-#: app/views/directives/osc-persistent-volume-claim.html:90
+#: app/views/directives/osc-persistent-volume-claim.html:89
 #: app/views/directives/osc-routing.html:33
 msgid "Can't be longer than {{nameValidation.maxlength}} characters."
 msgstr "不能多于 {{nameValidation.maxlength}} 个字符。"
@@ -2137,7 +2143,7 @@ msgstr "部署:"
 msgid "Deployments"
 msgstr "部署"
 
-#: app/views/directives/osc-persistent-volume-claim.html:159
+#: app/views/directives/osc-persistent-volume-claim.html:158
 msgid "Desired storage capacity."
 msgstr "所需的存储容量。"
 
@@ -2376,7 +2382,7 @@ msgstr "电子邮件必须以<var>用户@域名</var>的形式出现。"
 msgid "End of log"
 msgstr "日志的结束"
 
-#: app/views/directives/osc-persistent-volume-claim.html:210
+#: app/views/directives/osc-persistent-volume-claim.html:209
 msgid "Enter a label and value to use for your storage."
 msgstr "输入用于存储的标签和值。"
 
@@ -3129,7 +3135,7 @@ msgstr "种类和名称"
 msgid "Kubernetes Master:"
 msgstr "Kubernetes Master:"
 
-#: app/views/directives/osc-persistent-volume-claim.html:208
+#: app/views/directives/osc-persistent-volume-claim.html:207
 msgid "Label Selector"
 msgstr "标签选择器"
 
@@ -3262,7 +3268,7 @@ msgstr "限制本项目中的资源使用。"
 
 #: app/views/directives/create-secret.html:297
 msgid "Link secret to a service account."
-msgstr "将私密凭证链接到一个服务帐户。"
+msgstr "将私密凭证链接到一个服务账户。"
 
 #: app/views/overview.html:85
 msgid "List by"
@@ -3436,7 +3442,7 @@ msgstr ""
 "最大pod数量必须大于或等于<span ng-if=\"autoscaling.minReplicas\">最小pod数量"
 "</span>{{autoscaling.minReplicas || 1}."
 
-#: app/views/directives/osc-persistent-volume-claim.html:134
+#: app/views/directives/osc-persistent-volume-claim.html:133
 msgid "Max:"
 msgstr "最大:"
 
@@ -3574,7 +3580,7 @@ msgstr "最小Pod数必须是一个整数。"
 msgid "Min pods must be greater than or equal to 1."
 msgstr "最小Pod数必须大于或等于1。"
 
-#: app/views/directives/osc-persistent-volume-claim.html:131
+#: app/views/directives/osc-persistent-volume-claim.html:130
 msgid "Min:"
 msgstr "最小:"
 
@@ -3653,7 +3659,7 @@ msgstr "必须是一个非负的整数或百分比。"
 #: app/views/_compute-resource.html:30
 #: app/views/directives/_edit-probe.html:115
 #: app/views/directives/_edit-probe.html:83
-#: app/views/directives/osc-persistent-volume-claim.html:169
+#: app/views/directives/osc-persistent-volume-claim.html:168
 #: app/views/directives/osc-routing-service.html:54
 #: app/views/edit/deployment-config.html:104
 #: app/views/edit/deployment-config.html:139
@@ -3661,7 +3667,7 @@ msgstr "必须是一个非负的整数或百分比。"
 msgid "Must be a number."
 msgstr "必须是一个数字。"
 
-#: app/views/directives/osc-persistent-volume-claim.html:174
+#: app/views/directives/osc-persistent-volume-claim.html:173
 msgid "Must be a positive number."
 msgstr "一定是正数。"
 
@@ -4145,7 +4151,7 @@ msgstr ""
 msgid "Perl"
 msgstr "Perl"
 
-#: app/views/directives/osc-persistent-volume-claim.html:111
+#: app/views/directives/osc-persistent-volume-claim.html:110
 msgid "Permissions to the mounted volume."
 msgstr "对挂载卷的权限。"
 
@@ -4311,7 +4317,7 @@ msgstr "达到配额限制。"
 msgid "Ratio"
 msgstr "比例"
 
-#: app/views/directives/osc-persistent-volume-claim.html:108
+#: app/views/directives/osc-persistent-volume-claim.html:107
 msgid "Read Only"
 msgstr "只读"
 
@@ -4484,7 +4490,7 @@ msgstr "删除{{type | upperFirst | translate}}生命周期钩"
 msgid ""
 "Removing a system role granted to a service account may cause unexpected "
 "behavior."
-msgstr "删除授予服务帐户的系统角色可能会导致意外的情况。"
+msgstr "删除授予服务账户的系统角色可能会导致意外的情况。"
 
 #: app/scripts/controllers/membership.js:34
 msgid ""
@@ -4864,7 +4870,7 @@ msgstr "选择一个角色"
 
 #: app/views/membership.html:217
 msgid "Select a service account"
-msgstr "选择一个服务帐户"
+msgstr "选择一个服务账户"
 
 #: app/views/directives/osc-persistent-volume-claim.html:18
 #: app/views/directives/osc-persistent-volume-claim.html:20
@@ -4935,7 +4941,7 @@ msgstr "服务"
 
 #: app/scripts/constants.js:43 app/views/directives/create-secret.html:304
 msgid "Service Account"
-msgstr "服务帐户"
+msgstr "服务账户"
 
 #: app/views/overview/_service-bindings.html:2
 msgid "Service Bindings"
@@ -4951,7 +4957,7 @@ msgstr "服务权重"
 
 #: app/views/membership.html:220
 msgid "Service account"
-msgstr "服务帐户"
+msgstr "服务账户"
 
 #: app/views/directives/deploy-image.html:17
 msgid ""
@@ -4959,14 +4965,14 @@ msgid ""
 "deploy images from <strong>{{istag.namespace}}</strong>. You can grant "
 "authority with the command:"
 msgstr ""
-"服务帐户<strong>默认</strong>将需要镜像拉取权限才能从<strong>{{istag."
+"服务账户<strong>默认</strong>将需要镜像拉取权限才能从<strong>{{istag."
 "namespace}}</strong>部署镜像。 您可以使用以下命令授予权限："
 
 #: app/scripts/services/membership/membership.js:57
 msgid ""
 "Service accounts provide a flexible way to control API access without "
 "sharing a regular user’s credentials."
-msgstr "服务帐户提供灵活的方法来控制API访问，而不是共享常规用户的认证。"
+msgstr "服务账户提供灵活的方法来控制API访问，而不是共享常规用户的认证。"
 
 #: app/views/directives/osc-routing-service.html:15
 msgid "Service to route to."
@@ -5011,7 +5017,7 @@ msgstr "在Secret中设置key{{entry.valueFrom.secretKeyRef.key}}"
 msgid "Severity"
 msgstr "严重程度"
 
-#: app/views/directives/osc-persistent-volume-claim.html:104
+#: app/views/directives/osc-persistent-volume-claim.html:103
 msgid "Shared Access"
 msgstr "共享访问"
 
@@ -5066,15 +5072,15 @@ msgstr ""
 msgid "Single Sign-On"
 msgstr "Single Sign-On"
 
-#: app/views/directives/osc-persistent-volume-claim.html:100
+#: app/views/directives/osc-persistent-volume-claim.html:99
 msgid "Single User"
 msgstr "单用户"
 
-#: app/views/directives/osc-persistent-volume-claim.html:126
+#: app/views/directives/osc-persistent-volume-claim.html:125
 msgid "Size"
 msgstr "大小"
 
-#: app/views/directives/osc-persistent-volume-claim.html:164
+#: app/views/directives/osc-persistent-volume-claim.html:163
 msgid "Size is required."
 msgstr "大小是必需的。"
 
@@ -5262,7 +5268,7 @@ msgid ""
 "storage."
 msgstr "已经达到了存储限额的限制。"
 
-#: app/views/directives/osc-persistent-volume-claim.html:190
+#: app/views/directives/osc-persistent-volume-claim.html:189
 msgid "Storage quota will be exceeded."
 msgstr "存储配额将会被超过。"
 
@@ -5750,7 +5756,8 @@ msgstr ""
 msgid ""
 "The rolling strategy will wait for pods to pass their readiness check, scale "
 "down old components and then scale up."
-msgstr "滚动更新策略将等待Pod 通过Readiness 健康检查，然后再停掉旧实例，启动新实例。"
+msgstr ""
+"滚动更新策略将等待Pod 通过Readiness 健康检查，然后再停掉旧实例，启动新实例。"
 
 #: app/views/browse/route.html:61 app/views/browse/routes.html:70
 #: app/views/directives/traffic-table.html:46
@@ -6278,7 +6285,7 @@ msgstr "通过拖拽、选择或粘贴从剪贴板上传文件。"
 msgid "Usage <small>Last 15 Minutes</small>"
 msgstr "使用<small>最后15分钟</small>"
 
-#: app/views/directives/osc-persistent-volume-claim.html:201
+#: app/views/directives/osc-persistent-volume-claim.html:200
 msgid "Use"
 msgstr "使用"
 
@@ -6425,7 +6432,7 @@ msgstr "查看管道运行"
 msgid "View Quota"
 msgstr "查看配额"
 
-#: app/views/directives/osc-persistent-volume-claim.html:190
+#: app/views/directives/osc-persistent-volume-claim.html:189
 #: app/views/directives/osc-persistent-volume-claim.html:7
 msgid "View Quota&nbsp;"
 msgstr "查看配额&nbsp;"
@@ -6554,7 +6561,7 @@ msgstr ""
 "<span ng-if=\"type === 'cpu'\">毫核</span><span ng-if=\"type === "
 "'memory'\">MiB</span>是什么?"
 
-#: app/views/directives/osc-persistent-volume-claim.html:195
+#: app/views/directives/osc-persistent-volume-claim.html:194
 msgid "What are GiB?"
 msgstr "GiB是什么?"
 
@@ -6630,7 +6637,7 @@ msgstr "您将以<code>{{confirmUser.metadata.name}}</code>登录。"
 msgid ""
 "You are currently logged in under the user account <strong>{{user.metadata."
 "name}}</strong>."
-msgstr "您目前正在使用用户帐户<strong>{{user.metadata.name}}</strong>登录。"
+msgstr "您目前正在使用用户账户<strong>{{user.metadata.name}}</strong>登录。"
 
 #: app/scripts/controllers/util/logout.js:39
 msgid "You are logged out. Return to the <a href=\"./\">console</a>."
@@ -6652,7 +6659,7 @@ msgid ""
 msgstr ""
 "您设置为使用示例git存储库。 如果您想修改源代码，请将<osc-git-link uri="
 "\"$ctrl.createdBuildConfig.spec.source.git.uri\">{{$ctrl.createdBuildConfig."
-"spec.source.git.uri}}</osc-git-link>仓库转储到DataMan OS-visible git帐户，并"
+"spec.source.git.uri}}</osc-git-link>仓库转储到DataMan OS-visible git账户，并"
 "<a href=\"{{$ctrl.createdBuildConfig | editResourceURL}}\">编辑"
 "<strong>{{$ctrl.createdBuildConfig.metadata.name}}</strong>构建配置</a>以指向"
 "您的分叉。"
@@ -7007,11 +7014,11 @@ msgstr "在项目"
 msgid "is"
 msgstr "是"
 
-#: app/views/directives/osc-persistent-volume-claim.html:214
+#: app/views/directives/osc-persistent-volume-claim.html:213
 msgid "label"
 msgstr "标签"
 
-#: app/views/directives/osc-persistent-volume-claim.html:202
+#: app/views/directives/osc-persistent-volume-claim.html:201
 msgid "label selectors"
 msgstr "标签选择器"
 
@@ -7236,7 +7243,7 @@ msgstr "私密凭证"
 
 #: app/scripts/constants.js:44
 msgid "service account"
-msgstr "服务帐户"
+msgstr "服务账户"
 
 #: app/views/edit/autoscaler.html:40
 msgid "set. Autoscaling will not work without a CPU"
@@ -7288,7 +7295,7 @@ msgstr "至"
 msgid "to ensure your application is running correctly."
 msgstr "来保证你的应用正常运行。"
 
-#: app/views/directives/osc-persistent-volume-claim.html:203
+#: app/views/directives/osc-persistent-volume-claim.html:202
 msgid "to request storage."
 msgstr "来请求存储."
 
@@ -7322,7 +7329,7 @@ msgid "using storage class {{pvc | storageClass}}"
 msgstr "使用存储类{{pvc | storageClass}}"
 
 #: app/views/create/fromimage.html:232 app/views/create/fromimage.html:288
-#: app/views/directives/osc-persistent-volume-claim.html:215
+#: app/views/directives/osc-persistent-volume-claim.html:214
 msgid "value"
 msgstr "值"
 
@@ -7470,7 +7477,7 @@ msgstr "{{hpaList.length}}个相关的水平Pod自动扩缩器"
 msgid "{{import.image.dockerImageLayers.length}} layers"
 msgstr "{{import.image.dockerImageLayers.length}}层"
 
-#: app/views/directives/osc-persistent-volume-claim.html:127
+#: app/views/directives/osc-persistent-volume-claim.html:126
 msgid ""
 "{{limits.min | usageWithUnits : 'storage'}} min to {{limits.max | "
 "usageWithUnits : 'storage'}} max"

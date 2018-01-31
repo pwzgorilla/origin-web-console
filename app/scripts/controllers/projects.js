@@ -32,6 +32,8 @@ angular.module('openshiftConsole')
       text: ''
     };
 
+    var dmFilterKeyword = window.DMOS_OPENSHIFT_PROJECTNAMES.split(",");
+
     var filterFields = [
       'metadata.name',
       'metadata.annotations["openshift.io/display-name"]',
@@ -119,6 +121,9 @@ angular.module('openshiftConsole')
     AuthService.withUser().then(function() {
       watches.push(DataService.watch("projects", $scope, function(projectData) {
         projects = _.toArray(projectData.by("metadata.name"));
+        projects = projects.filter(function(elem) {
+          return (dmFilterKeyword.indexOf(elem.metadata.name) < 0);
+        });
         $scope.loading = false;
         $scope.showGetStarted = _.isEmpty(projects);
         update();

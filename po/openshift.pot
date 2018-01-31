@@ -39,7 +39,7 @@ msgstr ""
 msgid "(bare host directory volume)"
 msgstr ""
 
-#: app/views/directives/osc-persistent-volume-claim.html:120
+#: app/views/directives/osc-persistent-volume-claim.html:119
 msgid "(cannot be changed)"
 msgstr ""
 
@@ -230,7 +230,7 @@ msgstr ""
 msgid "A unique name for the route within the project."
 msgstr ""
 
-#: app/views/directives/osc-persistent-volume-claim.html:77
+#: app/views/directives/osc-persistent-volume-claim.html:76
 msgid "A unique name for the storage claim within the project."
 msgstr ""
 
@@ -252,7 +252,7 @@ msgstr ""
 msgid "A valid environment variable name is an alphanumeric (a-z and 0-9) string beginning with a letter that may contain underscores."
 msgstr ""
 
-#: app/views/directives/osc-persistent-volume-claim.html:217
+#: app/views/directives/osc-persistent-volume-claim.html:216
 msgid "A valid label name is an alphanumeric (a-z and 0-9) string beginning with a letter that may contain underscores and dashes."
 msgstr ""
 
@@ -293,7 +293,7 @@ msgstr ""
 msgid "About {{aboutTitle}}"
 msgstr ""
 
-#: app/views/directives/osc-persistent-volume-claim.html:97
+#: app/views/directives/osc-persistent-volume-claim.html:96
 msgid "Access Mode"
 msgstr ""
 
@@ -447,7 +447,7 @@ msgid "Add Item"
 msgstr ""
 
 #: app/views/directives/label-editor.html:36
-#: app/views/directives/osc-persistent-volume-claim.html:218
+#: app/views/directives/osc-persistent-volume-claim.html:217
 msgid "Add Label"
 msgstr ""
 
@@ -968,7 +968,7 @@ msgstr ""
 msgid "Can't be greater than {{limitRangeMax | usageWithUnits : type}}."
 msgstr ""
 
-#: app/views/directives/osc-persistent-volume-claim.html:184
+#: app/views/directives/osc-persistent-volume-claim.html:183
 msgid "Can't be greater than {{limits.max | usageWithUnits : 'storage'}}."
 msgstr ""
 
@@ -976,7 +976,7 @@ msgstr ""
 msgid "Can't be less than {{limitRangeMin | usageWithUnits : type}}."
 msgstr ""
 
-#: app/views/directives/osc-persistent-volume-claim.html:179
+#: app/views/directives/osc-persistent-volume-claim.html:178
 msgid "Can't be less than {{limits.min | usageWithUnits : 'storage'}}."
 msgstr ""
 
@@ -987,7 +987,7 @@ msgstr ""
 #: app/views/directives/create-secret.html:42
 #: app/views/directives/edit-config-map.html:38
 #: app/views/directives/osc-autoscaling.html:35
-#: app/views/directives/osc-persistent-volume-claim.html:90
+#: app/views/directives/osc-persistent-volume-claim.html:89
 #: app/views/directives/osc-routing.html:33
 msgid "Can't be longer than {{nameValidation.maxlength}} characters."
 msgstr ""
@@ -1760,7 +1760,7 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
-#: app/views/directives/osc-persistent-volume-claim.html:159
+#: app/views/directives/osc-persistent-volume-claim.html:158
 msgid "Desired storage capacity."
 msgstr ""
 
@@ -2009,7 +2009,7 @@ msgstr ""
 msgid "End of log"
 msgstr ""
 
-#: app/views/directives/osc-persistent-volume-claim.html:210
+#: app/views/directives/osc-persistent-volume-claim.html:209
 msgid "Enter a label and value to use for your storage."
 msgstr ""
 
@@ -2694,7 +2694,7 @@ msgstr ""
 msgid "Kubernetes Master:"
 msgstr ""
 
-#: app/views/directives/osc-persistent-volume-claim.html:208
+#: app/views/directives/osc-persistent-volume-claim.html:207
 msgid "Label Selector"
 msgstr ""
 
@@ -3013,7 +3013,7 @@ msgstr ""
 msgid "Max pods must be greater than or equal to <span ng-if=\"autoscaling.minReplicas\">min pods, which is</span> {{autoscaling.minReplicas || 1}."
 msgstr ""
 
-#: app/views/directives/osc-persistent-volume-claim.html:134
+#: app/views/directives/osc-persistent-volume-claim.html:133
 msgid "Max:"
 msgstr ""
 
@@ -3147,7 +3147,7 @@ msgstr ""
 msgid "Min pods must be greater than or equal to 1."
 msgstr ""
 
-#: app/views/directives/osc-persistent-volume-claim.html:131
+#: app/views/directives/osc-persistent-volume-claim.html:130
 msgid "Min:"
 msgstr ""
 
@@ -3223,7 +3223,7 @@ msgstr ""
 #: app/views/_compute-resource.html:30
 #: app/views/directives/_edit-probe.html:115
 #: app/views/directives/_edit-probe.html:83
-#: app/views/directives/osc-persistent-volume-claim.html:169
+#: app/views/directives/osc-persistent-volume-claim.html:168
 #: app/views/directives/osc-routing-service.html:54
 #: app/views/edit/deployment-config.html:104
 #: app/views/edit/deployment-config.html:139
@@ -3231,7 +3231,7 @@ msgstr ""
 msgid "Must be a number."
 msgstr ""
 
-#: app/views/directives/osc-persistent-volume-claim.html:174
+#: app/views/directives/osc-persistent-volume-claim.html:173
 msgid "Must be a positive number."
 msgstr ""
 
@@ -3303,7 +3303,7 @@ msgstr ""
 #: app/views/directives/create-secret.html:39
 #: app/views/directives/edit-config-map.html:33
 #: app/views/directives/osc-autoscaling.html:28
-#: app/views/directives/osc-persistent-volume-claim.html:80
+#: app/views/directives/osc-persistent-volume-claim.html:79
 msgid "Name is required."
 msgstr ""
 
@@ -3739,7 +3739,7 @@ msgstr ""
 msgid "Perl"
 msgstr ""
 
-#: app/views/directives/osc-persistent-volume-claim.html:111
+#: app/views/directives/osc-persistent-volume-claim.html:110
 msgid "Permissions to the mounted volume."
 msgstr ""
 
@@ -3911,7 +3911,7 @@ msgstr ""
 msgid "Ratio"
 msgstr ""
 
-#: app/views/directives/osc-persistent-volume-claim.html:108
+#: app/views/directives/osc-persistent-volume-claim.html:107
 msgid "Read Only"
 msgstr ""
 
@@ -4594,7 +4594,7 @@ msgstr ""
 msgid "Severity"
 msgstr ""
 
-#: app/views/directives/osc-persistent-volume-claim.html:104
+#: app/views/directives/osc-persistent-volume-claim.html:103
 msgid "Shared Access"
 msgstr ""
 
@@ -4643,15 +4643,15 @@ msgstr ""
 msgid "Single Sign-On"
 msgstr ""
 
-#: app/views/directives/osc-persistent-volume-claim.html:100
+#: app/views/directives/osc-persistent-volume-claim.html:99
 msgid "Single User"
 msgstr ""
 
-#: app/views/directives/osc-persistent-volume-claim.html:126
+#: app/views/directives/osc-persistent-volume-claim.html:125
 msgid "Size"
 msgstr ""
 
-#: app/views/directives/osc-persistent-volume-claim.html:164
+#: app/views/directives/osc-persistent-volume-claim.html:163
 msgid "Size is required."
 msgstr ""
 
@@ -4840,7 +4840,7 @@ msgstr ""
 msgid "Storage quota limit has been reached. You will not be able to create any new storage."
 msgstr ""
 
-#: app/views/directives/osc-persistent-volume-claim.html:190
+#: app/views/directives/osc-persistent-volume-claim.html:189
 msgid "Storage quota will be exceeded."
 msgstr ""
 
@@ -5682,7 +5682,7 @@ msgstr ""
 msgid "Usage <small>Last 15 Minutes</small>"
 msgstr ""
 
-#: app/views/directives/osc-persistent-volume-claim.html:201
+#: app/views/directives/osc-persistent-volume-claim.html:200
 msgid "Use"
 msgstr ""
 
@@ -5828,7 +5828,7 @@ msgstr ""
 msgid "View Quota"
 msgstr ""
 
-#: app/views/directives/osc-persistent-volume-claim.html:190
+#: app/views/directives/osc-persistent-volume-claim.html:189
 #: app/views/directives/osc-persistent-volume-claim.html:7
 msgid "View Quota&nbsp;"
 msgstr ""
@@ -5947,7 +5947,7 @@ msgstr ""
 msgid "What are <span ng-if=\"type === 'cpu'\">millicores</span><span ng-if=\"type === 'memory'\">MiB</span>?"
 msgstr ""
 
-#: app/views/directives/osc-persistent-volume-claim.html:195
+#: app/views/directives/osc-persistent-volume-claim.html:194
 msgid "What are GiB?"
 msgstr ""
 
@@ -6341,11 +6341,11 @@ msgstr ""
 msgid "is"
 msgstr ""
 
-#: app/views/directives/osc-persistent-volume-claim.html:214
+#: app/views/directives/osc-persistent-volume-claim.html:213
 msgid "label"
 msgstr ""
 
-#: app/views/directives/osc-persistent-volume-claim.html:202
+#: app/views/directives/osc-persistent-volume-claim.html:201
 msgid "label selectors"
 msgstr ""
 
@@ -6630,7 +6630,7 @@ msgstr ""
 msgid "to ensure your application is running correctly."
 msgstr ""
 
-#: app/views/directives/osc-persistent-volume-claim.html:203
+#: app/views/directives/osc-persistent-volume-claim.html:202
 msgid "to request storage."
 msgstr ""
 
@@ -6668,7 +6668,7 @@ msgstr ""
 
 #: app/views/create/fromimage.html:232
 #: app/views/create/fromimage.html:288
-#: app/views/directives/osc-persistent-volume-claim.html:215
+#: app/views/directives/osc-persistent-volume-claim.html:214
 msgid "value"
 msgstr ""
 
@@ -6789,7 +6789,7 @@ msgstr ""
 msgid "{{import.image.dockerImageLayers.length}} layers"
 msgstr ""
 
-#: app/views/directives/osc-persistent-volume-claim.html:127
+#: app/views/directives/osc-persistent-volume-claim.html:126
 msgid "{{limits.min | usageWithUnits : 'storage'}} min to {{limits.max | usageWithUnits : 'storage'}} max"
 msgstr ""
 

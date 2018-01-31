@@ -13,6 +13,8 @@ angular.module('openshiftConsole')
     $scope.alerts = {};
     $scope.selected = {};
 
+    var dmFilterKeyword = window.DMOS_OPENSHIFT_PROJECTNAMES.split(",");
+
     var alertInvalidImageStream = function(imageStream) {
       $scope.alerts.invalidImageStream = {
         type: "error",
@@ -161,6 +163,9 @@ angular.module('openshiftConsole')
       .then(function(items) {
         $scope.loaded = true;
         $scope.projects = $filter('orderByDisplayName')(items.by("metadata.name"));
+        $scope.projects = $scope.projects.filter(function(elem) {
+          return (dmFilterKeyword.indexOf(elem.metadata.name) < 0);
+        });
         $scope.noProjects = (_.isEmpty($scope.projects));
       });
 

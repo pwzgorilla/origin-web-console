@@ -12591,15 +12591,6 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "View Membership\n" +
     "</a>\n" +
     "</li>\n" +
-    "<li role=\"menuitem\">\n" +
-    "<a ng-href=\"project/{{project.metadata.name}}/edit?then=./\" translate>\n" +
-    "Edit Project\n" +
-    "</a>\n" +
-    "</li>\n" +
-    "<li role=\"menuitem\">\n" +
-    "<delete-link kind=\"Project\" label=\"{{'Delete Project'|translate}}\" resource-name=\"{{project.metadata.name}}\" project-name=\"{{project.metadata.name}}\" display-name=\"{{(project | displayName)}}\" type-name-to-confirm=\"true\" stay-on-current-page=\"true\" alerts=\"alerts\" translate>Delete\n" +
-    "</delete-link>\n" +
-    "</li>\n" +
     "</ul>\n" +
     "</div>\n" +
     "</div>\n" +
