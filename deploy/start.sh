@@ -60,6 +60,14 @@ else
 sed -i "s#{{DMOS_ADDRESS}}##g" $JS_CONF_FILE
 fi
 
+echo DMOS_OPENSHIFT_PROJECTNAMES
+if [ $DMOS_OPENSHIFT_PROJECTNAMES ]
+then
+sed -i "s#{{DMOS_OPENSHIFT_PROJECTNAMES}}#$DMOS_OPENSHIFT_PROJECTNAMES#g" $JS_CONF_FILE
+else
+sed -i "s#{{DMOS_OPENSHIFT_PROJECTNAMES}}##g" $JS_CONF_FILE
+fi
+
 echo "Start"
 sh -c "nginx -g \"daemon off;\""
 
