@@ -2831,7 +2831,7 @@ msgstr ""
 msgid ""
 "If more service ports are added later, the route will also direct traffic to "
 "them."
-msgstr "如果稍后添加更多的服务端口，路由也会将流量引导到它们。"
+msgstr "后面添加的服务，路由也会将流量转发给他们。"
 
 #: app/views/directives/osc-routing.html:62
 msgid "If not specified, a hostname is generated."
@@ -2848,8 +2848,8 @@ msgid ""
 "specified amount; this represents the max burst for the compute resource "
 "during execution."
 msgstr ""
-"如果指定，计算资源必须具有非零的请求和限制，其中limit除以请求小于或等于指定的"
-"数量; 这表示执行期间计算资源的最大突发量。"
+"如果指定，计算资源必须具有非零的请求和限制，其中限制除以请求小于或等于指定的数量;" 
+"这表示执行期间最大的计算资源可用量。"
 
 #: app/views/util/oauth.html:20
 msgid ""
@@ -2895,8 +2895,8 @@ msgid ""
 "Image <strong>{{import.name}}</strong> runs as the <strong>root</strong> "
 "user which might not be permitted by your cluster administrator."
 msgstr ""
-"镜像 <strong>{{import.name}}</strong> 执行时是作为<strong>root</strong> 用"
-"户，您的集群管理员可能不会允许此行为。"
+"镜像 <strong>{{import.name}}</strong> 是以<strong>root</strong> 用"
+"户运行的，您的集群管理员可能不会允许此行为。"
 
 #: app/views/edit/build-config.html:301
 msgid "Image Configuration"
@@ -2914,7 +2914,7 @@ msgstr "镜像仓库认证"
 
 #: app/views/directives/create-secret.html:182
 msgid "Image Registry Server Address"
-msgstr "镜像注册表服务器地址"
+msgstr "镜像仓库地址"
 
 #: app/scripts/directives/createSecret.js:28
 msgid "Image Secret"
@@ -2926,7 +2926,7 @@ msgstr "镜像来源"
 
 #: app/views/browse/build-config.html:283
 msgid "Image Sources:"
-msgstr "镜像地址:"
+msgstr "镜像来源:"
 
 #: app/views/directives/istag-select.html:16
 #: app/views/directives/istag-select.html:18
@@ -2965,11 +2965,11 @@ msgstr "镜像名称或拉取标志"
 
 #: app/views/directives/create-secret.html:196
 msgid "Image registry server address is required."
-msgstr "镜像注册服务器地址是必需的。"
+msgstr "镜像仓库地址是必需的。"
 
 #: app/views/newfromtemplate.html:33
 msgid "Image value set"
-msgstr "镜像值集合"
+msgstr "镜像集合"
 
 #: app/scripts/constants.js:280 app/views/edit/deployment-config.html:282
 #: app/views/newfromtemplate.html:25
@@ -3032,7 +3032,7 @@ msgstr "间隔:"
 #: app/views/modals/delete-resource.html:65
 msgid ""
 "It is recommended you delete the autoscaler with the resource it scales."
-msgstr "此资源具有与之相关联的自动扩缩器。"
+msgstr "建议您删除与此资源相关联的自动扩缩器。"
 
 #: app/views/modals/delete-resource.html:69
 msgid ""
@@ -3143,7 +3143,7 @@ msgstr "标签"
 msgid ""
 "Labels are used to organize, group, or select objects and resources, such as "
 "pods."
-msgstr "标签用于组织、组或选择对象和资源，例如Pods。"
+msgstr "标签用于组织或给资源对象分组，例如Pods。"
 
 #: app/views/create-route.html:33
 msgid "Labels for this route."
@@ -3491,7 +3491,7 @@ msgid ""
 "<var>MiB</var>, <var>GiB</var>, and <var>TiB</var> or decimal units like "
 "<var>kB</var>, <var>MB</var>, <var>GB</var>, and&nbsp;<var>TB</var>."
 msgstr ""
-"存储器和存储器以二进制单位测量，例如<var>KiB</var>、<var>MiB</var>、"
+"存储器以二进制单位测量，例如<var>KiB</var>、<var>MiB</var>、"
 "<var>GiB</var>和<var>TiB</var>，或十进制单位，如<var>kB</var>, <var>MB</"
 "var>, <var>GB</var>, 和&nbsp;<var>TB</var>。"
 
@@ -3807,7 +3807,7 @@ msgstr "没有镜像流可以显示"
 
 #: app/views/catalog/category-content.html:6
 msgid "No images or templates are loaded for the category {{category.label}}."
-msgstr "没有为分类{{category.label}}加载镜像或模板。"
+msgstr "分类为 {{category.label}} 的镜像或模板没有被加载。"
 
 #: app/views/catalog/catalog.html:6
 msgid ""
@@ -3815,8 +3815,8 @@ msgid ""
 "<code>DataMan OS</code> namespace. An image or template is required to add "
 "content."
 msgstr ""
-"没有为此项目或共享的<code>DataMan OS</code>命名空间加载镜像或模板。 需要镜像"
-"或模板来添加内容。"
+"没有为共享项目<code>DataMan OS</code>加载镜像或模板, "
+"需要添加镜像或模板内容。"
 
 #: app/views/catalog/catalog.html:4 app/views/catalog/category-content.html:4
 msgid "No images or templates."
@@ -3841,7 +3841,7 @@ msgstr "没有持久的卷被声明。"
 
 #: app/views/browse/build-config.html:108 app/views/pipelines.html:87
 msgid "No pipeline builds have run for {{buildConfigName}}."
-msgstr "没有任何管道构建用于构建{{buildConfigName}}。"
+msgstr "没有为{{buildConfigName}} 运行任何管道构建。" 
 
 #: app/views/overview.html:291
 msgid "No pipeline runs."
@@ -3889,7 +3889,7 @@ msgstr "没有为这个构建配置定义任何源输入。"
 
 #: app/views/directives/_build-pipeline-expanded.html:28
 msgid "No stages have started."
-msgstr "没有阶段已开始。"
+msgstr "没有开始的阶段。"
 
 #: app/views/browse/stateful-sets.html:51
 msgid "No stateful sets to show"
@@ -3938,8 +3938,7 @@ msgid ""
 "Only the previous {{options.tailLines || 5000}} log lines and new log "
 "messages will be displayed because of the large log size."
 msgstr ""
-"由于日志较多，因此只会显示前面的{{options.tailLines || 5000}}条日志行和新日志"
-"消息。"
+"由于日志较多，因此只显示前面的{{options.tailLines || 5000}}条日志。"
 
 #: app/views/browse/pod.html:142 app/views/browse/pod.html:200
 msgid "Open Fullscreen Terminal"
@@ -3963,7 +3962,7 @@ msgstr "可选的分支、标记或提交。"
 
 #: app/views/edit/build-config.html:267
 msgid "Optional path to the Jenkinsfile relative to the context dir."
-msgstr "Jenkinsfile相对于上下文目录的可选路径。"
+msgstr "相对Jenkins于上下文目录的可选路径。"
 
 #: app/views/attach-pvc.html:128
 msgid ""
@@ -4003,8 +4002,7 @@ msgid ""
 "Other containers can access this service through the hostname <strong>{{app."
 "name || \"&lt;name&gt;\"}}</strong>."
 msgstr ""
-"其他容器能够访问这个服务通过 <strong>{{app.name || \"&lt;name&gt;\"}}</"
-"strong>."
+"通过 <strong>{{app.name || "&lt;name&gt;"}}</strong>, 其他容器能够访问这个服务"
 
 #: app/views/browse/_build-details.html:87
 msgid "Output Image:"
@@ -4106,7 +4104,7 @@ msgstr "路径:"
 msgid ""
 "Paths is a list of source and destination paths to copy from the image. At "
 "least one pair has to be specified."
-msgstr "路径是从镜像复制的源和目标路径的列表。必须至少指定一对。"
+msgstr "路径 复制镜像的源地址和目标地址，必须至少指定一对。"
 
 #: app/views/add-config-volume.html:165
 msgid "Paths must be unique."
@@ -4146,7 +4144,7 @@ msgstr "Perl"
 
 #: app/views/directives/osc-persistent-volume-claim.html:111
 msgid "Permissions to the mounted volume."
-msgstr "对挂载卷的权限。"
+msgstr "挂载卷的权限。"
 
 #: app/views/storage.html:36
 msgid "Persistent Volume Claims"
@@ -4182,7 +4180,7 @@ msgid ""
 "Please enable JavaScript to continue. If you do not wish to enable "
 "JavaScript or are unable to do so,"
 msgstr ""
-"请启用JavaScript以继续。 如果您不希望启用JavaScript或无法启用JavaScript，"
+"请启用JavaScript以继续。 除非您不希望启用JavaScript或无法启用JavaScript"
 
 #: app/views/browse/build-config.html:474
 #: app/views/browse/deployment-config.html:357
@@ -4320,15 +4318,15 @@ msgstr "只读"
 
 #: app/scripts/constants.js:51
 msgid "Read-Only-Many"
-msgstr "多只读"
+msgstr "多次读"
 
 #: app/scripts/constants.js:50
 msgid "Read-Write-Many"
-msgstr "多读写"
+msgstr "多次写"
 
 #: app/scripts/constants.js:49
 msgid "Read-Write-Once"
-msgstr "一读写"
+msgstr "一次读写"
 
 #: app/views/edit/health-checks.html:24
 msgid "Readiness Probe"
