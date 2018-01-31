@@ -95,23 +95,6 @@
                                   View Membership
                                 </a>
                               </li>
-                              <li role="menuitem">
-                                <a ng-href="project/{{project.metadata.name}}/edit?then=./" translate>
-                                  Edit Project
-                                </a>
-                              </li>
-                              <li role="menuitem">
-                                <delete-link
-                                  kind="Project"
-                                  label="{{'Delete Project'|translate}}"
-                                  resource-name="{{project.metadata.name}}"
-                                  project-name="{{project.metadata.name}}"
-                                  display-name="{{(project | displayName)}}"
-                                  type-name-to-confirm="true"
-                                  stay-on-current-page="true"
-                                  alerts="alerts" translate>Delete
-                                </delete-link>
-                              </li>
                             </ul>
                           </div>
                         </div>

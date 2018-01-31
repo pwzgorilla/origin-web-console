@@ -40,6 +40,7 @@
 
   // for dmos
   window.DMOS_ADDRESS = "http://192.168.1.84:8818/dmos/v1/auth";
+  window.DMOS_OPENSHIFT_PROJECTNAMES = "openshift,openshift-infra";
 
   window.OPENSHIFT_VERSION = {
     openshift: "dev-mode",

@@ -4237,13 +4237,13 @@ var m, n, o = [], p = [];
 a.alerts = a.alerts || {}, a.loading = !0, a.showGetStarted = !1, a.canCreate = void 0, a.search = {
 text:""
 };
-var q, r = [ "metadata.name", 'metadata.annotations["openshift.io/display-name"]', 'metadata.annotations["openshift.io/description"]', 'metadata.annotations["openshift.io/requester"]' ], s = function() {
-a.projects = h.filterForKeywords(n, r, p);
-}, t = b("displayName"), u = function() {
+var q, r = window.DMOS_OPENSHIFT_PROJECTNAMES.split(","), s = [ "metadata.name", 'metadata.annotations["openshift.io/display-name"]', 'metadata.annotations["openshift.io/description"]', 'metadata.annotations["openshift.io/requester"]' ], t = function() {
+a.projects = h.filterForKeywords(n, s, p);
+}, u = b("displayName"), v = function() {
 var b = _.get(a, "sortConfig.currentField.id");
 q !== b && (a.sortConfig.isAscending = "metadata.creationTimestamp" !== b);
 var c = function(a) {
-return t(a).toLowerCase();
+return u(a).toLowerCase();
 }, d = a.sortConfig.isAscending ? "asc" :"desc";
 switch (b) {
 case 'metadata.annotations["openshift.io/display-name"]':
@@ -4258,8 +4258,8 @@ default:
 n = _.sortByOrder(m, [ b ], [ d ]);
 }
 q = b;
-}, v = function() {
-u(), s();
+}, w = function() {
+v(), t();
 };
 a.sortConfig = {
 fields:[ {
@@ -4280,14 +4280,16 @@ title:l.getString(k("Creation Date")),
 sortType:"alpha"
 } ],
 isAscending:!0,
-onSortChange:v
+onSortChange:w
 }, a.$watch("search.text", _.debounce(function(b) {
-a.keywords = p = h.generateKeywords(b), a.$apply(s);
+a.keywords = p = h.generateKeywords(b), a.$apply(t);
 }, 50, {
 maxWait:250
 })), f.withUser().then(function() {
 o.push(g.watch("projects", a, function(b) {
-m = _.toArray(b.by("metadata.name")), a.loading = !1, a.showGetStarted = _.isEmpty(m), v();
+m = _.toArray(b.by("metadata.name")), m = m.filter(function(a) {
+return r.indexOf(a.metadata.name) < 0;
+}), a.loading = !1, a.showGetStarted = _.isEmpty(m), w();
 }));
 }), j.canCreate().then(function() {
 a.canCreate = !0;
@@ -8120,42 +8122,42 @@ a.projectTemplates = b.by("metadata.name");
 }));
 } ]), angular.module("openshiftConsole").controller("CreateFromURLController", [ "$scope", "$routeParams", "$location", "$filter", "AuthService", "DataService", "Navigate", "ProjectsService", function(a, b, c, d, e, f, g, h) {
 e.withUser(), a.alerts = {}, a.selected = {};
-var i = function(b) {
+var i = window.DMOS_OPENSHIFT_PROJECTNAMES.split(","), j = function(b) {
 a.alerts.invalidImageStream = {
 type:"error",
 message:'The requested image stream "' + b + '" could not be loaded.'
 };
-}, j = function(b) {
+}, k = function(b) {
 a.alerts.invalidImageTag = {
 type:"error",
 message:'The requested image stream tag "' + b + '" could not be loaded.'
 };
-}, k = function(b) {
+}, l = function(b) {
 a.alerts.invalidImageStream = {
 type:"error",
 message:'The app name "' + b + "\" is not valid.  An app name is an alphanumeric (a-z, and 0-9) string with a maximum length of 24 characters, where the first character is a letter (a-z), and the '-' character is allowed anywhere except the first or last character."
 };
-}, l = function(b) {
+}, m = function(b) {
 a.alerts.invalidNamespace = {
 type:"error",
 message:'Resources from the namespace "' + b + '" are not permitted.'
 };
-}, m = function(b) {
+}, n = function(b) {
 a.alerts.invalidTemplate = {
 type:"error",
 message:'The requested template "' + b + '" could not be loaded.'
 };
-}, n = function() {
+}, o = function() {
 a.alerts.resourceRequired = {
 type:"error",
 message:"An image stream or template is required."
 };
-}, o = function() {
+}, p = function() {
 a.alerts.invalidResource = {
 type:"error",
 message:"Image streams and templates cannot be combined."
 };
-}, p = function() {
+}, q = function() {
 try {
 return b.templateParamsMap && JSON.parse(b.templateParamsMap) || {};
 } catch (c) {
@@ -8164,48 +8166,50 @@ type:"error",
 message:"The templateParamsMap is not valid JSON. " + c
 };
 }
-}, q = window.OPENSHIFT_CONSTANTS.CREATE_FROM_URL_WHITELIST, r = [ "namespace", "name", "imageStream", "imageTag", "sourceURI", "sourceRef", "contextDir", "template", "templateParamsMap" ], s = _.pick(b, function(a, b) {
-return _.contains(r, b) && _.isString(a);
+}, r = window.OPENSHIFT_CONSTANTS.CREATE_FROM_URL_WHITELIST, s = [ "namespace", "name", "imageStream", "imageTag", "sourceURI", "sourceRef", "contextDir", "template", "templateParamsMap" ], t = _.pick(b, function(a, b) {
+return _.contains(s, b) && _.isString(a);
 });
-s.namespace = s.namespace || "openshift";
-var t = function(a) {
+t.namespace = t.namespace || "openshift";
+var u = function(a) {
 return _.size(a) < 25 && /^[a-z]([-a-z0-9]*[a-z0-9])?$/.test(a);
-}, u = function() {
-s.imageStream && f.get("imagestreams", s.imageStream, {
-namespace:s.namespace
+}, v = function() {
+t.imageStream && f.get("imagestreams", t.imageStream, {
+namespace:t.namespace
 }, {
 errorNotification:!1
 }).then(function(b) {
-a.imageStream = b, f.get("imagestreamtags", b.metadata.name + ":" + s.imageTag, {
-namespace:s.namespace
+a.imageStream = b, f.get("imagestreamtags", b.metadata.name + ":" + t.imageTag, {
+namespace:t.namespace
 }, {
 errorNotification:!1
 }).then(function(b) {
-a.imageStreamTag = b, a.validationPassed = !0, a.resource = b, s.displayName = d("displayName")(b);
+a.imageStreamTag = b, a.validationPassed = !0, a.resource = b, t.displayName = d("displayName")(b);
 }, function() {
-j(s.imageTag);
+k(t.imageTag);
 });
 }, function() {
-i(s.imageStream);
-}), s.template && f.get("templates", s.template, {
-namespace:s.namespace
+j(t.imageStream);
+}), t.template && f.get("templates", t.template, {
+namespace:t.namespace
 }, {
 errorNotification:!1
 }).then(function(b) {
-a.template = b, p() && (a.validationPassed = !0, a.resource = b);
+a.template = b, q() && (a.validationPassed = !0, a.resource = b);
 }, function() {
-m(s.template);
+n(t.template);
 });
 };
-_.includes(q, s.namespace) ? s.imageStream && s.template ? o() :s.imageStream || s.template ? s.name && !t(s.name) ? k(s.name) :u() :n() :l(s.namespace), angular.extend(a, {
-createDetails:s,
+_.includes(r, t.namespace) ? t.imageStream && t.template ? p() :t.imageStream || t.template ? t.name && !u(t.name) ? l(t.name) :v() :o() :m(t.namespace), angular.extend(a, {
+createDetails:t,
 createWithProject:function(d) {
 d = d || a.selected.project.metadata.name;
-var e = b.imageStream ? g.createFromImageURL(a.imageStream, s.imageTag, d, s) :g.createFromTemplateURL(a.template, d, s);
+var e = b.imageStream ? g.createFromImageURL(a.imageStream, t.imageTag, d, t) :g.createFromTemplateURL(a.template, d, t);
 c.url(e);
 }
 }), a.projects = {}, a.canCreateProject = void 0, f.list("projects", a).then(function(b) {
-a.loaded = !0, a.projects = d("orderByDisplayName")(b.by("metadata.name")), a.noProjects = _.isEmpty(a.projects);
+a.loaded = !0, a.projects = d("orderByDisplayName")(b.by("metadata.name")), a.projects = a.projects.filter(function(a) {
+return i.indexOf(a.metadata.name) < 0;
+}), a.noProjects = _.isEmpty(a.projects);
 }), h.canCreate().then(function() {
 a.canCreateProject = !0;
 }, function() {
@@ -10179,7 +10183,7 @@ _.set(a, "ordering.panelName", "");
 }, a.showOrderingPanel = function(b) {
 _.set(a, "ordering.panelName", b);
 }, a.catalogLandingPageEnabled = _.get(f, "ENABLE_TECH_PREVIEW_FEATURE.service_catalog_landing_page");
-var l = k.find(".selectpicker"), m = [], n = function() {
+var l = k.find(".selectpicker"), m = [], n = window.DMOS_OPENSHIFT_PROJECTNAMES.split(","), o = function() {
 var b = a.project || {};
 a.context = {
 namespace:a.projectName
@@ -10194,8 +10198,11 @@ return $("<option>").attr("value", a.metadata.name).attr("selected", a.metadata.
 }), l.empty(), l.append(m), l.append($('<option data-divider="true"></option>')), l.append($('<option value="">' + g.getString(h("View all projects")) + "</option>")), l.selectpicker("refresh"));
 };
 d.list("projects", a, function(a) {
-i = a.by("metadata.name"), n();
-}), n(), l.selectpicker({
+var b = {};
+i = a.by("metadata.name"), Object.keys(i).forEach(function(a) {
+n.indexOf(a) < 0 && (b[a] = i[a]);
+}), i = b, o();
+}), o(), l.selectpicker({
 iconBase:"fa",
 tickIcon:"fa-check"
 }).change(function() {
@@ -10204,7 +10211,7 @@ a.$apply(function() {
 b.url(d);
 });
 }), a.$on("project.settings.update", function(a, b) {
-i[b.metadata.name] = b, n();
+i[b.metadata.name] = b, o();
 });
 }
 };
@@ -13340,16 +13347,16 @@ allowCustomTag:"="
 templateUrl:"views/directives/istag-select.html",
 controller:[ "$scope", function(b) {
 b.isByNamespace = {}, b.isNamesByNamespace = {};
-var c = _.get(b, "istag.namespace") && _.get(b, "istag.imageStream") && _.get(b, "istag.tagObject.tag"), d = function(a) {
+var c = window.DMOS_OPENSHIFT_PROJECTNAMES.split(","), d = _.get(b, "istag.namespace") && _.get(b, "istag.imageStream") && _.get(b, "istag.tagObject.tag"), e = function(a) {
 _.each(a, function(a) {
 _.get(a, "status.tags") || _.set(a, "status.tags", []);
 });
-}, e = function(c) {
+}, f = function(c) {
 return b.isByNamespace[c] = {}, b.isNamesByNamespace[c] = [], _.contains(b.namespaces, c) ? void a.list("imagestreams", {
 namespace:c
 }, function(a) {
-var e = angular.copy(a.by("metadata.name"));
-d(e), b.isByNamespace[c] = e, b.isNamesByNamespace[c] = _.keys(e).sort(), _.contains(b.isNamesByNamespace[c], b.istag.imageStream) || (b.isNamesByNamespace[c] = b.isNamesByNamespace[c].concat(b.istag.imageStream), b.isByNamespace[c][b.istag.imageStream] = {
+var d = angular.copy(a.by("metadata.name"));
+e(d), b.isByNamespace[c] = d, b.isNamesByNamespace[c] = _.keys(d).sort(), _.contains(b.isNamesByNamespace[c], b.istag.imageStream) || (b.isNamesByNamespace[c] = b.isNamesByNamespace[c].concat(b.istag.imageStream), b.isByNamespace[c][b.istag.imageStream] = {
 status:{
 tags:{}
 }
@@ -13366,13 +13373,15 @@ tag:b.istag.tagObject.tag
 }
 }));
 };
-a.list("projects", {}, function(f) {
-b.namespaces = _.keys(f.by("metadata.name")), b.includeSharedNamespace && (b.namespaces = _.uniq([ "openshift" ].concat(b.namespaces))), b.namespaces = b.namespaces.sort(), b.$watch("istag.namespace", function(f) {
-if (f && !b.isByNamespace[f]) return c ? (e(f), void (c = !1)) :void a.list("imagestreams", {
-namespace:f
+a.list("projects", {}, function(g) {
+b.namespaces = _.keys(g.by("metadata.name")), b.namespaces = b.namespaces.filter(function(a) {
+return c.indexOf(a) < 0;
+}), b.namespaces = b.namespaces.sort(), b.$watch("istag.namespace", function(c) {
+if (c && !b.isByNamespace[c]) return d ? (f(c), void (d = !1)) :void a.list("imagestreams", {
+namespace:c
 }, function(a) {
-var c = angular.copy(a.by("metadata.name"));
-d(c), b.isByNamespace[f] = c, b.isNamesByNamespace[f] = _.keys(c).sort();
+var d = angular.copy(a.by("metadata.name"));
+e(d), b.isByNamespace[c] = d, b.isNamesByNamespace[c] = _.keys(d).sort();
 });
 });
 }), b.getTags = function(a) {
