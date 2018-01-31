@@ -40,6 +40,7 @@
 
   // for dmos
   window.DMOS_ADDRESS = "{{DMOS_ADDRESS}}";
+  window.DMOS_OPENSHIFT_PROJECTNAMES = "{{DMOS_OPENSHIFT_PROJECTNAMES}}";
 
   window.OPENSHIFT_VERSION = {
     openshift: "dev-mode",
