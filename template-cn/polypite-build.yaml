@@ -14,6 +14,63 @@ labels:
   application: polypite
 
 objects:
+- apiVersion: v1
+  kind: BuildConfig
+  metadata:
+    annotations:
+      pipeline.alpha.openshift.io/uses: '[{"name": "${NAME}", "namespace": "", "kind": "DeploymentConfig"}]'
+    labels:
+      name: ${APP_NAME}-pipeline
+    name: ${APP_NAME}-pipeline
+  spec:
+    nodeSelector: 
+      "jenkins": "true"
+    strategy:
+      jenkinsPipelineStrategy:
+        jenkinsfile: |-
+          try {
+             timeout(time: 20, unit: 'MINUTES') {
+                def USER_NAME = "cluster_admin"
+                def PASSWD = "256ef03e2ec4f546"
+                def LOGIN_URL = "https://192.168.1.214:8443"
+                def NAME_SPACE = "openshift"
+                def DEPLOY_TAG = "dev"
+                parameters {
+                    string(defaultValue: 'latest', description: '', name: 'imageTag')
+                }
+
+                node {
+                    stage('Initialize') {
+                      sh "oc login -u cluster_admin -p 123 https://192.168.1.205:8443 --insecure-skip-tls-verify"
+                      sh "oc patch buildconfig ${APP_NAME} -p '{\"spec\": {\"output\": {\"to\": {\"name\": \"${OUT_PUT_IMAGE}:${params.imageTag}\"}}}}' \
+                       -n ${env.PROJECT_NAME} || echo 'ignore error' "
+                    }
+                    stage('${APP_NAME}') {
+                      openshiftBuild(buildConfig: '${APP_NAME}', showBuildLogs: 'true')
+                    }
+                    /*
+                    stage('IMPORT_NEW_IMAGE_TAG') {
+                      sh "fromImage=`oc describe imagestream ${IS_NAME} -n openshift | grep ${OUT_PUT_IMAGE} | wc -l`;if [ \$fromImage == 0 ]; then oc delete imagestream ${IS_NAME} -n openshift;fi"
+                      sh "oc import-image ${IS_NAME}:${params.imageTag}  --from='${OUT_PUT_IMAGE}:${params.imageTag}' --confirm=true --insecure=true -n openshift"
+                    }
+                    stage('IMAGE_RETAG') {
+                      sh "oc tag --alias=true ${IS_NAME}:${params.imageTag} ${IS_NAME}:dev -n openshift"
+                    }*/
+                    stage('DEV_DEPLOY') {
+                      sh "oc delete buildconfig imagestream-change-${IS_NAME} -n default || echo "
+                      sh "oc new-app imagestream-change -p APP_NAME=imagestream-change-${IS_NAME} -p IMAGE_TAG=${params.imageTag} -p OUT_PUT_IMAGE=${OUT_PUT_IMAGE} \
+                      -p IS_NAME=${IS_NAME} -p USER_NAME=${USER_NAME} -p PASSWD=${PASSWD} -p LOGIN_URL=${LOGIN_URL} -p NAME_SPACE=${NAME_SPACE} -p DEPLOY_TAG=${DEPLOY_TAG} || echo"
+                    }
+                  }
+             }
+          } catch (err) {
+             echo "in catch block"
+             echo "Caught: ${err}"
+             currentBuild.result = 'FAILURE'
+             throw err
+          }
+      type: JenkinsPipeline
+
 - kind: BuildConfig
   apiVersion: v1
   metadata:
@@ -22,16 +79,20 @@ objects:
       app: ${APP_NAME}
       name: ${APP_NAME}
   spec:
+    nodeSelector: 
+      "jenkins": "true"
     output:
+      pushSecret:
+        name: devharbor
       to:
-        kind: ImageStreamTag
-        name: ${APP_NAME}:deploy
+        kind: DockerImage
+        name: ${OUT_PUT_IMAGE}:${IMAGE_TAG}
     postCommit: {}
     resources: {}
     runPolicy: SerialLatestOnly
     source:
       dockerfile: |-
-        FROM demoregistry.dataman-inc.com/library/nginx:1.13.6-alpine
+        FROM devharbor.dataman-inc.com:1443/library/nginx:1.13.6-alpine
 
         # ENV VERSION ${VERSION}
 
@@ -58,7 +119,7 @@ objects:
       dockerStrategy:
         from:
           kind: DockerImage
-          name: 'demoregistry.dataman-inc.com/library/nginx:1.13.6-alpine'
+          name: 'devharbor.dataman-inc.com:1443/library/nginx:1.13.6-alpine'
       type: Docker
     # 保留失败build的数量
     failedBuildsHistoryLimit: 2
@@ -78,7 +139,7 @@ objects:
   spec:
     dockerImageRepository: ''
     tags:
-    - name: deploy
+    - name: ${IMAGE_TAG}
 
 parameters:
 - description: Application Name.
@@ -86,4 +147,19 @@ parameters:
   name: APP_NAME
   required: true
   value: 'polypite'
+- description: Image tag.
+  displayName: Image Tag
+  name: IMAGE_TAG
+  required: true
+  value: 'latest'
+- description: Out put images registry.
+  displayName: Out Put Images Registry
+  name: OUT_PUT_IMAGE
+  required: true
+  value: 'devharbor.dataman-inc.com:1443/polypite-dev/origin-dm-web'
+- description: ImageStream Name.
+  displayName: ImageStream Name
+  name: IS_NAME
+  required: true
+  value: 'origin-dm-web'
 
