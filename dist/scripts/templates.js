@@ -2016,11 +2016,6 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "</div>\n" +
     "</div>\n" +
-    "<dt translate>Manual (CLI):\n" +
-    "</dt>\n" +
-    "<dd>\n" +
-    "<copy-to-clipboard clipboard-text=\"'oc start-build ' + buildConfig.metadata.name + ' -n ' + project.metadata.name\"></copy-to-clipboard>\n" +
-    "</dd>\n" +
     "</dl>\n" +
     "</div>\n" +
     "</div>\n" +
@@ -2567,11 +2562,6 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div class=\"col-lg-6\">\n" +
     "<h3 translate>Triggers</h3>\n" +
     "<dl class=\"dl-horizontal left\">\n" +
-    "<dt><translate>Manual (CLI):</translate>\n" +
-    "</dt>\n" +
-    "<dd>\n" +
-    "<copy-to-clipboard clipboard-text=\"'oc rollout latest dc/' + deploymentConfig.metadata.name + ' -n ' + project.metadata.name\"></copy-to-clipboard>\n" +
-    "</dd>\n" +
     "<div ng-repeat=\"trigger in deploymentConfig.spec.triggers\">\n" +
     "<span ng-switch=\"trigger.type\">\n" +
     "<span ng-switch-default>{{trigger.type}}</span>\n" +
@@ -8478,9 +8468,9 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "</div>\n" +
     "\n" +
     "<div class=\"sr-only\">\n" +
-    "<div ng-if=\"(pods | hashSize) === 0\">No pods.</div>\n" +
+    "<div ng-if=\"(pods | hashSize) === 0\" translate>No pods.</div>\n" +
     "<div ng-if=\"(pods | hashSize) !== 0\">\n" +
-    "Pod status:\n" +
+    "<translate>Pod status:</translate>\n" +
     "<span ng-repeat=\"column in podStatusData\" ng-if=\"column[1]\">{{column[1]}} {{column[0]}}</span>\n" +
     "</div>\n" +
     "</div>"
@@ -9108,13 +9098,13 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<i class=\"pficon pficon-help\" data-toggle=\"tooltip\" aria-hidden=\"true\" data-original-title=\"{{'Paths is a list of source and destination paths to copy from the image. At least one pair has to be specified.'|translate}}\"></i>\n" +
     "</a>\n" +
     "</span></label>\n" +
-    "<key-value-editor entries=\"imageSourcePaths\" key-placeholder=\"{{'Source Path'|translate}}\" key-validator=\"\\/.*?$\" value-placeholder=\"{{'Destination Dir'|translate}}\" key-validator-error-tooltip=\"{{'A valid Source Path is an absolute path beginning with \\'/\\''|translate}}\" add-row-link=\"Add image source path\"></key-value-editor>\n" +
+    "<key-value-editor entries=\"imageSourcePaths\" key-placeholder=\"{{'Source Path'|translate}}\" key-validator=\"\\/.*?$\" value-placeholder=\"{{'Destination Dir'|translate}}\" key-validator-error-tooltip=\"{{'A valid Source Path is an absolute path beginning with \\'/\\''|translate}}\" add-row-link=\"{{'Add image source path'|translate}}\"></key-value-editor>\n" +
     "</div>\n" +
     "</div>\n" +
     "<div class=\"multiple-image-source\" ng-if=\"sourceImages.length !== 1\">\n" +
-    "<label for=\"imageSourceFrom\">Image Source From<span class=\"help action-inline\">\n" +
+    "<label for=\"imageSourceFrom\"><translate>Image Source From</translate><span class=\"help action-inline\">\n" +
     "<a href=\"\">\n" +
-    "<i class=\"pficon pficon-info\" style=\"cursor: help\" aria-hidden=\"true\" data-toggle=\"tooltip\" data-original-title=\"This Build Config contains more then one Image Source. To edit them use the YAML editor.\">\n" +
+    "<i class=\"pficon pficon-info\" style=\"cursor: help\" aria-hidden=\"true\" data-toggle=\"tooltip\" data-original-title=\"{{'This Build Config contains more then one Image Source. To edit them use the YAML editor.'|translate}}\">\n" +
     "</i>\n" +
     "</a>\n" +
     "</span></label>\n" +
@@ -13184,7 +13174,7 @@ angular.module('openshiftConsoleTemplates', []).run(['$templateCache', function(
     "<div>\n" +
     "<h1 translate>Error</h1>\n" +
     "<h4>{{errorMessage}}</h4>\n" +
-    "<div>{{errorDetails}}</div>\n" +
+    "<div>{{errorDetails|translate}}</div>\n" +
     "<div ng-if=\"errorLinks.length\">\n" +
     "<a ng-repeat-start=\"link in errorLinks\" ng-href=\"{{link.href}}\" target=\"{{link.target || '_blank'}}\">{{link.label}}</a>\n" +
     "<span ng-repeat-end ng-if=\"!$last\" class=\"action-divider mar-right-xs\">|</span>\n" +

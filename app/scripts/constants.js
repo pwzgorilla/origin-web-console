@@ -63,6 +63,8 @@ function Noop() {
   gettext('Retry');
   gettext('Ignore');
   gettext('Pre');
+  gettext('Mid');
+  gettext('Client state could not be verified');
 }
 Noop();
 

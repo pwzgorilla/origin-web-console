@@ -300,11 +300,6 @@
                         <div class="col-lg-6">
                           <h3 translate>Triggers</h3>
                           <dl class="dl-horizontal left">
-                            <dt><translate>Manual (CLI):</translate>
-                            </dt>
-                            <dd>
-                              <copy-to-clipboard clipboard-text="'oc rollout latest dc/' + deploymentConfig.metadata.name + ' -n ' + project.metadata.name"></copy-to-clipboard>
-                            </dd>
                             <div ng-repeat="trigger in deploymentConfig.spec.triggers">
                               <span ng-switch="trigger.type">
                                 <span ng-switch-default>{{trigger.type}}</span>
