@@ -948,7 +948,7 @@ msgstr ""
 
 #: app/views/directives/edit-lifecycle-hook.html:131
 msgid "Add {{type | upperFirst}} Lifecycle Hook"
-msgstr "添加{{type | upperFirst | translate}}生命周期触发器"
+msgstr "添加{{type | upperFirst | translate}}生命周期Hook"
 
 #: app/views/browse/route.html:74
 msgid "Admission status unknown for router '{{ingress.routerName}}'"
@@ -1330,7 +1330,7 @@ msgstr "构建配置{{buildConfig.metadata.name}}。"
 msgid ""
 "Build hooks allow you to run commands at the end of the build to verify the "
 "image."
-msgstr "构建触发器允许您在构建结束时运行命令来验证镜像。"
+msgstr "构建hook允许您在构建结束时运行命令来验证镜像。"
 
 #: app/views/_pod-template-container.html:39
 msgid "Build:"
@@ -1556,7 +1556,7 @@ msgstr "选择一个资源列表……"
 
 #: app/views/edit/build-config.html:616
 msgid "Choose a type of build hook"
-msgstr "选择一种构建触发器"
+msgstr "选择一种构建hook"
 
 #: app/views/catalog/catalog.html:19
 msgid ""
@@ -2472,7 +2472,7 @@ msgstr ""
 
 #: app/views/directives/edit-lifecycle-hook.html:62
 msgid "Environment variables to supply to the hook pod's container."
-msgstr "将环境变量提供给触发器容器的容器。"
+msgstr "将环境变量提供给hook pod的容器。"
 
 #: app/views/overview/_notification-icon.html:13
 msgid "Errors"
@@ -2543,7 +2543,7 @@ msgstr "通过消息服务器促进应用程序和分布式进程之间的通信
 
 #: app/views/directives/edit-lifecycle-hook.html:123
 msgid "Fail the deployment if the hook fails."
-msgstr "如果触发器失败，则部署会失败。"
+msgstr "如果hook失败，则部署会失败。"
 
 #: app/scripts/constants.js:57
 msgid "Failed"
@@ -2769,7 +2769,7 @@ msgstr "钩类型"
 
 #: app/views/browse/deployment-config.html:284
 msgid "Hooks"
-msgstr "触发器"
+msgstr "Hook"
 
 #: app/views/modals/delete-resource.html:76
 msgid ""
@@ -2896,7 +2896,7 @@ msgstr "忽略"
 
 #: app/views/directives/edit-lifecycle-hook.html:124
 msgid "Ignore hook failures and continue the deployment."
-msgstr "忽略触发器故障并继续部署。"
+msgstr "忽略hook故障并继续部署。"
 
 #: app/views/_pod-template-container.html:18
 #: app/views/browse/deployment-config.html:174 app/views/deployments.html:103
@@ -3282,7 +3282,7 @@ msgstr "列出"
 
 #: app/views/directives/edit-lifecycle-hook.html:75
 msgid "List of named volumes to copy to the hook pod."
-msgstr "将命名卷的列表复制到触发器pod。"
+msgstr "将命名卷的列表复制到hook pod。"
 
 #: app/views/edit/health-checks.html:41
 msgid "Liveness Probe"
@@ -4245,16 +4245,16 @@ msgstr "端口:"
 
 #: app/views/edit/deployment-config.html:260
 msgid "Post Lifecycle Hook"
-msgstr "后置生命周期触发器"
+msgstr "后置生命周期Hook"
 
 #: app/views/directives/edit-lifecycle-hook.html:5
 msgid "Post hooks execute after the deployment strategy completes."
-msgstr "在部署策略完成之后，执行后置生命周期触发器。"
+msgstr "在部署策略完成之后，执行后置生命周期hook。"
 
 #: app/views/browse/_build-details.html:135
 #: app/views/browse/build-config.html:376 app/views/edit/build-config.html:596
 msgid "Post-Commit Hooks"
-msgstr "Post-Commit 触发器"
+msgstr "Post-Commit Hook"
 
 #: app/scripts/constants.js:65
 msgid "Pre"
@@ -4262,11 +4262,11 @@ msgstr "前置"
 
 #: app/views/edit/deployment-config.html:236
 msgid "Pre Lifecycle Hook"
-msgstr "前置生命周期触发器"
+msgstr "前置生命周期Hook"
 
 #: app/views/directives/edit-lifecycle-hook.html:3
 msgid "Pre hooks execute before the deployment begins."
-msgstr "在开始部署前，执行前置生命周期触发器"
+msgstr "在开始部署前，执行前置hook"
 
 #: app/views/directives/osc-routing.html:302
 msgid "Private Key"
@@ -4618,11 +4618,11 @@ msgstr "重试"
 
 #: app/views/directives/lifecycle-hook.html:18
 msgid "Retry the hook until it succeeds"
-msgstr "重试触发器，直到它成功"
+msgstr "重试hook，直到它成功"
 
 #: app/views/directives/edit-lifecycle-hook.html:122
 msgid "Retry the hook until it succeeds."
-msgstr "重试触发器，直到它成功。"
+msgstr "重试hook，直到它成功。"
 
 #: app/views/util/error.html:17
 msgid "Return to the <a href=\"\" ng-click=\"reloadConsole()\">console</a>."
@@ -4722,7 +4722,7 @@ msgstr "运行一个构建和部署:"
 
 #: app/views/edit/build-config.html:604
 msgid "Run build hooks after image is built"
-msgstr "在构建镜像之后运行构建触发器"
+msgstr "在构建镜像之后运行构建hook"
 
 #: app/views/edit/build-config.html:575
 msgid "Run policy type"
@@ -7624,7 +7624,7 @@ msgstr "{{trigger.message}} 为了 {{trigger.imageChangeBuild.fromRef.name}}"
 
 #: app/views/directives/lifecycle-hook.html:2
 msgid "{{type | upperFirst}} Hook"
-msgstr "{{type | upperFirst}}触发器"
+msgstr "{{type | upperFirst}}Hook"
 
 #: app/views/modals/delete-resource.html:34
 msgid "{{typeDisplayName || (kind | humanizeKind)}} to delete"
