@@ -51,12 +51,31 @@ objects:
                 value: '${METRICS_URL}'
               - name: DMOS_ADDRESS
                 value: '${DMOS_ADDRESS}'
+              - name: DMOS_OPENSHIFT_PROJECTNAMES
+                value: "${DMOS_OPENSHIFT_PROJECTNAMES}"
             image: ' '
             imagePullPolicy: Always
             name: polypite-console
             ports:
-              - containerPort: ${{LISTEN_PORT}}
+              - containerPort: ${LISTEN_PORT}
                 protocol: TCP
+            livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /console
+              port: ${LISTEN_PORT}
+              scheme: HTTPS
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+            resources:
+            limits:
+              cpu: 500m
+              memory: 300Mi
+            requests:
+              cpu: 100m
+              memory: 50Mi
     triggers:
       - type: ConfigChange
       - imageChangeParams:
@@ -79,8 +98,8 @@ objects:
   spec:
     ports:
     - name: polypite
-      port: ${{LISTEN_PORT}}
-      targetPort: ${{LISTEN_PORT}}
+      port: ${LISTEN_PORT}
+      targetPort: ${LISTEN_PORT}
     selector:
       deploymentconfig: ${APP_NAME}
 - apiVersion: v1
@@ -133,3 +152,7 @@ parameters:
   name: ORIGIN_DM_WEB_TAG
   required: true
   value: "deploy"
+- displayName: Hide Some project's  Display
+  name: DMOS_OPENSHIFT_PROJECTNAMES
+  required: true
+  value: ""
