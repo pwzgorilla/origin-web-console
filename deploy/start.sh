@@ -70,5 +70,3 @@ fi
 
 echo "Start"
 sh -c "nginx -g \"daemon off;\""
-
-

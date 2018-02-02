@@ -26,7 +26,17 @@ angular.module('openshiftConsole')
         var chart, config;
 
         // The phases to show (in order).
-        var phases = ["Running", "Not Ready", "Warning", "Error", "Pulling", "Pending", "Succeeded", "Terminating", "Unknown"];
+        var phases = [
+          "Running",
+          "Not Ready",
+          "Warning",
+          "Error",
+          "Pulling",
+          "Pending",
+          "Succeeded",
+          "Terminating",
+          "Unknown"
+        ];
 
         $scope.chartId = _.uniqueId('pods-donut-chart-');
 
@@ -103,24 +113,23 @@ angular.module('openshiftConsole')
             // Keep groups in our order.
             order: null,
             colors: {
-              // Dummy group for an empty chart. Gray outline added in CSS.
-              Empty: "#ffffff",
-              Running: "#00b9e4",
-              "Not Ready": "#beedf9",
-              // Use a shade of orange that looks good with overview alerts for warning pods.
-              Warning: "#f39d3c",
-              Error: "#d9534f",
-              Pulling: "#d1d1d1",
-              Pending: "#ededed",
-              Succeeded: "#3f9c35",
-              Terminating: "#00659c",
-              Unknown: "#f9d67a"
             },
             selection: {
               enabled: false
             }
           }
         };
+
+        config.data.colors[gettextCatalog.getString(gettext('Empty'))] = "#ffffff";
+        config.data.colors[gettextCatalog.getString(gettext('Running'))] = "#00b9e4";
+        config.data.colors[gettextCatalog.getString(gettext('Not Ready'))] = "#beedf9";
+        config.data.colors[gettextCatalog.getString(gettext('Warning'))] = "#f39d3c";
+        config.data.colors[gettextCatalog.getString(gettext('Error'))] = "#d9534f";
+        config.data.colors[gettextCatalog.getString(gettext('Pulling'))] = "#d1d1d1";
+        config.data.colors[gettextCatalog.getString(gettext('Pending'))] = "#ededed";
+        config.data.colors[gettextCatalog.getString(gettext('Succeeded'))] = "#00659c";
+        config.data.colors[gettextCatalog.getString(gettext('Terminating'))] = "#3f9c35";
+        config.data.colors[gettextCatalog.getString(gettext('Unknown'))] = "#f9d67a";
 
         if ($scope.mini) {
           config.padding = {
@@ -136,7 +145,7 @@ angular.module('openshiftConsole')
             columns: []
           };
           angular.forEach(phases, function(phase) {
-            data.columns.push([phase, countByPhase[phase] || 0]);
+            data.columns.push([gettextCatalog.getString(phase), countByPhase[phase] || 0]);
           });
 
           if (_.isEmpty(countByPhase)) {
@@ -167,26 +176,26 @@ angular.module('openshiftConsole')
 
         function getPhase(pod) {
           if (isTerminatingFilter(pod)) {
-            return 'Terminating';
+            return gettextCatalog.getString(gettext('Terminating'));
           }
 
           var warnings = podWarningsFilter(pod);
           if (_.some(warnings, { severity: 'error' })) {
-            return 'Error';
+            return gettextCatalog.getString(gettext('Error'));
           } else if (!_.isEmpty(warnings)) {
-            return 'Warning';
+            return gettextCatalog.getString(gettext('Warning'));
           }
 
           if (isPullingImageFilter(pod)) {
-            return 'Pulling';
+            return gettextCatalog.getString(gettext('Pulling'));
           }
 
           // Also count running, but not ready, as its own phase.
           if (pod.status.phase === 'Running' && !isReady(pod)) {
-            return 'Not Ready';
+            return gettextCatalog.getString(gettext('Not Ready'));
           }
 
-          return _.get(pod, 'status.phase', 'Unknown');
+          return _.get(pod, 'status.phase', gettextCatalog.getString(gettext('Unknown')));
         }
 
         function countPodPhases() {

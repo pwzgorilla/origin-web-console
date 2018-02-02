@@ -2,7 +2,7 @@
 
 function Noop() {
 gettext("Manual"), gettext("Rolling"), gettext("Recreate"), gettext("deployment config"), gettext("Deployment Config"), gettext("horizontal pod autoscaler"), gettext("Config Map"), gettext("pull"), gettext("push"), gettext("Route"), gettext("openshift.io/imagestreams"), gettext("CPU (Request)"), gettext("Memory (Request)"), gettext("CPU (Limit)"), gettext("Memory (Limit)"), gettext("Storage (Request)"), gettext("user"), gettext("manual change"), gettext("complete"), gettext("running"), gettext("The minimum amount of"), gettext("the container is guaranteed."), gettext("The maximum amount of"), gettext("the container is allowed to use when running."), gettext("User"), gettext("user"), gettext("Group"), gettext("group"), gettext("Service Account"), gettext("service account"), gettext("System User"), gettext("system user"), gettext("System Group"), gettext("system group"), gettext("Read-Write-Once"), gettext("Read-Write-Many"), gettext("Read-Only-Many"), gettext("Bound"), gettext("Cancelled"), 
-gettext("Active"), gettext("Complete"), gettext("Running"), gettext("Failed"), gettext("Terminating"), gettext("Completed"), gettext("Cores"), gettext("Custom"), gettext("Abort"), gettext("Retry"), gettext("Ignore"), gettext("Pre");
+gettext("Active"), gettext("Complete"), gettext("Running"), gettext("Failed"), gettext("Terminating"), gettext("Completed"), gettext("Cores"), gettext("Custom"), gettext("Abort"), gettext("Retry"), gettext("Ignore"), gettext("Pre"), gettext("Mid"), gettext("Client state could not be verified");
 }
 
 function OverviewController(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A) {
@@ -11558,7 +11558,7 @@ var c = {
 columns:[]
 };
 angular.forEach(q, function(a) {
-c.columns.push([ a, b[a] || 0 ]);
+c.columns.push([ i.getString(a), b[a] || 0 ]);
 }), _.isEmpty(b) ? c.columns.push([ "Empty", 1 ]) :c.unload = "Empty", o ? o.load(c) :(p.data.columns = c.columns, o = c3.generate(p)), a.podStatusData = c.columns;
 }
 function l(a) {
@@ -11566,11 +11566,11 @@ var b = e(a), c = _.size(a.spec.containers);
 return b === c;
 }
 function m(a) {
-if (c(a)) return "Terminating";
+if (c(a)) return i.getString(h("Terminating"));
 var e = d(a);
 return _.some(e, {
 severity:"error"
-}) ? "Error" :_.isEmpty(e) ? b(a) ? "Pulling" :"Running" !== a.status.phase || l(a) ? _.get(a, "status.phase", "Unknown") :"Not Ready" :"Warning";
+}) ? i.getString(h("Error")) :_.isEmpty(e) ? b(a) ? i.getString(h("Pulling")) :"Running" !== a.status.phase || l(a) ? _.get(a, "status.phase", i.getString(h("Unknown"))) :i.getString(h("Not Ready")) :i.getString(h("Warning"));
 }
 function n() {
 var b = {};
@@ -11612,23 +11612,12 @@ data:{
 type:"donut",
 groups:[ q ],
 order:null,
-colors:{
-Empty:"#ffffff",
-Running:"#00b9e4",
-"Not Ready":"#beedf9",
-Warning:"#f39d3c",
-Error:"#d9534f",
-Pulling:"#d1d1d1",
-Pending:"#ededed",
-Succeeded:"#3f9c35",
-Terminating:"#00659c",
-Unknown:"#f9d67a"
-},
+colors:{},
 selection:{
 enabled:!1
 }
 }
-}, a.mini && (p.padding = {
+}, p.data.colors[i.getString(h("Empty"))] = "#ffffff", p.data.colors[i.getString(h("Running"))] = "#00b9e4", p.data.colors[i.getString(h("Not Ready"))] = "#beedf9", p.data.colors[i.getString(h("Warning"))] = "#f39d3c", p.data.colors[i.getString(h("Error"))] = "#d9534f", p.data.colors[i.getString(h("Pulling"))] = "#d1d1d1", p.data.colors[i.getString(h("Pending"))] = "#ededed", p.data.colors[i.getString(h("Succeeded"))] = "#00659c", p.data.colors[i.getString(h("Terminating"))] = "#3f9c35", p.data.colors[i.getString(h("Unknown"))] = "#f9d67a", a.mini && (p.padding = {
 top:0,
 right:0,
 bottom:0,
