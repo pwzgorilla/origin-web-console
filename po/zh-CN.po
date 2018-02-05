@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2018-02-02 17:03+0800\n"
+"PO-Revision-Date: 2018-02-05 16:35+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh-CN\n"
@@ -1010,6 +1010,10 @@ msgstr "模板{{templateDisplayName}}中的所有项目都已成功创建。"
 msgid "All pipelines are filtered."
 msgstr "所有的管道都会被过滤。"
 
+#: app/scripts/directives/deployImage.js:276
+msgid "All resources for image {{name}} were created successfully."
+msgstr "镜像{{name}}的所有资源都已成功创建。"
+
 #: app/scripts/directives/oscRouting.js:64
 msgid "Allow"
 msgstr "允许"
@@ -1488,6 +1492,10 @@ msgstr "取消部署{{rcName}}？"
 msgid "Cancelled"
 msgstr "已取消"
 
+#: app/scripts/directives/deployImage.js:259
+msgid "Cannot create {{kind}} \"{{name}}\"."
+msgstr "无法创建{{kind}} \"{{name}}\"."
+
 #: app/views/storage.html:50
 msgid "Capacity"
 msgstr "能力"
@@ -1955,6 +1963,10 @@ msgstr "创建"
 #: app/scripts/controllers/create/createFromImage.js:294
 msgid "Created application"
 msgstr "创建的应用"
+
+#: app/scripts/directives/deployImage.js:268
+msgid "Created {{kind}} \"{{name}}\" successfully."
+msgstr "创建{{kind}} \"{{name}}\"成功。"
 
 #: app/scripts/directives/processTemplate.js:89
 msgid "Creating"
@@ -2765,7 +2777,7 @@ msgstr "家"
 
 #: app/views/edit/build-config.html:613
 msgid "Hook Types"
-msgstr "钩类型"
+msgstr "Hook类型"
 
 #: app/views/browse/deployment-config.html:284
 msgid "Hooks"
@@ -3547,14 +3559,14 @@ msgstr "中间"
 
 #: app/views/edit/deployment-config.html:248
 msgid "Mid Lifecycle Hook"
-msgstr "中间生命周期钩"
+msgstr "中间生命周期Hook"
 
 #: app/views/directives/edit-lifecycle-hook.html:4
 msgid ""
 "Mid hooks execute after the previous deployment is scaled down to zero and "
 "before the first pod of the new deployment is created."
 msgstr ""
-"在先前的部署被缩小到零之后并且在创建新的部署的第一个Pod之前执行中间钩。"
+"在先前的部署被缩小到零之后并且在创建新的部署的第一个Pod之前执行中间hook。"
 
 #: app/views/quota.html:219
 msgid "Min"
@@ -4504,7 +4516,7 @@ msgstr "删除卷"
 
 #: app/views/directives/edit-lifecycle-hook.html:132
 msgid "Remove {{type | upperFirst}} Lifecycle Hook"
-msgstr "删除{{type | upperFirst | translate}}生命周期钩"
+msgstr "删除{{type | upperFirst | translate}}生命周期Hook"
 
 #: app/scripts/controllers/membership.js:37
 msgid ""
@@ -5775,7 +5787,7 @@ msgid ""
 "The recreate strategy has basic rollout behavior and supports lifecycle "
 "hooks for injecting code into the deployment process."
 msgstr ""
-"重新创建策略具有基本的部署行为，并支持将代码注入到部署过程中的生命周期挂钩。"
+"重新创建策略具有基本的部署行为，并支持将代码注入到部署过程中的生命周期hook。"
 
 #: app/views/edit/deployment-config.html:41
 msgid ""
@@ -6177,7 +6189,7 @@ msgid ""
 "To set additional parameters or edit lifecycle hooks, view <a href=\"\" ng-"
 "click=\"view.advancedStrategyOptions = true\">advanced strategy options.</a>"
 msgstr ""
-"要设置其他参数或编辑生命周期挂钩，请查看<a href=\"\" ng-click=\"view."
+"要设置其他参数或编辑生命周期挂hook，请查看<a href=\"\" ng-click=\"view."
 "advancedStrategyOptions = true\">高级策略选项</a>。"
 
 #: app/views/edit/deployment-config.html:344

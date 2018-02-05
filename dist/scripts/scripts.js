@@ -13512,17 +13512,25 @@ var d, e = !_.isEmpty(b.failure);
 e ? (d = _.map(b.failure, function(a) {
 return {
 type:"error",
-message:"Cannot create " + z(a.object.kind).toLowerCase() + ' "' + a.object.metadata.name + '". ',
+message:p.getString(o('Cannot create {{kind}} "{{name}}".') + " ", {
+kind:z(a.object.kind).toLowerCase(),
+name:a.object.metadata.name
+}),
 details:a.data.message
 };
 }), d = d.concat(_.map(b.success, function(a) {
 return {
 type:"success",
-message:"Created " + z(a.kind).toLowerCase() + ' "' + a.metadata.name + '" successfully. '
+message:p.getString(o('Created {{kind}} "{{name}}" successfully.') + " ", {
+kind:z(a.kind).toLowerCase(),
+name:a.metadata.name
+})
 };
 }))) :d = [ {
 type:"success",
-message:"All resources for image " + c.app.name + " were created successfully."
+message:p.getString(o("All resources for image {{name}} were created successfully."), {
+name:c.app.name
+})
 } ], a.resolve({
 alerts:d,
 hasErrors:e
