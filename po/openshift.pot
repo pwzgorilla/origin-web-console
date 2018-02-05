@@ -583,6 +583,10 @@ msgstr ""
 msgid "All pipelines are filtered."
 msgstr ""
 
+#: app/scripts/directives/deployImage.js:276
+msgid "All resources for image {{name}} were created successfully."
+msgstr ""
+
 #: app/scripts/directives/oscRouting.js:64
 msgid "Allow"
 msgstr ""
@@ -1050,6 +1054,10 @@ msgstr ""
 
 #: app/scripts/constants.js:53
 msgid "Cancelled"
+msgstr ""
+
+#: app/scripts/directives/deployImage.js:259
+msgid "Cannot create {{kind}} \"{{name}}\"."
 msgstr ""
 
 #: app/views/storage.html:50
@@ -1544,6 +1552,10 @@ msgstr ""
 
 #: app/scripts/controllers/create/createFromImage.js:294
 msgid "Created application"
+msgstr ""
+
+#: app/scripts/directives/deployImage.js:268
+msgid "Created {{kind}} \"{{name}}\" successfully."
 msgstr ""
 
 #: app/scripts/directives/processTemplate.js:89

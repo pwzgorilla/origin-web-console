@@ -256,7 +256,8 @@ angular.module("openshiftConsole")
                   alerts = _.map(result.failure, function(failure) {
                     return {
                       type: "error",
-                      message: "Cannot create " + humanizeKind(failure.object.kind).toLowerCase() + " \"" + failure.object.metadata.name + "\". ",
+                      message: gettextCatalog.getString(gettext("Cannot create {{kind}} \"{{name}}\".") + " ",
+                        {kind: humanizeKind(failure.object.kind).toLowerCase(), name: failure.object.metadata.name}),
                       details: failure.data.message
                     };
                   });
@@ -264,14 +265,15 @@ angular.module("openshiftConsole")
                   alerts = alerts.concat(_.map(result.success, function(success) {
                     return {
                       type: "success",
-                      message: "Created " + humanizeKind(success.kind).toLowerCase() + " \"" + success.metadata.name + "\" successfully. "
+                      message: gettextCatalog.getString(gettext("Created {{kind}} \"{{name}}\" successfully.") + " ",
+                        {kind: humanizeKind(success.kind).toLowerCase(), name: success.metadata.name})
                     };
                   }));
                 } else {
                   // Only show one success message when everything worked.
                   alerts = [{
                     type: "success",
-                    message: "All resources for image " + $scope.app.name + " were created successfully."
+                    message: gettextCatalog.getString(gettext("All resources for image {{name}} were created successfully."), {name: $scope.app.name})
                   }];
                 }
                 d.resolve({alerts: alerts, hasErrors: hasErrors});
