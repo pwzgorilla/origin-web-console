@@ -964,7 +964,7 @@ msgstr "影响没有存活期限的Pod。 这些Pod通常包含您的应用程�
 msgid ""
 "Affects pods that do not have resource limits set. These pods have a best "
 "effort quality of service."
-msgstr "影响没有资源限制设置的Pod。 这些Pod有尽力而为的服务质量。"
+msgstr "影响没有资源限制设置的Pod。"
 
 #: app/scripts/filters/resources.js:1164
 msgid ""
@@ -976,7 +976,7 @@ msgstr "影响具有存活期限的Pod。 这些Pod通常包括构建，部署�
 msgid ""
 "Affects pods that have at least one resource limit set. These pods do not "
 "have a best effort quality of service."
-msgstr "影响至少有一个资源限制设置的Pod。 这些Pod没有尽力而为的服务质量。"
+msgstr "影响资源限制设置的Pod。"
 
 #: app/views/command-line.html:52
 msgid ""
