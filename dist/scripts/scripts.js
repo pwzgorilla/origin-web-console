@@ -13363,7 +13363,7 @@ tag:b.istag.tagObject.tag
 }));
 };
 a.list("projects", {}, function(g) {
-b.namespaces = _.keys(g.by("metadata.name")), b.namespaces = b.namespaces.filter(function(a) {
+b.namespaces = _.keys(g.by("metadata.name")), b.includeSharedNamespace && (b.namespaces = _.uniq([ "openshift" ].concat(b.namespaces))), b.namespaces = b.namespaces.filter(function(a) {
 return c.indexOf(a) < 0;
 }), b.namespaces = b.namespaces.sort(), b.$watch("istag.namespace", function(c) {
 if (c && !b.isByNamespace[c]) return d ? (f(c), void (d = !1)) :void a.list("imagestreams", {

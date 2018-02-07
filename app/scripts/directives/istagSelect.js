@@ -86,11 +86,11 @@ angular.module("openshiftConsole")
         DataService.list("projects", {}, function(projectData) {
           $scope.namespaces = _.keys(projectData.by('metadata.name'));
 
-          // if ($scope.includeSharedNamespace) {
-          //   // Use _.uniq to avoid adding "openshift" twice if the user is a
-          //   // member of the openshift namespace.
-          //   $scope.namespaces = _.uniq(['openshift'].concat($scope.namespaces));
-          // }
+          if ($scope.includeSharedNamespace) {
+            // Use _.uniq to avoid adding "openshift" twice if the user is a
+            // member of the openshift namespace.
+            $scope.namespaces = _.uniq(['openshift'].concat($scope.namespaces));
+          }
 
           $scope.namespaces = $scope.namespaces.filter(function(elem) {
             return (dmFilterKeyword.indexOf(elem) < 0);
