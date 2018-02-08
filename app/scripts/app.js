@@ -506,6 +506,15 @@ angular
       $rootScope.globalTechPreviewIndicator = true;
       $('body').addClass('tech-preview');
     }
+  })
+  .run(function(DataService, AuthService){
+    var userStore = AuthService.UserStore();
+    var opts = {errorNotification: false, http: {auth: {token: userStore.getToken(), triggerLogin: false}}};
+    DataService.get("users", "~", {}, opts)
+      .then(function(user) {
+          // Persist the user
+        userStore.setUser(user, 86400);
+      });
   });
 
 hawtioPluginLoader.addModule('openshiftConsole');

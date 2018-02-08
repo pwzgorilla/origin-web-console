@@ -1257,6 +1257,19 @@ return h ? b(e, null) || d :a(e, null, f, g) || d;
 a && $("body").addClass("ios");
 } ]).run([ "$rootScope", function(a) {
 _.get(window, "OPENSHIFT_CONSTANTS.ENABLE_TECH_PREVIEW_FEATURE.service_catalog_landing_page") && (a.globalTechPreviewIndicator = !0, $("body").addClass("tech-preview"));
+} ]).run([ "DataService", "AuthService", function(a, b) {
+var c = b.UserStore(), d = {
+errorNotification:!1,
+http:{
+auth:{
+token:c.getToken(),
+triggerLogin:!1
+}
+}
+};
+a.get("users", "~", {}, d).then(function(a) {
+c.setUser(a, 86400);
+});
 } ]), hawtioPluginLoader.addModule("openshiftConsole"), angular.module("openshiftConsole").factory("APIDiscovery", [ "LOGGING_URL", "METRICS_URL", "$q", function(a, b, c) {
 return {
 getLoggingURL:function() {
