@@ -30,35 +30,44 @@ objects:
         jenkinsfile: |-
           try {
              timeout(time: 20, unit: 'MINUTES') {
-                def USER_NAME = "cluster_admin"
-                def PASSWD = "256ef03e2ec4f546"
-                def LOGIN_URL = "https://192.168.1.214:8443"
-                def NAME_SPACE = "openshift"
-                def DEPLOY_TAG = "dev"
-                parameters {
-                    string(defaultValue: 'latest', description: '', name: 'imageTag')
-                }
+                def USER_NAME = "${DEV_USER_NAME}"
+                def PASSWD = "${DEV_PASSWD}"
+                def LOGIN_URL = "${DEV_LOGIN_URL}"
+                def NAME_SPACE = "${DEV_OPERATION_NAMESPACE}"
+                def DEPLOY_TAG = "${DEV_DEPLOY_TAG}"
+
+                def REPO_NAME = "${GIT_REPO_NAME}"
+                def REPO_BRANCH = "${GIT_REPO_BRANCH}"
+                def TAG = "state"
 
                 node {
+
                     stage('Initialize') {
-                      sh "oc login -u cluster_admin -p 123 https://192.168.1.205:8443 --insecure-skip-tls-verify"
-                      sh "oc patch buildconfig ${APP_NAME} -p '{\"spec\": {\"output\": {\"to\": {\"name\": \"${OUT_PUT_IMAGE}:${params.imageTag}\"}}}}' \
-                       -n ${env.PROJECT_NAME} || echo 'ignore error' "
+                      withCredentials([[$class: 'UsernamePasswordMultiBinding', 
+                              credentialsId: '${CERDENTIALS_ID}', 
+                              usernameVariable: 'GIT_USERNAME', 
+                              passwordVariable: 'GIT_PASSWORD']]) {    
+        
+                      sh "[ -d ${REPO_NAME} ] || git clone https://\${GIT_USERNAME}:\${GIT_PASSWORD}@github.com/Dataman-Cloud/${REPO_NAME}.git"
+                      sh "cd ${REPO_NAME} && git checkout ${REPO_BRANCH} && git pull --rebase"
+                      sh "cd ${REPO_NAME} && git rev-parse --short HEAD > /tmp/${REPO_NAME}.commit.txt"
+            
+                      TAG = readFile("/tmp/${REPO_NAME}.commit.txt").trim()
+                      }
+                      echo "------------"
+                      echo "commit: $TAG"
+                      echo "------------"
+                      sh "oc login -u ${CICD_OPENSHIFT_USER_NAME} -p ${CICD_OPENSHIFT_PASSWD} ${CICD_OPENSHIFT_LOGIN_URL} --insecure-skip-tls-verify"  
+                      sh "oc patch buildconfig ${APP_NAME} -p '{\"spec\": {\"output\": {\"to\": {\"name\": \"${OUT_PUT_IMAGE}:${TAG}\"}}}}' \
+                      -n ${env.PROJECT_NAME} || echo 'ignore error' "
                     }
                     stage('${APP_NAME}') {
                       openshiftBuild(buildConfig: '${APP_NAME}', showBuildLogs: 'true')
                     }
-                    /*
-                    stage('IMPORT_NEW_IMAGE_TAG') {
-                      sh "fromImage=`oc describe imagestream ${IS_NAME} -n openshift | grep ${OUT_PUT_IMAGE} | wc -l`;if [ \$fromImage == 0 ]; then oc delete imagestream ${IS_NAME} -n openshift;fi"
-                      sh "oc import-image ${IS_NAME}:${params.imageTag}  --from='${OUT_PUT_IMAGE}:${params.imageTag}' --confirm=true --insecure=true -n openshift"
-                    }
-                    stage('IMAGE_RETAG') {
-                      sh "oc tag --alias=true ${IS_NAME}:${params.imageTag} ${IS_NAME}:dev -n openshift"
-                    }*/
+                    
                     stage('DEV_DEPLOY') {
                       sh "oc delete buildconfig imagestream-change-${IS_NAME} -n default || echo "
-                      sh "oc new-app imagestream-change -p APP_NAME=imagestream-change-${IS_NAME} -p IMAGE_TAG=${params.imageTag} -p OUT_PUT_IMAGE=${OUT_PUT_IMAGE} \
+                      sh "oc new-app imagestream-change -p APP_NAME=imagestream-change-${IS_NAME} -p IMAGE_TAG=${TAG} -p OUT_PUT_IMAGE=${OUT_PUT_IMAGE} \
                       -p IS_NAME=${IS_NAME} -p USER_NAME=${USER_NAME} -p PASSWD=${PASSWD} -p LOGIN_URL=${LOGIN_URL} -p NAME_SPACE=${NAME_SPACE} -p DEPLOY_TAG=${DEPLOY_TAG} || echo"
                     }
                   }
@@ -162,4 +171,58 @@ parameters:
   name: IS_NAME
   required: true
   value: 'origin-dm-web'
-
+- description: dev  openshift login user Name.
+  displayName: dev  openshift login user Name
+  name: DEV_USER_NAME
+  required: true
+  value: 'cluster_admin'
+- description: dev  openshift login  passwd.
+  displayName: dev  openshift login passwd
+  name: DEV_PASSWD
+  required: true
+  value: '123'
+- description: dev  openshift login  url.
+  displayName: dev  openshift login url
+  name: DEV_LOGIN_URL
+  required: true
+  value: 'https://192.168.1.214:8443'
+- description: dev  openshift operation namepace.
+  displayName: dev  openshift operation namepace
+  name: DEV_OPERATION_NAMESPACE
+  required: true
+  value: 'openshift'
+- description: dev  openshift origin-dm-web image deploy tag.
+  displayName: dev  openshift origin-dm-web image deploy tag
+  name: DEV_DEPLOY_TAG
+  required: true
+  value: 'dev'
+- description: git repo name.
+  displayName: git repo name
+  name: GIT_REPO_NAME
+  required: true
+  value: 'origin-web-console'
+- description: git repo branch.
+  displayName: git repo branch
+  name: GIT_REPO_BRANCH
+  required: true
+  value: 'poc'
+- description: jenkins github's  credentialsId.
+  displayName: jenkins github's  credentialsId
+  name: CERDENTIALS_ID
+  required: true
+  value: 'bc215cff-253b-4efb-beef-1bc1ab0810ca'
+- description: cicd's openshift login user name.
+  displayName: cicd's openshift login user name
+  name: CICD_OPENSHIFT_USER_NAME
+  required: true
+  value: 'dmos_cluster_admin'
+- description: cicd's openshift login passwd.
+  displayName: cicd's openshift login passwd
+  name: CICD_OPENSHIFT_PASSWD
+  required: true
+  value: '123'
+- description: cicd's openshift login url.
+  displayName: cicd's openshift login url
+  name: CICD_OPENSHIFT_LOGIN_URL
+  required: true
+  value: 'https://192.168.1.205:8443'
