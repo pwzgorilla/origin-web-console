@@ -67,7 +67,7 @@ objects:
                     
                     stage('DEV_DEPLOY') {
                       sh "oc delete buildconfig imagestream-change-${IS_NAME} -n default || echo "
-                      sh "oc new-app imagestream-change -p APP_NAME=imagestream-change-${IS_NAME} -p IMAGE_TAG=${params.imageTag} -p OUT_PUT_IMAGE=${OUT_PUT_IMAGE} \
+                      sh "oc new-app imagestream-change -p APP_NAME=imagestream-change-${IS_NAME} -p IMAGE_TAG=${TAG} -p OUT_PUT_IMAGE=${OUT_PUT_IMAGE} \
                       -p IS_NAME=${IS_NAME} -p USER_NAME=${USER_NAME} -p PASSWD=${PASSWD} -p LOGIN_URL=${LOGIN_URL} -p NAME_SPACE=${NAME_SPACE} -p DEPLOY_TAG=${DEPLOY_TAG} || echo"
                     }
                   }
