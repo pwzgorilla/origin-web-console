@@ -33,7 +33,6 @@
     },
     loggingURL: "",
     metricsURL: "",
-    templateServiceBrokerEnabled: false,
     inactivityTimeoutMinutes: 0
   };
 
@@ -41,9 +40,6 @@
   window.OPENSHIFT_LANG = "en";
 
   window.OPENSHIFT_VERSION = {
-    openshift: "dev-mode",
-    kubernetes: "dev-mode",
     console: "dev-mode"
   };
-
 })();
