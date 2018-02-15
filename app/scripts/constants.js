@@ -423,7 +423,7 @@ angular.extend(window.OPENSHIFT_CONSTANTS, {
     },
     {
       label: "Catalog",
-      iconClass: "pficon pficon-service-catalog",
+      iconClass: "pficon pficon-catalog",
       href: "/catalog",
       canI: {
         addToProject: true
