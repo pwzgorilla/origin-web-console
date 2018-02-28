@@ -21,6 +21,7 @@ JS_CONF_FILE=/usr/share/nginx/html/console/config.js
 cp -f $JS_CONF_TEMP $JS_CONF_FILE
 
 echo MASTER_HOST
+MASTER_HOST="$HOSTNAME:8443"
 if [ $MASTER_HOST ]
 then
 sed -i "s#{{MASTER_HOST}}#$MASTER_HOST#g" $JS_CONF_FILE
@@ -29,6 +30,7 @@ sed -i "s#{{MASTER_HOST}}##g" $JS_CONF_FILE
 fi
 
 echo CONSOLE_HOST
+CONSOLE_HOST="origin-dm-web.$HOSTNAME"
 if [ $CONSOLE_HOST ]
 then
 sed -i "s#{{CONSOLE_HOST}}#$CONSOLE_HOST#g" $JS_CONF_FILE
