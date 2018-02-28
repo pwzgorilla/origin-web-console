@@ -34,7 +34,7 @@ if [ $CONSOLE_HOST ]
 then
 sed -i "s#{{CONSOLE_HOST}}#$CONSOLE_HOST#g" $JS_CONF_FILE
 else
-CONSOLE_HOST="origin-dm-web.$HOSTNAME"
+CONSOLE_HOST="origin-dm-web.$HOSTNAME:$LISTEN_PORT"
 sed -i "s#{{CONSOLE_HOST}}#$CONSOLE_HOST#g" $JS_CONF_FILE
 fi
 
