@@ -59,7 +59,8 @@ if [ $DMOS_ADDRESS ]
 then
 sed -i "s#{{DMOS_ADDRESS}}#$DMOS_ADDRESS#g" $JS_CONF_FILE
 else
-sed -i "s#{{DMOS_ADDRESS}}##g" $JS_CONF_FILE
+DMOS_ADDRESS="http://dmos-oc.$HOSTNAME:5015/dmos/v1/auth"
+sed -i "s#{{DMOS_ADDRESS}}#$DMOS_ADDRESS#g" $JS_CONF_FILE
 fi
 
 echo DMOS_OPENSHIFT_PROJECTNAMES
