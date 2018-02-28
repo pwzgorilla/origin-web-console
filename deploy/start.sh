@@ -25,7 +25,8 @@ if [ $MASTER_HOST ]
 then
 sed -i "s#{{MASTER_HOST}}#$MASTER_HOST#g" $JS_CONF_FILE
 else
-sed -i "s#{{MASTER_HOST}}##g" $JS_CONF_FILE
+MASTER_HOST="$HOSTNAME:8443"
+sed -i "s#{{MASTER_HOST}}#$MASTER_HOST#g" $JS_CONF_FILE
 fi
 
 echo CONSOLE_HOST
@@ -33,7 +34,8 @@ if [ $CONSOLE_HOST ]
 then
 sed -i "s#{{CONSOLE_HOST}}#$CONSOLE_HOST#g" $JS_CONF_FILE
 else
-sed -i "s#{{CONSOLE_HOST}}##g" $JS_CONF_FILE
+CONSOLE_HOST="origin-dm-web.$HOSTNAME"
+sed -i "s#{{CONSOLE_HOST}}#$CONSOLE_HOST#g" $JS_CONF_FILE
 fi
 
 echo LOGGING_URL
