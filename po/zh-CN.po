@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2018-03-07 14:35+0800\n"
+"PO-Revision-Date: 2018-03-12 16:08+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh-CN\n"
@@ -574,7 +574,7 @@ msgstr ""
 msgid "Age"
 msgstr "运行时间"
 
-#: app/scripts/controllers/monitoring.js:39
+#: app/scripts/controllers/monitoring.js:40
 #, fuzzy
 #| msgid "See All"
 msgid "All"
@@ -633,7 +633,7 @@ msgstr "加载日志时发生了错误。"
 msgid "An error occurred deleting the binding."
 msgstr "在删除绑定时发生错误。"
 
-#: app/scripts/controllers/overview.js:429
+#: app/scripts/controllers/overview.js:430
 #, fuzzy
 #| msgid "An error occurred creating the binding."
 msgid "An error occurred getting metrics."
@@ -668,7 +668,7 @@ msgstr "加载日志时发生了错误。"
 msgid "An image that can carry out the deployment."
 msgstr "一个可以执行部署的镜像。"
 
-#: app/scripts/controllers/overview.js:185 app/views/overview.html:122
+#: app/scripts/controllers/overview.js:186 app/views/overview.html:122
 msgid "Application"
 msgstr "应用程序"
 
@@ -946,8 +946,8 @@ msgid "Builder Image:"
 msgstr "构建镜像:"
 
 #: app/scripts/constants.js:306 app/scripts/constants.js:312
-#: app/views/builds.html:6 app/views/monitoring.html:404
-#: app/views/overview/_builds.html:2
+#: app/scripts/controllers/monitoring.js:50 app/views/builds.html:6
+#: app/views/monitoring.html:404 app/views/overview/_builds.html:2
 #: app/views/overview/_list-row-content.html:23
 #: app/views/overview/_list-row-expanded.html:164
 msgid "Builds"
@@ -1144,6 +1144,10 @@ msgstr "选择现有的项目"
 msgid "Choose a Project"
 msgstr "选择一个项目"
 
+#: app/views/monitoring.html:13
+msgid "Choose a resource"
+msgstr "选择一个资源"
+
 #: app/views/catalog/catalog.html:19
 msgid ""
 "Choose from web frameworks, databases, and other components to add content "
@@ -1199,6 +1203,7 @@ msgid "Cluster IP"
 msgstr "集群IP"
 
 #: app/views/_templateopt.html:9 app/views/directives/osc-form-section.html:9
+#: app/views/monitoring.html:171 app/views/monitoring.html:242
 #: app/views/monitoring.html:424 app/views/overview/_list-row-chevron.html:4
 msgid "Collapse"
 msgstr "折叠"
@@ -1508,7 +1513,7 @@ msgid "Create Secret"
 msgstr "创建的秘密"
 
 #: app/views/attach-pvc.html:18 app/views/storage.html:41
-#: app/views/storage.html:42
+#: app/views/storage.html:42 app/views/storage.html:6 app/views/storage.html:7
 msgid "Create Storage"
 msgstr "创建存储"
 
@@ -1741,7 +1746,8 @@ msgid "Deployment:"
 msgstr "部署:"
 
 #: app/scripts/constants.js:244 app/scripts/controllers/deployment.js:41
-#: app/views/deployments.html:121 app/views/deployments.html:6
+#: app/scripts/controllers/monitoring.js:46 app/views/deployments.html:121
+#: app/views/deployments.html:6 app/views/monitoring.html:151
 #: app/views/overview.html:185 app/views/overview.html:201
 msgid "Deployments"
 msgstr "部署"
@@ -1809,7 +1815,7 @@ msgstr "Docker仓库"
 msgid "Dockerfile Path"
 msgstr "Dockerfile路径"
 
-#: app/scripts/controllers/overview.js:436
+#: app/scripts/controllers/overview.js:437
 #: app/scripts/controllers/storage.js:50
 #: app/scripts/services/resourceAlerts.js:58
 msgid "Don't Show Me Again"
@@ -2121,7 +2127,8 @@ msgstr "在不重用缓存指令的情况下，执行docker构建。"
 msgid "Exit code:"
 msgstr "退出代码:"
 
-#: app/views/directives/logs/_log-viewer.html:31 app/views/monitoring.html:428
+#: app/views/directives/logs/_log-viewer.html:31 app/views/monitoring.html:175
+#: app/views/monitoring.html:246 app/views/monitoring.html:428
 #: app/views/overview/_list-row-chevron.html:8
 msgid "Expand"
 msgstr "扩大"
@@ -2198,6 +2205,7 @@ msgid "Filter by labels"
 msgstr "根据标签过滤"
 
 #: app/views/monitoring.html:23 app/views/overview.html:65
+#: app/views/overview.html:70
 msgid "Filter by name"
 msgstr "根据名称过滤"
 
@@ -2291,6 +2299,10 @@ msgstr "隐藏详细信息"
 #: app/views/browse/build-config.html:455
 msgid "Hide Image Environment Variables"
 msgstr "隐藏镜像环境变量"
+
+#: app/views/monitoring.html:46
+msgid "Hide older resources"
+msgstr "隐藏过期资源"
 
 #: app/views/browse/build-config.html:75
 #: app/views/browse/deployment-config.html:103
@@ -2609,6 +2621,12 @@ msgstr "种类"
 msgid "Kind and Name"
 msgstr "种类和名称"
 
+#: app/scripts/controllers/overview.js:178
+#, fuzzy
+#| msgid "Labels"
+msgid "Label"
+msgstr "标签"
+
 #: app/views/browse/config-maps.html:53
 #: app/views/directives/label-editor.html:29 app/views/other-resources.html:53
 msgid "Labels"
@@ -2719,7 +2737,7 @@ msgid ""
 msgstr ""
 "了解更多&nbsp;<i class=\"fa fa-external-link\" aria-hidden=\"true\"></i>"
 
-#: app/views/edit/jenkinsfile-examples.html:51
+#: app/views/edit/jenkinsfile-examples.html:51 app/views/pipelines.html:31
 msgid "Learn more about"
 msgstr "进一步了解"
 
@@ -3157,6 +3175,7 @@ msgstr "一定是一个整数。"
 msgid "My Projects"
 msgstr "我的项目"
 
+#: app/scripts/controllers/overview.js:175
 #: app/scripts/controllers/projects.js:106 app/scripts/directives/events.js:154
 #: app/views/browse/build-config.html:472 app/views/browse/config-maps.html:51
 #: app/views/browse/deployment.html:102 app/views/browse/stateful-sets.html:48
@@ -3374,6 +3393,10 @@ msgstr "没有任何管道构建用于构建{{buildConfigName}}。"
 msgid "No pipeline runs."
 msgstr "没有管道运行。"
 
+#: app/views/pipelines.html:29
+msgid "No pipelines have been added to project {{projectName}}."
+msgstr "没有任何管道被添加到项目{{projectName}}中。"
+
 #: app/views/overview.html:256 app/views/pipelines.html:26
 msgid "No pipelines."
 msgstr "没有管道。"
@@ -3405,6 +3428,12 @@ msgstr "没有任何管道被添加到项目{{projectName}}中。"
 #: app/views/directives/_build-pipeline-expanded.html:28
 msgid "No stages have started."
 msgstr "没有阶段已开始。"
+
+#: app/views/browse/stateful-sets.html:35
+#, fuzzy
+#| msgid "No pipelines have been added to project {{projectName}}."
+msgid "No stateful sets have been added to project {{projectName}}."
+msgstr "没有任何管道被添加到项目{{projectName}}中。"
 
 #: app/views/browse/stateful-sets.html:34
 #, fuzzy
@@ -3473,7 +3502,7 @@ msgstr ""
 msgid "Open Fullscreen Terminal"
 msgstr "打开全屏终端"
 
-#: app/scripts/controllers/overview.js:432
+#: app/scripts/controllers/overview.js:433
 #, fuzzy
 #| msgid "Metrics"
 msgid "Open Metrics URL"
@@ -3665,7 +3694,7 @@ msgid ""
 "container."
 msgstr "选择配置源。 它的数据将作为卷挂载入容器。"
 
-#: app/scripts/controllers/overview.js:191
+#: app/scripts/controllers/overview.js:192
 #: app/views/directives/_build-pipeline-collapsed.html:5
 #: app/views/overview.html:292
 msgid "Pipeline"
@@ -4040,7 +4069,7 @@ msgstr "容量需求:"
 msgid "Requests and"
 msgstr "需求"
 
-#: app/scripts/controllers/overview.js:188 app/views/quota.html:154
+#: app/scripts/controllers/overview.js:189 app/views/quota.html:154
 #: app/views/quota.html:62
 msgid "Resource Type"
 msgstr "资源类型"
@@ -4584,23 +4613,16 @@ msgstr "已启动"
 msgid "State:"
 msgstr "状态:"
 
-#: app/scripts/constants.js:260 app/views/overview.html:233
+#: app/scripts/constants.js:260 app/views/browse/stateful-sets.html:7
+#: app/views/monitoring.html:326 app/views/overview.html:233
 msgid "Stateful Sets"
 msgstr "有状态集"
 
-#: app/views/browse/stateful-sets.html:6
-msgid ""
-"Stateful Sets\n"
-"          <!-- TODO: docs are in progress\n"
-"          <span class=\"page-header-link\">\n"
-"            <a ng-href=\"{{'stateful-sets' | helpLink}}\" target=\"_blank"
-"\">\n"
-"              Learn More <i class=\"fa fa-external-link\" aria-hidden=\"true"
-"\"></i>\n"
-"            </a>\n"
-"          </span>\n"
-"          -->"
-msgstr ""
+#: app/scripts/controllers/monitoring.js:53
+#, fuzzy
+#| msgid "Stateful Sets"
+msgid "StatefulSets"
+msgstr "有状态集"
 
 #: app/views/browse/_build-details.html:4 app/views/browse/_pod-details.html:5
 #: app/views/browse/build-config.html:185
@@ -4927,6 +4949,10 @@ msgstr ""
 msgid "The current filter is hiding all projects."
 msgstr "当前的过滤器隐藏了所有的项目。"
 
+#: app/views/monitoring.html:332
+msgid "The current filters are hiding all stateful sets."
+msgstr "当前的过滤器隐藏了所有有状态集。"
+
 #: app/views/_templateopt.html:76
 msgid "The current value is \"{{parameter.value}}\", which is not empty."
 msgstr "当前值为\"{{parameter.value}}\"，不为空。"
@@ -5179,6 +5205,10 @@ msgstr "这个项目没有资源限额。"
 #| msgid "There are no bindable services in this project"
 msgid "There are no service bindings."
 msgstr "此项目中没有可绑定的服务"
+
+#: app/views/monitoring.html:333
+msgid "There are no stateful sets in this project."
+msgstr "这个项目中没有有状态集。"
 
 #: app/views/directives/osc-file-input.html:25
 msgid ""
@@ -5983,7 +6013,7 @@ msgstr "镜像被推到"
 msgid "and"
 msgstr "和"
 
-#: app/views/edit/jenkinsfile-examples.html:53
+#: app/views/edit/jenkinsfile-examples.html:53 app/views/pipelines.html:33
 msgid "and the"
 msgstr "和"
 
@@ -6787,9 +6817,6 @@ msgstr "{{view.showSecret ? \"隐藏\" : \"显示\"}}Secret"
 #~ msgid "Change Of:"
 #~ msgstr "有改变的:"
 
-#~ msgid "Choose a resource"
-#~ msgstr "选择一个资源"
-
 #~ msgid "Choose a resource to list..."
 #~ msgstr "选择一个资源来列出……"
 
@@ -6986,9 +7013,6 @@ msgstr "{{view.showSecret ? \"隐藏\" : \"显示\"}}Secret"
 #~ msgid "Hide examples"
 #~ msgstr "隐藏的例子"
 
-#~ msgid "Hide older resources"
-#~ msgstr "隐藏过期资源"
-
 #~ msgid "Home"
 #~ msgstr "家"
 
@@ -7127,9 +7151,6 @@ msgstr "{{view.showSecret ? \"隐藏\" : \"显示\"}}Secret"
 #~ msgid "No image streams."
 #~ msgstr "没有镜像流可以显示"
 
-#~ msgid "No pipelines have been added to project {{projectName}}."
-#~ msgstr "没有任何管道被添加到项目{{projectName}}中。"
-
 #, fuzzy
 #~| msgid "No pipelines have been added to project {{projectName}}."
 #~ msgid "No pods have been added to project {{projectName}}."
@@ -7172,11 +7193,6 @@ msgstr "{{view.showSecret ? \"隐藏\" : \"显示\"}}Secret"
 
 #~ msgid "No source inputs have been defined for this build configuration."
 #~ msgstr "没有为这个构建配置定义任何源输入。"
-
-#, fuzzy
-#~| msgid "No pipelines have been added to project {{projectName}}."
-#~ msgid "No stateful sets have been added to project {{projectName}}."
-#~ msgstr "没有任何管道被添加到项目{{projectName}}中。"
 
 #, fuzzy
 #~| msgid "value"
@@ -7453,9 +7469,6 @@ msgstr "{{view.showSecret ? \"隐藏\" : \"显示\"}}Secret"
 #~ msgid "The current filters are hiding all pods."
 #~ msgstr "当前的过滤器隐藏了所有的Pod。"
 
-#~ msgid "The current filters are hiding all stateful sets."
-#~ msgstr "当前的过滤器隐藏了所有有状态集。"
-
 #, fuzzy
 #~| msgid "The contents of each file will be the value of the key."
 #~ msgid "The file contents will be the value of the key."
@@ -7541,9 +7554,6 @@ msgstr "{{view.showSecret ? \"隐藏\" : \"显示\"}}Secret"
 
 #~ msgid "There are no pods in this project."
 #~ msgstr "这个项目里没有Pod。"
-
-#~ msgid "There are no stateful sets in this project."
-#~ msgstr "这个项目中没有有状态集。"
 
 #~ msgid ""
 #~ "There are no {{ subjectKind.name | humanizeKind }}s with access to this "

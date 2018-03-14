@@ -461,7 +461,7 @@ msgstr ""
 msgid "Age"
 msgstr ""
 
-#: app/scripts/controllers/monitoring.js:39
+#: app/scripts/controllers/monitoring.js:40
 msgid "All"
 msgstr ""
 
@@ -511,7 +511,7 @@ msgstr ""
 msgid "An error occurred deleting the binding."
 msgstr ""
 
-#: app/scripts/controllers/overview.js:429
+#: app/scripts/controllers/overview.js:430
 msgid "An error occurred getting metrics."
 msgstr ""
 
@@ -536,7 +536,7 @@ msgstr ""
 msgid "An image that can carry out the deployment."
 msgstr ""
 
-#: app/scripts/controllers/overview.js:185
+#: app/scripts/controllers/overview.js:186
 #: app/views/overview.html:122
 msgid "Application"
 msgstr ""
@@ -770,6 +770,7 @@ msgstr ""
 
 #: app/scripts/constants.js:306
 #: app/scripts/constants.js:312
+#: app/scripts/controllers/monitoring.js:50
 #: app/views/builds.html:6
 #: app/views/monitoring.html:404
 #: app/views/overview/_builds.html:2
@@ -956,6 +957,10 @@ msgstr ""
 msgid "Choose a Project"
 msgstr ""
 
+#: app/views/monitoring.html:13
+msgid "Choose a resource"
+msgstr ""
+
 #: app/views/catalog/catalog.html:19
 msgid "Choose from web frameworks, databases, and other components to add content to your project."
 msgstr ""
@@ -1014,6 +1019,8 @@ msgstr ""
 
 #: app/views/_templateopt.html:9
 #: app/views/directives/osc-form-section.html:9
+#: app/views/monitoring.html:171
+#: app/views/monitoring.html:242
 #: app/views/monitoring.html:424
 #: app/views/overview/_list-row-chevron.html:4
 msgid "Collapse"
@@ -1308,6 +1315,8 @@ msgstr ""
 #: app/views/attach-pvc.html:18
 #: app/views/storage.html:41
 #: app/views/storage.html:42
+#: app/views/storage.html:6
+#: app/views/storage.html:7
 msgid "Create Storage"
 msgstr ""
 
@@ -1521,8 +1530,10 @@ msgstr ""
 
 #: app/scripts/constants.js:244
 #: app/scripts/controllers/deployment.js:41
+#: app/scripts/controllers/monitoring.js:46
 #: app/views/deployments.html:121
 #: app/views/deployments.html:6
+#: app/views/monitoring.html:151
 #: app/views/overview.html:185
 #: app/views/overview.html:201
 msgid "Deployments"
@@ -1598,7 +1609,7 @@ msgstr ""
 msgid "Dockerfile Path"
 msgstr ""
 
-#: app/scripts/controllers/overview.js:436
+#: app/scripts/controllers/overview.js:437
 #: app/scripts/controllers/storage.js:50
 #: app/scripts/services/resourceAlerts.js:58
 msgid "Don't Show Me Again"
@@ -1875,6 +1886,8 @@ msgid "Exit code:"
 msgstr ""
 
 #: app/views/directives/logs/_log-viewer.html:31
+#: app/views/monitoring.html:175
+#: app/views/monitoring.html:246
 #: app/views/monitoring.html:428
 #: app/views/overview/_list-row-chevron.html:8
 msgid "Expand"
@@ -1945,6 +1958,7 @@ msgstr ""
 
 #: app/views/monitoring.html:23
 #: app/views/overview.html:65
+#: app/views/overview.html:70
 msgid "Filter by name"
 msgstr ""
 
@@ -2031,6 +2045,10 @@ msgstr ""
 
 #: app/views/browse/build-config.html:455
 msgid "Hide Image Environment Variables"
+msgstr ""
+
+#: app/views/monitoring.html:46
+msgid "Hide older resources"
 msgstr ""
 
 #: app/views/browse/build-config.html:75
@@ -2320,6 +2338,10 @@ msgstr ""
 msgid "Kind and Name"
 msgstr ""
 
+#: app/scripts/controllers/overview.js:178
+msgid "Label"
+msgstr ""
+
 #: app/views/browse/config-maps.html:53
 #: app/views/directives/label-editor.html:29
 #: app/views/other-resources.html:53
@@ -2436,6 +2458,7 @@ msgid "Learn More&nbsp;<i class=\"fa fa-external-link\" aria-hidden=\"true\"></i
 msgstr ""
 
 #: app/views/edit/jenkinsfile-examples.html:51
+#: app/views/pipelines.html:31
 msgid "Learn more about"
 msgstr ""
 
@@ -2863,6 +2886,7 @@ msgstr ""
 msgid "My Projects"
 msgstr ""
 
+#: app/scripts/controllers/overview.js:175
 #: app/scripts/controllers/projects.js:106
 #: app/scripts/directives/events.js:154
 #: app/views/browse/build-config.html:472
@@ -3065,6 +3089,10 @@ msgstr ""
 msgid "No pipeline runs."
 msgstr ""
 
+#: app/views/pipelines.html:29
+msgid "No pipelines have been added to project {{projectName}}."
+msgstr ""
+
 #: app/views/overview.html:256
 #: app/views/pipelines.html:26
 msgid "No pipelines."
@@ -3092,6 +3120,10 @@ msgstr ""
 
 #: app/views/directives/_build-pipeline-expanded.html:28
 msgid "No stages have started."
+msgstr ""
+
+#: app/views/browse/stateful-sets.html:35
+msgid "No stateful sets have been added to project {{projectName}}."
 msgstr ""
 
 #: app/views/browse/stateful-sets.html:34
@@ -3151,7 +3183,7 @@ msgstr ""
 msgid "Open Fullscreen Terminal"
 msgstr ""
 
-#: app/scripts/controllers/overview.js:432
+#: app/scripts/controllers/overview.js:433
 msgid "Open Metrics URL"
 msgstr ""
 
@@ -3315,7 +3347,7 @@ msgstr ""
 msgid "Pick the config source. Its data will be mounted as a volume in the container."
 msgstr ""
 
-#: app/scripts/controllers/overview.js:191
+#: app/scripts/controllers/overview.js:192
 #: app/views/directives/_build-pipeline-collapsed.html:5
 #: app/views/overview.html:292
 msgid "Pipeline"
@@ -3683,7 +3715,7 @@ msgstr ""
 msgid "Requests and"
 msgstr ""
 
-#: app/scripts/controllers/overview.js:188
+#: app/scripts/controllers/overview.js:189
 #: app/views/quota.html:154
 #: app/views/quota.html:62
 msgid "Resource Type"
@@ -4185,20 +4217,14 @@ msgid "State:"
 msgstr ""
 
 #: app/scripts/constants.js:260
+#: app/views/browse/stateful-sets.html:7
+#: app/views/monitoring.html:326
 #: app/views/overview.html:233
 msgid "Stateful Sets"
 msgstr ""
 
-#: app/views/browse/stateful-sets.html:6
-msgid ""
-"Stateful Sets\n"
-"          <!-- TODO: docs are in progress\n"
-"          <span class=\"page-header-link\">\n"
-"            <a ng-href=\"{{'stateful-sets' | helpLink}}\" target=\"_blank\">\n"
-"              Learn More <i class=\"fa fa-external-link\" aria-hidden=\"true\"></i>\n"
-"            </a>\n"
-"          </span>\n"
-"          -->"
+#: app/scripts/controllers/monitoring.js:53
+msgid "StatefulSets"
 msgstr ""
 
 #: app/views/browse/_build-details.html:4
@@ -4467,6 +4493,10 @@ msgstr ""
 msgid "The current filter is hiding all projects."
 msgstr ""
 
+#: app/views/monitoring.html:332
+msgid "The current filters are hiding all stateful sets."
+msgstr ""
+
 #: app/views/_templateopt.html:76
 msgid "The current value is \"{{parameter.value}}\", which is not empty."
 msgstr ""
@@ -4645,6 +4675,10 @@ msgstr ""
 #: app/views/directives/resource-service-bindings.html:26
 #: app/views/directives/service-instance-bindings.html:16
 msgid "There are no service bindings."
+msgstr ""
+
+#: app/views/monitoring.html:333
+msgid "There are no stateful sets in this project."
 msgstr ""
 
 #: app/views/directives/osc-file-input.html:25
@@ -5304,6 +5338,7 @@ msgid "and"
 msgstr ""
 
 #: app/views/edit/jenkinsfile-examples.html:53
+#: app/views/pipelines.html:33
 msgid "and the"
 msgstr ""
 
