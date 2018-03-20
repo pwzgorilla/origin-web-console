@@ -38,6 +38,10 @@
   // Additional support only for Chinese now: zh-CN
   window.OPENSHIFT_LANG = "zh-CN";
 
+  // for dmos
+  window.DMOS_ADDRESS = "{{DMOS_ADDRESS}}";
+  window.DMOS_OPENSHIFT_PROJECTNAMES = "{{DMOS_OPENSHIFT_PROJECTNAMES}}";
+
   window.OPENSHIFT_VERSION = {
     openshift: "dev-mode",
     kubernetes: "dev-mode"
